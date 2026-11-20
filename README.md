@@ -12,9 +12,12 @@ Aquí están las presentaciones y los documentos de cada sesión del curso. Cada
 
 ## Cómo ver las presentaciones
 
+**En línea:** abre **https://ecuartasmo-un.github.io/Curso-Agentes-AI-Estudiantes/** y entra a la sesión.
+
+**Sin conexión:**
 1. Descarga el repositorio: botón **Code** → **Download ZIP**. También puedes clonarlo con git.
-2. Abre `sesion-1/index.html` con doble clic, en Chrome, Edge o Firefox. No necesita internet ni servidor.
-3. Desde el índice entras a cada presentación y a cada documento.
+2. Abre `sesion-1/index.html` con doble clic, en Chrome, Edge o Firefox. No necesita servidor.
+3. Desde el índice entras a cada presentación y a cada documento. Las guías en Markdown se abren en GitHub, así que esas sí necesitan internet.
 
 **Teclas en las presentaciones:**
 

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentes de IA (aplicado): material para estudiantes</title>
+<script src="sesion-1/assets/js/tema.js"></script>
+<link rel="stylesheet" href="sesion-1/assets/css/tema-agentes.css">
+<style>
+  body { font-family: "Inter", system-ui, sans-serif; min-height: 100vh; }
+  .pagina { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 72px 28px 64px; }
+  .cabecera .antetitulo { font-size: 15px; }
+  .cabecera h1 { font: 700 clamp(40px, 6vw, 72px)/1.04 "Space Grotesk", sans-serif; letter-spacing: -0.03em; margin: 10px 0 16px; }
+  .cabecera h1 .degradado { background: linear-gradient(90deg, var(--acento), var(--acento-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .cabecera p { font-size: 20px; line-height: 1.5; color: var(--texto-suave); max-width: 780px; margin: 0; }
+  .seccion-titulo { font: 700 15px/1 "Inter", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--texto-tenue); margin: 56px 0 18px; }
+  .rejilla { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; perspective: 1200px; }
+  .tarjeta-sesion { display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: var(--texto);
+    background: linear-gradient(160deg, var(--superficie-2), var(--superficie)); border: 1px solid var(--borde);
+    border-radius: 22px; padding: 24px 24px 22px; box-shadow: var(--sombra); transform-style: preserve-3d;
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1), border-color .3s ease, box-shadow .3s ease; min-height: 210px; }
+  a.tarjeta-sesion:hover, a.tarjeta-sesion:focus-visible { transform: rotateX(6deg) rotateY(-8deg) translateY(-6px);
+    border-color: color-mix(in srgb, var(--acento) 60%, transparent); box-shadow: var(--brillo), var(--sombra); outline: none; }
+  .tarjeta-sesion .numero { font: 700 14px/1 "Inter", sans-serif; color: var(--acento); letter-spacing: .08em; text-transform: uppercase; }
+  .tarjeta-sesion h2 { font: 700 23px/1.15 "Space Grotesk", sans-serif; margin: 0; color: var(--texto); }
+  .tarjeta-sesion p { margin: 0; font-size: 15px; line-height: 1.45; color: var(--texto-suave); }
+  .tarjeta-sesion.pendiente { opacity: .55; box-shadow: none; }
+  .tarjeta-sesion.pendiente .numero { color: var(--texto-tenue); }
+  .nota-pie { margin-top: 56px; font-size: 15px; color: var(--texto-tenue); line-height: 1.6; }
+  .nota-pie a { color: var(--acento); }
+  @media (max-width: 980px) { .rejilla { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .rejilla { grid-template-columns: 1fr; } .pagina { padding: 64px 16px 48px; } }
+  @media (prefers-reduced-motion: reduce) { .tarjeta-sesion, a.tarjeta-sesion:hover { transition: none; transform: none; } }
+  html.movimiento-reducido .tarjeta-sesion, html.movimiento-reducido a.tarjeta-sesion:hover { transition: none; transform: none; }
+</style>
+</head>
+<body>
+<main class="pagina">
+  <header class="cabecera">
+    <span class="antetitulo">Especialización en Inteligencia Artificial · UNAL Manizales</span>
+    <h1>Agentes de IA <span class="degradado">(aplicado)</span></h1>
+    <p>El material de cada sesión: las presentaciones, las guías y el trabajo independiente. Entra a una sesión para ver su índice.</p>
+  </header>
+
+  <div class="seccion-titulo">Sesiones</div>
+  <nav class="rejilla" aria-label="Sesiones del curso">
+    <a class="tarjeta-sesion" href="sesion-1/index.html" data-con-tema>
+      <span class="numero">Sesión 1</span>
+      <h2>Apertura del curso y del proyecto</h2>
+      <p>El ecosistema para construir agentes, cómo plantear un proyecto agéntico y la ficha inicial.</p>
+    </a>
+    <div class="tarjeta-sesion pendiente"><span class="numero">Sesión 2</span><h2>Introducción a los modelos de lenguaje</h2><p>Próximamente.</p></div>
+    <div class="tarjeta-sesion pendiente"><span class="numero">Sesión 3</span><h2>Prompting y uso de APIs</h2><p>Próximamente.</p></div>
+    <div class="tarjeta-sesion pendiente"><span class="numero">Sesión 4</span><h2>De los LLMs a los agentes</h2><p>Próximamente.</p></div>
+    <div class="tarjeta-sesion pendiente"><span class="numero">Sesión 5</span><h2>Uso de herramientas</h2><p>Próximamente.</p></div>
+    <div class="tarjeta-sesion pendiente"><span class="numero">Sesión 6</span><h2>Context engineering: conocimiento y memoria</h2><p>Próximamente.</p></div>
+    <div class="tarjeta-sesion pendiente"><span class="numero">Sesión 7</span><h2>Orquestación y supervisión humana</h2><p>Próximamente.</p></div>
+    <div class="tarjeta-sesion pendiente"><span class="numero">Sesión 8</span><h2>Presentación y sustentación de los proyectos</h2><p>Próximamente.</p></div>
+  </nav>
+
+  <p class="nota-pie">El código fuente del material está en <a href="https://github.com/ecuartasmo-UN/Curso-Agentes-AI-Estudiantes">GitHub</a>. Cada imagen lleva su fuente al pie de la diapositiva.</p>
+</main>
+</body>
+</html>
