@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charla 1: el ecosistema para construir agentes</title>
+<script src="assets/js/tema.js"></script>
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reset.css">
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reveal.css">
+<link rel="stylesheet" href="assets/css/tema-agentes.css">
+</head>
+<body>
+<a class="boton-indice" href="index.html" data-con-tema data-enlace-indice aria-label="Volver al índice de la sesión">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10"/></svg>Índice</a>
+<div class="reveal" data-total-min="30">
+<div class="slides">
+
+<!-- 1. Portada -->
+<section data-min="1">
+  <div class="columnas c-60-40" style="height:100%">
+    <div class="portada">
+      <span class="antetitulo">Sesión 1 · Charla 1</span>
+      <h1>El ecosistema para construir agentes</h1>
+      <p class="subtitulo">Plataformas, frameworks, SDKs y estándares abiertos. Y por qué este curso usa LangGraph y LangChain.</p>
+      <div class="meta">
+        <span class="etiqueta">30 minutos</span>
+        <span class="etiqueta violeta">Agentes de IA (aplicado)</span>
+        <span class="etiqueta exito">UNAL Manizales</span>
+      </div>
+    </div>
+    <div class="escena3d anillo3d-envoltura" aria-label="Anillo que gira con los cuatro momentos del ciclo de un agente">
+      <div class="anillo3d">
+        <div class="cara">Modelo<small>decide el siguiente paso</small></div>
+        <div class="cara">Herramienta<small>actúa en un sistema</small></div>
+        <div class="cara">Resultado<small>vuelve al contexto</small></div>
+        <div class="cara">Respuesta<small>cuando la tarea termina</small></div>
+        <div class="eje"></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: esta charla es un mapa del ecosistema. No vamos a programar.</p>
+    <p>Al final verán por qué el curso usa LangGraph y LangChain.</p>
+    <p>El anillo muestra el ciclo de un agente. Lo explicas en la siguiente diapositiva.</p>
+    <p>Minuto acumulado: 1 de 30.</p>
+  </aside>
+</section>
+
+<!-- 2. Un agente en una frase -->
+<section data-min="1.5">
+  <span class="antetitulo">Para empezar</span>
+  <h2>Un agente es un modelo que usa herramientas en un ciclo</h2>
+  <svg class="diagrama" viewBox="0 0 1000 400" role="img" aria-label="Ciclo de un agente: la tarea llega al modelo, el modelo llama una herramienta, el resultado vuelve al modelo, y al terminar entrega una respuesta">
+    <defs>
+      <marker id="punta1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="relleno-tenue"/></marker>
+      <marker id="punta1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="relleno-acento"/></marker>
+      <marker id="punta1b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="relleno-acento-2"/></marker>
+    </defs>
+    <g class="nodo"><rect x="20" y="140" width="170" height="80" rx="16"/><text x="105" y="188" text-anchor="middle" class="t-titulo">Tarea</text></g>
+    <g class="nodo acento"><rect x="290" y="130" width="230" height="100" rx="18"/>
+      <text x="405" y="175" text-anchor="middle" class="t-titulo">Modelo</text>
+      <text x="405" y="205" text-anchor="middle" class="t-suave" font-size="17">decide el siguiente paso</text></g>
+    <g class="nodo acento-2"><rect x="680" y="130" width="250" height="100" rx="18"/>
+      <text x="805" y="175" text-anchor="middle" class="t-titulo">Herramienta</text>
+      <text x="805" y="205" text-anchor="middle" class="t-suave" font-size="17">busca, calcula o escribe</text></g>
+    <g class="nodo exito"><rect x="310" y="300" width="190" height="70" rx="16"/><text x="405" y="343" text-anchor="middle" class="t-titulo">Respuesta</text></g>
+    <path class="arista" d="M190 180 H284" marker-end="url(#punta1)"/>
+    <path class="arista acento" d="M520 150 C590 55 610 55 676 150" marker-end="url(#punta1a)"/>
+    <path class="arista acento-2" d="M680 212 C610 305 590 305 524 212" marker-end="url(#punta1b)"/>
+    <path class="arista punteada" d="M405 230 V294" marker-end="url(#punta1)"/>
+    <text x="598" y="62" text-anchor="middle" class="t-acento" font-size="18">llama una herramienta</text>
+    <text x="598" y="318" text-anchor="middle" class="t-acento-2" font-size="18">devuelve el resultado</text>
+    <text x="420" y="268" class="t-tenue" font-size="16">cuando termina</text>
+    <circle r="9" class="relleno-acento">
+      <animateMotion dur="3.2s" repeatCount="indefinite" path="M520 165 C590 60 610 60 680 165 L680 195 C610 300 590 300 520 195 Z"/>
+    </circle>
+  </svg>
+  <p class="credito">Definición de LangChain: «An agent is a model calling tools in a loop until a given task is complete». <a href="https://docs.langchain.com/oss/python/langchain/agents">docs.langchain.com</a></p>
+  <aside class="notes">
+    <p>Qué decir: un agente repite un ciclo. El modelo decide, una herramienta actúa y el resultado vuelve al modelo.</p>
+    <p>El ciclo termina cuando el modelo entrega la respuesta.</p>
+    <p>Esta es la definición de la documentación de LangChain.</p>
+    <p>Minuto acumulado: 2.5 de 30.</p>
+    <p>Fuente: https://docs.langchain.com/oss/python/langchain/agents</p>
+  </aside>
+</section>
+
+<!-- 3. Qué resuelve un framework -->
+<section data-min="2">
+  <span class="antetitulo">Para empezar</span>
+  <h2>Qué resuelve un framework de agentes</h2>
+  <div class="columnas c-40-60">
+    <svg class="diagrama" viewBox="0 0 1000 400" role="img" aria-label="El mismo ciclo del agente, más pequeño">
+      <g class="nodo"><rect x="20" y="140" width="170" height="80" rx="16"/><text x="105" y="188" text-anchor="middle" class="t-titulo">Tarea</text></g>
+      <g class="nodo acento"><rect x="290" y="130" width="230" height="100" rx="18"/><text x="405" y="188" text-anchor="middle" class="t-titulo">Modelo</text></g>
+      <g class="nodo acento-2"><rect x="680" y="130" width="250" height="100" rx="18"/><text x="805" y="188" text-anchor="middle" class="t-titulo">Herramienta</text></g>
+      <g class="nodo exito"><rect x="310" y="300" width="190" height="70" rx="16"/><text x="405" y="343" text-anchor="middle" class="t-titulo">Respuesta</text></g>
+      <path class="arista" d="M190 180 H284"/>
+      <path class="arista acento" d="M520 150 C590 55 610 55 676 150"/>
+      <path class="arista acento-2" d="M680 212 C610 305 590 305 524 212"/>
+      <path class="arista punteada" d="M405 230 V294"/>
+    </svg>
+    <div class="columnas" style="gap:16px">
+      <div class="tarjeta fragment surgir"><h3>El ciclo</h3><p class="mediano">Repite modelo y herramienta hasta terminar, con un límite de pasos.</p></div>
+      <div class="tarjeta fragment surgir"><h3>Las herramientas</h3><p class="mediano">Las define, las conecta y maneja sus errores.</p></div>
+      <div class="tarjeta fragment surgir"><h3>La memoria</h3><p class="mediano">Guarda la conversación y el estado de la tarea.</p></div>
+      <div class="tarjeta fragment surgir"><h3>La integración</h3><p class="mediano">Conecta modelos, datos y otros sistemas.</p></div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: el ciclo parece simple, pero alguien tiene que programar sus piezas.</p>
+    <p>Un framework trae esas cuatro piezas resueltas. Muestra cada tarjeta con un clic.</p>
+    <p>Minuto acumulado: 4.5 de 30.</p>
+  </aside>
+</section>
+
+<!-- 4. Tres niveles -->
+<section data-min="2">
+  <span class="antetitulo">El mapa</span>
+  <h2>Tres niveles de abstracción</h2>
+  <div class="columnas c-60-40">
+    <div class="escena3d capas3d-envoltura" aria-label="Tres capas apiladas: plataformas low-code arriba, SDKs de proveedores en medio y frameworks de código abajo">
+      <div class="capas3d">
+        <div class="capa" style="--i:0; --c: var(--acento)"><div class="rotulo">Frameworks de código<small>Armas el flujo con piezas. Más control.</small></div></div>
+        <div class="capa" style="--i:1; --c: var(--acento-2)"><div class="rotulo">SDKs de proveedores<small>El arnés del proveedor, listo para usar.</small></div></div>
+        <div class="capa" style="--i:2; --c: var(--aviso)"><div class="rotulo">Plataformas low-code<small>Arrastras bloques en un lienzo.</small></div></div>
+      </div>
+    </div>
+    <div>
+      <p>Los tres resuelven el mismo ciclo.</p>
+      <p>Cambia cuánto escribes y cuánto controlas.</p>
+      <ul class="mediano">
+        <li class="fragment"><b>Arriba:</b> más abstracción, menos control.</li>
+        <li class="fragment"><b>Abajo:</b> más control, más trabajo.</li>
+        <li class="fragment">El curso trabaja en la capa de abajo, con LangGraph y LangChain.</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: estas son las tres familias de herramientas. Las capas giran para que se vean como un mapa.</p>
+    <p>Arriba está lo más fácil de usar. Abajo está lo que da más control.</p>
+    <p>Las próximas tres diapositivas muestran cada capa.</p>
+    <p>Minuto acumulado: 6.5 de 30.</p>
+  </aside>
+</section>
+
+<!-- 5. Low-code -->
+<section>
+  <section data-min="2">
+    <span class="antetitulo">Capa de arriba</span>
+    <h2>Plataformas low-code</h2>
+    <div class="columnas c-60-40">
+      <figure class="figura"><img src="assets/img/n8n_lienzo_agente.png" alt="Lienzo de n8n con un nodo AI Agent conectado a un modelo y a herramientas"></figure>
+      <div>
+        <p>Construyes el agente con bloques en un lienzo.</p>
+        <ul class="mediano">
+          <li><b>n8n:</b> su nodo AI Agent decide qué herramienta llamar.</li>
+          <li><b>Make:</b> agentes con instrucciones, conocimiento y herramientas.</li>
+          <li><b>Zapier:</b> agentes que trabajan con miles de aplicaciones.</li>
+        </ul>
+        <p class="mediano texto-suave">Sirven para automatizar rápido. Dan menos control sobre cada paso.</p>
+      </div>
+    </div>
+    <p class="credito">Captura: n8n Docs, un flujo que clasifica tickets de soporte con un nodo AI Agent. <a href="https://docs.n8n.io/build/integrate-ai/test-and-improve-ai-workflows/run-quick-evaluations">docs.n8n.io</a></p>
+    <aside class="notes">
+      <p>Qué decir: en low-code no se escribe código. Se conectan bloques.</p>
+      <p>La captura es un ejemplo oficial de n8n: un agente que asigna categoría y prioridad a tickets de soporte.</p>
+      <p>Las tres plataformas ya tienen agentes. Las verticales muestran Make y Zapier, y sus licencias.</p>
+      <p>Minuto acumulado: 8.5 de 30.</p>
+      <p>Fuentes: docs.n8n.io, make.com y zapier.com.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Así se ven Make y Zapier</h2>
+    <div class="galeria" style="--n:2; --alto:380px">
+      <figure class="figura"><img src="assets/img/make_lienzo_agente.png" alt="Constructor de escenarios de Make con un agente de marketing de contenidos y cuatro herramientas conectadas">
+        <figcaption>Make: un agente dentro de un escenario, con sus herramientas.</figcaption></figure>
+      <figure class="figura"><img src="assets/img/zapier_agente_herramientas.png" alt="Instrucciones de un agente de Zapier con el panel de herramientas: visitar un sitio, buscar en Google, enviar un mensaje a Slack y buscar tareas en Asana">
+        <figcaption>Zapier: las instrucciones del agente y su panel de herramientas.</figcaption></figure>
+    </div>
+    <p class="credito">Capturas: Make (2026), <a href="https://www.make.com/en/ai-agents">make.com/en/ai-agents</a>; Steph Spector, blog de Zapier (2025), <a href="https://zapier.com/blog/zapier-agents-guide/">zapier.com</a>.</p>
+    <aside class="notes">
+      <p>Diapositiva de consulta, sin tiempo de clase.</p>
+      <p>La captura de Make es de septiembre de 2026. La de Zapier es de 2025, cuando Agents estaba en beta.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Licencias y planes gratuitos</h2>
+    <table class="tabla-datos" id="tabla-lowcode">
+      <thead><tr><th>Plataforma</th><th>Modelo de licencia</th><th>Plan gratuito</th></tr></thead>
+      <tbody>
+        <tr><td>n8n</td><td>Sustainable Use License: uso interno o no comercial</td><td>Community autoalojada, sin costo. La nube no tiene plan gratuito</td></tr>
+        <tr><td>Make</td><td>Servicio propietario, cobra por créditos</td><td>1 000 créditos al mes</td></tr>
+        <tr><td>Zapier</td><td>Servicio propietario, cobra por actividades</td><td>Agents: 400 actividades al mes</td></tr>
+      </tbody>
+    </table>
+    <p class="credito">Fuentes: <a href="https://n8n.io/pricing/">n8n.io/pricing</a>, centro de ayuda de Make (<a href="https://help.make.com/cancel-your-subscription">help.make.com</a>) y <a href="https://zapier.com/pricing">zapier.com/pricing</a>. Consultadas el 14 de noviembre de 2026.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 6. Frameworks -->
+<section>
+  <section data-min="2">
+    <span class="antetitulo">Capa de abajo</span>
+    <h2>Frameworks de código</h2>
+    <div class="columnas-3 compacta">
+      <div class="tarjeta acento fragment surgir"><div class="marco-logo"><img src="assets/img/logo_langgraph.svg" alt="Logotipo de LangGraph"></div><h3 style="margin-top:12px">LangGraph</h3><p class="chico">Orquesta agentes con grafos y estado.</p></div>
+      <div class="tarjeta acento fragment surgir"><div class="marco-logo"><img src="assets/img/logo_langchain.svg" alt="Logotipo de LangChain"></div><h3 style="margin-top:12px">LangChain</h3><p class="chico">Piezas para modelos, herramientas y agentes.</p></div>
+      <div class="tarjeta fragment surgir"><div class="marco-logo"><img src="assets/img/logo_crewai.png" alt="Logotipo de CrewAI"></div><h3 style="margin-top:12px">CrewAI</h3><p class="chico">Equipos de agentes con roles.</p></div>
+      <div class="tarjeta fragment surgir"><div class="marco-logo"><img src="assets/img/logo_pydanticai.svg" alt="Logotipo de Pydantic AI"></div><h3 style="margin-top:12px">Pydantic AI</h3><p class="chico">Agentes con tipos y salidas validadas.</p></div>
+      <div class="tarjeta fragment surgir"><div class="marco-logo"><img src="assets/img/logo_smolagents.png" alt="Logotipo de smolagents"></div><h3 style="margin-top:12px">smolagents</h3><p class="chico">Agentes mínimos que actúan con código.</p></div>
+      <div class="tarjeta fragment surgir"><div class="marco-logo"><img src="assets/img/logo_msagentframework.svg" alt="Icono de Microsoft Agent Framework"></div><h3 style="margin-top:12px">Microsoft Agent Framework</h3><p class="chico">Sucesor de AutoGen y Semantic Kernel.</p></div>
+    </div>
+    <p class="credito">Logotipos de los repositorios oficiales: <a href="https://github.com/langchain-ai/langgraph">LangGraph</a>, <a href="https://github.com/langchain-ai/langchain">LangChain</a>, <a href="https://github.com/crewAIInc/crewAI">CrewAI</a>, <a href="https://github.com/pydantic/pydantic-ai">Pydantic AI</a>, <a href="https://github.com/huggingface/smolagents">smolagents</a> y <a href="https://github.com/microsoft/agent-framework">Microsoft</a>. Solo identifican cada proyecto.</p>
+    <aside class="notes">
+      <p>Qué decir: aquí se escribe código, pero con piezas reutilizables. Todos funcionan con varios modelos.</p>
+      <p>LangGraph es de bajo nivel: tú defines el grafo. CrewAI organiza agentes por roles.</p>
+      <p>La vertical trae versión, licencia y actividad de cada uno.</p>
+      <p>Minuto acumulado: 10.5 de 30.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Versiones y licencias</h2>
+    <table class="tabla-datos" id="tabla-frameworks">
+      <thead><tr><th>Proyecto</th><th>Versión</th><th>Licencia</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>LangGraph</td><td data-dato="langgraph-version">1.2.22</td><td>MIT</td><td>Activo</td></tr>
+        <tr><td>LangChain</td><td data-dato="langchain-version">1.5.0</td><td>MIT</td><td>Activo</td></tr>
+        <tr><td>CrewAI</td><td data-dato="crewai-version">1.15.41</td><td>MIT</td><td>Activo</td></tr>
+        <tr><td>Pydantic AI</td><td data-dato="pydanticai-version">2.68.0</td><td>MIT</td><td>Activo</td></tr>
+        <tr><td>smolagents</td><td data-dato="smolagents-version">1.26.0</td><td>Apache-2.0</td><td>Sin versiones nuevas desde mayo de 2026</td></tr>
+        <tr><td>Microsoft Agent Framework</td><td data-dato="agentframework-version">1.26.0</td><td>MIT</td><td>Activo</td></tr>
+      </tbody>
+    </table>
+    <p class="credito">Fuentes: PyPI y GitHub de cada proyecto, consultados el 14 de noviembre de 2026.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 7. SDKs -->
+<section>
+  <section data-min="2">
+    <span class="antetitulo">Capa del medio</span>
+    <h2>SDKs de proveedores</h2>
+    <div class="columnas-3">
+      <div class="tarjeta acento-2 fragment surgir"><div class="marco-logo"><img src="assets/img/logo_openai.svg" alt="Logotipo de OpenAI"></div><h3 style="margin-top:12px">OpenAI Agents SDK</h3><p class="chico">Agentes, traspasos, guardrails y trazas. Funciona con muchos modelos.</p></div>
+      <div class="tarjeta acento-2 fragment surgir"><div class="marco-logo"><img src="assets/img/logo_claude.svg" alt="Logotipo de Claude"></div><h3 style="margin-top:12px">Claude Agent SDK</h3><p class="chico">El arnés de Claude Code como biblioteca. Solo con modelos Claude.</p></div>
+      <div class="tarjeta acento-2 fragment surgir"><div class="marco-logo"><img src="assets/img/logo_adk.png" alt="Logotipo de Google Agent Development Kit"></div><h3 style="margin-top:12px">Google ADK</h3><p class="chico">Optimizado para Gemini, pero acepta otros modelos.</p></div>
+    </div>
+    <p class="mediano" style="margin-top:22px">El proveedor ya resolvió el ciclo. Tú configuras instrucciones y herramientas.</p>
+    <p class="credito">Logotipos: OpenAI y Claude en Wikimedia Commons (<a href="https://commons.wikimedia.org/wiki/File:OpenAI_logo_2025_(wordmark).svg">1</a>, <a href="https://commons.wikimedia.org/wiki/File:Claude_AI_logo.svg">2</a>); ADK en su <a href="https://github.com/google/adk-python">repositorio</a>. Solo identifican cada SDK.</p>
+    <aside class="notes">
+      <p>Qué decir: cada gran proveedor publica su propio kit para agentes.</p>
+      <p>Son rápidos de usar. El riesgo es atarse a un proveedor, sobre todo con el de Claude.</p>
+      <p>Ni el OpenAI Agents SDK ni el Claude Agent SDK tienen logotipo propio. Por eso van los de cada empresa.</p>
+      <p>Minuto acumulado: 12.5 de 30.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Así se ven los SDKs por dentro</h2>
+    <div class="galeria" style="--alto:300px">
+      <figure class="figura"><img src="assets/img/openai_agents_sdk_trazas.png" alt="Visor de trazas de OpenAI con un agente coordinador, un traspaso a otro agente, llamadas a herramientas y un guardrail">
+        <figcaption>OpenAI: el visor de trazas muestra cada agente, herramienta y traspaso.</figcaption></figure>
+      <figure class="figura"><img src="assets/img/claude_agent_sdk_bucle.png" alt="Diagrama del ciclo del Claude Agent SDK: reunir contexto, actuar, verificar el trabajo y repetir">
+        <figcaption>Claude: el ciclo es reunir contexto, actuar y verificar.</figcaption></figure>
+      <figure class="figura"><img src="assets/img/adk_web_llamada_funcion.png" alt="Interfaz web de Google ADK con el grafo de un agente y el detalle de una llamada a la herramienta get_current_time">
+        <figcaption>Google: la interfaz web de ADK muestra cada llamada a una herramienta.</figcaption></figure>
+    </div>
+    <p class="credito">Fuentes: <a href="https://github.com/openai/openai-agents-python">OpenAI</a>; Anthropic (2025), <a href="https://claude.com/resources/articles/building-agents-with-the-claude-agent-sdk">Building agents with the Claude Agent SDK</a>; <a href="https://adk.dev/tutorials/multi-tool-agent/">Google ADK Docs</a>.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Versiones y licencias de los SDKs</h2>
+    <table class="tabla-datos" id="tabla-sdks">
+      <thead><tr><th>SDK</th><th>Versión</th><th>Licencia</th><th>Modelos</th></tr></thead>
+      <tbody>
+        <tr><td>OpenAI Agents SDK</td><td data-dato="openaiagents-version">0.24.0</td><td>MIT</td><td>OpenAI y más de 100 modelos de otros proveedores</td></tr>
+        <tr><td>Claude Agent SDK</td><td data-dato="claudeagentsdk-version">0.2.182</td><td>Código MIT. Su uso se rige por los términos comerciales de Anthropic, y la CLI que trae empaquetada no es MIT</td><td>Solo Claude</td></tr>
+        <tr><td>Google ADK</td><td data-dato="adk-version">2.14.1</td><td>Apache-2.0</td><td>Optimizado para Gemini; acepta otros</td></tr>
+      </tbody>
+    </table>
+    <p class="credito">Fuentes: PyPI y GitHub de cada SDK, consultados el 14 de noviembre de 2026.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 8. Un mismo agente en los tres niveles -->
+<section data-min="1.5">
+  <span class="antetitulo">El mapa</span>
+  <h2>Un mismo agente en los tres niveles</h2>
+  <div class="columnas-3">
+    <div class="tarjeta fragment surgir" style="--c: var(--aviso)">
+      <h3 style="color:var(--aviso)">Entorno gráfico</h3>
+      <svg class="diagrama" viewBox="0 0 320 250" role="img" aria-label="Un entorno gráfico con bloques: un disparador conectado a un bloque de agente. Del agente cuelgan un modelo y una herramienta de correo">
+        <defs>
+          <pattern id="p8-puntos" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.3" class="relleno-tenue" opacity=".45"/></pattern>
+          <marker id="p8-punta-aviso" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" style="fill: var(--aviso)"/></marker>
+        </defs>
+        <rect x="2" y="2" width="316" height="246" rx="14" fill="url(#p8-puntos)"/>
+        <!-- Fondo opaco para que la cuadrícula del lienzo no se vea dentro de los bloques. -->
+        <rect x="12" y="40" width="104" height="52" rx="12" style="fill: var(--fondo-alto)"/>
+        <rect x="170" y="34" width="138" height="64" rx="14" style="fill: var(--fondo-alto)"/>
+        <g class="nodo aviso"><rect x="12" y="40" width="104" height="52" rx="12"/><text x="64" y="72" text-anchor="middle" font-size="16">Disparador</text></g>
+        <g class="nodo aviso"><rect x="170" y="34" width="138" height="64" rx="14"/><text x="239" y="72" text-anchor="middle" font-size="17" class="t-titulo">Agente IA</text></g>
+        <path class="arista flujo-animado" d="M116 66 H164" style="stroke: var(--aviso)" marker-end="url(#p8-punta-aviso)"/>
+        <path class="arista punteada" d="M205 98 L191 166"/>
+        <path class="arista punteada" d="M275 98 L275 166"/>
+        <circle cx="205" cy="98" r="4.5" style="fill: var(--aviso)"/><circle cx="275" cy="98" r="4.5" style="fill: var(--aviso)"/>
+        <g class="nodo"><rect x="152" y="168" width="78" height="44" rx="10"/><text x="191" y="196" text-anchor="middle" font-size="15">Modelo</text></g>
+        <g class="nodo"><rect x="236" y="168" width="78" height="44" rx="10"/><text x="275" y="196" text-anchor="middle" font-size="15">Correo</text></g>
+        <text x="275" y="234" text-anchor="middle" font-size="13" class="t-tenue">herramienta</text>
+      </svg>
+      <p class="chico texto-suave">Conectas bloques. La plataforma ejecuta el ciclo.</p>
+    </div>
+    <div class="tarjeta acento-2 fragment surgir">
+      <h3 style="color:var(--acento-2)">Con un SDK</h3>
+      <svg class="diagrama" viewBox="0 0 320 250" role="img" aria-label="Un SDK: defines un agente con sus instrucciones y sus herramientas, lo ejecutas y revisas la traza de cada paso">
+        <defs><marker id="p8-punta-tenue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-tenue"/></marker></defs>
+        <g class="nodo acento-2"><rect x="16" y="10" width="288" height="108" rx="14"/></g>
+        <text x="160" y="38" text-anchor="middle" font-size="18" class="t-titulo">Agente</text>
+        <g class="nodo"><rect x="30" y="56" width="126" height="44" rx="10"/><text x="93" y="83" text-anchor="middle" font-size="15">instrucciones</text></g>
+        <g class="nodo"><rect x="164" y="56" width="126" height="44" rx="10"/><text x="227" y="83" text-anchor="middle" font-size="15">herramientas</text></g>
+        <path class="arista" d="M160 118 V136" marker-end="url(#p8-punta-tenue)"/>
+        <g class="nodo"><rect x="92" y="140" width="136" height="42" rx="12"/><text x="148" y="166" text-anchor="middle" font-size="16">Ejecutar</text></g>
+        <g transform="translate(206 161)">
+          <g><path d="M-7 -3 A8 8 0 1 1 -3 7" fill="none" style="stroke: var(--acento-2)" stroke-width="2.5"/><path d="M-11 -5 -7 -3 -5 -8" fill="none" style="stroke: var(--acento-2)" stroke-width="2.5"/>
+            <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"/></g>
+        </g>
+        <path class="arista" d="M160 182 V198" marker-end="url(#p8-punta-tenue)"/>
+        <g class="nodo"><rect x="56" y="202" width="208" height="42" rx="12"/><text x="160" y="228" text-anchor="middle" font-size="16">Traza de cada paso</text></g>
+      </svg>
+      <p class="chico texto-suave">Configuras el agente. El ciclo ya viene hecho.</p>
+    </div>
+    <div class="tarjeta acento fragment surgir">
+      <h3>En un grafo <span class="etiqueta" style="font-size:0.5em; vertical-align:middle">El curso</span></h3>
+      <svg class="diagrama" viewBox="0 0 320 250" role="img" aria-label="Un grafo: del inicio pasa al modelo. El modelo llama a las herramientas y recibe su resultado en un ciclo. Cuando termina, pasa al fin">
+        <defs>
+          <marker id="p8-punta-gris" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-tenue"/></marker>
+          <marker id="p8-punta-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-acento"/></marker>
+          <marker id="p8-punta-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-acento-2"/></marker>
+        </defs>
+        <g class="nodo"><rect x="19" y="8" width="90" height="38" rx="19"/><text x="64" y="32" text-anchor="middle" font-size="15">Inicio</text></g>
+        <g class="nodo acento"><rect x="12" y="98" width="104" height="54" rx="12"/><text x="64" y="131" text-anchor="middle" font-size="17" class="t-titulo">Modelo</text></g>
+        <g class="nodo acento-2"><rect x="188" y="98" width="124" height="54" rx="12"/><text x="250" y="130" text-anchor="middle" font-size="15">Herramientas</text></g>
+        <g class="nodo exito"><rect x="19" y="204" width="90" height="38" rx="19"/><text x="64" y="228" text-anchor="middle" font-size="15">Fin</text></g>
+        <path class="arista" d="M64 46 V94" marker-end="url(#p8-punta-gris)"/>
+        <path class="arista acento" d="M116 110 C140 70 164 70 186 110" marker-end="url(#p8-punta-a)"/>
+        <path class="arista acento-2" d="M188 140 C164 180 140 180 118 140" marker-end="url(#p8-punta-b)"/>
+        <path class="arista punteada" d="M64 152 V200" marker-end="url(#p8-punta-gris)"/>
+        <text x="152" y="66" text-anchor="middle" font-size="13" class="t-acento">llama</text>
+        <text x="152" y="194" text-anchor="middle" font-size="13" class="t-acento-2">resultado</text>
+        <text x="57" y="182" text-anchor="end" font-size="13" class="t-tenue">termina</text>
+        <circle r="5.5" class="relleno-acento">
+          <animateMotion dur="2.8s" repeatCount="indefinite" path="M116 110 C140 70 164 70 188 110 L188 140 C164 180 140 180 116 140 Z"/>
+        </circle>
+      </svg>
+      <p class="chico texto-suave">Dibujas cada paso y cada ruta. Ves todo.</p>
+    </div>
+  </div>
+  <svg class="diagrama fragment surgir" viewBox="0 0 1200 56" role="img" aria-label="Eje: de izquierda a derecha, de más abstracción a más control" style="margin-top:14px">
+    <defs>
+      <!-- userSpaceOnUse: una línea recta no tiene alto, y el degradado por defecto no se dibujaría. -->
+      <linearGradient id="p8-eje" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="1160" y2="0"><stop offset="0" style="stop-color: var(--aviso)"/><stop offset=".5" style="stop-color: var(--acento-2)"/><stop offset="1" style="stop-color: var(--acento)"/></linearGradient>
+      <marker id="p8-eje-izq" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto"><path d="M10 0 0 5 10 10z" style="fill: var(--aviso)"/></marker>
+      <marker id="p8-eje-der" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto"><path d="M0 0 10 5 0 10z" style="fill: var(--acento)"/></marker>
+    </defs>
+    <path d="M40 14 H1160" fill="none" stroke="url(#p8-eje)" stroke-width="5" stroke-linecap="round" marker-start="url(#p8-eje-izq)" marker-end="url(#p8-eje-der)"/>
+    <text x="24" y="48" font-size="19" style="fill: var(--aviso)" class="t-titulo">Más abstracción</text>
+    <text x="1176" y="48" text-anchor="end" font-size="19" class="t-acento t-titulo">Más control</text>
+  </svg>
+  <aside class="notes">
+    <p>Qué decir: es el mismo agente en las tres capas. Un modelo decide, y una herramienta actúa.</p>
+    <p>Las tarjetas van en el orden de la diapositiva 4: de más abstracción a más control.</p>
+    <p>En el entorno gráfico conectas bloques. Con un SDK configuras el agente, y el ciclo ya viene hecho.</p>
+    <p>En el grafo dibujas el ciclo: el modelo llama a la herramienta y recibe su resultado. Así trabaja el curso.</p>
+    <p>Cada clic muestra una tarjeta, y el último muestra el eje.</p>
+    <p>Minuto acumulado: 14 de 30.</p>
+  </aside>
+</section>
+
+<!-- 9. Estándares abiertos -->
+<section>
+  <section data-min="2">
+    <span class="antetitulo">Las conexiones</span>
+    <h2>Estándares abiertos: MCP, A2A y Agent Skills</h2>
+    <div class="columnas c-60-40">
+      <svg class="diagrama" viewBox="0 0 700 430" role="img" aria-label="Un agente en el centro. MCP lo conecta con herramientas y datos. A2A lo conecta con otro agente. Agent Skills le da capacidades empaquetadas. Los tres están en la Agentic AI Foundation">
+        <g class="nodo acento"><rect x="255" y="150" width="190" height="90" rx="20"/><text x="350" y="203" text-anchor="middle" class="t-titulo" font-size="26">Agente</text></g>
+        <g class="nodo"><rect x="10" y="150" width="170" height="90" rx="16"/><text x="95" y="190" text-anchor="middle" font-size="19">Herramientas</text><text x="95" y="216" text-anchor="middle" font-size="19">y datos</text></g>
+        <g class="nodo acento-2"><rect x="520" y="150" width="170" height="90" rx="16"/><text x="605" y="203" text-anchor="middle" font-size="19">Otro agente</text></g>
+        <g class="nodo aviso"><rect x="230" y="10" width="240" height="70" rx="16"/><text x="350" y="40" text-anchor="middle" font-size="18">Skills: instrucciones</text><text x="350" y="64" text-anchor="middle" font-size="18">y recursos empaquetados</text></g>
+        <path class="arista acento flujo-animado" d="M182 195 H252"/><path class="arista acento-2 flujo-animado" d="M448 195 H518"/><path class="arista punteada" d="M350 82 V148"/>
+        <text x="217" y="182" text-anchor="middle" class="t-acento t-titulo" font-size="20">MCP</text>
+        <text x="483" y="182" text-anchor="middle" class="t-acento-2 t-titulo" font-size="20">A2A</text>
+        <text x="362" y="120" class="t-tenue" font-size="16">se carga cuando hace falta</text>
+        <rect x="10" y="300" width="680" height="96" rx="18" fill="none" class="trazo-acento" stroke-width="2" stroke-dasharray="6 6"/>
+        <text x="350" y="342" text-anchor="middle" class="t-titulo" font-size="22">Agentic AI Foundation</text>
+        <text x="350" y="372" text-anchor="middle" class="t-suave" font-size="17">un fondo de la Linux Foundation que aloja los tres estándares</text>
+      </svg>
+      <ul class="mediano">
+        <li class="fragment"><b>MCP</b> conecta un agente con herramientas y datos.</li>
+        <li class="fragment"><b>A2A</b> conecta un agente con otros agentes.</li>
+        <li class="fragment"><b>Agent Skills</b> empaqueta instrucciones y recursos que el agente carga cuando los necesita.</li>
+        <li class="fragment">Con un estándar, una herramienta sirve para muchos agentes.</li>
+      </ul>
+    </div>
+    <aside class="notes">
+      <p>Qué decir: los estándares evitan rehacer cada conexión para cada agente.</p>
+      <p>MCP es el más importante para el curso. Lo usamos en la sesión 5.</p>
+      <p>Minuto acumulado: 16 de 30.</p>
+      <p>Fuentes: modelcontextprotocol.io, a2a-protocol.org, agentskills.io y aaif.io.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Los diagramas oficiales</h2>
+    <div class="galeria" style="--n:2; --alto:215px">
+      <figure class="figura ancha"><img src="assets/img/mcp_diagrama.png" alt="Diagrama de MCP: aplicaciones de chat, editores de código y otras aplicaciones de IA se conectan por MCP con archivos, herramientas de desarrollo y de productividad">
+        <figcaption>MCP conecta aplicaciones de IA con datos y herramientas.</figcaption></figure>
+      <figure class="figura"><img src="assets/img/a2a_mcp_diagrama.png" alt="Diagrama de A2A: una aplicación agéntica habla con agentes remotos por A2A y con sus herramientas por MCP">
+        <figcaption>A2A conecta agentes entre sí. MCP conecta cada agente con sus herramientas.</figcaption></figure>
+      <figure class="figura"><img src="assets/img/skills_anatomia.jpg" alt="Un archivo SKILL.md: un encabezado con nombre y descripción, y un cuerpo con instrucciones en Markdown">
+        <figcaption>Una skill es una carpeta con un archivo SKILL.md.</figcaption></figure>
+    </div>
+    <p class="credito">Fuentes: <a href="https://modelcontextprotocol.io/docs/getting-started/intro">MCP</a>, CC BY 4.0; <a href="https://a2a-protocol.org/latest/topics/a2a-and-mcp/">A2A</a>, Linux Foundation, Apache 2.0; Anthropic (2025), <a href="https://www.anthropic.com/research/equipping-agents-for-the-real-world-with-agent-skills">Agent Skills</a>.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Estado de los estándares</h2>
+    <table class="tabla-datos" id="tabla-estandares">
+      <thead><tr><th>Estándar</th><th>Qué conecta</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>MCP</td><td>Agente con herramientas y datos</td><td data-dato="mcp-version">Especificación del 28 de julio de 2026. La siguiente versión está prevista para marzo de 2027. Anthropic lo donó a la fundación el 9 de diciembre de 2025</td></tr>
+        <tr><td>A2A</td><td>Agente con agente</td><td data-dato="a2a-version">Versión 1.0 desde marzo de 2026, con un parche 1.0.1 en mayo. Se unió a la fundación el 27 de agosto de 2026</td></tr>
+        <tr><td>Agent Skills</td><td>Capacidades empaquetadas</td><td data-dato="skills-estado">Formato abierto creado por Anthropic. Donado a la fundación el 22 de octubre de 2026</td></tr>
+      </tbody>
+    </table>
+    <p class="credito">Fuentes: <a href="https://modelcontextprotocol.io/specification/versioning">modelcontextprotocol.io</a>, <a href="https://a2a-protocol.org/latest/">a2a-protocol.org</a>, <a href="https://agentskills.io/">agentskills.io</a> y <a href="https://aaif.io/">aaif.io</a>. Consultadas el 14 de noviembre de 2026.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 10. Cinco criterios -->
+<section data-min="2">
+  <span class="antetitulo">Cómo elegir</span>
+  <h2>Cinco criterios para elegir</h2>
+  <div class="deslizador"><div class="extremos"><b>Abstracción</b><b>Control</b></div>
+    <div class="riel"><span class="marca m1" style="--p:10%">1</span><span class="marca m3" style="--p:48%">3</span><span class="marca m2" style="--p:86%">2</span></div></div>
+  <div class="deslizador"><div class="extremos"><b>Curva de aprendizaje suave</b><b>Curva empinada</b></div>
+    <div class="riel"><span class="marca m1" style="--p:14%">1</span><span class="marca m3" style="--p:52%">3</span><span class="marca m2" style="--p:76%">2</span></div></div>
+  <div class="deslizador"><div class="extremos"><b>Integraciones listas</b><b>Integraciones por construir</b></div>
+    <div class="riel"><span class="marca m1" style="--p:12%">1</span><span class="marca m2" style="--p:42%">2</span><span class="marca m3" style="--p:56%">3</span></div></div>
+  <div class="deslizador"><div class="extremos"><b>Poco lock-in</b><b>Mucho lock-in</b></div>
+    <div class="riel"><span class="marca m2" style="--p:18%">2</span><span class="marca m3" style="--p:62%">3</span><span class="marca m1" style="--p:84%">1</span></div></div>
+  <p class="mediano" style="margin:4px 0 6px"><b>Costos:</b> en low-code pagas créditos o ejecuciones. En los otros dos pagas los tokens del modelo y tu infraestructura.</p>
+  <div class="leyenda-marcas"><span class="l1">1 Low-code</span><span class="l2">2 Frameworks</span><span class="l3">3 SDKs de proveedores</span></div>
+  <p class="credito">Valoración orientativa del curso, a partir de la documentación de cada herramienta. No es una medición.</p>
+  <aside class="notes">
+    <p>Qué decir: no hay una herramienta mejor. Hay una que encaja mejor con el problema y con el equipo.</p>
+    <p>Lock-in es la dependencia de un proveedor: cambiar después cuesta. El Claude Agent SDK solo funciona con Claude.</p>
+    <p>Aclara que las posiciones son una valoración orientativa, no una medición.</p>
+    <p>Minuto acumulado: 18 de 30.</p>
+  </aside>
+</section>
+
+<!-- 11. La crítica -->
+<section>
+  <section data-min="2">
+    <span class="antetitulo">Una advertencia</span>
+    <h2>La crítica a los frameworks</h2>
+    <div class="columnas">
+      <blockquote class="cita fragment surgir">«Las implementaciones más exitosas no usaban frameworks complejos ni bibliotecas especializadas.»
+        <footer>Anthropic (2024), <em>Building effective agents</em></footer></blockquote>
+      <blockquote class="cita violeta fragment surgir">«Definir cada rama en un grafo declarativo se vuelve engorroso cuando el flujo crece. A menudo obliga a aprender lenguajes especializados.»
+        <footer>OpenAI (2025), <em>A practical guide to building agents</em></footer></blockquote>
+    </div>
+    <p class="fragment" style="margin-top:26px">Un framework vale la pena si te da <b class="texto-acento">control y pruebas</b>, no por moda.</p>
+    <p class="credito">Traducción del curso. La vertical trae el texto original.</p>
+    <aside class="notes">
+      <p>Qué decir: los propios proveedores advierten contra la complejidad innecesaria.</p>
+      <p>LangGraph se describe como un framework de bajo nivel: no esconde los prompts ni las rutas.</p>
+      <p>Ojo con el contexto: OpenAI critica los grafos declarativos para promover su propio SDK, que es código primero.</p>
+      <p>Minuto acumulado: 20 de 30.</p>
+      <p>Fuentes: anthropic.com/engineering/building-effective-agents y la guía en PDF de OpenAI, p. 20.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Las citas originales</h2>
+    <blockquote class="cita">"Consistently, the most successful implementations weren't using complex frameworks or specialized libraries. Instead, they were building with simple, composable patterns."
+      <footer>Anthropic (2024, 19 de diciembre). <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a></footer></blockquote>
+    <blockquote class="cita violeta" style="margin-top:18px">"While beneficial for visual clarity, this approach can quickly become cumbersome and challenging as workflows grow more dynamic and complex, often necessitating the learning of specialized domain-specific languages."
+      <footer>OpenAI (2025). <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf">A practical guide to building agents</a>, p. 20</footer></blockquote>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 12. Descargas (opcional) -->
+<section data-opcional>
+  <section data-min="1.5" data-opcional>
+    <span class="antetitulo">Señales de uso</span>
+    <h2>Qué se emplea en la industria</h2>
+    <p class="mediano texto-suave">Una señal: las descargas en PyPI de los últimos 30 días.</p>
+    <div class="barras" id="barras-descargas">
+      <div class="barra"><span>langchain <span class="etiqueta">curso</span></span><span class="pista"><span class="valor" style="--v:100%"></span></span><span class="num" data-dato="dl-langchain">156.9 M</span></div>
+      <div class="barra"><span>langgraph <span class="etiqueta">curso</span></span><span class="pista"><span class="valor" style="--v:37.5%"></span></span><span class="num" data-dato="dl-langgraph">58.8 M</span></div>
+      <div class="barra"><span>claude-agent-sdk</span><span class="pista"><span class="valor" style="--v:23.1%"></span></span><span class="num" data-dato="dl-claudeagentsdk">36.3 M</span></div>
+      <div class="barra"><span>pydantic-ai-slim</span><span class="pista"><span class="valor" style="--v:22.4%"></span></span><span class="num" data-dato="dl-pydanticaislim">35.1 M</span></div>
+      <div class="barra"><span>openai-agents</span><span class="pista"><span class="valor" style="--v:12.2%"></span></span><span class="num" data-dato="dl-openaiagents">19.2 M</span></div>
+      <div class="barra"><span>google-adk</span><span class="pista"><span class="valor" style="--v:6.8%"></span></span><span class="num" data-dato="dl-adk">10.7 M</span></div>
+      <div class="barra"><span>crewai</span><span class="pista"><span class="valor" style="--v:1.7%"></span></span><span class="num" data-dato="dl-crewai">2.6 M</span></div>
+    </div>
+    <p class="nota-metodo recuadro fragment surgir"><b>Ojo con el método.</b> Las descargas no miden usuarios. Incluyen dependencias y sistemas de integración continua. Por ejemplo, instalar langchain también descarga langgraph.</p>
+    <p class="credito">Fuente: <a href="https://pypistats.org/">pypistats.org</a>, sin espejos, del 15 de octubre al 13 de noviembre de 2026. Consultado el 14 de noviembre.</p>
+    <aside class="notes">
+      <p>Diapositiva opcional. Puedes saltarla si vas tarde.</p>
+      <p>Qué decir: las descargas son una señal de qué se emplea en la industria. Las dos bibliotecas del curso encabezan la lista.</p>
+      <p>Con un clic aparece la advertencia: las descargas no son usuarios.</p>
+      <p>Minuto acumulado: 21.5 de 30.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Por qué las descargas no son usuarios</h2>
+    <ul>
+      <li>Cada servidor de integración continua descarga el paquete en cada prueba.</li>
+      <li>Un paquete que es dependencia de otro suma sus descargas: langchain 1.x depende de langgraph.</li>
+      <li>Por eso se comparan órdenes de magnitud, no cifras exactas.</li>
+    </ul>
+    <p class="credito">Fuente: metadatos de dependencias de langchain en PyPI y <a href="https://pypistats.org/">pypistats.org</a>.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 13. Un solo grafo para flujos y agentes -->
+<section>
+<section data-min="2">
+  <span class="antetitulo">El stack del curso</span>
+  <h2>Un solo grafo para flujos y agentes</h2>
+  <svg class="diagrama morf" viewBox="0 0 1200 380" role="img" aria-label="Primero un flujo con rutas fijas: entrada, clasificar, responder y fin. Después el mismo grafo como agente: el modelo decide si llama herramientas antes de terminar">
+    <defs>
+      <marker id="punta13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-tenue"/></marker>
+      <marker id="punta13a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-acento"/></marker>
+      <marker id="punta13b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-acento-2"/></marker>
+    </defs>
+    <g class="aristas-flujo">
+      <path class="arista" d="M180 190 H316" marker-end="url(#punta13)"/>
+      <path class="arista" d="M520 190 H656" marker-end="url(#punta13)"/>
+      <path class="arista" d="M860 190 H996" marker-end="url(#punta13)"/>
+    </g>
+    <!-- Estado agente: Herramientas sube 104 unidades (CSS .n-herr). Las flechas llegan a su nueva posición: y de 36 a 136. -->
+    <g class="aristas-agente">
+      <path class="arista" d="M180 190 H316" marker-end="url(#punta13)"/>
+      <path class="arista acento" d="M470 140 C480 86 560 70 654 72" marker-end="url(#punta13a)"/>
+      <path class="arista acento-2" d="M660 112 C610 112 540 112 510 136" marker-end="url(#punta13b)"/>
+      <path class="arista" d="M520 190 H996" marker-end="url(#punta13)"/>
+      <text x="560" y="54" text-anchor="middle" font-size="18" class="t-acento">llama</text>
+      <text x="600" y="136" text-anchor="middle" font-size="17" class="t-acento-2">resultado</text>
+      <text x="760" y="178" text-anchor="middle" font-size="17" class="t-tenue">cuando termina</text>
+      <circle r="7" class="relleno-acento">
+        <animateMotion dur="3s" repeatCount="indefinite" path="M470 140 C480 86 560 70 656 72 L660 112 C610 112 540 112 510 138 Z"/>
+      </circle>
+    </g>
+    <g class="n"><g class="nodo"><rect x="30" y="150" width="150" height="80" rx="40"/><text x="105" y="190" dominant-baseline="central" text-anchor="middle">Entrada</text></g></g>
+    <g class="n"><g class="nodo acento"><rect x="320" y="140" width="200" height="100" rx="18"/><text x="420" y="190" dominant-baseline="central" text-anchor="middle" class="t-titulo rotulo-flujo">Clasificar</text><text x="420" y="176" dominant-baseline="central" text-anchor="middle" class="t-titulo rotulo-agente">Modelo</text><text x="420" y="209" dominant-baseline="central" text-anchor="middle" class="t-suave rotulo-agente" font-size="17">decide la ruta</text></g></g>
+    <g class="n n-herr"><g class="nodo acento-2"><rect x="660" y="140" width="200" height="100" rx="18"/><text x="760" y="190" dominant-baseline="central" text-anchor="middle" class="t-titulo rotulo-flujo">Responder</text><text x="760" y="190" dominant-baseline="central" text-anchor="middle" class="t-titulo rotulo-agente">Herramientas</text></g></g>
+    <g class="n"><g class="nodo exito"><rect x="1000" y="150" width="150" height="80" rx="40"/><text x="1075" y="190" dominant-baseline="central" text-anchor="middle">Fin</text></g></g>
+    <text x="600" y="355" text-anchor="middle" class="t-suave rotulo-flujo" font-size="21">Flujo: el código fija las rutas</text>
+    <text x="600" y="355" text-anchor="middle" class="t-acento rotulo-agente" font-size="21">Agente: el modelo decide la ruta en cada paso</text>
+  </svg>
+  <span class="fragment" data-estado="agente"></span>
+  <p>En LangGraph, los dos son grafos. Puedes empezar con un flujo y volverlo agente solo donde haga falta.</p>
+  <aside class="notes">
+    <p>Qué decir: primero muestra el flujo. Las rutas están fijas en el código.</p>
+    <p>Con un clic, el mismo grafo se vuelve agente. Herramientas sube y forma un ciclo con el modelo.</p>
+    <p>El modelo decide si llama una herramienta o si termina.</p>
+    <p>Esta es la razón principal para usar LangGraph: un solo modelo mental para flujos y agentes.</p>
+    <p>La vertical muestra el mismo grafo en Studio, la interfaz visual de LangGraph.</p>
+    <p>Minuto acumulado: 23.5 de 30.</p>
+    <p>Fuente: https://docs.langchain.com/oss/python/langgraph/workflows-agents</p>
+  </aside>
+</section>
+<section data-min="0">
+  <span class="antetitulo">Consulta</span>
+  <h2>El grafo de un agente en Studio</h2>
+  <div class="galeria" style="--n:1; --alto:470px">
+    <figure class="figura"><img src="assets/img/langgraph_studio_agente.png" alt="Studio con el grafo de un agente: inicio, nodo agent, nodo tools y fin. A la derecha, la traza de una conversación con la llamada a la herramienta send_email">
+      <figcaption>A la izquierda, el grafo: inicio, modelo (agent), herramientas (tools) y fin. A la derecha, la traza de cada paso.</figcaption></figure>
+  </div>
+  <p class="credito">Captura: LangChain Docs, MIT. <a href="https://docs.langchain.com/oss/python/langgraph/studio">docs.langchain.com</a></p>
+  <aside class="notes">
+    <p>Diapositiva de consulta, sin tiempo de clase.</p>
+    <p>La documentación ahora llama a esta interfaz LangSmith Studio. La captura todavía dice LangGraph Studio.</p>
+  </aside>
+</section>
+</section>
+
+<!-- 14. Memoria, aprobación humana y pruebas -->
+<section data-min="2">
+  <span class="antetitulo">El stack del curso</span>
+  <h2>Memoria, aprobación humana y pruebas por nodo</h2>
+  <div class="columnas c-60-40">
+    <svg class="diagrama" viewBox="0 0 760 420" role="img" aria-label="Un grafo con un nodo de pausa para la aprobación humana, una memoria que guarda el estado y una marca de prueba en cada nodo">
+      <defs>
+        <marker id="punta14" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-tenue"/></marker>
+        <marker id="punta14a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-acento"/></marker>
+        <marker id="punta14b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-acento-2"/></marker>
+      </defs>
+      <g class="nodo acento"><rect x="20" y="60" width="180" height="80" rx="16"/><text x="110" y="100" dominant-baseline="central" text-anchor="middle" class="t-titulo">Modelo</text></g>
+      <g class="nodo acento-2"><rect x="290" y="60" width="200" height="80" rx="16"/><text x="390" y="100" dominant-baseline="central" text-anchor="middle" class="t-titulo">Herramientas</text></g>
+      <g class="nodo aviso"><rect x="290" y="220" width="200" height="80" rx="16"/><text x="390" y="246" dominant-baseline="central" text-anchor="middle" class="t-titulo" font-size="20">Aprobación</text><text x="390" y="274" dominant-baseline="central" text-anchor="middle" font-size="18">humana</text></g>
+      <g class="nodo exito"><rect x="560" y="220" width="170" height="80" rx="16"/><text x="645" y="260" dominant-baseline="central" text-anchor="middle" class="t-titulo">Acción</text></g>
+      <!-- Ciclo modelo-herramientas: dos curvas separadas, cada una con su punta y su rótulo. -->
+      <path class="arista acento" d="M200 80 C226 44 262 44 286 80" marker-end="url(#punta14a)"/>
+      <path class="arista acento-2" d="M290 120 C264 156 228 156 204 120" marker-end="url(#punta14b)"/>
+      <text x="245" y="36" text-anchor="middle" font-size="16" class="t-acento">llama</text>
+      <text x="245" y="176" text-anchor="middle" font-size="16" class="t-acento-2">resultado</text>
+      <circle r="6" class="relleno-acento">
+        <animateMotion dur="2.6s" repeatCount="indefinite" path="M200 80 C226 44 262 44 290 80 L290 120 C264 156 228 156 200 120 Z"/>
+      </circle>
+      <path class="arista" d="M390 140 V216" marker-end="url(#punta14)"/>
+      <path class="arista" d="M490 260 H556" marker-end="url(#punta14)"/>
+      <g class="fragment" data-fragment-index="1">
+        <path class="arista acento punteada" d="M110 140 V330 M390 300 V330 M645 300 V330" style="stroke-width: 1.5"/>
+        <rect x="20" y="332" width="710" height="64" rx="14" fill="none" stroke-width="2" stroke-dasharray="6 6" class="trazo-acento"/>
+        <text x="375" y="364" dominant-baseline="central" text-anchor="middle" class="t-acento" font-size="20">Memoria: el grafo guarda su estado en cada paso</text>
+      </g>
+      <g class="fragment" data-fragment-index="2"><circle cx="290" cy="220" r="20" class="relleno-acento-2"/><rect x="282" y="210" width="5" height="20" rx="1" fill="#fff"/><rect x="293" y="210" width="5" height="20" rx="1" fill="#fff"/></g>
+      <g class="fragment" data-fragment-index="3">
+        <circle cx="200" cy="60" r="16" class="relleno-exito"/><path d="M192 60 l6 6 l10 -12" stroke="#fff" stroke-width="3.5" fill="none"/>
+        <circle cx="490" cy="60" r="16" class="relleno-exito"/><path d="M482 60 l6 6 l10 -12" stroke="#fff" stroke-width="3.5" fill="none"/>
+        <circle cx="490" cy="220" r="16" class="relleno-exito"/><path d="M482 220 l6 6 l10 -12" stroke="#fff" stroke-width="3.5" fill="none"/>
+        <circle cx="730" cy="220" r="16" class="relleno-exito"/><path d="M722 220 l6 6 l10 -12" stroke="#fff" stroke-width="3.5" fill="none"/>
+      </g>
+    </svg>
+    <ul class="mediano">
+      <li class="fragment" data-fragment-index="1"><b>Memoria:</b> guarda la conversación y el estado de la tarea.</li>
+      <li class="fragment" data-fragment-index="2"><b>Aprobación humana:</b> el grafo se detiene y espera a una persona.</li>
+      <li class="fragment" data-fragment-index="3"><b>Pruebas:</b> cada nodo se prueba por separado.</li>
+      <li class="fragment" data-fragment-index="4"><span class="etiqueta exito">Licencia MIT</span></li>
+    </ul>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: LangGraph trae tres cosas que vamos a usar en todo el curso.</p>
+    <p>La memoria aparece en la sesión 6. La aprobación humana, en la sesión 7.</p>
+    <p>Las pruebas por nodo están en todos los laboratorios.</p>
+    <p>Minuto acumulado: 25.5 de 30.</p>
+    <p>Fuentes: docs.langchain.com, páginas de memoria, interrupts y pruebas de LangGraph.</p>
+  </aside>
+</section>
+
+<!-- 15. En producción -->
+<section>
+  <section data-min="2">
+    <span class="antetitulo">Evidencia</span>
+    <h2>LangGraph en producción</h2>
+    <div class="columnas-3">
+      <div class="tarjeta acento fragment surgir">
+        <div class="marco-logo"><img src="assets/img/logo_uber.svg" alt="Logotipo de Uber"></div>
+        <h3 style="margin-top:12px">Uber: AutoCover</h3>
+        <p class="chico">Un agente en LangGraph genera cerca del <b>11 %</b> de las pruebas nuevas de código de Uber.</p>
+        <p class="chico texto-suave" style="margin-top:8px">Artículo revisado por pares, ICSE-SEIP 2026.</p>
+      </div>
+      <div class="tarjeta acento fragment surgir">
+        <div class="marco-logo"><img src="assets/img/logo_linkedin.svg" alt="Logotipo de LinkedIn"></div>
+        <h3 style="margin-top:12px">LinkedIn</h3>
+        <p class="chico">Adoptó LangGraph y lo adaptó a su infraestructura de mensajería y memoria.</p>
+        <p class="chico texto-suave" style="margin-top:8px">Publicación de LinkedIn, 2025.</p>
+      </div>
+      <div class="tarjeta acento fragment surgir">
+        <div class="marco-logo oscuro"><img src="assets/img/logo_elastic_blanco.svg" alt="Logotipo de Elastic"></div>
+        <h3 style="margin-top:12px">Elastic</h3>
+        <p class="chico">LangGraph impulsa su generador de consultas ES|QL y su función Automatic Import.</p>
+        <p class="chico texto-suave" style="margin-top:8px">Blog de Elastic, 2024.</p>
+      </div>
+    </div>
+    <p class="credito">Logotipos: Uber en <a href="https://commons.wikimedia.org/wiki/File:Uber_logo_2018.svg">Wikimedia Commons</a>, <a href="https://news.linkedin.com/2025/linkedin-s-ai-stack--expanding-to-build-tomorrow-s-agents">LinkedIn</a> y <a href="https://www.elastic.co/about/press">Elastic</a>. Las verticales traen las citas y las arquitecturas.</p>
+    <aside class="notes">
+      <p>Qué decir: no es una herramienta de juguete. Estas empresas la usan con agentes reales.</p>
+      <p>Uber es el caso más sólido: lo describe un artículo revisado por pares.</p>
+      <p>Minuto acumulado: 27.5 de 30.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Cómo están armados por dentro</h2>
+    <div class="galeria" style="--n:2; --alto:200px">
+      <figure class="figura ancha"><img src="assets/img/uber_autocover_arquitectura.png" alt="Arquitectura de AutoCover: cinco agentes en cadena que preparan, generan, ejecutan, validan y corrigen las pruebas" style="height:190px">
+        <figcaption>Uber: cinco agentes preparan, generan, ejecutan, validan y corrigen las pruebas.</figcaption></figure>
+      <figure class="figura"><img src="assets/img/elastic_grafo_automatic_import.png" alt="Grafo de LangGraph de Automatic Import, con un nodo de validación y ramas que corrigen errores">
+        <figcaption>Elastic: el grafo de Automatic Import valida y corrige en ciclo.</figcaption></figure>
+      <figure class="figura"><img src="assets/img/linkedin_bucle_agente.png" alt="Ciclo del agente de LinkedIn: planear, generar una tarea, ejecutarla con un agente y replanear">
+        <figcaption>LinkedIn: el agente planea, ejecuta una tarea y vuelve a planear.</figcaption></figure>
+    </div>
+    <p class="credito">Figura adaptada (recorte) de Rastenis et al. (2026), CC BY 4.0, <a href="https://homes.cs.washington.edu/~rjust/publ/auto_cover_icse_2026.pdf">PDF</a>. Elastic (2024), <a href="https://www.elastic.co/blog/building-automatic-import-attack-discovery-langchain">blog</a>. LinkedIn (2025), <a href="https://news.linkedin.com/2025/linkedin-s-ai-stack--expanding-to-build-tomorrow-s-agents">news.linkedin.com</a>.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Las fuentes de cada caso</h2>
+    <ul class="mediano">
+      <li><b>Uber.</b> «AutoCover now generates about 11% of all new tests that are reviewed and added to Uber's codebase». Está construido como «a modular, agentic pipeline built on LangGraph». Rastenis et al., ICSE-SEIP 2026. <a href="https://homes.cs.washington.edu/~rjust/publ/auto_cover_icse_2026.pdf">PDF</a></li>
+      <li><b>LinkedIn.</b> «We have embraced LangGraph and adapted it to work with LinkedIn messaging and memory infrastructure using custom built providers». <a href="https://news.linkedin.com/2025/linkedin-s-ai-stack--expanding-to-build-tomorrow-s-agents">LinkedIn, 10 de septiembre de 2025</a></li>
+      <li><b>Elastic.</b> «LangGraph, a controllable agent orchestration framework, powers the end-to-end generation workflow». <a href="https://www.elastic.co/blog/building-automatic-import-attack-discovery-langchain">Elastic, 8 de agosto de 2024</a></li>
+    </ul>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 16. Cómo vamos a trabajar -->
+<section data-min="2">
+  <span class="antetitulo">En el curso</span>
+  <h2>Cómo vamos a trabajar</h2>
+  <div class="camino">
+    <div class="estacion fragment surgir"><div class="disco">1</div><h4>VS Code</h4><p>En tu computador, con Python.</p></div>
+    <div class="estacion fragment surgir"><div class="disco">2</div><h4>LangGraph y LangChain</h4><p>En todos los laboratorios.</p></div>
+    <div class="estacion fragment surgir"><div class="disco">3</div><h4>Datos pregrabados</h4><p>Corren sin clave de API.</p></div>
+    <div class="estacion fragment surgir"><div class="disco">4</div><h4>Clave del curso</h4><p>Opcional, para correr en vivo.</p></div>
+    <div class="estacion fragment surgir"><div class="disco">5</div><h4>Tu proyecto</h4><p>Con las mismas herramientas.</p></div>
+  </div>
+  <p class="mediano texto-suave" style="margin-top:30px">El código viene escrito y explicado. Tú lo lees, lo ejecutas y lo configuras.</p>
+  <aside class="notes">
+    <p>Qué decir: nadie necesita saber programar para empezar.</p>
+    <p>Sin clave de API, los laboratorios usan respuestas grabadas. Con la clave del curso, corren en vivo.</p>
+    <p>Minuto acumulado: 29.5 de 30.</p>
+  </aside>
+</section>
+
+<!-- 17. Referencias -->
+<section data-min="0.5">
+  <span class="antetitulo">Para profundizar</span>
+  <h2>Referencias</h2>
+  <div class="referencias">
+    <p>Anthropic (2024, 19 de diciembre). <em>Building effective agents</em>. <a href="https://www.anthropic.com/engineering/building-effective-agents">anthropic.com</a></p>
+    <p>OpenAI (2025). <em>A practical guide to building agents</em>. <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf">cdn.openai.com</a></p>
+    <p>LangChain. Documentación de agentes. <a href="https://docs.langchain.com/oss/python/langchain/agents">docs.langchain.com</a></p>
+    <p>LangChain. <em>Workflows and agents</em>, documentación de LangGraph. <a href="https://docs.langchain.com/oss/python/langgraph/workflows-agents">docs.langchain.com</a></p>
+    <p>Rastenis, Chou, Roy Choudhary, Just (2026). <em>Automated Software Test Generation at Industry Scale Using a Multi-Agent Architecture and Workflow Integration</em>. ICSE-SEIP '26. <a href="https://homes.cs.washington.edu/~rjust/publ/auto_cover_icse_2026.pdf">PDF</a></p>
+    <p>LinkedIn (2025, 10 de septiembre). <em>The LinkedIn Generative AI Application Tech Stack: Extending to Build AI agents</em>. <a href="https://news.linkedin.com/2025/linkedin-s-ai-stack--expanding-to-build-tomorrow-s-agents">news.linkedin.com</a></p>
+    <p>Elastic (2024, 8 de agosto). <em>How we built Automatic Import, Attack Discovery, and Elastic AI Assistant using LangChain</em>. <a href="https://www.elastic.co/blog/building-automatic-import-attack-discovery-langchain">elastic.co</a></p>
+    <p>Model Context Protocol. Versiones de la especificación. <a href="https://modelcontextprotocol.io/specification/versioning">modelcontextprotocol.io</a></p>
+    <p>A2A Protocol. <a href="https://a2a-protocol.org/latest/">a2a-protocol.org</a></p>
+    <p>Agent Skills. <a href="https://agentskills.io/">agentskills.io</a></p>
+    <p>Agentic AI Foundation. <a href="https://aaif.io/">aaif.io</a></p>
+    <p>n8n. Documentación de IA. <a href="https://docs.n8n.io/build/integrate-ai">docs.n8n.io</a></p>
+    <p>Anthropic (2025, 16 de octubre). <em>Equipping agents for the real world with Agent Skills</em>. <a href="https://www.anthropic.com/research/equipping-agents-for-the-real-world-with-agent-skills">anthropic.com</a></p>
+  </div>
+  <aside class="notes">
+    <p>Cierra con la transición a la charla 2: ya conocen las herramientas, ahora toca decidir qué construir.</p>
+    <p>Minuto acumulado: 30 de 30.</p>
+  </aside>
+</section>
+
+</div>
+</div>
+<script src="assets/vendor/reveal.js-6.0.2/reveal.js"></script>
+<script src="assets/vendor/reveal.js-6.0.2/plugin/notes.js"></script>
+<script src="assets/js/deck.js"></script>
+</body>
+</html>

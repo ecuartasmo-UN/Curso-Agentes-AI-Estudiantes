@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesión 1: apertura del curso y del proyecto</title>
+<script src="assets/js/tema.js"></script>
+<link rel="stylesheet" href="assets/css/tema-agentes.css">
+<style>
+  body { font-family: "Inter", system-ui, sans-serif; min-height: 100vh; }
+  .pagina { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 72px 28px 64px; }
+  .cabecera .antetitulo { font-size: 15px; }
+  .cabecera h1 { font: 700 clamp(40px, 6vw, 72px)/1.04 "Space Grotesk", sans-serif; letter-spacing: -0.03em; margin: 10px 0 16px; }
+  .cabecera h1 .degradado { background: linear-gradient(90deg, var(--acento), var(--acento-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .cabecera p { font-size: 20px; line-height: 1.5; color: var(--texto-suave); max-width: 780px; margin: 0; }
+  .seccion-titulo { font: 700 15px/1 "Inter", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--texto-tenue); margin: 56px 0 18px; }
+  .rejilla { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; perspective: 1200px; }
+  .rejilla.docs { grid-template-columns: repeat(4, 1fr); }
+  .tarjeta-indice { display: flex; flex-direction: column; gap: 10px; text-decoration: none; color: var(--texto);
+    background: linear-gradient(160deg, var(--superficie-2), var(--superficie)); border: 1px solid var(--borde);
+    border-radius: 22px; padding: 24px 24px 22px; box-shadow: var(--sombra); transform-style: preserve-3d;
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1), border-color .3s ease, box-shadow .3s ease; position: relative; overflow: hidden; }
+  .tarjeta-indice::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: radial-gradient(60% 50% at 20% 0%, var(--acento-suave), transparent 70%); opacity: .9; }
+  .tarjeta-indice:hover, .tarjeta-indice:focus-visible { transform: rotateX(6deg) rotateY(-8deg) translateY(-6px) translateZ(10px);
+    border-color: color-mix(in srgb, var(--acento) 60%, transparent); box-shadow: var(--brillo), var(--sombra); outline: none; }
+  .tarjeta-indice .hora { font: 700 14px/1 "Inter", sans-serif; color: var(--acento); letter-spacing: .06em; }
+  .tarjeta-indice h2 { font: 700 26px/1.12 "Space Grotesk", sans-serif; margin: 0; color: var(--texto); }
+  .tarjeta-indice p { margin: 0; font-size: 16px; line-height: 1.45; color: var(--texto-suave); }
+  .tarjeta-indice .pie { margin-top: auto; padding-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tarjeta-indice .pie .etiqueta { font-size: 13px; }
+  .tarjeta-indice .flecha { position: absolute; right: 20px; top: 22px; font-size: 22px; color: var(--acento); transition: transform .3s ease; }
+  .tarjeta-indice:hover .flecha { transform: translateX(4px); }
+  .tarjeta-indice.doc h2 { font-size: 21px; }
+  .icono-tarjeta { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center;
+    background: var(--acento-suave); color: var(--acento); border: 1px solid color-mix(in srgb, var(--acento) 40%, transparent); }
+  .icono-tarjeta svg { width: 28px; height: 28px; }
+  .violeta .icono-tarjeta { background: var(--acento-2-suave); color: var(--acento-2); border-color: color-mix(in srgb, var(--acento-2) 40%, transparent); }
+  .violeta .hora { color: var(--acento-2); }
+  .exito .icono-tarjeta { background: var(--exito-suave); color: var(--exito); border-color: color-mix(in srgb, var(--exito) 40%, transparent); }
+  .exito .hora { color: var(--exito); }
+  .nota-pie { margin-top: 56px; font-size: 15px; color: var(--texto-tenue); line-height: 1.6; }
+  .nota-pie kbd { font: 600 13px/1 "Inter"; padding: 3px 7px; border-radius: 6px; border: 1px solid var(--borde); background: var(--superficie); color: var(--texto); }
+  @media (max-width: 980px) { .rejilla, .rejilla.docs { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) { .rejilla, .rejilla.docs { grid-template-columns: 1fr; } .pagina { padding: 64px 16px 48px; } }
+  @media (prefers-reduced-motion: reduce) { .tarjeta-indice, .tarjeta-indice:hover { transition: none; transform: none; } }
+  html.movimiento-reducido .tarjeta-indice, html.movimiento-reducido .tarjeta-indice:hover { transition: none; transform: none; }
+</style>
+</head>
+<body>
+<main class="pagina">
+  <header class="cabecera">
+    <span class="antetitulo">Agentes de IA (aplicado) · Sesión 1</span>
+    <h1>Apertura del curso <span class="degradado">y del proyecto</span></h1>
+    <p>Dos charlas sobre el ecosistema de agentes y sobre cómo plantear un proyecto agéntico. Después, cada grupo plantea la idea que va a construir durante todo el curso.</p>
+  </header>
+
+  <div class="seccion-titulo">Presentaciones de la sesión</div>
+  <nav class="rejilla" aria-label="Presentaciones de la sesión">
+    <a class="tarjeta-indice" href="charla1_ecosistema.html" data-con-tema>
+      <span class="flecha" aria-hidden="true">→</span>
+      <span class="icono-tarjeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5" opacity=".6"/></svg></span>
+      <span class="hora">1:00 · 30 MINUTOS</span>
+      <h2>El ecosistema para construir agentes</h2>
+      <p>Plataformas low-code, frameworks, SDKs y estándares abiertos. Por qué el curso usa LangGraph y LangChain.</p>
+      <span class="pie"><span class="etiqueta">Charla 1</span><span class="etiqueta violeta">3D</span></span>
+    </a>
+    <a class="tarjeta-indice violeta" href="charla2_proyecto_agentico.html" data-con-tema>
+      <span class="flecha" aria-hidden="true">→</span>
+      <span class="icono-tarjeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4v-4h4v-4h4V8h4"/><path d="M4 20V16" opacity=".6"/></svg></span>
+      <span class="hora">1:30 · 30 MINUTOS</span>
+      <h2>Cómo plantear un proyecto agéntico</h2>
+      <p>Una guía en cinco pasos: idear, revisar, decidir si hace falta un agente, redactar los requerimientos y elegir la pila.</p>
+      <span class="pie"><span class="etiqueta violeta">Charla 2</span><span class="etiqueta">Guía</span></span>
+    </a>
+    <a class="tarjeta-indice exito" href="trabajo_en_grupos.html" data-con-tema>
+      <span class="flecha" aria-hidden="true">→</span>
+      <span class="icono-tarjeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2.5 20a5.5 5.5 0 0 1 11 0M10.5 20a5.5 5.5 0 0 1 11 0"/></svg></span>
+      <span class="hora">2:15 · 105 MINUTOS</span>
+      <h2>Trabajo en grupos: la idea del proyecto</h2>
+      <p>Diapositivas de apoyo: el reparto del tiempo, los campos de la ficha y los criterios de revisión.</p>
+      <span class="pie"><span class="etiqueta exito">Trabajo en grupos</span></span>
+    </a>
+  </nav>
+
+  <div class="seccion-titulo">Documentos</div>
+  <nav class="rejilla docs" aria-label="Documentos de la sesión">
+    <a class="tarjeta-indice doc exito" href="ficha_inicial.docx">
+      <span class="icono-tarjeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span>
+      <h2>Ficha inicial para llenar</h2>
+      <p>Formato de Word que cada grupo completa y entrega.</p>
+      <span class="pie"><span class="etiqueta exito">.docx</span></span>
+    </a>
+    <a class="tarjeta-indice doc" href="ficha_inicial.md">
+      <span class="icono-tarjeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 15V9l2.5 3L12 9v6M16 9v6m0 0-2-2m2 2 2-2"/></svg></span>
+      <h2>Plantilla de la ficha</h2>
+      <p>La misma ficha en Markdown, con una guía por campo.</p>
+      <span class="pie"><span class="etiqueta">.md</span></span>
+    </a>
+    <a class="tarjeta-indice doc violeta" href="guia_proyecto_agentico.md">
+      <span class="icono-tarjeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h8M8 11h6"/></svg></span>
+      <h2>Guía para plantear un proyecto agéntico</h2>
+      <p>Los cinco pasos de la charla 2, para consultar en el trabajo en grupos.</p>
+      <span class="pie"><span class="etiqueta violeta">.md</span></span>
+    </a>
+    <a class="tarjeta-indice doc" href="trabajo_independiente.md">
+      <span class="icono-tarjeta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4M8 14h3"/></svg></span>
+      <h2>Trabajo independiente</h2>
+      <p>Completar la ficha y la lectura de la sesión 2.</p>
+      <span class="pie"><span class="etiqueta">.md</span></span>
+    </a>
+  </nav>
+
+  <p class="nota-pie">En las presentaciones: <kbd>→</kbd> avanza y <kbd>↓</kbd> abre las diapositivas de consulta. <kbd>S</kbd> abre las notas del orador y <kbd>F</kbd> pone pantalla completa. <kbd>Esc</kbd> muestra todas las diapositivas. <kbd>T</kbd> cambia entre el tema oscuro y el claro.</p>
+</main>
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charla 2: cómo plantear un proyecto agéntico</title>
+<script src="assets/js/tema.js"></script>
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reset.css">
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reveal.css">
+<link rel="stylesheet" href="assets/css/tema-agentes.css">
+</head>
+<body>
+<a class="boton-indice" href="index.html" data-con-tema data-enlace-indice aria-label="Volver al índice de la sesión">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10"/></svg>Índice</a>
+<div class="reveal" data-total-min="30">
+<div class="slides">
+
+<!-- 1. Portada -->
+<section data-min="0.5">
+  <div class="columnas c-60-40" style="height:100%">
+    <div class="portada">
+      <span class="antetitulo">Sesión 1 · Charla 2</span>
+      <h1>Cómo plantear un proyecto agéntico</h1>
+      <p class="subtitulo">Una guía en cinco pasos para idear, revisar, decidir, redactar y elegir la pila.</p>
+      <div class="meta"><span class="etiqueta">30 minutos</span><span class="etiqueta violeta">Guía para el trabajo en grupos</span></div>
+    </div>
+    <div class="escena3d escalera3d-envoltura" aria-label="Escalera de cinco peldaños, del LLM directo a la orquestación">
+      <div class="escalera3d" style="transform: rotateX(58deg) rotateZ(var(--giro)) scale(.62)">
+        <div class="peldano" style="--i:0; --c: var(--acento)"></div>
+        <div class="peldano" style="--i:1; --c: color-mix(in srgb, var(--acento) 70%, var(--acento-2))"></div>
+        <div class="peldano" style="--i:2; --c: color-mix(in srgb, var(--acento) 45%, var(--acento-2))"></div>
+        <div class="peldano" style="--i:3; --c: color-mix(in srgb, var(--acento) 20%, var(--acento-2))"></div>
+        <div class="peldano" style="--i:4; --c: var(--acento-2)"></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: después de la pausa, cada grupo plantea su proyecto. Esta charla es la guía para hacerlo.</p>
+    <p>Minuto acumulado: 0.5 de 30.</p>
+  </aside>
+</section>
+
+<!-- 2. La guía -->
+<section data-min="1.5">
+  <span class="antetitulo">Apertura</span>
+  <h2>Una guía en cinco pasos</h2>
+  <div class="camino">
+    <div class="estacion fragment surgir"><div class="disco">1</div><h4>Idear</h4><p>Una tarea real de un usuario</p></div>
+    <div class="estacion fragment surgir"><div class="disco">2</div><h4>Revisar</h4><p>Qué hace fracasar un proyecto</p></div>
+    <div class="estacion fragment surgir"><div class="disco">3</div><h4>Decidir</h4><p>¿Hace falta un agente?</p></div>
+    <div class="estacion fragment surgir"><div class="disco">4</div><h4>Redactar</h4><p>Los requerimientos iniciales</p></div>
+    <div class="estacion fragment surgir"><div class="disco">5</div><h4>Elegir la pila</h4><p>Según la complejidad</p></div>
+  </div>
+  <div class="tarjeta acento fragment surgir" style="margin-top:34px">
+    <p>Al final de la sesión, tu grupo entrega la <b class="texto-acento">ficha inicial</b> del proyecto, de una página.</p>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: cada paso termina en algo que el grupo puede hacer en el trabajo en grupos.</p>
+    <p>La ficha inicial es el entregable de hoy. Su plantilla está en el índice de la sesión.</p>
+    <p>Minuto acumulado: 2 de 30.</p>
+  </aside>
+</section>
+
+<!-- 3. Paso 1: tarea -->
+<section data-min="1.5">
+  <span class="chip-paso">Paso <b>1</b> de 5 · Idear</span>
+  <span class="antetitulo">Paso 1</span>
+  <h2>Empieza por una tarea, no por la tecnología</h2>
+  <div class="columnas">
+    <div class="ad-caja mal" style="opacity:1"><span class="rotulo-ad">Así no</span><span class="texto-ad grande">«Queremos un agente con IA.»</span></div>
+    <div class="ad-caja bien fragment surgir" style="opacity:1;transform:none"><span class="rotulo-ad">Así sí</span><span class="texto-ad">«Quien atiende el soporte de una aplicación clasifica a mano cada reporte de error que llega.»</span></div>
+  </div>
+  <svg class="diagrama fragment surgir" viewBox="0 0 1200 130" role="img" aria-label="Del usuario a la tarea, de la tarea a la decisión y de la decisión al resultado" style="margin-top:20px">
+    <defs><marker id="p3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-acento"/></marker></defs>
+    <g class="nodo"><rect x="10" y="30" width="230" height="70" rx="35"/><text x="125" y="72" text-anchor="middle">Un usuario</text></g>
+    <g class="nodo acento"><rect x="330" y="30" width="250" height="70" rx="16"/><text x="455" y="72" text-anchor="middle">Una tarea que se repite</text></g>
+    <g class="nodo acento-2"><rect x="670" y="30" width="230" height="70" rx="16"/><text x="785" y="72" text-anchor="middle">Una decisión</text></g>
+    <g class="nodo exito"><rect x="990" y="30" width="200" height="70" rx="35"/><text x="1090" y="72" text-anchor="middle">Un resultado</text></g>
+    <path class="arista acento flujo-animado" d="M240 65 H324" marker-end="url(#p3)"/><path class="arista acento flujo-animado" d="M580 65 H664" marker-end="url(#p3)"/><path class="arista acento flujo-animado" d="M900 65 H984" marker-end="url(#p3)"/>
+  </svg>
+  <aside class="notes">
+    <p>Qué decir: un proyecto no empieza por la herramienta. Empieza por alguien que hace una tarea hoy.</p>
+    <p>El ejemplo es genérico y del mundo tech: el soporte de una aplicación.</p>
+    <p>Minuto acumulado: 3.5 de 30.</p>
+  </aside>
+</section>
+
+<!-- 4. Paso 1: candidatas -->
+<section data-min="1.5">
+  <span class="chip-paso">Paso <b>1</b> de 5 · Idear</span>
+  <span class="antetitulo">Paso 1</span>
+  <h2>Las buenas candidatas</h2>
+  <div class="columnas">
+    <div class="columnas-3" style="grid-template-columns:1fr; gap:14px">
+      <div class="tarjeta acento fragment surgir"><h3>Se repite</h3><p class="mediano">Ocurre muchas veces a la semana.</p></div>
+      <div class="tarjeta acento fragment surgir"><h3>Exige decisiones</h3><p class="mediano">No basta seguir una lista fija.</p></div>
+      <div class="tarjeta acento fragment surgir"><h3>Usa información no estructurada</h3><p class="mediano">Textos, correos, documentos o conversaciones.</p></div>
+    </div>
+    <div class="fragment surgir">
+      <h3>Preguntas guía</h3>
+      <ul class="mediano">
+        <li>¿Quién hace hoy la tarea?</li>
+        <li>¿Cada cuánto la hace?</li>
+        <li>¿Cuánto tiempo le toma?</li>
+        <li>¿Qué errores aparecen?</li>
+        <li>¿Qué datos usa?</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: estos tres rasgos ayudan a filtrar ideas. Si una tarea no se repite, no vale la pena automatizarla.</p>
+    <p>Las preguntas guía son las que los grupos van a usar en el paso 1 del trabajo en grupos.</p>
+    <p>Minuto acumulado: 5 de 30.</p>
+  </aside>
+</section>
+
+<!-- 5. Paso 1: casos que funcionan -->
+<section>
+  <section data-min="2">
+    <span class="chip-paso">Paso <b>1</b> de 5 · Idear</span>
+    <span class="antetitulo">Paso 1</span>
+    <h2>Casos que sí funcionan</h2>
+    <div class="columnas">
+      <div class="tarjeta exito fragment surgir">
+        <div class="marco-logo"><img src="assets/img/logo_uber.svg" alt="Logotipo de Uber"></div>
+        <h3 style="margin-top:12px">Uber: AutoCover</h3>
+        <span class="cifra exito">11 %</span><span class="leyenda">de las pruebas nuevas de código que se revisan y se agregan a Uber.</span>
+        <p class="chico texto-suave" style="margin-top:10px">Artículo revisado por pares, ICSE-SEIP 2026.</p>
+      </div>
+      <div class="tarjeta aviso fragment surgir" style="border-color: color-mix(in srgb, var(--aviso) 55%, transparent)">
+        <div class="marco-logo"><img src="assets/img/logo_klarna.svg" alt="Distintivo de Klarna"></div>
+        <h3 style="margin-top:12px; color: var(--aviso)">Klarna: un caso mixto</h3>
+        <p class="mediano">En su primer mes, su asistente atendió 2.3 millones de conversaciones: dos de cada tres chats.</p>
+        <p class="chico texto-suave" style="margin-top:10px">Lo afirma la propia empresa. En 2025 corrigió el rumbo (paso 2).</p>
+      </div>
+    </div>
+    <div class="tarjeta acento fragment surgir" style="margin-top:22px; padding:14px 22px"><p class="mediano"><b>En tu grupo:</b> listen tres tareas candidatas y elijan una.</p></div>
+    <p class="credito">Fuentes: Rastenis et al. (2026), ICSE-SEIP; comunicado de Klarna del 27 de febrero de 2024. Logotipos: <a href="https://commons.wikimedia.org/wiki/File:Uber_logo_2018.svg">Uber</a> y <a href="https://commons.wikimedia.org/wiki/File:Klarna_Payment_Badge.svg">Klarna</a>, en Wikimedia Commons.</p>
+    <aside class="notes">
+      <p>Qué decir: el caso de Uber está probado y tiene matices. La vertical muestra sus tasas por lenguaje.</p>
+      <p>Klarna sirve como caso mixto. Sus cifras de 2024 las reportó la propia empresa.</p>
+      <p>Minuto acumulado: 7 de 30.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Los detalles de cada caso</h2>
+    <ul class="mediano">
+      <li><b>Uber.</b> «AutoCover now generates about 11% of all new tests that are reviewed and added to Uber's codebase». La tasa de pruebas viables es cerca del 20 % en Java, 40 % en Go y 80 % en Python. En el editor, los usuarios aceptan cerca del 44 %. <a href="https://homes.cs.washington.edu/~rjust/publ/auto_cover_icse_2026.pdf">Rastenis et al. (2026)</a></li>
+      <li><b>Klarna.</b> «The AI assistant has had 2.3 million conversations, two-thirds of Klarna's customer service chats». La empresa dijo que hacía el trabajo de 700 agentes de tiempo completo. <a href="https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/">Klarna (2024, 27 de febrero)</a></li>
+    </ul>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 6. Paso 2: muchos fallan -->
+<section>
+  <section data-min="1.5">
+    <span class="chip-paso">Paso <b>2</b> de 5 · Revisar</span>
+    <span class="antetitulo">Paso 2</span>
+    <h2>Muchos proyectos fallan</h2>
+    <div class="columnas">
+      <div class="tarjeta alerta fragment surgir">
+        <span class="cifra alerta">más del 40 %</span>
+        <span class="leyenda">de los proyectos de IA agéntica se cancelará antes de que termine 2027, según Gartner (2025).</span>
+        <p class="nota-metodo">Es una predicción de analistas. Razones: costos crecientes, valor de negocio poco claro o controles de riesgo insuficientes.</p>
+      </div>
+      <div class="tarjeta acento fragment surgir">
+        <span class="cifra">23 %</span>
+        <span class="leyenda">de las organizaciones escala un sistema agéntico en alguna parte. Otro 39 % apenas experimenta (McKinsey, 2025).</span>
+        <p class="nota-metodo">Encuesta en línea de junio y julio de 2025, con 1 993 participantes de 105 países.</p>
+      </div>
+    </div>
+    <p class="credito">Fuentes: Gartner (2025, 25 de junio), comunicado de prensa; McKinsey (2025), <em>The state of AI in 2025</em>. Las verticales explican el método y el caso de MIT NANDA.</p>
+    <aside class="notes">
+      <p>Qué decir: el entusiasmo es grande, pero muchos proyectos no llegan a producción.</p>
+      <p>La cifra de Gartner es una predicción, no una medición. Dilo en voz alta.</p>
+      <p>Minuto acumulado: 8.5 de 30.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>El método de Gartner y de McKinsey</h2>
+    <div class="columnas" style="grid-template-columns: 1fr 250px; align-items:start">
+      <ul class="mediano">
+        <li><b>Gartner.</b> «Over 40% of agentic AI projects will be canceled by the end of 2027, due to escalating costs, unclear business value or inadequate risk controls». Se apoya en una encuesta de enero de 2025 a 3 412 asistentes de un webinar: 19 % invirtió mucho, 42 % con cautela, 8 % nada y 31 % espera.</li>
+        <li><b>McKinsey.</b> En ninguna función de negocio más del 10 % de las organizaciones escala agentes. La encuesta pondera a cada país según su peso en el PIB mundial.</li>
+      </ul>
+      <figure class="figura"><img src="assets/img/mckinsey_portada.jpg" alt="Portada del informe The state of AI in 2025 de McKinsey" style="width:100%"></figure>
+    </div>
+    <p class="credito">Gartner bloquea la consulta automática de su sala de prensa. Su texto se leyó en CXOtoday (25 de junio de 2025). Portada: <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">McKinsey &amp; Company (2025)</a>.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>El 95 % de MIT NANDA, con sus críticas</h2>
+    <div class="columnas" style="grid-template-columns: 1fr 250px; align-items:start">
+      <ul class="mediano">
+        <li>El informe dice que el 95 % de las organizaciones no obtiene retorno de sus pilotos de IA generativa.</li>
+        <li>Su método: 300 iniciativas públicas, 52 entrevistas y 153 encuestas. El propio informe se presenta como «Preliminary Findings».</li>
+        <li>Las críticas: mide el éxito solo como impacto financiero de corto plazo. Además, el texto se contradice en el número de sectores.</li>
+      </ul>
+      <figure class="figura"><img src="assets/img/mitnanda_portada.png" alt="Portada del informe The GenAI Divide: State of AI in Business 2025 de MIT NANDA" style="width:100%"></figure>
+    </div>
+    <p class="credito">Fuente y portada: Challapally et al. (2025), <em>The GenAI Divide</em>, <a href="https://www.media.mit.edu/groups/nanda/overview/">MIT NANDA</a>. Es un ejemplo de cifra que circula mucho y tiene un método débil.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 7. Paso 2: casos que salieron mal -->
+<section>
+  <section data-min="2">
+    <span class="chip-paso">Paso <b>2</b> de 5 · Revisar</span>
+    <span class="antetitulo">Paso 2</span>
+    <h2>Casos que salieron mal</h2>
+    <div class="linea-tiempo">
+      <div class="hito tarjeta fragment surgir" style="padding:16px 18px"><span class="fecha">ABR 2025</span><div class="marco-logo"><img src="assets/img/logo_cursor.svg" alt="Logotipo de Cursor"></div><h4>Cursor</h4><p class="chico">Su bot de soporte inventó que una suscripción sirve en un solo dispositivo.</p></div>
+      <div class="hito tarjeta fragment surgir" style="padding:16px 18px"><span class="fecha">MAY 2025</span><div class="marco-logo"><img src="assets/img/logo_klarna.svg" alt="Distintivo de Klarna"></div><h4>Klarna</h4><p class="chico">Su CEO admitió que el costo pesó demasiado y bajó la calidad.</p></div>
+      <div class="hito tarjeta fragment surgir" style="padding:16px 18px"><span class="fecha">JUN 2025</span><div class="marco-logo foto"><img src="assets/img/vend_tienda.jpg" alt="La tienda de Project Vend: una nevera pequeña con una tableta encima"></div><h4>Project Vend</h4><p class="chico">Un agente manejó una tienda, perdió dinero y regaló descuentos.</p></div>
+      <div class="hito tarjeta fragment surgir" style="padding:16px 18px"><span class="fecha">JUL 2025</span><div class="marco-logo"><img src="assets/img/logo_replit.svg" alt="Logotipo de Replit"></div><h4>Replit</h4><p class="chico">Un agente borró una base de datos en producción.</p></div>
+    </div>
+    <p class="fragment surgir" style="margin-top:26px">Lo que tienen en común: faltó una <b class="texto-acento">verificación</b>, un <b class="texto-acento">permiso</b> o una <b class="texto-acento">persona</b> en el momento clave.</p>
+    <p class="credito">Lectura del curso sobre los cuatro casos. Logotipos: <a href="https://cursor.com/brand">Cursor</a>, <a href="https://commons.wikimedia.org/wiki/File:Klarna_Payment_Badge.svg">Klarna</a> y <a href="https://replit.com/brandkit">Replit</a>. Foto: <a href="https://www.anthropic.com/research/project-vend-1">Anthropic (2025)</a>.</p>
+    <aside class="notes">
+      <p>Qué decir: los cuatro casos son del mundo tech y están documentados.</p>
+      <p>La frase final es una lectura del curso, no de las fuentes. Preséntala así.</p>
+      <p>Minuto acumulado: 10.5 de 30.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Las fuentes de cada caso</h2>
+    <ul class="chico">
+      <li><b>Cursor.</b> El cofundador escribió: «Apologies - something very clearly went wrong here». Desde entonces, las respuestas de soporte hechas con IA van marcadas. <a href="https://news.ycombinator.com/item?id=43700931">Hacker News, 15 de abril de 2025</a></li>
+      <li><b>Klarna.</b> «As cost unfortunately seems to have been a too predominant evaluation factor when organising this, what you end up having is lower quality». Entrevista con Bloomberg, reproducida por <a href="https://thestar.com.my/tech/tech-news/2025/05/08/klarna-rethinks-ai-cost-cutting-plan-with-call-for-real-people">The Star, 8 de mayo de 2025</a>. Una semana después, el CEO aclaró que la IA atiende unos 1.3 millones de gestiones al mes (<a href="https://www.bigtechnology.com/p/klarna-ceo-were-giving-ai-more-customer">Big Technology</a>).</li>
+      <li><b>Project Vend.</b> «If Anthropic were deciding today to expand into the in-office vending market, we would not hire Claudius». En la fase 2, con procedimientos, casi desaparecieron las semanas con pérdidas. <a href="https://www.anthropic.com/research/project-vend-1">Anthropic, 27 de junio de 2025</a> y <a href="https://www.anthropic.com/research/project-vend-2">18 de diciembre de 2025</a></li>
+      <li><b>Replit.</b> El afectado escribió: «the AI Agent deleted our entire production database» (<a href="https://www.saastr.com/replits-new-release-address-most-of-the-challenges-we-hit-vibe-coding-but-is-prosumer-vibe-coding-really-ready-for-commercial-apps-yet/">SaaStr</a>). El 21 de julio, Replit anunció bases de datos separadas para desarrollo y producción. <a href="https://replit.com/blog/introducing-a-safer-way-to-vibe-code-with-replit-databases">Blog de Replit</a></li>
+    </ul>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase. La cita de Klarna viene de una fuente secundaria.</p></aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Dos evidencias en imágenes</h2>
+    <div class="galeria" style="--n:2; --alto:360px">
+      <figure class="figura"><img src="assets/img/vend_valor_neto.png" alt="Gráfica del valor neto de la tienda de Project Vend a lo largo del tiempo: baja de forma sostenida y cae de golpe al final">
+        <figcaption>Project Vend, fase 1: el valor neto de la tienda baja con el tiempo.</figcaption></figure>
+      <figure class="figura"><img src="assets/img/replit_bd_separadas.png" alt="Panel de Replit con una base de datos de desarrollo y otra de producción, separadas">
+        <figcaption>Después del incidente, Replit separó la base de desarrollo de la de producción.</figcaption></figure>
+    </div>
+    <p class="credito">Fuentes: Anthropic (2025, 27 de junio), <a href="https://www.anthropic.com/research/project-vend-1">Project Vend</a>; Replit (2025, 21 de julio), <a href="https://replit.com/blog/introducing-a-safer-way-to-vibe-code-with-replit-databases">blog de Replit</a>.</p>
+    <aside class="notes">
+      <p>Diapositiva de consulta, sin tiempo de clase.</p>
+      <p>La caída más fuerte vino de unos cubos de metal: el agente los vendió por menos de lo que pagó.</p>
+    </aside>
+  </section>
+</section>
+
+<!-- 8. Paso 2: lista de revisión -->
+<section data-min="2.5">
+  <span class="chip-paso">Paso <b>2</b> de 5 · Revisar</span>
+  <span class="antetitulo">Paso 2</span>
+  <h2>La lista de revisión antes de empezar</h2>
+  <ul class="casillas">
+    <li class="fragment marcar"><span class="casilla"></span><span>Hay datos sin información personal, o puedes crear datos sintéticos.</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span>El éxito se comprueba con casos concretos.</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span>Las acciones irreversibles pasan por una persona.</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span>El costo por tarea y el tiempo de respuesta son aceptables.</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span>Cumple la Ley 1581 de 2012 de protección de datos personales.</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span>Cabe en seis capas, una por sesión del curso.</span></li>
+  </ul>
+  <aside class="notes">
+    <p>Qué decir: marca cada casilla con un clic. Cada una responde a uno de los casos anteriores.</p>
+    <p>Por ejemplo, la aprobación humana habría evitado el caso de Replit.</p>
+    <p>Minuto acumulado: 13 de 30.</p>
+  </aside>
+</section>
+
+<!-- 9. Paso 3: lo más simple -->
+<section data-min="1.5">
+  <span class="chip-paso">Paso <b>3</b> de 5 · Decidir</span>
+  <span class="antetitulo">Paso 3</span>
+  <h2>Empieza por lo más simple</h2>
+  <div class="columnas c-60-40">
+    <div>
+      <p class="mediano texto-suave">Tokens que consume cada forma, frente a un chat:</p>
+      <div class="barras">
+        <div class="barra"><span>Chat</span><span class="pista"><span class="valor" style="--v:6.7%"></span></span><span class="num">1×</span></div>
+        <div class="barra"><span>Un agente</span><span class="pista"><span class="valor" style="--v:26.7%"></span></span><span class="num">cerca de 4×</span></div>
+        <div class="barra"><span>Varios agentes</span><span class="pista"><span class="valor" style="--v:100%"></span></span><span class="num">cerca de 15×</span></div>
+      </div>
+      <p class="credito" style="position:static; margin-top:14px">Fuente: Anthropic (2025, 13 de junio), <em>How we built our multi-agent research system</em>.</p>
+    </div>
+    <blockquote class="cita fragment surgir">«La autonomía de los agentes implica costos más altos y la posibilidad de errores que se acumulan.»
+      <footer>Anthropic (2024), <em>Building effective agents</em>. Traducción del curso.</footer></blockquote>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: más autonomía cuesta más tokens y acumula errores.</p>
+    <p>Por eso se empieza por la solución más simple que resuelva la tarea.</p>
+    <p>Minuto acumulado: 14.5 de 30.</p>
+    <p>Cita original: "The autonomous nature of agents means higher costs, and the potential for compounding errors."</p>
+  </aside>
+</section>
+
+<!-- 10. Paso 3: tres criterios -->
+<section>
+  <section data-min="1.5">
+    <span class="chip-paso">Paso <b>3</b> de 5 · Decidir</span>
+    <span class="antetitulo">Paso 3</span>
+    <h2>Tres criterios para usar un agente</h2>
+    <div class="columnas-3">
+      <div class="tarjeta acento-2 fragment surgir"><h3 style="color:var(--acento-2)">Decisiones complejas</h3><p class="mediano">Juicio, excepciones y contexto.</p></div>
+      <div class="tarjeta acento-2 fragment surgir"><h3 style="color:var(--acento-2)">Reglas difíciles de mantener</h3><p class="mediano">Tantas reglas que cambiarlas cuesta.</p></div>
+      <div class="tarjeta acento-2 fragment surgir"><h3 style="color:var(--acento-2)">Mucha información no estructurada</h3><p class="mediano">Lenguaje natural, documentos o conversaciones.</p></div>
+    </div>
+    <p class="fragment surgir" style="margin-top:26px">Si no se cumple ninguno, <b class="texto-acento">basta una solución determinista</b> (OpenAI, 2025).</p>
+    <p class="fragment surgir mediano texto-suave">Gartner lo resume así: muchos casos que hoy se presentan como agénticos no necesitan un agente.</p>
+    <aside class="notes">
+      <p>Qué decir: estos son los tres criterios de la guía de OpenAI.</p>
+      <p>La frase de Gartner viene del mismo comunicado de las cancelaciones.</p>
+      <p>Minuto acumulado: 16 de 30.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Las citas originales</h2>
+    <ul class="mediano">
+      <li>«Complex decision-making: Workflows involving nuanced judgment, exceptions, or context-sensitive decisions»</li>
+      <li>«Difficult-to-maintain rules: Systems that have become unwieldy due to extensive and intricate rulesets»</li>
+      <li>«Heavy reliance on unstructured data: Scenarios that involve interpreting natural language, extracting meaning from documents, or interacting with users conversationally»</li>
+      <li>«Otherwise, a deterministic solution may suffice.» <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf">OpenAI (2025)</a></li>
+      <li>«Many use cases positioned as agentic today don't require agentic implementations.» Gartner (2025), en la reproducción de CXOtoday.</li>
+    </ul>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 11. Paso 3: árbol -->
+<section data-min="3">
+  <span class="chip-paso">Paso <b>3</b> de 5 · Decidir</span>
+  <span class="antetitulo">Paso 3</span>
+  <h2>El árbol de decisión</h2>
+  <svg class="diagrama arbol" viewBox="0 0 1200 470" role="img" aria-label="Árbol de decisión: si una llamada basta, LLM directo; si los pasos son siempre los mismos, flujo; si el camino depende de lo que encuentra, agente; si hay subtareas de lectura que se reparten, varios agentes con cautela">
+    <defs><marker id="p11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" class="relleno-tenue"/></marker></defs>
+    <g class="fragment rama" data-fragment-index="1">
+      <g class="nodo"><rect x="20" y="20" width="560" height="74" rx="14"/><text x="300" y="66" text-anchor="middle">¿Una sola llamada al modelo resuelve la tarea?</text></g>
+      <path class="arista" d="M580 57 H696" marker-end="url(#p11)"/><text x="640" y="46" text-anchor="middle" class="t-exito t-acento" font-size="18">sí</text>
+      <g class="nodo acento"><rect x="700" y="20" width="460" height="74" rx="14"/><text x="930" y="66" text-anchor="middle" class="t-titulo">LLM directo</text></g>
+      <path class="arista" d="M300 94 V134" marker-end="url(#p11)"/><text x="316" y="122" class="t-tenue" font-size="18">no</text>
+    </g>
+    <g class="fragment rama" data-fragment-index="2">
+      <g class="nodo"><rect x="20" y="138" width="560" height="74" rx="14"/><text x="300" y="184" text-anchor="middle">¿Los pasos son siempre los mismos?</text></g>
+      <path class="arista" d="M580 175 H696" marker-end="url(#p11)"/><text x="640" y="164" text-anchor="middle" class="t-acento" font-size="18">sí</text>
+      <g class="nodo acento"><rect x="700" y="138" width="460" height="74" rx="14"/><text x="930" y="184" text-anchor="middle" class="t-titulo">Flujo</text></g>
+      <path class="arista" d="M300 212 V252" marker-end="url(#p11)"/><text x="316" y="240" class="t-tenue" font-size="18">no</text>
+    </g>
+    <g class="fragment rama" data-fragment-index="3">
+      <g class="nodo"><rect x="20" y="256" width="560" height="74" rx="14"/><text x="300" y="302" text-anchor="middle">¿El camino depende de lo que encuentra?</text></g>
+      <path class="arista" d="M580 293 H696" marker-end="url(#p11)"/><text x="640" y="282" text-anchor="middle" class="t-acento" font-size="18">sí</text>
+      <g class="nodo acento-2"><rect x="700" y="256" width="460" height="74" rx="14"/><text x="930" y="302" text-anchor="middle" class="t-titulo">Agente</text></g>
+      <path class="arista" d="M930 330 V370" marker-end="url(#p11)"/>
+    </g>
+    <g class="fragment rama" data-fragment-index="4">
+      <g class="nodo aviso"><rect x="700" y="374" width="460" height="80" rx="14"/><text x="930" y="408" text-anchor="middle" class="t-titulo">Varios agentes, con cautela</text><text x="930" y="436" text-anchor="middle" class="t-suave" font-size="17">si hay subtareas de lectura que se reparten</text></g>
+    </g>
+  </svg>
+  <p class="fragment surgir mediano" data-fragment-index="5"><b>En tu grupo:</b> ubiquen su idea en el árbol. La sesión 4 retoma este criterio con laboratorios.</p>
+  <aside class="notes">
+    <p>Qué decir: recorre el árbol de arriba abajo. Cada clic baja un nivel.</p>
+    <p>La mayoría de las ideas termina en un flujo o en un agente simple. Varios agentes solo convienen para tareas de lectura en paralelo.</p>
+    <p>Minuto acumulado: 19 de 30.</p>
+    <p>Fuentes: Anthropic (2024); OpenAI (2025); Anthropic (2025), sistema de investigación multiagente.</p>
+  </aside>
+</section>
+
+<!-- 12. Paso 4: ficha -->
+<section>
+  <section data-min="2">
+    <span class="chip-paso">Paso <b>4</b> de 5 · Redactar</span>
+    <span class="antetitulo">Paso 4</span>
+    <h2>La ficha inicial: nueve campos</h2>
+    <div class="volteo-rejilla">
+      <div class="volteo" style="--i:0"><div class="giro"><div class="frente"><span class="n">1</span>Problema y usuario</div><div class="dorso"><b>Problema y usuario</b><span>Qué resuelve el agente y para quién.</span></div></div></div>
+      <div class="volteo" style="--i:1"><div class="giro"><div class="frente"><span class="n">2</span>Tarea central</div><div class="dorso"><b>Tarea central</b><span>Qué hace el agente, en una o dos frases.</span></div></div></div>
+      <div class="volteo" style="--i:2"><div class="giro"><div class="frente"><span class="n">3</span>Entradas y salidas</div><div class="dorso"><b>Entradas y salidas</b><span>Qué recibe y qué entrega.</span></div></div></div>
+      <div class="volteo" style="--i:3"><div class="giro"><div class="frente"><span class="n">4</span>Acciones</div><div class="dorso"><b>Acciones</b><span>Consultar, calcular, escribir o enviar.</span></div></div></div>
+      <div class="volteo" style="--i:4"><div class="giro"><div class="frente"><span class="n">5</span>Criterio de éxito</div><div class="dorso"><b>Criterio de éxito</b><span>Cómo se comprueba que lo hizo bien.</span></div></div></div>
+      <div class="volteo" style="--i:5"><div class="giro"><div class="frente"><span class="n">6</span>Cinco casos</div><div class="dorso"><b>Cinco casos</b><span>Cinco entradas, cada una con su resultado esperado.</span></div></div></div>
+      <div class="volteo" style="--i:6"><div class="giro"><div class="frente"><span class="n">7</span>Datos</div><div class="dorso"><b>Datos</b><span>De dónde salen. Sintéticos o anonimizados.</span></div></div></div>
+      <div class="volteo" style="--i:7"><div class="giro"><div class="frente"><span class="n">8</span>Riesgos</div><div class="dorso"><b>Riesgos</b><span>Qué puede salir mal y qué decide una persona.</span></div></div></div>
+      <div class="volteo" style="--i:8"><div class="giro"><div class="frente"><span class="n">9</span>¿Flujo o agente?</div><div class="dorso"><b>¿Flujo o agente?</b><span>La primera hipótesis. Se revisa en la sesión 4.</span></div></div></div>
+    </div>
+    <aside class="notes">
+      <p>Qué decir: los requerimientos iniciales son esta ficha. Las tarjetas se voltean solas y muestran qué va en cada campo.</p>
+      <p>La plantilla en Word y en Markdown está en el índice de la sesión.</p>
+      <p>Minuto acumulado: 21 de 30.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Cómo llenar cada campo</h2>
+    <div class="lienzo">
+      <div class="campo"><b>Problema y usuario</b><span>Nombra el rol que sufre el problema. No el área completa.</span></div>
+      <div class="campo"><b>Tarea central</b><span>Un verbo y un objeto: clasificar reportes, resumir documentos.</span></div>
+      <div class="campo"><b>Entradas y salidas</b><span>Di el formato: texto, tabla, correo, archivo.</span></div>
+      <div class="campo"><b>Acciones</b><span>Marca cuáles solo leen y cuáles escriben o envían.</span></div>
+      <div class="campo"><b>Criterio de éxito</b><span>Algo que se cuenta o se compara con un resultado esperado.</span></div>
+      <div class="campo"><b>Cinco casos</b><span>Incluye un caso fácil, uno difícil y uno que no debería atender.</span></div>
+      <div class="campo"><b>Datos</b><span>Nunca datos personales reales. Usa datos sintéticos o anonimizados.</span></div>
+      <div class="campo"><b>Riesgos</b><span>Para cada riesgo, quién decide y cuándo.</span></div>
+      <div class="campo"><b>¿Flujo o agente?</b><span>Ubica la idea en el árbol de decisión del paso 3.</span></div>
+    </div>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 13. Paso 4: mal y bien -->
+<section data-min="2">
+  <span class="chip-paso">Paso <b>4</b> de 5 · Redactar</span>
+  <span class="antetitulo">Paso 4</span>
+  <h2>Mal escrito y bien escrito</h2>
+  <div class="columnas" style="align-items:start">
+    <div class="antes-despues">
+      <p class="mediano texto-suave" style="margin-bottom:8px">Tarea central</p>
+      <div class="ad-caja mal e1"><span class="rotulo-ad">Mal escrito</span><span class="texto-ad">«El agente ayuda con los reportes de errores.»</span></div>
+      <div class="ad-caja bien e1"><span class="rotulo-ad">Bien escrito</span><span class="texto-ad">«El agente clasifica cada reporte de error en una de cinco categorías y lo asigna al equipo responsable.»</span></div>
+    </div>
+    <div class="antes-despues">
+      <p class="mediano texto-suave" style="margin-bottom:8px">Criterio de éxito</p>
+      <div class="ad-caja mal e2"><span class="rotulo-ad">Mal escrito</span><span class="texto-ad">«Que funcione bien.»</span></div>
+      <div class="ad-caja bien e2"><span class="rotulo-ad">Bien escrito</span><span class="texto-ad">«Acierta la categoría en al menos 9 de cada 10 casos de prueba.»</span></div>
+    </div>
+  </div>
+  <span class="fragment" data-estado="bien-1"></span>
+  <span class="fragment" data-estado="bien-2"></span>
+  <aside class="notes">
+    <p>Qué decir: muestra primero las dos versiones mal escritas.</p>
+    <p>Con cada clic aparece la versión bien escrita. La buena se puede comprobar con casos.</p>
+    <p>Minuto acumulado: 23 de 30.</p>
+  </aside>
+</section>
+
+<!-- 14. Paso 4: reglas -->
+<section data-min="2">
+  <span class="chip-paso">Paso <b>4</b> de 5 · Redactar</span>
+  <span class="antetitulo">Paso 4</span>
+  <h2>Seis reglas de un buen requerimiento</h2>
+  <div class="columnas c-60-40" style="align-items:start">
+    <ol class="pasos mediano">
+      <li class="fragment surgir">Una sola tarea central, en una o dos frases.</li>
+      <li class="fragment surgir">Un criterio de éxito que se comprueba con casos.</li>
+      <li class="fragment surgir">Cinco casos, cada uno con su entrada y su resultado esperado.</li>
+      <li class="fragment surgir">Lo que el agente nunca debe hacer, escrito.</li>
+      <li class="fragment surgir">Los puntos en que decide una persona.</li>
+      <li class="fragment surgir">Un costo máximo por tarea y un tiempo de respuesta aceptable.</li>
+    </ol>
+    <div class="tarjeta exito fragment surgir">
+      <h3 style="color:var(--exito)">Tus primeras pruebas</h3>
+      <p>El criterio de éxito y los cinco casos son las primeras pruebas de tu agente.</p>
+      <p class="mediano texto-suave" style="margin-top:10px">En el curso, cada etapa del agente se prueba.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: estas reglas convierten una idea en algo que se puede construir y probar.</p>
+    <p>No adelantes la capa de evaluación de los laboratorios. Basta decir que todo se prueba.</p>
+    <p>Minuto acumulado: 25 de 30.</p>
+  </aside>
+</section>
+
+<!-- 15. Paso 5: escalera -->
+<section>
+  <section data-min="2.5">
+    <span class="chip-paso">Paso <b>5</b> de 5 · Elegir la pila</span>
+    <span class="antetitulo">Paso 5</span>
+    <h2>La escalera de cinco niveles</h2>
+    <div class="columnas c-60-40" style="align-items:center">
+      <div class="escena3d escalera3d-envoltura" style="height:460px" aria-label="Escalera de cinco niveles: LLM directo, flujo, agente con herramientas, agente con conocimiento y memoria, y orquestación">
+        <div class="escalera3d escalera-chica">
+          <div class="peldano" style="--i:0; --c: var(--acento)"><div class="rotulo"><span class="num">1</span></div></div>
+          <div class="peldano" style="--i:1; --c: color-mix(in srgb, var(--acento) 70%, var(--acento-2))"><div class="rotulo"><span class="num">2</span></div></div>
+          <div class="peldano" style="--i:2; --c: color-mix(in srgb, var(--acento) 45%, var(--acento-2))"><div class="rotulo"><span class="num">3</span></div></div>
+          <div class="peldano" style="--i:3; --c: color-mix(in srgb, var(--acento) 20%, var(--acento-2))"><div class="rotulo"><span class="num">4</span></div></div>
+          <div class="peldano" style="--i:4; --c: var(--acento-2)"><div class="rotulo"><span class="num">5</span></div></div>
+        </div>
+      </div>
+      <ol class="niveles-pila">
+        <li class="fragment surgir" style="--c: var(--acento)">LLM directo<small>Sesiones 2 y 3</small></li>
+        <li class="fragment surgir" style="--c: color-mix(in srgb, var(--acento) 70%, var(--acento-2))">Flujo<small>Sesión 4</small></li>
+        <li class="fragment surgir" style="--c: color-mix(in srgb, var(--acento) 45%, var(--acento-2))">Agente con herramientas<small>Sesiones 4 y 5</small></li>
+        <li class="fragment surgir" style="--c: color-mix(in srgb, var(--acento) 20%, var(--acento-2))">Agente con conocimiento y memoria<small>Sesión 6</small></li>
+        <li class="fragment surgir" style="--c: var(--acento-2)">Orquestación<small>Sesión 7</small></li>
+      </ol>
+    </div>
+    <p class="mediano" style="margin-top:0">Todos los proyectos usan LangGraph y LangChain. Cambian las piezas que usa cada grupo.</p>
+    <aside class="notes">
+      <p>Qué decir: cada peldaño agrega piezas. Los grupos suben solo lo necesario.</p>
+      <p>Cada clic muestra un nivel de la lista, del más simple al más complejo.</p>
+      <p>La vertical tiene la tabla completa: cuándo usar cada nivel y qué piezas lleva.</p>
+      <p>Minuto acumulado: 27.5 de 30.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Los cinco niveles de la pila</h2>
+    <table class="tabla-datos">
+      <thead><tr><th>Nivel</th><th>Cuándo usarlo</th><th>Piezas del stack</th><th>Sesión</th></tr></thead>
+      <tbody>
+        <tr><td>1. LLM directo</td><td>Una sola llamada resuelve la tarea</td><td>Un modelo de chat de LangChain con salida estructurada</td><td>2 y 3</td></tr>
+        <tr><td>2. Flujo</td><td>Los pasos son siempre los mismos</td><td>Un grafo de LangGraph con nodos y aristas condicionales</td><td>4</td></tr>
+        <tr><td>3. Agente con herramientas</td><td>El camino depende de lo que encuentra</td><td><code>create_agent</code>, herramientas con <code>@tool</code> y MCP si conecta otros sistemas</td><td>4 y 5</td></tr>
+        <tr><td>4. Agente con conocimiento y memoria</td><td>Necesita documentos propios o recordar entre conversaciones</td><td>Búsqueda sobre un índice, checkpointer y store</td><td>6</td></tr>
+        <tr><td>5. Orquestación</td><td>Hay subtareas separables o acciones de riesgo</td><td>Supervisor y subagentes, guardrails y aprobación humana</td><td>7</td></tr>
+      </tbody>
+    </table>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 16. Paso 5: piezas comunes -->
+<section data-min="1.5">
+  <span class="chip-paso">Paso <b>5</b> de 5 · Elegir la pila</span>
+  <span class="antetitulo">Paso 5</span>
+  <h2>Piezas comunes y la regla</h2>
+  <div class="columnas-4">
+    <div class="tarjeta fragment surgir"><h3>Modelo por API</h3><p class="chico">Claude Haiku 5.5 o Gemini.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Pruebas</h3><p class="chico">De cada etapa del agente.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Trazas</h3><p class="chico">Locales, para ver cada paso.</p></div>
+    <div class="tarjeta fragment surgir"><h3>React</h3><p class="chico">Solo si el proyecto necesita interfaz.</p></div>
+  </div>
+  <div class="tarjeta acento fragment surgir" style="margin-top:28px">
+    <p class="grande"><b>La regla:</b> elige el nivel más bajo que resuelva la tarea.</p>
+    <p class="mediano texto-suave">Sube de nivel solo cuando las pruebas muestren que hace falta.</p>
+  </div>
+  <p class="fragment surgir chico texto-suave" style="margin-top:14px">Fuera del curso, una automatización simple podría resolverse con una plataforma low-code, como vimos en la charla 1.</p>
+  <aside class="notes">
+    <p>Qué decir: estas cuatro piezas están en todos los niveles.</p>
+    <p>La regla evita el error más común: construir varios agentes cuando bastaba un flujo.</p>
+    <p>Minuto acumulado: 29 de 30.</p>
+  </aside>
+</section>
+
+<!-- 17. Cierre: cinco pasos -->
+<section data-min="0.5">
+  <span class="antetitulo">Cierre</span>
+  <h2>Los cinco pasos</h2>
+  <div class="camino">
+    <div class="estacion activa"><div class="disco">1</div><h4>Idear</h4><p>Tres tareas, una elegida</p></div>
+    <div class="estacion activa"><div class="disco">2</div><h4>Revisar</h4><p>La lista de seis casillas</p></div>
+    <div class="estacion activa"><div class="disco">3</div><h4>Decidir</h4><p>El árbol de decisión</p></div>
+    <div class="estacion activa"><div class="disco">4</div><h4>Redactar</h4><p>La ficha inicial</p></div>
+    <div class="estacion activa"><div class="disco">5</div><h4>Elegir la pila</h4><p>El nivel más bajo que sirva</p></div>
+  </div>
+  <p class="mediano" style="margin-top:34px">Después de la pausa, cada grupo recorre estos pasos con su idea.</p>
+  <aside class="notes">
+    <p>Qué decir: estos pasos son el orden del trabajo en grupos.</p>
+    <p>Minuto acumulado: 29.5 de 30.</p>
+  </aside>
+</section>
+
+<!-- 18. Lectura de la sesión 2 -->
+<section data-min="0.5">
+  <span class="antetitulo">Para la sesión 2</span>
+  <h2>La lectura de la sesión 2</h2>
+  <div class="columnas c-60-40">
+    <div>
+      <p><b>Lee y Trott (2023).</b> <em>Large language models, explained with a minimum of math and jargon</em>. Understanding AI.</p>
+      <p class="mediano">Hay una traducción autorizada al español: <em>Grandes modelos de lenguaje (LLM): una explicación con un mínimo de matemáticas y tecnicismos</em> (2024).</p>
+      <p class="mediano texto-suave">Entre 35 y 45 minutos. Las preguntas guía están en el trabajo independiente.</p>
+      <p class="chico"><a href="https://www.understandingai.org/p/grandes-modelos-de-lenguaje-llm-una">Versión en español</a> · <a href="https://www.understandingai.org/p/large-language-models-explained-with">Versión original</a></p>
+    </div>
+    <figure class="figura"><img src="assets/img/lee_trott_transformer_es.png" alt="Diagrama del artículo que muestra cómo las capas de un modelo procesan la frase «John busca en su banco cambio de un»"></figure>
+  </div>
+  <p class="credito">Imagen: Lee y Trott, traducción al español de Rubén Alvarez Escobar y Sylvia Elena Rodríguez (2024). <a href="https://www.understandingai.org/p/grandes-modelos-de-lenguaje-llm-una">Understanding AI</a></p>
+  <aside class="notes">
+    <p>Qué decir: la lectura explica, sin matemáticas, cómo un modelo predice la siguiente palabra.</p>
+    <p>Recomienda la versión en español. Se discute en el club de lectura de la sesión 2.</p>
+    <p>Minuto acumulado: 30 de 30.</p>
+  </aside>
+</section>
+
+<!-- 19. Referencias -->
+<section data-min="0">
+  <span class="antetitulo">Para profundizar</span>
+  <h2>Referencias</h2>
+  <div class="referencias">
+    <p>Anthropic (2024, 19 de diciembre). <em>Building effective agents</em>. <a href="https://www.anthropic.com/engineering/building-effective-agents">anthropic.com</a></p>
+    <p>Anthropic (2025, 13 de junio). <em>How we built our multi-agent research system</em>. <a href="https://www.anthropic.com/engineering/multi-agent-research-system">anthropic.com</a></p>
+    <p>Anthropic (2025). <em>Project Vend</em>, fases 1 y 2. <a href="https://www.anthropic.com/research/project-vend-1">fase 1</a> · <a href="https://www.anthropic.com/research/project-vend-2">fase 2</a></p>
+    <p>OpenAI (2025). <em>A practical guide to building agents</em>. <a href="https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf">cdn.openai.com</a></p>
+    <p>Gartner (2025, 25 de junio). <em>Gartner Predicts Over 40% of Agentic AI Projects Will Be Canceled by End of 2027</em>. Leído en la reproducción de <a href="https://cxotoday.com/media-coverage/gartner-predicts-over-40-of-agentic-ai-projects-will-be-canceled-by-end-of-2027/">CXOtoday</a></p>
+    <p>Singla et al. (2025). <em>The state of AI in 2025: Agents, innovation, and transformation</em>. McKinsey. <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai">mckinsey.com</a></p>
+    <p>Challapally et al. (2025). <em>The GenAI Divide: State of AI in Business 2025</em>. MIT NANDA.</p>
+    <p>Rastenis et al. (2026). <em>Automated Software Test Generation at Industry Scale Using a Multi-Agent Architecture and Workflow Integration</em>. ICSE-SEIP '26. <a href="https://homes.cs.washington.edu/~rjust/publ/auto_cover_icse_2026.pdf">PDF</a></p>
+    <p>Klarna (2024, 27 de febrero). <em>Klarna AI assistant handles two-thirds of customer service chats in its first month</em>. <a href="https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/">klarna.com</a></p>
+    <p>Truell, M. (2025, 15 de abril). Comentario sobre el bot de soporte de Cursor. <a href="https://news.ycombinator.com/item?id=43700931">Hacker News</a></p>
+    <p>Replit (2025, 21 de julio). <em>Introducing a safer way to vibe code with Replit databases</em>. <a href="https://replit.com/blog/introducing-a-safer-way-to-vibe-code-with-replit-databases">replit.com</a></p>
+    <p>Lee, T. B. y Trott, S. (2023, 27 de julio). <em>Large language models, explained with a minimum of math and jargon</em>. <a href="https://www.understandingai.org/p/large-language-models-explained-with">Understanding AI</a></p>
+  </div>
+  <aside class="notes"><p>Referencias de la charla. Sin tiempo de clase.</p></aside>
+</section>
+
+</div>
+</div>
+<script src="assets/vendor/reveal.js-6.0.2/reveal.js"></script>
+<script src="assets/vendor/reveal.js-6.0.2/plugin/notes.js"></script>
+<script src="assets/js/deck.js"></script>
+</body>
+</html>
