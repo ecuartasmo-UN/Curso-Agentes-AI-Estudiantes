@@ -118,6 +118,68 @@
   </aside>
 </section>
 
+<!-- 4b. Tokens especiales: la conversación como la recibe Llama 3.1 -->
+<section data-min="0">
+  <span class="antetitulo">Parte 1 · Tokens y tokenizer</span>
+  <h2>Los tokens especiales marcan la conversación</h2>
+  <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; font-size:20px; line-height:1.25">
+    <span class="rol" style="margin:0">Envías</span>
+    <span style="padding:7px 15px; border-radius:999px; background:var(--superficie-2); border:1px solid var(--borde)"><b style="color:var(--acento-2)">system</b> · Traduces al inglés.</span>
+    <span style="padding:7px 15px; border-radius:999px; background:var(--superficie-2); border:1px solid var(--borde)"><b style="color:var(--acento-2)">user</b> · Los desarrolladores documentaron la tokenización del modelo.</span>
+  </div>
+  <div class="columnas" style="grid-template-columns:1.7fr 1fr; gap:26px; align-items:start; margin-top:18px">
+    <div class="fragment" aria-label="La conversación como la recibe Llama 3.1: tokens especiales, roles y texto en una sola fila">
+      <span class="rol">Recibe Llama 3.1 · 32 tokens: 17 de tus mensajes y 15 de formato</span>
+      <div style="font-size:20px; line-height:1.2">
+        <div style="margin:9px 0"><span class="chip-token" style="--c: var(--acento-3); font:600 15px/1.15 ui-monospace,'SF Mono',Menlo,Consolas,monospace; padding:5px 9px 3px; margin:0 4px 0 0">&lt;|begin_of_text|&gt;<small>128000</small></span><span class="chip-token" style="--c: var(--acento-3); font:600 15px/1.15 ui-monospace,'SF Mono',Menlo,Consolas,monospace; padding:5px 9px 3px; margin:0 4px">&lt;|start_header_id|&gt;<small>128006</small></span><b style="color:var(--acento-2)" title="token 9125">system</b><span class="chip-token" style="--c: var(--acento-3); font:600 15px/1.15 ui-monospace,'SF Mono',Menlo,Consolas,monospace; padding:5px 9px 3px; margin:0 4px">&lt;|end_header_id|&gt;<small>128007</small></span><span style="color:var(--texto-tenue); font-weight:700" title="token 271: dos saltos de línea">↵↵</span></div>
+        <div style="margin:9px 0"><span style="border-bottom:3px solid var(--t1)" title="token 43934">Trad</span><span style="border-bottom:3px solid var(--t4)" title="token 63371">uces</span><span style="border-bottom:3px solid var(--t5)" title="token 453"> al</span><span style="border-bottom:3px solid var(--t6)" title="token 98925"> ingl</span><span style="border-bottom:3px solid var(--t1)" title="token 5512">és</span><span style="border-bottom:3px solid var(--t4)" title="token 13">.</span><span class="chip-token" style="--c: var(--acento-3); font:600 15px/1.15 ui-monospace,'SF Mono',Menlo,Consolas,monospace; padding:5px 9px 3px; margin:0 4px">&lt;|eot_id|&gt;<small>128009</small></span></div>
+        <div style="margin:9px 0"><span class="chip-token" style="--c: var(--acento-3); font:600 15px/1.15 ui-monospace,'SF Mono',Menlo,Consolas,monospace; padding:5px 9px 3px; margin:0 4px 0 0">&lt;|start_header_id|&gt;<small>128006</small></span><b style="color:var(--acento-2)" title="token 882">user</b><span class="chip-token" style="--c: var(--acento-3); font:600 15px/1.15 ui-monospace,'SF Mono',Menlo,Consolas,monospace; padding:5px 9px 3px; margin:0 4px">&lt;|end_header_id|&gt;<small>128007</small></span><span style="color:var(--texto-tenue); font-weight:700" title="token 271: dos saltos de línea">↵↵</span></div>
+        <div style="margin:9px 0"><span style="border-bottom:3px solid var(--t1)" title="token 30696">Los</span><span style="border-bottom:3px solid var(--t4)" title="token 64796"> desarroll</span><span style="border-bottom:3px solid var(--t5)" title="token 18745">adores</span><span style="border-bottom:3px solid var(--t6)" title="token 2246"> document</span><span style="border-bottom:3px solid var(--t1)" title="token 13055">aron</span><span style="border-bottom:3px solid var(--t4)" title="token 1208"> la</span><span style="border-bottom:3px solid var(--t5)" title="token 4037"> token</span><span style="border-bottom:3px solid var(--t6)" title="token 42600">ización</span><span style="border-bottom:3px solid var(--t1)" title="token 1624"> del</span><span style="border-bottom:3px solid var(--t4)" title="token 37042"> modelo</span><span style="border-bottom:3px solid var(--t5)" title="token 13">.</span><span class="chip-token" style="--c: var(--acento-3); font:600 15px/1.15 ui-monospace,'SF Mono',Menlo,Consolas,monospace; padding:5px 9px 3px; margin:0 4px">&lt;|eot_id|&gt;<small>128009</small></span></div>
+        <div style="margin:9px 0"><span class="chip-token" style="--c: var(--acento-3); font:600 15px/1.15 ui-monospace,'SF Mono',Menlo,Consolas,monospace; padding:5px 9px 3px; margin:0 4px 0 0">&lt;|start_header_id|&gt;<small>128006</small></span><b style="color:var(--acento-2)" title="token 78191">assistant</b><span class="chip-token" style="--c: var(--acento-3); font:600 15px/1.15 ui-monospace,'SF Mono',Menlo,Consolas,monospace; padding:5px 9px 3px; margin:0 4px">&lt;|end_header_id|&gt;<small>128007</small></span><span style="color:var(--texto-tenue); font-weight:700" title="token 271: dos saltos de línea">↵↵</span></div>
+        <div class="fragment" style="margin:14px 0 0"><span style="display:inline-block; padding:6px 14px; border:2px dashed var(--acento); border-radius:10px; color:var(--acento); font-weight:600">Aquí escribe el modelo, un token a la vez</span> <span class="texto-suave">y para con</span><span class="chip-token" style="--c: var(--acento-3); border-style:dashed; font:600 15px/1.15 ui-monospace,'SF Mono',Menlo,Consolas,monospace; padding:5px 9px 3px; margin:0 4px">&lt;|eot_id|&gt;<small>128009</small></span></div>
+      </div>
+    </div>
+    <div class="fragment surgir" style="display:grid; gap:10px">
+      <div class="tarjeta" style="padding:10px 16px">
+        <code style="font:600 16px/1.3 ui-monospace,'SF Mono',Menlo,Consolas,monospace; color:var(--acento-3)">&lt;|begin_of_text|&gt;</code>
+        <p style="font-size:19px; line-height:1.3; margin-top:3px">Marca el inicio del texto.</p>
+        <p style="font-size:16px; line-height:1.3; margin-top:3px; color:var(--texto-tenue)">En Llama 4 se llama igual.</p>
+      </div>
+      <div class="tarjeta" style="padding:10px 16px">
+        <code style="font:600 16px/1.3 ui-monospace,'SF Mono',Menlo,Consolas,monospace; color:var(--acento-3)">&lt;|start_header_id|&gt;</code> <span style="font-size:16px">y</span> <code style="font:600 16px/1.3 ui-monospace,'SF Mono',Menlo,Consolas,monospace; color:var(--acento-3)">&lt;|end_header_id|&gt;</code>
+        <p style="font-size:19px; line-height:1.3; margin-top:3px">Encierran el rol de cada mensaje.</p>
+        <p style="font-size:16px; line-height:1.3; margin-top:3px; color:var(--texto-tenue)">En Llama 4: <code style="font:600 15px/1.3 ui-monospace,'SF Mono',Menlo,Consolas,monospace; color:var(--texto-suave)">&lt;|header_start|&gt;</code> y <code style="font:600 15px/1.3 ui-monospace,'SF Mono',Menlo,Consolas,monospace; color:var(--texto-suave)">&lt;|header_end|&gt;</code>.</p>
+      </div>
+      <div class="tarjeta" style="padding:10px 16px">
+        <code style="font:600 16px/1.3 ui-monospace,'SF Mono',Menlo,Consolas,monospace; color:var(--acento-3)">&lt;|eot_id|&gt;</code>
+        <p style="font-size:19px; line-height:1.3; margin-top:3px">Cierra cada turno (end of turn). Cuando el modelo lo genera, termina su respuesta.</p>
+        <p style="font-size:16px; line-height:1.3; margin-top:3px; color:var(--texto-tenue)">En Llama 4: <code style="font:600 15px/1.3 ui-monospace,'SF Mono',Menlo,Consolas,monospace; color:var(--texto-suave)">&lt;|eot|&gt;</code>.</p>
+      </div>
+      <p class="texto-suave" style="font-size:16px; line-height:1.35; margin:0">Llama 3.1 tiene 128 000 tokens normales y reserva 256 números para los especiales. Llama 4: 200 000 y 2 048.</p>
+    </div>
+  </div>
+  <p class="credito">Tokenizer y plantilla oficiales de Llama 3.1 (Meta, 2024) y Llama 4 (Meta, 2025): repositorio <a href="https://github.com/meta-llama/llama-models">meta-llama/llama-models</a>. Cálculo propio con tiktoken 0.14.0. Consulta: 25 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: una conversación no le llega al modelo como una lista de mensajes. Le llega como una sola fila de tokens.</p>
+    <p>Arriba están los dos mensajes que envías por API: uno de sistema y uno de usuario.</p>
+    <p>Clic 1: así los recibe Llama 3.1, un modelo de pesos abiertos de Meta.</p>
+    <p>Las fichas rosadas son tokens especiales. No son texto: marcan el inicio, los roles y el fin de cada turno.</p>
+    <p>El rol va como texto normal, entre dos marcas. «system» es el token 9125.</p>
+    <p>Las flechas son dos saltos de línea. También son un token: el 271.</p>
+    <p>La frase del ejemplo se corta en los mismos 11 trozos que con o200k_base. Cambian los números: « token» es el 4037, no el 6602.</p>
+    <p>Clic 2: la fila termina con el encabezado de assistant. Desde ahí escribe el modelo, un token a la vez.</p>
+    <p>Cuando el modelo genera &lt;|eot_id|&gt;, su respuesta termina.</p>
+    <p>Clic 3: las tres marcas. Llama 4 usa las mismas ideas, con otros nombres y otros números.</p>
+    <p>En Llama 4, &lt;|begin_of_text|&gt; es el 200000, &lt;|header_start|&gt; el 200005, &lt;|header_end|&gt; el 200006 y &lt;|eot|&gt; el 200008.</p>
+    <p>Dato: 15 de los 32 tokens son de formato: 9 especiales, 3 roles y 3 saltos de línea. Ocupan la ventana de contexto como cualquier token.</p>
+    <p>Con Claude o Gemini no ves este formato: la API lo arma por ti.</p>
+    <p>Llama 3.1 tiene más marcas, por ejemplo para llamar herramientas.</p>
+    <p>Fuente: tokenizer.model, tokenizer.py y chat_format.py de Llama 3 y Llama 4, en el repositorio oficial de Meta. Cálculo propio con tiktoken 0.14.0.</p>
+    <p>Esta diapositiva no tiene minutos en el plan de 60. Si la usas, toma 1.5 minutos de la demostración opcional.</p>
+    <p>Minuto acumulado: 5 de 60.</p>
+  </aside>
+</section>
+
 <!-- 5. El vocabulario -->
 <section data-min="1.5">
   <span class="antetitulo">Parte 1 · Tokens y tokenizer</span>
