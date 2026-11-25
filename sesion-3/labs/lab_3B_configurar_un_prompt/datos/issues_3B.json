@@ -1,0 +1,240 @@
+{
+  "laboratorio": "3B",
+  "version": "2026-11-24",
+  "app": "FotoNube, una app de fotos ficticia creada para el curso",
+  "etiquetas": {
+    "error": "algo no funciona como debe",
+    "mejora": "una función nueva o un cambio que alguien pide",
+    "documentación": "algo que falta o está mal en la documentación",
+    "pregunta": "alguien pide información, sin reportar un fallo"
+  },
+  "etiquetas_github": {
+    "error": "bug",
+    "mejora": "enhancement",
+    "documentación": "documentation",
+    "pregunta": "question"
+  },
+  "piezas": {
+    "base": "Etiqueta el issue del repositorio de FotoNube con una sola etiqueta: error, mejora, documentación o pregunta.",
+    "ejemplos": "<ejemplos>\nLa app se cierra al abrir un álbum vacío. → error\nAgregar un modo oscuro a la galería. → mejora\nEl README no explica cómo correr las pruebas. → documentación\n</ejemplos>",
+    "cuatro_ejemplos": "<ejemplos>\nLa app se cierra al abrir un álbum vacío. → error\nAgregar un modo oscuro a la galería. → mejora\nEl README no explica cómo correr las pruebas. → documentación\n¿Se pueden recuperar las fotos de la papelera? → pregunta\n</ejemplos>",
+    "formato": "Responde solo con la etiqueta, en minúsculas y sin explicación.",
+    "cadena": "Antes de responder, razona paso a paso. Al final escribe: Etiqueta: <etiqueta>.",
+    "definiciones": "Las etiquetas:\n- error: algo no funciona como debe.\n- mejora: una función nueva o un cambio que alguien pide.\n- documentación: algo que falta o está mal en la documentación.\n- pregunta: alguien pide información, sin reportar un fallo.",
+    "explicacion_corta": "Explica en una frase por qué eliges la etiqueta. Al final escribe: Etiqueta: <etiqueta>."
+  },
+  "ejemplos_turnos": [
+    {
+      "texto": "La app se cierra al abrir un álbum vacío.",
+      "etiqueta": "error"
+    },
+    {
+      "texto": "Agregar un modo oscuro a la galería.",
+      "etiqueta": "mejora"
+    },
+    {
+      "texto": "El README no explica cómo correr las pruebas.",
+      "etiqueta": "documentación"
+    }
+  ],
+  "plantilla_usuario": "<issue>\n{issue}\n</issue>",
+  "variantes": {
+    "sin_ejemplos": {
+      "nombre": "Sin ejemplos",
+      "piezas": [
+        "base"
+      ],
+      "de_clase": true,
+      "agrega": "La instrucción base, sola"
+    },
+    "tres_ejemplos": {
+      "nombre": "Con tres ejemplos",
+      "piezas": [
+        "base",
+        "ejemplos"
+      ],
+      "de_clase": true,
+      "agrega": "Tres issues ya etiquetados"
+    },
+    "formato": {
+      "nombre": "Con formato explícito",
+      "piezas": [
+        "base",
+        "formato"
+      ],
+      "de_clase": true,
+      "agrega": "«Responde solo con la etiqueta, en minúsculas y sin explicación»"
+    },
+    "cadena": {
+      "nombre": "Con cadena de pensamiento",
+      "piezas": [
+        "base",
+        "cadena"
+      ],
+      "de_clase": true,
+      "agrega": "«Antes de responder, razona paso a paso», y la etiqueta al final"
+    },
+    "ejemplos_formato": {
+      "nombre": "Tres ejemplos y formato",
+      "piezas": [
+        "base",
+        "ejemplos",
+        "formato"
+      ],
+      "parte_de": "tres_ejemplos",
+      "cambio": "agrega el formato explícito"
+    },
+    "ejemplos_cadena": {
+      "nombre": "Tres ejemplos y cadena",
+      "piezas": [
+        "base",
+        "ejemplos",
+        "cadena"
+      ],
+      "parte_de": "tres_ejemplos",
+      "cambio": "agrega la cadena de pensamiento"
+    },
+    "cuatro_ejemplos": {
+      "nombre": "Cuatro ejemplos",
+      "piezas": [
+        "base",
+        "cuatro_ejemplos"
+      ],
+      "parte_de": "tres_ejemplos",
+      "cambio": "agrega un cuarto ejemplo, con la etiqueta «pregunta»"
+    },
+    "definiciones": {
+      "nombre": "Con definiciones",
+      "piezas": [
+        "base",
+        "definiciones"
+      ],
+      "parte_de": "sin_ejemplos",
+      "cambio": "agrega una definición de cada etiqueta"
+    },
+    "ejemplos_turnos": {
+      "nombre": "Ejemplos como turnos",
+      "piezas": [
+        "base"
+      ],
+      "turnos": true,
+      "parte_de": "tres_ejemplos",
+      "cambio": "pasa los tres ejemplos a turnos de la conversación"
+    },
+    "explicacion_corta": {
+      "nombre": "Explicación corta",
+      "piezas": [
+        "base",
+        "explicacion_corta"
+      ],
+      "parte_de": "cadena",
+      "cambio": "cambia «razona paso a paso» por una explicación de una frase"
+    }
+  },
+  "razonamiento": {
+    "variante": "sin_ejemplos",
+    "escenarios": {
+      "razonamiento_medio": "medium",
+      "razonamiento_alto": "high"
+    },
+    "max_tokens": 2048
+  },
+  "consistencia_k": 3,
+  "caso_guia": "I-01",
+  "ejercicio_2": [
+    "I-11",
+    "I-12"
+  ],
+  "salida_supuesta": {
+    "sin_ejemplos": 6,
+    "tres_ejemplos": 3,
+    "formato": 2,
+    "cadena": 110
+  },
+  "base": [
+    {
+      "caso_id": "I-01",
+      "tipo_caso": "normal",
+      "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla.",
+      "etiqueta": "error",
+      "por_que": "Es el issue guía de las diapositivas: un botón que no se puede usar no funciona como debe."
+    },
+    {
+      "caso_id": "I-02",
+      "tipo_caso": "normal",
+      "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos.",
+      "etiqueta": "error",
+      "por_que": "La app se cierra: no funciona como debe."
+    },
+    {
+      "caso_id": "I-03",
+      "tipo_caso": "normal",
+      "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas.",
+      "etiqueta": "mejora",
+      "por_que": "Pide algo que la app no tiene."
+    },
+    {
+      "caso_id": "I-04",
+      "tipo_caso": "normal",
+      "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto.",
+      "etiqueta": "mejora",
+      "por_que": "Propone una función nueva."
+    },
+    {
+      "caso_id": "I-05",
+      "tipo_caso": "normal",
+      "entrada": "La guía de instalación no dice qué versión de Node.js se necesita.",
+      "etiqueta": "documentación",
+      "por_que": "Falta un dato en la documentación."
+    },
+    {
+      "caso_id": "I-06",
+      "tipo_caso": "normal",
+      "entrada": "El README tiene un enlace roto a la guía para contribuir.",
+      "etiqueta": "documentación",
+      "por_que": "Lo que está mal es la documentación, no la app."
+    },
+    {
+      "caso_id": "I-07",
+      "tipo_caso": "normal",
+      "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?",
+      "etiqueta": "pregunta",
+      "por_que": "Pide información y no reporta un fallo."
+    },
+    {
+      "caso_id": "I-08",
+      "tipo_caso": "normal",
+      "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?",
+      "etiqueta": "pregunta",
+      "por_que": "Pide información y no reporta un fallo."
+    },
+    {
+      "caso_id": "I-09",
+      "tipo_caso": "borde",
+      "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?",
+      "etiqueta": "error",
+      "por_que": "Está escrito como pregunta, pero reporta un fallo: la app se cierra."
+    },
+    {
+      "caso_id": "I-10",
+      "tipo_caso": "borde",
+      "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho.",
+      "etiqueta": "mejora",
+      "por_que": "Suena a queja, pero nada falla: pide algo que la app no tiene."
+    },
+    {
+      "caso_id": "I-11",
+      "tipo_caso": "ambiguo",
+      "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe.",
+      "pista": "¿Falla la app, o falla lo que dice la documentación?",
+      "huella_etiqueta": "46d6b32eba3f"
+    },
+    {
+      "caso_id": "I-12",
+      "tipo_caso": "mal escrito",
+      "entrada": "no sale nada cuando busco fotos x fecha, esta roto??",
+      "pista": "Lee más allá de la forma: ¿qué le pasa a la búsqueda por fecha?",
+      "huella_etiqueta": "32d7ca760b9b"
+    }
+  ]
+}

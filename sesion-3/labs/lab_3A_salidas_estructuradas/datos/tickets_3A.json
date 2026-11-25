@@ -1,0 +1,434 @@
+{
+  "laboratorio": "3A",
+  "version": "2026-11-24",
+  "app": "FotoNube, una app de fotos ficticia creada para el curso",
+  "categorias": {
+    "fallo de la app": "la app se cierra, se congela o una función no hace lo que debe",
+    "rendimiento": "la app funciona, pero va lenta o gasta mucha batería, memoria o datos",
+    "interfaz": "textos, colores, botones o pantallas que se ven mal",
+    "cuenta y acceso": "problemas para entrar, registrarse o recuperar la cuenta",
+    "solicitud de función": "una idea o un pedido de algo que la app no tiene"
+  },
+  "reglas_prioridad": {
+    "alta": "la app se cierra o se congela, aunque sea una sola vez; se pierden fotos o cambios; o falla el acceso a la cuenta",
+    "media": "una función falla o la app va lenta, pero la persona puede seguir usándola",
+    "baja": "detalles visuales, textos o sugerencias",
+    "varios problemas": "si el ticket trae varios problemas, se clasifica el más grave"
+  },
+  "plataformas": {
+    "Android": "teléfonos y tabletas Android, como Pixel, Samsung Galaxy o Xiaomi",
+    "iOS": "iPhone y iPad",
+    "web": "el navegador"
+  },
+  "instruccion_texto_libre": "Lee el ticket de soporte de FotoNube, una app de fotos. Asígnale una categoría y una prioridad.",
+  "instrucciones": {
+    "basica": "Lee el ticket de soporte de FotoNube, una app de fotos. Asígnale una categoría y una prioridad. Responde con los campos del esquema.",
+    "con_reglas": "Lee el ticket de soporte de FotoNube, una app de fotos. Asígnale una categoría y una prioridad. Responde con los campos del esquema.\n\nCategorías:\n- fallo de la app: la app se cierra, se congela o una función no hace lo que debe.\n- rendimiento: la app funciona, pero va lenta o gasta mucha batería, memoria o datos.\n- interfaz: textos, colores, botones o pantallas que se ven mal.\n- cuenta y acceso: problemas para entrar, registrarse o recuperar la cuenta.\n- solicitud de función: una idea o un pedido de algo que la app no tiene.\n\nPrioridades:\n- alta: la app se cierra o se congela, aunque sea una sola vez; se pierden fotos o cambios; o falla el acceso a la cuenta.\n- media: una función falla o la app va lenta, pero la persona puede seguir usándola.\n- baja: detalles visuales, textos o sugerencias.\nSi el ticket trae varios problemas, clasifica el más grave.\n\nPlataforma: Android para teléfonos y tabletas Android; iOS para iPhone y iPad; web para el navegador.\nSi un dato no está en el ticket, déjalo vacío (null). No lo inventes.\nEscribe el resumen en español, en una frase de 15 palabras o menos."
+  },
+  "caso_guia": "T-01",
+  "max_tokens_corto": 24,
+  "limite_resumen_palabras": 20,
+  "ejercicio_2": [
+    "T-11",
+    "T-12"
+  ],
+  "casa": {
+    "instruccion": "con_reglas",
+    "plataforma_obligatoria": false,
+    "version_obligatoria": false
+  },
+  "base": [
+    {
+      "caso_id": "T-01",
+      "tipo_caso": "normal",
+      "entrada": "Desde ayer la app se cierra cada vez que subo una foto desde la galería. Uso un Pixel 8 con Android 15 y la versión 4.2.1. Con fotos pequeñas no pasa.",
+      "esperado": {
+        "categoria": "fallo de la app",
+        "prioridad": "alta",
+        "plataforma": "Android",
+        "version_app": "4.2.1",
+        "resumen": "La app se cierra al subir fotos grandes desde la galería"
+      },
+      "por_que": "Es el caso guía: la app se cierra. Trae la plataforma y la versión."
+    },
+    {
+      "caso_id": "T-02",
+      "tipo_caso": "normal",
+      "entrada": "En el iPhone 15, con la versión 4.2.0, la galería siempre tarda casi un minuto en mostrar las miniaturas.",
+      "esperado": {
+        "categoria": "rendimiento",
+        "prioridad": "media",
+        "plataforma": "iOS",
+        "version_app": "4.2.0",
+        "resumen": "La galería tarda casi un minuto en mostrar las miniaturas"
+      },
+      "por_que": "La app funciona, pero va lenta."
+    },
+    {
+      "caso_id": "T-03",
+      "tipo_caso": "normal",
+      "entrada": "En la versión web, el botón Compartir aparece cortado en el menú de cada foto.",
+      "esperado": {
+        "categoria": "interfaz",
+        "prioridad": "baja",
+        "plataforma": "web",
+        "version_app": null,
+        "resumen": "El botón Compartir aparece cortado en el menú de las fotos"
+      },
+      "por_que": "Es un detalle visual. «Versión web» habla de la plataforma, no de un número de versión."
+    },
+    {
+      "caso_id": "T-04",
+      "tipo_caso": "normal",
+      "entrada": "No puedo iniciar sesión en la app de Android: dice que mi contraseña es incorrecta, aunque la acabo de cambiar. Tengo la versión 4.1.8.",
+      "esperado": {
+        "categoria": "cuenta y acceso",
+        "prioridad": "alta",
+        "plataforma": "Android",
+        "version_app": "4.1.8",
+        "resumen": "No puede iniciar sesión: la app rechaza la contraseña recién cambiada"
+      },
+      "por_que": "Falla el acceso a la cuenta."
+    },
+    {
+      "caso_id": "T-05",
+      "tipo_caso": "normal",
+      "entrada": "Sería útil poder ordenar los álbumes por fecha de creación en la web.",
+      "esperado": {
+        "categoria": "solicitud de función",
+        "prioridad": "baja",
+        "plataforma": "web",
+        "version_app": null,
+        "resumen": "Pide ordenar los álbumes por fecha de creación"
+      },
+      "por_que": "Es una sugerencia: pide algo que la app no tiene."
+    },
+    {
+      "caso_id": "T-06",
+      "tipo_caso": "borde",
+      "entrada": "Desde la última actualización la app gasta mucha batería, aunque no la esté usando.",
+      "esperado": {
+        "categoria": "rendimiento",
+        "prioridad": "media",
+        "plataforma": null,
+        "version_app": null,
+        "resumen": "La app gasta mucha batería aunque no se esté usando"
+      },
+      "por_que": "No dice la plataforma ni la versión: los dos campos deben quedar vacíos. «La última actualización» no es un número."
+    },
+    {
+      "caso_id": "T-07",
+      "tipo_caso": "borde",
+      "entrada": "En mi iPad la app se congela al aplicar filtros en el editor, y tengo que cerrarla.",
+      "esperado": {
+        "categoria": "fallo de la app",
+        "prioridad": "alta",
+        "plataforma": "iOS",
+        "version_app": null,
+        "resumen": "La app se congela al aplicar filtros en el editor"
+      },
+      "por_que": "El iPad cuenta como iOS. La app se congela: prioridad alta."
+    },
+    {
+      "caso_id": "T-08",
+      "tipo_caso": "otro idioma",
+      "entrada": "The app crashes every time I open a shared album on my Samsung Galaxy S24. Version 4.2.1.",
+      "esperado": {
+        "categoria": "fallo de la app",
+        "prioridad": "alta",
+        "plataforma": "Android",
+        "version_app": "4.2.1",
+        "resumen": "La app se cierra al abrir un álbum compartido"
+      },
+      "por_que": "Está en inglés. Samsung Galaxy usa Android. La app se cierra: prioridad alta."
+    },
+    {
+      "caso_id": "T-09",
+      "tipo_caso": "mal escrito",
+      "entrada": "app no sirve!!! las fotos no suben desde el celu android, ayudaaa",
+      "esperado": {
+        "categoria": "fallo de la app",
+        "prioridad": "media",
+        "plataforma": "Android",
+        "version_app": null,
+        "resumen": "Las fotos no se suben desde el teléfono"
+      },
+      "por_que": "Una función falla, pero el resto de la app funciona: prioridad media. El tono urgente no cambia la regla."
+    },
+    {
+      "caso_id": "T-10",
+      "tipo_caso": "incompleto",
+      "entrada": "La app falla.",
+      "esperado": {
+        "categoria": "fallo de la app",
+        "prioridad": "media",
+        "plataforma": null,
+        "version_app": null,
+        "resumen": "La app falla, sin más detalles"
+      },
+      "por_que": "Es la entrada incompleta de la capa 2. No dice la plataforma ni la versión. Tampoco dice que la app se cierre: prioridad media."
+    },
+    {
+      "caso_id": "T-11",
+      "tipo_caso": "ambiguo",
+      "entrada": "La foto de perfil se ve borrosa en la web, y además la app de Android se cerró una vez ayer.",
+      "pistas": {
+        "categoria": "Trae dos problemas: clasifica el más grave.",
+        "prioridad": "El problema más grave es que la app se cerró. Mira la regla de prioridad alta.",
+        "plataforma": "Usa la plataforma del problema más grave.",
+        "version_app": "¿El ticket dice algún número de versión? Si no, escribe None."
+      },
+      "huellas": {
+        "categoria": "f44a5038e908",
+        "prioridad": "7e9c786bdcf2",
+        "plataforma": "8f1b109d5079",
+        "version_app": "945c469abaee"
+      }
+    },
+    {
+      "caso_id": "T-12",
+      "tipo_caso": "borde",
+      "entrada": "¿Pueden agregar un modo oscuro? Lo pido para la app de iPhone; tengo la 4.2.",
+      "pistas": {
+        "categoria": "¿Reporta algo que falla, o pide algo que la app no tiene?",
+        "prioridad": "Una sugerencia tiene prioridad baja.",
+        "plataforma": "Mira la regla de plataformas: ¿qué sistema usa el iPhone?",
+        "version_app": "Escribe el número tal como lo trae el ticket, entre comillas."
+      },
+      "huellas": {
+        "categoria": "a2c845f5e17b",
+        "prioridad": "d58985abb808",
+        "plataforma": "c0a7d5ff946b",
+        "version_app": "daafd970d35c"
+      }
+    }
+  ],
+  "campos_banco": [
+    {
+      "nombre": "funcion_afectada",
+      "tipo": [
+        "subir fotos",
+        "galería",
+        "álbumes",
+        "editor",
+        "compartir",
+        "cuenta",
+        "otra"
+      ],
+      "comparacion": "exacta",
+      "descripcion": "La parte de la app que tiene el problema o que el ticket pide cambiar. «cuenta» incluye el perfil y el inicio de sesión.",
+      "esperado": {
+        "T-01": "subir fotos",
+        "T-02": "galería",
+        "T-03": "compartir",
+        "T-04": "cuenta",
+        "T-05": "álbumes",
+        "T-06": "otra",
+        "T-07": "editor",
+        "T-08": "álbumes",
+        "T-09": "subir fotos",
+        "T-10": "otra",
+        "T-11": "otra",
+        "T-12": "otra"
+      },
+      "huellas": {
+        "L-01": "1ede823ac5bd",
+        "L-02": "c130e155150a",
+        "L-03": "1350724d3819",
+        "L-04": "e6a237f0c7b4",
+        "L-05": "0b5eea0a9826",
+        "L-06": "247e32fc2908"
+      }
+    },
+    {
+      "nombre": "dispositivo",
+      "tipo": "texto",
+      "comparacion": "contiene",
+      "descripcion": "El modelo del teléfono, de la tableta o del computador, si el ticket lo dice.",
+      "esperado": {
+        "T-01": "Pixel 8",
+        "T-02": "iPhone 15",
+        "T-03": null,
+        "T-04": null,
+        "T-05": null,
+        "T-06": null,
+        "T-07": "iPad",
+        "T-08": "Samsung Galaxy S24",
+        "T-09": null,
+        "T-10": null,
+        "T-11": null,
+        "T-12": "iPhone",
+        "L-01": null,
+        "L-02": "iPhone 13",
+        "L-03": "Xiaomi",
+        "L-04": null,
+        "L-05": "Galaxy Tab",
+        "L-06": null
+      }
+    },
+    {
+      "nombre": "se_repite",
+      "tipo": "verdadero o falso",
+      "comparacion": "booleano",
+      "descripcion": "true si el ticket dice que el problema pasa siempre o cada vez; false si dice que pasó una sola vez.",
+      "esperado": {
+        "T-01": true,
+        "T-02": true,
+        "T-03": null,
+        "T-04": null,
+        "T-05": null,
+        "T-06": null,
+        "T-07": null,
+        "T-08": true,
+        "T-09": null,
+        "T-10": null,
+        "T-11": false,
+        "T-12": null
+      },
+      "huellas": {
+        "L-01": "ef702d8c3a36",
+        "L-02": "f3fde8ab4946",
+        "L-03": "f0605de2a4b2",
+        "L-04": "d8135192c1f3",
+        "L-05": "4e0f498de0df",
+        "L-06": "dd2975b86a60"
+      }
+    },
+    {
+      "nombre": "idioma",
+      "tipo": [
+        "español",
+        "inglés",
+        "portugués"
+      ],
+      "comparacion": "exacta",
+      "descripcion": "El idioma en que está escrito el ticket.",
+      "esperado": {
+        "T-01": "español",
+        "T-02": "español",
+        "T-03": "español",
+        "T-04": "español",
+        "T-05": "español",
+        "T-06": "español",
+        "T-07": "español",
+        "T-08": "inglés",
+        "T-09": "español",
+        "T-10": "español",
+        "T-11": "español",
+        "T-12": "español"
+      },
+      "huellas": {
+        "L-01": "b9eb063959ba",
+        "L-02": "4ad5a1623cc8",
+        "L-03": "41e7cf0d5fd0",
+        "L-04": "664575e6575e",
+        "L-05": "9fea65a3742a",
+        "L-06": "16882c97cfb2"
+      }
+    }
+  ],
+  "limites": [
+    {
+      "caso_id": "L-01",
+      "tipo_caso": "borde",
+      "entrada": "Con la versión 4.2.1, la app tarda mucho en abrir.",
+      "pistas": {
+        "categoria": "La app funciona, pero va lenta.",
+        "prioridad": "Va lenta, pero se puede usar: mira la regla de prioridad media.",
+        "plataforma": "El ticket no dice la plataforma: escribe None.",
+        "version_app": "Escribe el número que trae el ticket, entre comillas."
+      },
+      "huellas": {
+        "categoria": "816a78caba33",
+        "prioridad": "bf4c287b21a2",
+        "plataforma": "346d919fe50f",
+        "version_app": "5a3b689c048a"
+      }
+    },
+    {
+      "caso_id": "L-02",
+      "tipo_caso": "borde",
+      "entrada": "Desde que actualicé a la v4.3 beta, no me llegan las notificaciones en mi iPhone 13.",
+      "pistas": {
+        "categoria": "Una función falla: las notificaciones no llegan.",
+        "prioridad": "La persona puede seguir usando la app.",
+        "plataforma": "¿Qué sistema usa el iPhone?",
+        "version_app": "Basta el número de la versión, sin la palabra beta."
+      },
+      "huellas": {
+        "categoria": "70ff4c86a82e",
+        "prioridad": "a18f219424ab",
+        "plataforma": "3912130eb6b7",
+        "version_app": "02ebddbdef36"
+      }
+    },
+    {
+      "caso_id": "L-03",
+      "tipo_caso": "otro idioma",
+      "entrada": "O aplicativo fecha sozinho toda vez que abro o editor no meu Xiaomi.",
+      "pistas": {
+        "categoria": "Está en portugués: «fecha sozinho» quiere decir «se cierra sola».",
+        "prioridad": "Si la app se cierra, la prioridad es alta.",
+        "plataforma": "Xiaomi usa Android.",
+        "version_app": "¿El ticket dice algún número de versión? Si no, escribe None."
+      },
+      "huellas": {
+        "categoria": "bf30000c2461",
+        "prioridad": "6ac735334630",
+        "plataforma": "367ac3e804b2",
+        "version_app": "02ec850283a7"
+      }
+    },
+    {
+      "caso_id": "L-04",
+      "tipo_caso": "borde",
+      "entrada": "La app se cerró una sola vez, ayer, al compartir un álbum en la web.",
+      "pistas": {
+        "categoria": "La app se cerró.",
+        "prioridad": "Aunque pasó una sola vez, la app se cerró: mira la regla de prioridad alta.",
+        "plataforma": "¿Dónde pasó: en el teléfono o en el navegador?",
+        "version_app": "¿El ticket dice algún número de versión? Si no, escribe None."
+      },
+      "huellas": {
+        "categoria": "2a9e19428bb4",
+        "prioridad": "5d59777038c1",
+        "plataforma": "9631cb00ee8f",
+        "version_app": "79c3f5506e6b"
+      }
+    },
+    {
+      "caso_id": "L-05",
+      "tipo_caso": "borde",
+      "entrada": "Tengo la última versión en mi Galaxy Tab y no puedo cambiar mi foto de perfil: el botón no responde.",
+      "pistas": {
+        "categoria": "La persona puede entrar a su cuenta: lo que falla es un botón.",
+        "prioridad": "Falla una función, pero la app se puede usar.",
+        "plataforma": "Galaxy Tab es una tableta Android.",
+        "version_app": "«La última versión» no es un número de versión."
+      },
+      "huellas": {
+        "categoria": "aaba66ec95f4",
+        "prioridad": "c64a7a3a27d2",
+        "plataforma": "802bedbc6b7c",
+        "version_app": "685dc3dfa0d4"
+      }
+    },
+    {
+      "caso_id": "L-06",
+      "tipo_caso": "mal escrito",
+      "entrada": "no se ven mis albumes compartidos desde ayer, solo pantalla blanca",
+      "pistas": {
+        "categoria": "Una función falla, pero la app no se cierra.",
+        "prioridad": "La persona puede seguir usando la app.",
+        "plataforma": "El ticket no dice la plataforma.",
+        "version_app": "El ticket no dice la versión."
+      },
+      "huellas": {
+        "categoria": "a0b3db333a0f",
+        "prioridad": "44e02bddc0b4",
+        "plataforma": "99dedd22d205",
+        "version_app": "c85c820a95e8"
+      }
+    }
+  ]
+}

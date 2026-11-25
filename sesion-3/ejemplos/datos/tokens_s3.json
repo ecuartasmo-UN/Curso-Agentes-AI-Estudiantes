@@ -1,0 +1,181 @@
+{
+  "tokenizer": "o200k_base",
+  "biblioteca": "tiktoken 0.14.0",
+  "nota": "Conteos reales con o200k_base. Cada API cuenta con su propio tokenizer.",
+  "precios_usd_millon": {
+    "claude-haiku-5-5": {
+      "entrada": 0.1,
+      "salida": 0.5
+    },
+    "gemini-2.5-flash-lite": {
+      "entrada": 0.1,
+      "salida": 0.4
+    },
+    "gemini-3.5-flash-lite": {
+      "entrada": 0.3,
+      "salida": 2.5
+    }
+  },
+  "mensaje_app": {
+    "texto": "¿Por qué se cierra la app al subir una foto?",
+    "tokens": 12
+  },
+  "ticket": {
+    "texto": "Desde ayer la app se cierra cada vez que subo una foto desde la galería. Uso un Pixel 8 con Android 15 y la versión 4.2.1. Con fotos pequeñas no pasa.",
+    "tokens": 44
+  },
+  "registro": {
+    "campos": {
+      "categoria": "fallo de la app",
+      "prioridad": "alta",
+      "plataforma": "Android",
+      "version_app": "4.2.1",
+      "resumen": "La app se cierra al subir fotos grandes desde la galería"
+    },
+    "tokens": 55
+  },
+  "armar_prompt": [
+    {
+      "id": "vaga",
+      "nombre": "Instrucción vaga",
+      "texto": "Clasifica este ticket.",
+      "tokens_pieza": 5,
+      "tokens_prompt": 55
+    },
+    {
+      "id": "clara",
+      "nombre": "Instrucción clara",
+      "texto": "Lee el ticket de soporte de FotoNube, una app de fotos. Asígnale una categoría y una prioridad.",
+      "tokens_pieza": 24,
+      "tokens_prompt": 74
+    },
+    {
+      "id": "contexto",
+      "nombre": "Contexto",
+      "texto": "El equipo de soporte atiende primero la prioridad alta. Un fallo que impide usar una función principal es de prioridad alta. Las categorías son: fallo de la app, rendimiento, interfaz, cuenta y acceso, y solicitud de función.",
+      "tokens_pieza": 47,
+      "tokens_prompt": 121
+    },
+    {
+      "id": "ejemplos",
+      "nombre": "Tres ejemplos",
+      "texto": "<ejemplos>\nNo puedo iniciar sesión desde el lunes. → cuenta y acceso, alta\nSería útil ordenar los álbumes por fecha. → solicitud de función, baja\nLa galería tarda diez segundos en abrir. → rendimiento, media\n</ejemplos>",
+      "tokens_pieza": 56,
+      "tokens_prompt": 177
+    },
+    {
+      "id": "formato",
+      "nombre": "Formato de salida",
+      "texto": "Responde solo con un JSON con los campos categoria, prioridad, plataforma, version_app y resumen. Si un dato no está en el ticket, escribe null.",
+      "tokens_pieza": 32,
+      "tokens_prompt": 209
+    }
+  ],
+  "conversacion": {
+    "sistema": {
+      "texto": "Eres el asistente del equipo de soporte de FotoNube. Respondes en español, en dos frases como máximo.",
+      "tokens": 26
+    },
+    "turnos": [
+      {
+        "rol": "user",
+        "texto": "¿Qué hago si la app se cierra al subir una foto?",
+        "tokens": 13
+      },
+      {
+        "rol": "assistant",
+        "texto": "Pide la versión de la app y el modelo del teléfono. Con esos datos, busca si el fallo ya está reportado.",
+        "tokens": 26
+      },
+      {
+        "rol": "user",
+        "texto": "El usuario tiene la versión 4.2.1 en Android 15.",
+        "tokens": 16
+      },
+      {
+        "rol": "assistant",
+        "texto": "Ese fallo ya está reportado para la versión 4.2.1. Pídele que actualice a la 4.2.2, que lo corrige.",
+        "tokens": 36
+      },
+      {
+        "rol": "user",
+        "texto": "¿Y si no puede actualizar todavía?",
+        "tokens": 8
+      },
+      {
+        "rol": "assistant",
+        "texto": "Sugiérele subir fotos más pequeñas mientras tanto. Registra el caso para avisarle cuando pueda actualizar.",
+        "tokens": 22
+      },
+      {
+        "rol": "user",
+        "texto": "Gracias. ¿Cómo registro el caso?",
+        "tokens": 8
+      },
+      {
+        "rol": "assistant",
+        "texto": "Crea un ticket con la categoría fallo de la app y prioridad alta. Agrega la versión y el teléfono.",
+        "tokens": 23
+      }
+    ],
+    "llamadas": [
+      {
+        "turno": 1,
+        "mensajes": 2,
+        "tokens_entrada": 39,
+        "tokens_salida": 26,
+        "costo_por_mil_llamadas_haiku": 0.0169
+      },
+      {
+        "turno": 2,
+        "mensajes": 4,
+        "tokens_entrada": 81,
+        "tokens_salida": 36,
+        "costo_por_mil_llamadas_haiku": 0.0261
+      },
+      {
+        "turno": 3,
+        "mensajes": 6,
+        "tokens_entrada": 125,
+        "tokens_salida": 22,
+        "costo_por_mil_llamadas_haiku": 0.0235
+      },
+      {
+        "turno": 4,
+        "mensajes": 8,
+        "tokens_entrada": 155,
+        "tokens_salida": 23,
+        "costo_por_mil_llamadas_haiku": 0.027
+      }
+    ]
+  },
+  "variantes": {
+    "issue": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla.",
+    "lista": [
+      {
+        "id": "sin_ejemplos",
+        "nombre": "Sin ejemplos",
+        "texto": "Etiqueta el issue del repositorio de FotoNube con una sola etiqueta: error, mejora, documentación o pregunta.\n\n<issue>\nAl girar el teléfono, el botón de subir fotos queda fuera de la pantalla.\n</issue>",
+        "tokens_entrada": 46
+      },
+      {
+        "id": "tres_ejemplos",
+        "nombre": "Con tres ejemplos",
+        "texto": "Etiqueta el issue del repositorio de FotoNube con una sola etiqueta: error, mejora, documentación o pregunta.\n\n<ejemplos>\nLa app se cierra al abrir un álbum vacío. → error\nAgregar un modo oscuro a la galería. → mejora\nEl README no explica cómo correr las pruebas. → documentación\n</ejemplos>\n\n<issue>\nAl girar el teléfono, el botón de subir fotos queda fuera de la pantalla.\n</issue>",
+        "tokens_entrada": 94
+      },
+      {
+        "id": "formato",
+        "nombre": "Con formato explícito",
+        "texto": "Etiqueta el issue del repositorio de FotoNube con una sola etiqueta: error, mejora, documentación o pregunta.\n\nResponde solo con la etiqueta, en minúsculas y sin explicación.\n\n<issue>\nAl girar el teléfono, el botón de subir fotos queda fuera de la pantalla.\n</issue>",
+        "tokens_entrada": 61
+      },
+      {
+        "id": "cadena",
+        "nombre": "Con cadena de pensamiento",
+        "texto": "Etiqueta el issue del repositorio de FotoNube con una sola etiqueta: error, mejora, documentación o pregunta.\n\nAntes de responder, razona paso a paso. Al final escribe: Etiqueta: <etiqueta>.\n\n<issue>\nAl girar el teléfono, el botón de subir fotos queda fuera de la pantalla.\n</issue>",
+        "tokens_entrada": 69
+      }
+    ]
+  }
+}

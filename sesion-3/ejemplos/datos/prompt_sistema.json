@@ -1,0 +1,36 @@
+{
+  "consulta": "2026-11-24",
+  "tokenizer": "o200k_base",
+  "biblioteca": "tiktoken 0.14.0",
+  "nota": "Entrada más reciente de cada página. Solo se guardan los conteos.",
+  "modelos": [
+    {
+      "modelo": "claude-haiku-3",
+      "fecha": "July 12, 2024",
+      "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-3",
+      "palabras": 117,
+      "tokens_o200k": 155
+    },
+    {
+      "modelo": "claude-haiku-3-5",
+      "fecha": "October 22, 2024",
+      "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-3-5",
+      "palabras": 3400,
+      "tokens_o200k": 4166
+    },
+    {
+      "modelo": "claude-haiku-4-5",
+      "fecha": "November 9, 2026",
+      "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-4-5",
+      "palabras": 4168,
+      "tokens_o200k": 5318
+    },
+    {
+      "modelo": "claude-haiku-5-5",
+      "fecha": "November 9, 2026",
+      "url": "https://platform.claude.com/docs/en/release-notes/system-prompts/claude-haiku-5-5",
+      "palabras": 4785,
+      "tokens_o200k": 6046
+    }
+  ]
+}

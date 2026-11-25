@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesión 3 · Bloque 2: hablar con un modelo por API</title>
+<script src="assets/js/tema.js"></script>
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reset.css">
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reveal.css">
+<link rel="stylesheet" href="assets/css/tema-agentes.css">
+<link rel="stylesheet" href="assets/css/sesion3.css">
+</head>
+<body>
+<a class="boton-indice" href="index.html" data-con-tema data-enlace-indice aria-label="Volver al índice de la sesión">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10"/></svg>Índice</a>
+<div class="reveal" data-total-min="60">
+<div class="slides">
+
+<!-- 1. Portada -->
+<section data-min="0.5">
+  <div class="columnas c-60-40" style="height:100%">
+    <div class="portada">
+      <span class="antetitulo">Sesión 3 · Bloque 2</span>
+      <h1>Hablar con un modelo por API</h1>
+      <p class="subtitulo">La conversación, los parámetros y el razonamiento. Cómo comparar prompts con datos y leer el código que los corre.</p>
+      <div class="meta"><span class="etiqueta">60 minutos</span><span class="etiqueta violeta">Club de lectura al final</span><span class="etiqueta exito">Después: Laboratorio 3B</span></div>
+    </div>
+    <div class="escena3d capas3d-envoltura" aria-label="Una conversación apilada: sistema, usuario, asistente y usuario">
+      <div class="capas3d" style="transform: translateY(70px) rotateX(58deg) rotateZ(var(--giro)) scale(.64)">
+        <div class="capa" style="--i:0; --c: var(--t6)"><div class="rotulo">Sistema<small>Las reglas</small></div></div>
+        <div class="capa" style="--i:1; --c: var(--t3)"><div class="rotulo">Usuario<small>El pedido</small></div></div>
+        <div class="capa" style="--i:2; --c: var(--t5)"><div class="rotulo">Asistente<small>La respuesta</small></div></div>
+        <div class="capa" style="--i:3; --c: var(--t3)"><div class="rotulo">Usuario<small>El pedido siguiente</small></div></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: en el bloque 3.1 escribimos el prompt y validamos el registro. Hoy miramos la llamada: la conversación, los controles y el razonamiento.</p>
+    <p>La pila de la derecha es una conversación. Cada llamada la envía completa.</p>
+    <p>Minuto acumulado: 0.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 2. Del Laboratorio 3A a este bloque -->
+<section data-min="0.5" class="diapo-programa">
+  <span class="antetitulo">Apertura · Del Laboratorio 3A a este bloque</span>
+  <h2>El mismo camino, ahora la llamada por API</h2>
+  <div class="programa" data-programa="mapa-32"></div>
+  <aside class="notes">
+    <p>Qué decir: en el 3A vieron la respuesta cruda y el registro validado. Esas eran las piezas del bloque 3.1.</p>
+    <p>Clic 1: hoy iluminamos la llamada por API y la prueba.</p>
+    <p>No uses cifras del laboratorio: cada estudiante obtuvo las suyas.</p>
+    <p>Minuto acumulado: 1 de 60.</p>
+  </aside>
+</section>
+
+<!-- 3. Tres roles -->
+<section data-min="1.5">
+  <div class="barra-parte"><span class="antetitulo">Parte 1 · La conversación por API</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="api"></div></div>
+  <h2>Tres roles en una conversación</h2>
+  <div class="columnas-3">
+    <div class="tarjeta fragment surgir" style="border-top: 5px solid var(--t6)"><h3 style="color: var(--t6)">Sistema</h3><p class="mediano">Las reglas. Van aparte, al inicio de cada llamada.</p></div>
+    <div class="tarjeta fragment surgir" style="border-top: 5px solid var(--t3)"><h3 style="color: var(--t3)">Usuario</h3><p class="mediano">El pedido de cada turno.</p></div>
+    <div class="tarjeta fragment surgir" style="border-top: 5px solid var(--t5)"><h3 style="color: var(--t5)">Asistente</h3><p class="mediano">Las respuestas del modelo. En Gemini, este rol se llama «model».</p></div>
+  </div>
+  <p class="mediano texto-suave fragment surgir" style="margin-top:22px">En el bloque 2.1 vimos sistema y usuario. Lo nuevo es el asistente y la conversación de varios turnos.</p>
+  <p class="credito">Fuentes: Anthropic, <a href="https://platform.claude.com/docs/en/build-with-claude/working-with-messages">Working with messages</a>. Google, <a href="https://aistudio.google.com/docs/text-generation?generate-content=true">Text generation</a>. Consulta: 24 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: una conversación por API tiene tres roles.</p>
+    <p>Clic 1: el sistema. En Claude va en el parámetro system; en Gemini, en system_instruction. LangChain lo arma por ti.</p>
+    <p>Clic 2: el usuario. Clic 3: el asistente, que en Gemini se llama model.</p>
+    <p>Los turnos alternan usuario y asistente.</p>
+    <p>Minuto acumulado: 2.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 4. La API no recuerda -->
+<section data-min="3" class="diapo-programa">
+  <span class="antetitulo">Parte 1 · La conversación por API · Animación</span>
+  <h2>La API no recuerda: cada llamada reenvía todo</h2>
+  <div class="programa" data-programa="conversacion"></div>
+  <p class="credito">Anthropic: «The Messages API is stateless». Google: «the full conversation history is sent to the model with each follow-up turn». Conversación de FotoNube, una app ficticia.</p>
+  <aside class="notes">
+    <p>Qué decir: la API no guarda la conversación. Tu programa la reenvía completa en cada llamada.</p>
+    <p>Clic 1: el turno 2 reenvía todo lo anterior. Clic 2: el turno 3. Clic 3: el conteo de las cuatro llamadas.</p>
+    <p>Los tokens son reales, con o200k_base. Las respuestas del asistente son ilustrativas.</p>
+    <p>Matiz: Anthropic tiene hilos de mensajes en beta, y Google su Interactions API, que guardan el estado. LangChain usa las API sin estado.</p>
+    <p>La memoria del agente se trata en la sesión 6.</p>
+    <p>Minuto acumulado: 5.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 5. Lo que se reenvía se paga -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 1 · La conversación por API</span>
+  <h2>Lo que se reenvía se paga otra vez</h2>
+  <div class="columnas-3">
+    <div class="tarjeta acento fragment surgir"><h3>Toda la historia</h3><p class="mediano">Cada llamada paga como entrada los mensajes anteriores.</p></div>
+    <div class="tarjeta acento-2 fragment surgir"><h3>También el razonamiento</h3><p class="mediano">Claude Haiku 5.5 guarda los bloques de razonamiento de los turnos anteriores. Cuentan como entrada.</p></div>
+    <div class="tarjeta exito fragment surgir"><h3>La caché abarata</h3><p class="mediano">Leer de la caché cuesta USD 0.01 por millón de tokens en Haiku 5.5. La entrada normal cuesta 0.10.</p></div>
+  </div>
+  <p class="credito">Fuentes: Anthropic, <a href="https://platform.claude.com/docs/en/models/haiku-5-5/whats-new-haiku-5-5">What's new in Claude Haiku 5.5</a> y <a href="https://platform.claude.com/docs/en/about-claude/pricing">Pricing</a>, para prompts de hasta 100 000 tokens. Consulta: 24 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: reenviar la historia tiene un costo, y crece con cada turno.</p>
+    <p>Clic 1: toda la historia se paga de nuevo.</p>
+    <p>Clic 2: cita de Anthropic: «Claude Haiku 5.5 keeps thinking blocks from all earlier assistant turns in context, and they count as input tokens».</p>
+    <p>Clic 3: la caché de prompts cobra menos por lo que se repite: la décima parte. Es un tema de optimización, no de este curso.</p>
+    <p>Minuto acumulado: 7 de 60.</p>
+  </aside>
+</section>
+
+<!-- 6. Ejemplos como turnos -->
+<section data-min="1">
+  <span class="antetitulo">Parte 1 · La conversación por API</span>
+  <h2>Los ejemplos también pueden ir como turnos</h2>
+  <div class="columnas c-60-40">
+    <div class="pares-turnos">
+      <div class="cv-mensaje rol-user fragment surgir"><span class="cv-rol">Usuario</span><p>No puedo iniciar sesión desde el lunes.</p></div>
+      <div class="cv-mensaje rol-assistant fragment surgir"><span class="cv-rol">Asistente <em>· escrito por ti</em></span><p>cuenta y acceso, alta</p></div>
+      <div class="cv-mensaje rol-user fragment surgir"><span class="cv-rol">Usuario</span><p>La galería tarda diez segundos en abrir.</p></div>
+      <div class="cv-mensaje rol-assistant fragment surgir"><span class="cv-rol">Asistente <em>· escrito por ti</em></span><p>rendimiento, media</p></div>
+      <div class="cv-mensaje rol-user nuevo fragment surgir"><span class="cv-rol">Usuario <em>· el caso real</em></span><p>La app se cierra al subir una foto.</p></div>
+    </div>
+    <div>
+      <p class="mediano">El modelo lee los pares como una conversación anterior. Y repite su forma.</p>
+      <p class="chico texto-suave" style="margin-top:12px">Anthropic: «Earlier conversational turns don't necessarily need to actually originate from Claude».</p>
+    </div>
+  </div>
+  <p class="credito">Fuente: Anthropic, <a href="https://platform.claude.com/docs/en/build-with-claude/working-with-messages">Working with messages</a>. Tickets de FotoNube, una app ficticia.</p>
+  <aside class="notes">
+    <p>Qué decir: los ejemplos del bloque 3.1 pueden ir dentro del prompt o como turnos de la conversación.</p>
+    <p>Clic 1 a 4: dos pares de usuario y asistente que escribes tú.</p>
+    <p>Clic 5: el caso real va al final, como último turno del usuario.</p>
+    <p>Con Haiku 5.5, la conversación debe terminar en un turno del usuario.</p>
+    <p>Minuto acumulado: 8 de 60.</p>
+  </aside>
+</section>
+
+<!-- 7. Plantillas de mensajes -->
+<section data-min="1">
+  <span class="antetitulo">Parte 1 · La conversación por API · Cómo se ve en el código</span>
+  <h2>Una plantilla arma los mensajes de cada caso</h2>
+  <pre class="codigo-figura">plantilla = ChatPromptTemplate.from_messages([
+    (<span class="s">"system"</span>, INSTRUCCION),
+    (<span class="s">"user"</span>, <span class="s">"&lt;ticket&gt;{ticket}&lt;/ticket&gt;"</span>),
+])
+mensajes = plantilla.invoke({<span class="s">"ticket"</span>: caso[<span class="s">"texto"</span>]})</pre>
+  <div class="columnas" style="margin-top:20px">
+    <p class="mediano fragment surgir">El hueco <code>{ticket}</code> se llena con el texto de cada caso.</p>
+    <p class="mediano fragment surgir">Así todos los casos reciben la misma instrucción. Solo cambia el ticket.</p>
+  </div>
+  <p class="credito">LangChain, <code>ChatPromptTemplate</code> de langchain-core 1.8. Probado sin clave con las versiones del curso.</p>
+  <aside class="notes">
+    <p>Qué decir: con muchos casos, nadie escribe los mensajes a mano. Una plantilla los arma.</p>
+    <p>Clic 1: el hueco entre llaves. Clic 2: la instrucción es la misma en todos los casos.</p>
+    <p>Comparar variantes es comparar plantillas. Eso hace el Laboratorio 3B.</p>
+    <p>Minuto acumulado: 9 de 60.</p>
+  </aside>
+</section>
+
+<!-- 8. El tablero de una llamada -->
+<section data-min="4" class="diapo-programa">
+  <div class="barra-parte"><span class="antetitulo">Parte 2 · Los parámetros</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="api,modelo"></div></div>
+  <h2>El tablero de una llamada</h2>
+  <div class="programa" data-programa="tablero"></div>
+  <p class="credito">Documentación de <a href="https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide">Claude Haiku 5.5</a>, de <a href="https://aistudio.google.com/docs/thinking?generate-content=true">Gemini</a> y código de langchain-anthropic 1.7.10 y langchain-google-genai 4.5.0. Consulta: 24 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: además de los mensajes, una llamada tiene controles. Estos cinco son los que más importan.</p>
+    <p>Clic 1: el máximo de tokens de salida. Si se alcanza, la respuesta se corta. En Haiku 5.5, el razonamiento cuenta dentro de ese máximo.</p>
+    <p>Clic 2: las secuencias de parada. Claude informa stop_reason "stop_sequence"; Gemini informa STOP.</p>
+    <p>Clic 3: la temperatura queda apagada. Haiku 5.5 la rechaza; en Gemini 3.5 Flash-Lite es obsoleta. Google sugiere reglas explícitas en el prompt de sistema.</p>
+    <p>Clic 4: el esfuerzo de razonamiento. En Haiku 5.5 el razonamiento adaptativo viene activo por defecto, con esfuerzo medium.</p>
+    <p>Clic 5: el tiempo de espera y los reintentos. Ojo: en Gemini, max_retries=0 significa «usa el valor de Google».</p>
+    <p>Minuto acumulado: 13 de 60.</p>
+  </aside>
+</section>
+
+<!-- 9. Una respuesta cortada -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 2 · Los parámetros</span>
+  <h2>Una respuesta cortada no se puede validar</h2>
+  <div class="columnas c-60-40">
+    <div>
+      <pre class="json-registro tarjeta fragment surgir" style="padding:16px 18px">{"categoria": "fallo de la app",
+ "prioridad": "alta",
+ "resumen": "La app se cierra al su<span class="j-error">✂</span></pre>
+      <p class="mediano fragment surgir" style="margin-top:14px">Pydantic: <code>Invalid JSON: EOF while parsing a string</code></p>
+    </div>
+    <div>
+      <p class="mediano fragment surgir">Con Haiku 5.5, un máximo pequeño puede cortar la respuesta después del razonamiento y antes de cualquier texto.</p>
+      <p class="mediano fragment surgir">Revisa la razón de parada. Si es <code>max_tokens</code>, la respuesta está incompleta.</p>
+    </div>
+  </div>
+  <p class="credito">Anthropic, <a href="https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide">guía de migración a Haiku 5.5</a>. Error real de Pydantic 2.14: <code>ejemplos/validar_ticket.py</code>.</p>
+  <aside class="notes">
+    <p>Qué decir: el máximo de tokens no es un detalle. Una respuesta cortada no es un JSON válido.</p>
+    <p>Clic 1: un JSON cortado. Clic 2: el error real de Pydantic.</p>
+    <p>Clic 3: cita: «Thinking tokens count toward max_tokens, so a request with a small max_tokens can stop … after a thinking block and before any text».</p>
+    <p>Clic 4: Gemini se comporta igual: devuelve MAX_TOKENS y cobra el razonamiento.</p>
+    <p>Dato: si no fijas el máximo, LangChain usa el del modelo, 128 000 tokens en Haiku 5.5.</p>
+    <p>Minuto acumulado: 14.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 10. Los parámetros en LangChain -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 2 · Los parámetros · Cómo se ve en el código</span>
+  <h2>Los controles, en una línea de LangChain</h2>
+  <pre class="codigo-figura">modelo = init_chat_model(
+    <span class="s">"anthropic:claude-haiku-5-5"</span>,
+    max_tokens=<span class="k">1024</span>, stop=[<span class="s">"###"</span>], effort=<span class="s">"low"</span>,
+    timeout=<span class="k">30</span>, max_retries=<span class="k">2</span>,
+)</pre>
+  <p class="mediano fragment surgir" style="margin-top:18px">Con Gemini 3.5 Flash-Lite cambia un nombre: <code>thinking_level="minimal"</code> en lugar de <code>effort</code>.</p>
+  <p class="mediano texto-suave fragment surgir">No hay <code>temperature</code>: los modelos del curso no la usan.</p>
+  <p class="credito">Probado sin clave con langchain 1.5.0, langchain-anthropic 1.7.10 y langchain-google-genai 4.5.0.</p>
+  <aside class="notes">
+    <p>Qué decir: los cinco controles caben en la llamada que crea el modelo.</p>
+    <p>Clic 1: con Gemini, el esfuerzo se llama thinking_level. En Gemini 2.5 Flash-Lite se llama thinking_budget.</p>
+    <p>Clic 2: la temperatura no aparece. Si la pones con Haiku 5.5, la API da error.</p>
+    <p>No hace falta memorizarlos: los laboratorios los traen escritos.</p>
+    <p>Minuto acumulado: 16 de 60.</p>
+  </aside>
+</section>
+
+<!-- 11. La cadena de pensamiento: el clásico -->
+<section data-min="1.5">
+  <div class="barra-parte"><span class="antetitulo">Parte 3 · ¿Razonar antes de responder?</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="prompt,modelo"></div></div>
+  <h2>La cadena de pensamiento (Wei et al., 2022)</h2>
+  <figure class="figura"><img src="assets/img/wei2022_figura1.png" alt="Figura 1 de Wei et al. (2022): a la izquierda, el prompting estándar responde mal; a la derecha, la cadena de pensamiento razona y responde bien" style="max-height:330px; width:auto; margin:0 auto"></figure>
+  <p class="mediano fragment surgir" style="margin-top:14px">En GSM8K, un banco de problemas de matemáticas, PaLM 540B pasó de 17.9 % a 56.9 % de aciertos.</p>
+  <p class="credito">Figura 1 de Wei et al. (2022), <a href="https://arxiv.org/abs/2201.11903">Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</a>, NeurIPS. Licencia CC BY 4.0.</p>
+  <aside class="notes">
+    <p>Qué decir: el club discutió esta técnica. Aquí está su origen y su evidencia.</p>
+    <p>La figura: a la izquierda, el ejemplo solo trae la respuesta, y el modelo falla. A la derecha, el ejemplo trae los pasos, y el modelo acierta.</p>
+    <p>Clic 1: la cifra de la tabla 1 del artículo. Con GPT-3 (text-davinci-002), de 15.6 % a 46.9 %.</p>
+    <p>Los autores advierten que solo funciona en modelos grandes.</p>
+    <p>Minuto acumulado: 17.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 12. Let's think step by step -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 3 · ¿Razonar antes de responder? · Un clásico</span>
+  <h2>«Let's think step by step» (Kojima et al., 2022)</h2>
+  <div class="barras-dato" style="margin-top:6px">
+    <div class="barra-dato malo fragment crece" style="--w: 17.7%"><span>MultiArith, sin la frase</span><div class="pista"><div class="relleno"></div></div><b>17.7 %</b></div>
+    <div class="barra-dato fragment crece" style="--w: 78.7%"><span>MultiArith, con la frase</span><div class="pista"><div class="relleno"></div></div><b>78.7 %</b></div>
+    <div class="barra-dato malo fragment crece" style="--w: 10.4%"><span>GSM8K, sin la frase</span><div class="pista"><div class="relleno"></div></div><b>10.4 %</b></div>
+    <div class="barra-dato fragment crece" style="--w: 40.7%"><span>GSM8K, con la frase</span><div class="pista"><div class="relleno"></div></div><b>40.7 %</b></div>
+  </div>
+  <p class="mediano fragment surgir" style="margin-top:16px">Sin ejemplos: solo una frase antes de responder. El modelo era text-davinci-002, de 2022.</p>
+  <p class="credito">Kojima et al. (2022), <a href="https://arxiv.org/abs/2205.11916">Large Language Models are Zero-Shot Reasoners</a>, NeurIPS, tabla 2. Gráfico propio.</p>
+  <aside class="notes">
+    <p>Qué decir: una sola frase cambió los aciertos de un modelo de 2022.</p>
+    <p>Clic 1 a 4: MultiArith y GSM8K, sin la frase y con ella.</p>
+    <p>Clic 5: no usa ejemplos. Por eso se llama zero-shot.</p>
+    <p>Dato curioso: de 16 frases probadas, «Abrakadabra!» dio 15.5 %, menos que no decir nada.</p>
+    <p>Esos modelos no razonaban por dentro. Los de hoy sí, y eso cambia todo. Lo vemos ahora.</p>
+    <p>Minuto acumulado: 19 de 60.</p>
+  </aside>
+</section>
+
+<!-- 13. Los modelos que razonan -->
+<section data-min="1">
+  <span class="antetitulo">Parte 3 · ¿Razonar antes de responder?</span>
+  <h2>Los modelos de hoy ya razonan por dentro</h2>
+  <div class="columnas">
+    <div class="tarjeta acento fragment surgir"><h3>Claude Haiku 5.5</h3><p class="mediano">El razonamiento adaptativo viene activo por defecto. Esos tokens se cobran como salida.</p></div>
+    <div class="tarjeta acento-2 fragment surgir"><h3>Gemini 3.5 Flash-Lite</h3><p class="mediano">Razona en nivel mínimo por defecto. Se puede subir con <code>thinking_level</code>.</p></div>
+  </div>
+  <blockquote class="cita fragment surgir" style="margin-top:20px">«Prefer general instructions over prescriptive steps. A prompt such as “think thoroughly” often produces better reasoning than a hand-written step-by-step plan».</blockquote>
+  <p class="credito">Anthropic, <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices">Prompting best practices</a>. Google, <a href="https://aistudio.google.com/docs/thinking?generate-content=true">Thinking</a>. Consulta: 24 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: en 2022 había que pedir el razonamiento. Hoy los modelos del curso razonan solos.</p>
+    <p>Clic 1: Haiku 5.5. Clic 2: Gemini 3.5 Flash-Lite. Lo vimos en el bloque 2.2: esos tokens se pagan.</p>
+    <p>Clic 3: la guía actual de Anthropic prefiere una instrucción general a un plan paso a paso. La cadena de pensamiento manual queda para cuando el razonamiento está apagado.</p>
+    <p>Minuto acumulado: 20 de 60.</p>
+  </aside>
+</section>
+
+<!-- 14. Lo que midieron Meincke et al. -->
+<section>
+  <section data-min="2">
+    <span class="antetitulo">Parte 3 · ¿Razonar antes de responder? · La lectura del bloque 3.1</span>
+    <h2>Lo que midieron Meincke et al. (2025)</h2>
+    <p class="chico texto-suave" style="margin:-8px 0 8px">Cambio en el promedio de aciertos al pedir «Think step by step», en puntos. GPQA Diamond: 198 preguntas, 25 intentos cada una.</p>
+    <div class="barras-diverge">
+      <span class="bd-grupo">Modelos sin razonamiento</span>
+      <div class="bd-fila fragment surgir"><span>Gemini 2.0 Flash</span><div class="bd-area"><div class="bd-barra pos" style="--v:13.5"></div></div><b>+13.5</b></div>
+      <div class="bd-fila fragment surgir"><span>Sonnet 3.5</span><div class="bd-area"><div class="bd-barra pos" style="--v:11.7"></div></div><b>+11.7</b></div>
+      <div class="bd-fila fragment surgir"><span>GPT-4o</span><div class="bd-area"><div class="bd-barra pos" style="--v:7.2"></div></div><b>+7.2</b></div>
+      <div class="bd-fila fragment surgir"><span>GPT-4o-mini (no significativo)</span><div class="bd-area"><div class="bd-barra pos" style="--v:4.4"></div></div><b>+4.4</b></div>
+      <span class="bd-grupo">Modelos que razonan</span>
+      <div class="bd-fila fragment surgir"><span>o4-mini</span><div class="bd-area"><div class="bd-barra pos" style="--v:3.1"></div></div><b>+3.1</b></div>
+      <div class="bd-fila fragment surgir"><span>Gemini 2.5 Flash</span><div class="bd-area"><div class="bd-barra neg" style="--v:3.3"></div></div><b class="texto-alerta">−3.3</b></div>
+      <span class="bd-grupo fragment surgir">Pero con el umbral de 25 de 25 aciertos</span>
+      <div class="bd-fila fragment surgir"><span>Gemini 2.0 Flash</span><div class="bd-area"><div class="bd-barra neg" style="--v:13.1"></div></div><b class="texto-alerta">−13.1</b></div>
+    </div>
+    <p class="mediano fragment surgir" style="margin-top:10px">Y tarda más: de 35 % a 600 % más tiempo en los modelos sin razonamiento.</p>
+    <p class="credito">Meincke et al. (2025), <a href="https://arxiv.org/abs/2506.07142">Prompting Science Report 2</a>, tablas S3 y S5. Licencia CC BY 4.0. Gráfico propio; la figura original va debajo.</p>
+    <aside class="notes">
+      <p>Qué decir: el club ya discutió la lectura. Aquí están sus cifras.</p>
+      <p>Clic 1 a 4: en los modelos sin razonamiento, el promedio sube de 4 a 14 puntos.</p>
+      <p>Clic 5 y 6: en los que razonan, casi nada: más o menos 3 puntos. Gemini 2.5 Flash incluso baja.</p>
+      <p>Clic 7 y 8: con la medida estricta, acertar las 25 veces, Gemini 2.0 Flash baja 13 puntos. Gemini Pro 1.5 baja 17.</p>
+      <p>Clic 9: el costo en tiempo, de 5 a 15 segundos más por pregunta.</p>
+      <p>Limitaciones que reconocen los autores: pocos modelos, un solo benchmark y una versión simple de la técnica. OpenAI aportó créditos de API.</p>
+      <p>Minuto acumulado: 22 de 60.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Para consultar</span>
+    <h2>La figura original de Meincke et al. (2025)</h2>
+    <figure class="figura"><img src="assets/img/meincke2025_figura1.png" alt="Figura 1 de Meincke et al. (2025): aciertos de cinco modelos sin razonamiento, con respuesta directa y con «Step by Step», en cuatro medidas" style="max-height:440px; width:auto; margin:0 auto"></figure>
+    <p class="credito">Figura 1 de Meincke et al. (2025). Licencia CC BY 4.0. Las cuatro medidas: promedio, 25 de 25, 23 de 25 y 13 de 25.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 15. La regla -->
+<section data-min="1">
+  <span class="antetitulo">Parte 3 · ¿Razonar antes de responder?</span>
+  <h2>La regla: pruébalo en tus casos</h2>
+  <ul class="casillas mediano">
+    <li class="fragment marcar"><span class="casilla"></span><span>La cadena de pensamiento es una variante más del prompt.</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span>Mide sus aciertos, sus tokens y su tiempo en tus diez casos.</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span>Con un modelo que razona, prueba también a subir el esfuerzo.</span></li>
+  </ul>
+  <p class="mediano texto-acento" style="margin-top:20px">Es una de las cuatro variantes del Laboratorio 3B.</p>
+  <aside class="notes">
+    <p>Qué decir: no hay una respuesta general. Hay que medir en la tarea propia.</p>
+    <p>Clic 1 a 3: la regla en tres pasos.</p>
+    <p>Un dato para el laboratorio: Anthropic advierte que Haiku 5.5 puede rechazar un prompt que le pide escribir su razonamiento en etiquetas.</p>
+    <p>Minuto acumulado: 23 de 60.</p>
+  </aside>
+</section>
+
+<!-- 16. Comparar prompts es un experimento -->
+<section data-min="1.5">
+  <div class="barra-parte"><span class="antetitulo">Parte 4 · Comparar variantes</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="prompt,prueba"></div></div>
+  <h2>Comparar prompts es un experimento</h2>
+  <div class="columnas-3">
+    <div class="tarjeta exito fragment surgir"><h3>Los mismos casos</h3><p class="mediano">Todas las variantes corren sobre los mismos diez casos.</p></div>
+    <div class="tarjeta acento fragment surgir"><h3>Un cambio a la vez</h3><p class="mediano">Si cambias dos piezas, no sabes cuál ayudó.</p></div>
+    <div class="tarjeta acento-2 fragment surgir"><h3>El criterio, antes</h3><p class="mediano">Decides qué es un acierto antes de ver los resultados.</p></div>
+  </div>
+  <p class="mediano texto-suave fragment surgir" style="margin-top:22px">Es el ciclo del bloque 3.1: el prompt cambia, los casos no.</p>
+  <aside class="notes">
+    <p>Qué decir: comparar prompts a ojo engaña. Hay que hacerlo como un experimento.</p>
+    <p>Clic 1 a 3: las tres reglas.</p>
+    <p>Clic 4: es el mismo ciclo del orden del trabajo.</p>
+    <p>Minuto acumulado: 24.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 17. Las cuatro variantes del 3B -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 4 · Comparar variantes</span>
+  <h2>Cuatro variantes para etiquetar un issue</h2>
+  <p class="mediano" style="margin-top:-6px">Issue: «Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla.»</p>
+  <div class="columnas-4 variantes-tarjetas">
+    <div class="tarjeta fragment surgir"><h3>Sin ejemplos</h3><p>Etiqueta el issue con una sola etiqueta: error, mejora, documentación o pregunta.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Con tres ejemplos</h3><p>La misma instrucción, más tres issues ya etiquetados.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Con formato explícito</h3><p>Más: «Responde solo con la etiqueta, en minúsculas y sin explicación».</p></div>
+    <div class="tarjeta fragment surgir"><h3>Con cadena de pensamiento</h3><p>Más: «Antes de responder, razona paso a paso».</p></div>
+  </div>
+  <p class="credito">Las etiquetas siguen las que GitHub crea por defecto: bug, enhancement, documentation y question. <a href="https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/managing-labels">Documentación de GitHub</a>. Issues de FotoNube, una app ficticia.</p>
+  <aside class="notes">
+    <p>Qué decir: estas son las cuatro variantes del Laboratorio 3B, según el Anexo B.</p>
+    <p>Clic 1 a 4: cada variante agrega una sola pieza a la instrucción base.</p>
+    <p>La tarea es etiquetar issues de un repositorio, con las cuatro etiquetas que GitHub crea por defecto, en español.</p>
+    <p>Minuto acumulado: 26 de 60.</p>
+  </aside>
+</section>
+
+<!-- 18. La cuadrícula de variantes -->
+<section data-min="3" class="diapo-programa">
+  <span class="antetitulo">Parte 4 · Comparar variantes · Animación</span>
+  <h2>La cuadrícula de variantes</h2>
+  <div class="programa" data-programa="variantes"></div>
+  <aside class="notes">
+    <p>Qué decir: así se ve la comparación. Las variantes en filas y las medidas en columnas.</p>
+    <p>Clic 1: los tokens de entrada son reales: de 46 a 94 con o200k_base. Los ejemplos son los que más agregan.</p>
+    <p>Clic 2 a 4: aciertos, costo por mil aciertos y latencia. Son ilustrativos.</p>
+    <p>La lección no es qué variante gana: eso depende de tus casos. La lección es medir las cuatro columnas.</p>
+    <p>Recuerda pass^k: cada variante se repite para medir su consistencia.</p>
+    <p>Minuto acumulado: 29 de 60.</p>
+  </aside>
+</section>
+
+<!-- 19. La cuenta antes de correr -->
+<section data-min="2" class="diapo-programa">
+  <span class="antetitulo">Parte 4 · Comparar variantes · Animación</span>
+  <h2>La cuenta antes de correr</h2>
+  <div class="programa" data-programa="cuenta-previa"></div>
+  <aside class="notes">
+    <p>Qué decir: antes de correr un experimento, se estima su costo. Bastan tres números.</p>
+    <p>Clic 1: los tokens de cada llamada. Clic 2: cuántas llamadas: 10 × 4 × 3 = 120.</p>
+    <p>Clic 3: el costo total. La cadena de pensamiento multiplica la salida, y la salida cuesta cinco veces más.</p>
+    <p>Con Haiku 5.5 el experimento cuesta centavos. En producción, con miles de casos, la diferencia importa.</p>
+    <p>Minuto acumulado: 31 de 60.</p>
+  </aside>
+</section>
+
+<!-- 20. Python a nivel de lectura -->
+<section data-min="1.5">
+  <div class="barra-parte"><span class="antetitulo">Parte 5 · Leer el código</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="caso,prompt,api,registro"></div></div>
+  <h2>Python a nivel de lectura: cinco piezas</h2>
+  <div class="columnas-5 conceptos-python">
+    <div class="tarjeta fragment surgir"><h3>Variable</h3><code>modelo = …</code><p>Un nombre que guarda un valor.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Lista</h3><code>[caso1, caso2]</code><p>Varios valores en orden.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Diccionario</h3><code>{"id": "T-01"}</code><p>Claves y valores, como un JSON.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Función</h3><code>def clasificar(…):</code><p>Pasos con nombre, que se repiten.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Ciclo</h3><code>for caso in casos:</code><p>Repite los pasos para cada caso.</p></div>
+  </div>
+  <p class="mediano texto-suave fragment surgir" style="margin-top:20px">Un JSON se lee en Python como un diccionario. El esquema del bloque 3.1 es una clase.</p>
+  <p class="credito">Para repasar: <a href="https://docs.python.org/es/3/tutorial/index.html">el tutorial oficial de Python, en español</a>.</p>
+  <aside class="notes">
+    <p>Qué decir: no vamos a programar. Vamos a leer. Con cinco piezas se lee casi todo el código de los laboratorios.</p>
+    <p>Clic 1 a 5: las cinco piezas, cada una con un ejemplo del programa que leemos ahora.</p>
+    <p>Clic 6: el puente con el bloque 3.1.</p>
+    <p>Minuto acumulado: 32.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 21. Leer un programa corto -->
+<section data-min="4" class="diapo-programa">
+  <span class="antetitulo">Parte 5 · Leer el código · Animación</span>
+  <h2>Leer un programa corto</h2>
+  <div class="programa" data-programa="leer-programa"></div>
+  <p class="credito">El programa completo y su prueba sin clave están en <code>ejemplos/programa_corto.py</code> y <code>ejemplos/probar_programa.py</code>.</p>
+  <aside class="notes">
+    <p>Qué decir: este programa clasifica dos tickets. Lo leemos línea por línea.</p>
+    <p>Clic 1: dos variables. Clic 2: una lista de diccionarios. Clic 3: una función.</p>
+    <p>Clic 4: un diccionario vacío. Clic 5: el ciclo. Clic 6: la llamada. Clic 7: guardar el registro.</p>
+    <p>El código corre con las versiones del curso. Se probó sin clave, con la clase real de LangChain y una llamada simulada.</p>
+    <p>Minuto acumulado: 36.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 22. Los asistentes de código -->
+<section data-min="2">
+  <span class="antetitulo">Parte 5 · Leer el código</span>
+  <h2>Un asistente de código te ayuda a leer y a escribir</h2>
+  <div class="columnas">
+    <div>
+      <div class="tarjeta acento fragment surgir"><h3>Para leer</h3><p class="mediano">«Explícame qué hace esta línea». «¿Qué devuelve esta función?»</p></div>
+      <div class="tarjeta acento-2 fragment surgir" style="margin-top:14px"><h3>Para escribir</h3><p class="mediano">Pídele el código junto con su prueba. Después corre la prueba.</p></div>
+    </div>
+    <div class="asistentes fragment surgir">
+      <div class="asistente"><span class="marco-logo"><img src="assets/img/logo_github_copilot.svg" alt="Logotipo de GitHub Copilot"></span><p><b>GitHub Copilot.</b> Gratis para estudiantes verificados con GitHub Education. Funciona en VS Code.</p></div>
+      <div class="asistente"><span class="marco-logo"><img src="assets/img/logo_claude_code.svg" alt="Logotipo de Claude Code"></span><p><b>Claude Code.</b> Necesita un plan de pago de Claude. Tiene extensión para VS Code.</p></div>
+      <div class="asistente"><span class="marco-logo"><img src="assets/img/logo_antigravity.svg" alt="Logotipo de Google Antigravity"></span><p><b>Google Antigravity.</b> Tiene un plan gratuito y extensión para VS Code.</p></div>
+    </div>
+  </div>
+  <p class="credito">Páginas oficiales: <a href="https://github.com/features/copilot/plans">GitHub Copilot</a>, <a href="https://claude.com/product/claude-code">Claude Code</a> y <a href="https://antigravity.google/pricing">Antigravity</a>. Consulta: 24 de noviembre de 2026. Los logotipos solo identifican cada producto.</p>
+  <aside class="notes">
+    <p>Qué decir: un asistente de código es útil para leer código ajeno y para escribir el de la capa 2.</p>
+    <p>Clic 1: para leer. Clic 2: para escribir, siempre con su prueba.</p>
+    <p>Clic 3: tres asistentes que funcionan en VS Code. No los comparamos: el ecosistema fue tema de la sesión 1.</p>
+    <p>Datos de acceso, al 24 de noviembre de 2026: Copilot Student es gratis con GitHub Education. El plan gratis de Claude no incluye Claude Code. Gemini Code Assist dejó de atender cuentas personales en junio de 2026; Google remite a Antigravity.</p>
+    <p>Minuto acumulado: 38.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 23. Con cuidado -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 5 · Leer el código</span>
+  <h2>Tres cuidados con un asistente de código</h2>
+  <div class="columnas-3">
+    <div class="tarjeta alerta fragment surgir"><h3>La clave, nunca</h3><p class="mediano">No pegues la clave del curso en el chat del asistente. Vive en el archivo <code>.env</code>.</p></div>
+    <div class="tarjeta alerta fragment surgir"><h3>Los paquetes, verificados</h3><p class="mediano">Un asistente puede recomendar paquetes que no existen. Búscalo antes de instalarlo.</p></div>
+    <div class="tarjeta exito fragment surgir"><h3>Las pruebas, siempre</h3><p class="mediano">El vibe coding (generar código describiéndolo) se permite en el proyecto, con pruebas.</p></div>
+  </div>
+  <p class="credito">Paquetes inventados: Spracklen et al. (2025), visto en el bloque 2.2. Vibe coding con pruebas: Anexo A.6 del curso.</p>
+  <aside class="notes">
+    <p>Qué decir: tres cuidados.</p>
+    <p>Clic 1: la clave. Clic 2: los paquetes inventados, que vimos en el bloque 2.2. Clic 3: las pruebas.</p>
+    <p>El asistente también se equivoca. La prueba es lo que dice si el código funciona.</p>
+    <p>Minuto acumulado: 40 de 60.</p>
+  </aside>
+</section>
+
+<!-- 24. Las pruebas de la capa 2 -->
+<section data-min="4" class="diapo-programa">
+  <div class="barra-parte"><span class="antetitulo">Parte 6 · La capa 2, parte 2</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="api,validacion,prueba"></div></div>
+  <h2>Las pruebas de la capa 2</h2>
+  <div class="programa" data-programa="pruebas-capa2"></div>
+  <aside class="notes">
+    <p>Qué decir: la parte 2 de la capa es correr las pruebas. Así se organizan.</p>
+    <p>Clic 1: conectar por API el modelo de la capa 1, con la clave del curso.</p>
+    <p>Clic 2: validar el esquema en los diez casos. Clic 3: comparar los campos con el registro esperado.</p>
+    <p>Clic 4: los tres casos de robustez. Clic 5: todo queda en la tabla de resultados, con las columnas del Anexo J.7.</p>
+    <p>Los resultados de la cuadrícula son ilustrativos.</p>
+    <p>Minuto acumulado: 44 de 60.</p>
+  </aside>
+</section>
+
+<!-- 25. Cómo provocar los casos de robustez -->
+<section data-min="2">
+  <span class="antetitulo">Parte 6 · La capa 2, parte 2</span>
+  <h2>Cómo provocar los casos de robustez</h2>
+  <div class="columnas-3">
+    <div class="tarjeta fragment surgir"><h3>Entrada incompleta</h3><p class="mediano">Un caso sin un dato clave. El campo debe quedar vacío, no inventado.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Respuesta mal formada</h3><p class="mediano">Un máximo de tokens muy bajo corta el JSON. También sirve una respuesta grabada rota.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Fuera de alcance</h3><p class="mediano">Un pedido que tu agente no debe atender. Debe caer en la salida que previste.</p></div>
+  </div>
+  <p class="mediano texto-suave fragment surgir" style="margin-top:22px">Cada caso tiene su resultado esperado, como los diez casos normales.</p>
+  <aside class="notes">
+    <p>Qué decir: los casos de robustez no aparecen solos. Hay que provocarlos.</p>
+    <p>Clic 1 a 3: cómo provocar cada uno.</p>
+    <p>El máximo de tokens bajo es la forma más simple de obtener un JSON cortado con un modelo real.</p>
+    <p>Clic 4: también llevan resultado esperado: por ejemplo, «la validación lo detecta».</p>
+    <p>Minuto acumulado: 46 de 60.</p>
+  </aside>
+</section>
+
+<!-- 26. Cómo trabajar -->
+<section data-min="3">
+  <span class="antetitulo">Parte 6 · La capa 2, parte 2 · En grupo</span>
+  <h2>Cómo trabajar</h2>
+  <ul class="casillas mediano">
+    <li class="fragment marcar"><span class="casilla"></span><span>La clave del curso vive en un archivo <code>.env</code>. Nunca va en el código ni se publica (Anexo A.7).</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span>Mientras desarrollan, graben las respuestas y trabajen con ellas, para no gastar crédito (Anexo C.1).</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span>Los datos son sintéticos o anonimizados. Revisen los que genere un LLM antes de usarlos (Anexo C.7).</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span>Escriban el código con un asistente y con sus pruebas. Pueden partir del código de los laboratorios 3A y 3B.</span></li>
+  </ul>
+  <aside class="notes">
+    <p>Qué decir: cuatro reglas para trabajar la capa.</p>
+    <p>Clic 1 a 4: la clave, las grabaciones, los datos y el código.</p>
+    <p>Grabar respuestas es guardar lo que devolvió el modelo para volver a usarlo sin llamar a la API.</p>
+    <p>Minuto acumulado: 49 de 60.</p>
+  </aside>
+</section>
+
+<!-- 27. Qué entregas -->
+<section data-min="3">
+  <span class="antetitulo">Parte 6 · La capa 2</span>
+  <h2>Qué entregas al inicio del bloque 4.1</h2>
+  <div class="columnas">
+    <div class="tarjeta acento">
+      <h3>La sección 2 de la ficha</h3>
+      <ul class="mediano"><li>El prompt de sistema</li><li>El esquema de la salida</li><li>Los resultados de la validación</li><li>Los casos de robustez</li></ul>
+      <p class="mediano" style="margin-top:10px"><b>Y el código de la capa</b>, con sus resultados.</p>
+    </div>
+    <div>
+      <p class="mediano">Vale el <b>5 %</b> de la calificación. Se revisa con los criterios del Anexo D:</p>
+      <div class="criterios-capa">
+        <div class="criterio fragment surgir" style="--w: 40%"><span>Funciona según su criterio de éxito</span><b>40 %</b></div>
+        <div class="criterio fragment surgir" style="--w: 40%"><span>Las pruebas están completas y corridas</span><b>40 %</b></div>
+        <div class="criterio fragment surgir" style="--w: 20%"><span>La ficha está al día</span><b>20 %</b></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: esto entregan al inicio del bloque 4.1. Un archivo por grupo, por el medio que indique el docente.</p>
+    <p>Clic 1 a 3: los criterios del Anexo D.</p>
+    <p>La consigna completa está en el trabajo independiente del bloque 3.2.</p>
+    <p>Minuto acumulado: 52 de 60.</p>
+  </aside>
+</section>
+
+<!-- 28. Síntesis -->
+<section data-min="1.5">
+  <span class="antetitulo">Cierre</span>
+  <h2>La sesión 3 en tres ideas</h2>
+  <div class="sintesis-sesion">
+    <div class="tarjeta exito fragment surgir"><span class="numero-idea">1</span><h3>Instrucciones y un esquema</h3><p class="chico">Un prompt con piezas, y una salida que se valida.</p></div>
+    <div class="flecha-sintesis fragment surgir" aria-hidden="true"></div>
+    <div class="tarjeta acento fragment surgir"><span class="numero-idea">2</span><h3>Una llamada con controles</h3><p class="chico">Una conversación que se reenvía, parámetros y razonamiento.</p></div>
+    <div class="flecha-sintesis fragment surgir" aria-hidden="true"></div>
+    <div class="tarjeta alerta fragment surgir"><span class="numero-idea">3</span><h3>Variantes que se miden</h3><p class="chico">Los mismos casos, un cambio a la vez y cuatro medidas.</p></div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: la sesión 3 en tres ideas.</p>
+    <p>Minuto acumulado: 53.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 29. La lectura del bloque 4.1 -->
+<section data-min="0.5">
+  <span class="antetitulo">Cierre · Lectura del bloque 4.1</span>
+  <h2>Para el próximo bloque: de los LLMs a los agentes</h2>
+  <div class="columnas c-60-40" style="align-items:center">
+    <div class="tarjeta acento-2">
+      <h3>Anthropic (Erik S. y Barry Zhang) (2024, 19 de diciembre)</h3>
+      <p class="mediano"><em>Building effective agents</em>.</p>
+      <p class="chico texto-suave" style="margin-top:10px">Unas 2 650 palabras. Solo en inglés.</p>
+    </div>
+    <div>
+      <p class="mediano">¿Cuándo basta un flujo y cuándo hace falta un agente?</p>
+      <p class="mediano">Las dos preguntas guía están en el trabajo independiente.</p>
+    </div>
+  </div>
+  <p class="credito"><a href="https://www.anthropic.com/engineering/building-effective-agents">anthropic.com/engineering/building-effective-agents</a></p>
+  <aside class="notes">
+    <p>Qué decir: la lectura del bloque 4.1 abre la sesión de agentes.</p>
+    <p>No adelantes sus ideas: se discuten en el club del bloque 4.1.</p>
+    <p>Un detalle: Anthropic actualizó la página desde 2024. La lista de frameworks cambió.</p>
+    <p>Minuto acumulado: 54 de 60.</p>
+  </aside>
+</section>
+
+<!-- 30. Anuncio del Laboratorio 3B -->
+<section data-min="1">
+  <span class="antetitulo">Después del club · 60 minutos en clase</span>
+  <h2>Laboratorio 3B: configurar un prompt</h2>
+  <div class="anuncio-lab">
+    <ul>
+      <li><b>Practicas</b> comparar variantes de un prompt sobre los mismos casos. Etiquetas issues de un repositorio.</li>
+      <li><b>Configuras</b> la variante: sin ejemplos, con tres ejemplos, con formato explícito o con cadena de pensamiento.</li>
+      <li><b>Mides</b> los aciertos, los tokens, el costo por acierto y la latencia de cada variante.</li>
+    </ul>
+    <div class="tarjeta acento">
+      <p class="mediano">No escribes código a mano: lees, ejecutas y configuras.</p>
+      <p class="mediano" style="margin-top:10px">Sin clave de API, el notebook usa respuestas grabadas. Con la clave del curso, corre en vivo.</p>
+      <p class="chico texto-suave" style="margin-top:10px">El notebook trae sus pruebas de funcionamiento y de robustez.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: después del club, el laboratorio. Dura 60 minutos en clase.</p>
+    <p>Es la práctica de la parte 4: la cuadrícula de variantes, con tus propias cifras.</p>
+    <p>No muestres resultados: el laboratorio se hace en clase.</p>
+    <p>Fuente: Anexo B, Laboratorio 3B.</p>
+    <p>Minuto acumulado: 55 de 60.</p>
+  </aside>
+</section>
+
+<!-- 31. Club de lectura -->
+<section>
+  <section data-min="5">
+    <span class="antetitulo">Club de lectura · 5 minutos</span>
+    <h2>Club de lectura: OpenAI (2024)</h2>
+    <p class="chico texto-suave" style="margin:-6px 0 12px"><em>Introducing Structured Outputs in the API</em>. Lee la <a href="https://openai.com/es-ES/index/introducing-structured-outputs-in-the-api/">versión en español</a> o el <a href="https://openai.com/index/introducing-structured-outputs-in-the-api/">original en inglés</a>.</p>
+    <ol class="preguntas-club">
+      <li><b>¿Un campo para razonar?</b> La sección «Separar una respuesta final del razonamiento de respaldo o comentario adicional» propone un campo aparte para razonar. ¿Lo incluirías en el esquema de tu agente, antes o después de la respuesta? ¿Por qué?</li>
+      <li><b>¿Qué campo puede salir válido pero equivocado?</b> La sección «Limitaciones y restricciones» admite que un JSON válido puede traer valores equivocados. ¿Qué campo de tu esquema corre más ese riesgo? ¿Cómo lo revisaría tu agente antes de usarlo?</li>
+    </ol>
+    <p class="mediano texto-acento" style="margin-top:14px">Después del club: Laboratorio 3B.</p>
+    <aside class="notes">
+      <p>Pregunta 1 y el Laboratorio 3A: piensen en su esquema de la capa 2.</p>
+      <p>Hilos para profundizar: Tam et al. (2024) encontraron que poner la respuesta antes del razonamiento anula la cadena de pensamiento. Anthropic advierte que un campo que pide el razonamiento puede provocar un rechazo en Haiku 5.5.</p>
+      <p>Pregunta 2 y el Laboratorio 3A: recuerden la diferencia entre salidas válidas y campos correctos.</p>
+      <p>Hilo para profundizar: ¿qué prueba de la capa 2 detectaría ese error?</p>
+      <p>No respondas las preguntas: la respuesta es de los estudiantes.</p>
+      <p>Cierra con la transición: «Ahora comparamos variantes con datos, en el Laboratorio 3B».</p>
+      <p>Minuto acumulado: 60 de 60.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Para profundizar</span>
+    <h2>Referencias</h2>
+    <div class="referencias compactas">
+      <p>OpenAI (2024, 6 de agosto). <em>Introducing Structured Outputs in the API</em>. <a href="https://openai.com/index/introducing-structured-outputs-in-the-api/">Original</a> · <a href="https://openai.com/es-ES/index/introducing-structured-outputs-in-the-api/">en español</a></p>
+      <p>Tam et al. (2024). <em>Let Me Speak Freely? A Study On The Impact Of Format Restrictions On Large Language Model Performance</em>. EMNLP, Industry Track. <a href="https://aclanthology.org/2024.emnlp-industry.91/">aclanthology.org</a></p>
+      <p>Wei et al. (2022). <em>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</em>. NeurIPS. <a href="https://arxiv.org/abs/2201.11903">arxiv.org</a></p>
+      <p>Kojima et al. (2022). <em>Large Language Models are Zero-Shot Reasoners</em>. NeurIPS. <a href="https://arxiv.org/abs/2205.11916">arxiv.org</a></p>
+      <p>Meincke, Mollick, Mollick y Shapiro (2025). <em>Prompting Science Report 2</em>. <a href="https://arxiv.org/abs/2506.07142">arxiv.org</a></p>
+      <p>Anthropic. <a href="https://platform.claude.com/docs/en/build-with-claude/working-with-messages">Working with messages</a> · <a href="https://platform.claude.com/docs/en/models/haiku-5-5/migration-guide">Haiku 5.5: guía de migración</a> · <a href="https://platform.claude.com/docs/en/build-with-claude/effort">Effort</a> · <a href="https://platform.claude.com/docs/en/about-claude/pricing">Precios</a></p>
+      <p>Google. <a href="https://aistudio.google.com/docs/text-generation?generate-content=true">Text generation</a> · <a href="https://aistudio.google.com/docs/thinking?generate-content=true">Thinking</a> · <a href="https://aistudio.google.com/docs/pricing">Precios</a></p>
+      <p>LangChain. <a href="https://docs.langchain.com/oss/python/langchain/models">Modelos</a> · <a href="https://docs.langchain.com/oss/python/integrations/chat/anthropic">ChatAnthropic</a> · <a href="https://docs.langchain.com/oss/python/integrations/chat/google_generative_ai">ChatGoogleGenerativeAI</a></p>
+      <p>Python. <a href="https://docs.python.org/es/3/tutorial/index.html">El tutorial de Python, en español</a>.</p>
+      <p>Anthropic (2024, 19 de diciembre). <em>Building effective agents</em>. <a href="https://www.anthropic.com/engineering/building-effective-agents">anthropic.com</a></p>
+    </div>
+    <aside class="notes"><p>Referencias del bloque, sin tiempo de clase. Consulta: 24 de noviembre de 2026.</p></aside>
+  </section>
+</section>
+
+</div>
+</div>
+<script src="assets/vendor/reveal.js-6.0.2/reveal.js"></script>
+<script src="assets/vendor/reveal.js-6.0.2/plugin/notes.js"></script>
+<script src="assets/vendor/react-18.3.1/react.production.min.js"></script>
+<script src="assets/vendor/react-18.3.1/react-dom.production.min.js"></script>
+<script src="assets/js/programas.js"></script>
+<script src="assets/js/deck.js"></script>
+</body>
+</html>

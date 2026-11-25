@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesión 3 · Bloque 1: principios de prompting y salidas estructuradas</title>
+<script src="assets/js/tema.js"></script>
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reset.css">
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reveal.css">
+<link rel="stylesheet" href="assets/css/tema-agentes.css">
+<link rel="stylesheet" href="assets/css/sesion3.css">
+</head>
+<body>
+<a class="boton-indice" href="index.html" data-con-tema data-enlace-indice aria-label="Volver al índice de la sesión">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10"/></svg>Índice</a>
+<div class="reveal" data-total-min="60">
+<div class="slides">
+
+<!-- 1. Portada -->
+<section data-min="0.5">
+  <div class="columnas c-60-40" style="height:100%">
+    <div class="portada">
+      <span class="antetitulo">Sesión 3 · Bloque 1</span>
+      <h1>Principios de prompting y salidas estructuradas</h1>
+      <p class="subtitulo">Cómo darle instrucciones claras a un modelo. Y cómo pedirle datos que un programa pueda leer y validar.</p>
+      <div class="meta"><span class="etiqueta">60 minutos</span><span class="etiqueta violeta">Club de lectura al final</span><span class="etiqueta exito">Después: Laboratorio 3A</span></div>
+    </div>
+    <div class="escena3d capas3d-envoltura" aria-label="Cuatro piezas de un prompt apiladas: instrucción, contexto, ejemplos y formato">
+      <div class="capas3d" style="transform: translateY(70px) rotateX(58deg) rotateZ(var(--giro)) scale(.64)">
+        <div class="capa" style="--i:0; --c: var(--t1)"><div class="rotulo">Instrucción<small>Qué debe hacer</small></div></div>
+        <div class="capa" style="--i:1; --c: var(--t2)"><div class="rotulo">Contexto<small>Para qué y para quién</small></div></div>
+        <div class="capa" style="--i:2; --c: var(--t5)"><div class="rotulo">Ejemplos<small>La forma de la respuesta</small></div></div>
+        <div class="capa" style="--i:3; --c: var(--t4)"><div class="rotulo">Formato<small>Un JSON con su esquema</small></div></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: en la sesión 2 elegimos el modelo. Hoy le damos instrucciones y le pedimos datos que un programa pueda leer.</p>
+    <p>Las cuatro capas de la derecha son las piezas de un buen prompt. Las armamos en la parte 3.</p>
+    <p>Minuto acumulado: 0.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 2. Del Laboratorio 2B a este bloque -->
+<section data-min="1">
+  <span class="antetitulo">Apertura</span>
+  <h2>En el Laboratorio 2B, la respuesta era texto</h2>
+  <div class="antes-despues">
+    <div class="tarjeta exito fragment surgir">
+      <h3>El notebook la lee</h3>
+      <p class="globo bien"><code>Categoría: fallo de la app | Prioridad: alta</code></p>
+    </div>
+    <div class="tarjeta alerta fragment surgir">
+      <h3>Dice lo mismo, pero falla</h3>
+      <p class="globo mal"><code>La categoría es fallo de la app y la prioridad, alta.</code></p>
+    </div>
+  </div>
+  <p class="mediano fragment surgir" style="margin-top:26px">Hoy le pides al modelo un registro con campos. Y lo validas con un esquema.</p>
+  <aside class="notes">
+    <p>Qué decir: en el 2B, el notebook buscaba «Categoría:» y «Prioridad:» dentro del texto.</p>
+    <p>Clic 1: una respuesta con ese formato. El notebook la lee.</p>
+    <p>Clic 2: la misma información con otras palabras. El notebook no la encuentra y la cuenta como fallo.</p>
+    <p>Clic 3: hoy resolvemos eso con salidas estructuradas.</p>
+    <p>No uses cifras del laboratorio: cada estudiante obtuvo las suyas.</p>
+    <p>Minuto acumulado: 1.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 3. El mapa de la sesión -->
+<section data-min="0.5" class="diapo-programa">
+  <span class="antetitulo">Apertura · El mapa de la sesión</span>
+  <h2>El camino de un caso dentro de un programa</h2>
+  <div class="programa" data-programa="mapa-31"></div>
+  <aside class="notes">
+    <p>Qué decir: este es el camino de un caso, del ticket a la prueba que da «pasa» o «falla».</p>
+    <p>Clic 1: este bloque trata dos piezas, el prompt y la validación. El bloque 3.2 trata la llamada por API y la prueba.</p>
+    <p>El mapa vuelve en pequeño al inicio de cada parte.</p>
+    <p>Minuto acumulado: 2 de 60.</p>
+  </aside>
+</section>
+
+<!-- 4. Lo que agrega la app -->
+<section data-min="3" class="diapo-programa">
+  <div class="barra-parte"><span class="antetitulo">Parte 1 · Del chat a la API</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="caso,prompt"></div></div>
+  <h2>Lo que agrega una app de chat</h2>
+  <div class="programa" data-programa="app-api"></div>
+  <aside class="notes">
+    <p>Qué decir: cuando chateas, parece que solo tu mensaje llega al modelo. No es así.</p>
+    <p>Clic 1: la app agrega su prompt de sistema, la conversación anterior y sus herramientas.</p>
+    <p>Clic 2: por API llega solo lo que tu programa envía. Las piezas de la app desaparecen.</p>
+    <p>Clic 3: quedan dos huecos que escribes tú: la instrucción y el formato. Son las partes 3 y 4.</p>
+    <p>La cifra de tokens es real. Es el prompt que Anthropic publica para su app con Claude Haiku 5.5, contado con o200k_base.</p>
+    <p>Minuto acumulado: 5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 5. El prompt de sistema de la app, con datos reales -->
+<section data-min="2">
+  <span class="antetitulo">Parte 1 · Del chat a la API · Datos reales</span>
+  <h2>Antes de tu mensaje, la app envía miles de tokens</h2>
+  <div class="barras-dato" style="margin-top:8px">
+    <div class="barra-dato fragment crece" style="--w: 2.6%"><span>Claude Haiku 3 · julio de 2024</span><div class="pista"><div class="relleno"></div></div><b>155</b></div>
+    <div class="barra-dato fragment crece" style="--w: 68.9%"><span>Claude Haiku 3.5 · octubre de 2024</span><div class="pista"><div class="relleno"></div></div><b>4 166</b></div>
+    <div class="barra-dato fragment crece" style="--w: 88%"><span>Claude Haiku 4.5 · noviembre de 2026</span><div class="pista"><div class="relleno"></div></div><b>5 318</b></div>
+    <div class="barra-dato fragment crece" style="--w: 100%"><span>Claude Haiku 5.5 · noviembre de 2026</span><div class="pista"><div class="relleno"></div></div><b>6 046</b></div>
+    <div class="barra-dato malo fragment crece" style="--w: 0.6%"><span>Tu pregunta: «¿Por qué se cierra la app al subir una foto?»</span><div class="pista"><div class="relleno"></div></div><b>12</b></div>
+  </div>
+  <p class="nota-metodo recuadro"><b>Método.</b> Tokens contados con o200k_base sobre la entrada más reciente de cada modelo. Claude cuenta con su propio tokenizer. Anthropic publica una sola versión: la de los chats sin búsqueda web. No se aplica a la API.</p>
+  <p class="credito">Fuente: Anthropic, <a href="https://platform.claude.com/docs/en/release-notes/system-prompts">notas de versión de los prompts de sistema</a>, consultadas el 24 de noviembre de 2026. Conteo propio: <code>ejemplos/prompt_sistema.py</code>.</p>
+  <aside class="notes">
+    <p>Qué decir: Anthropic publica el prompt de sistema de sus apps de Claude. Contamos sus tokens.</p>
+    <p>Clic 1 a 4: en 2024 eran 155 tokens. Hoy, con Haiku 5.5, son unos 6 000.</p>
+    <p>Clic 5: tu pregunta tiene 12. La app envía 500 veces más texto que tú.</p>
+    <p>Por API, nada de eso llega: el modelo solo ve lo que envía tu programa.</p>
+    <p>Cita de la página: «These updates do not apply to the Claude API».</p>
+    <p>Fechas de las entradas: 12 de julio de 2024, 22 de octubre de 2024 y 9 de noviembre de 2026.</p>
+    <p>Minuto acumulado: 7 de 60.</p>
+  </aside>
+</section>
+
+<!-- 6. Por API, tú escribes la instrucción -->
+<section data-min="1">
+  <span class="antetitulo">Parte 1 · Del chat a la API</span>
+  <h2>Por API, tú escribes lo que la app escribía</h2>
+  <div class="columnas-3">
+    <div class="tarjeta acento fragment surgir"><h3>La instrucción</h3><p class="mediano">Qué debe hacer el modelo, para quién y con qué reglas.</p></div>
+    <div class="tarjeta acento-2 fragment surgir"><h3>La historia</h3><p class="mediano">Tú decides qué mensajes anteriores envías. Lo vemos en el bloque 3.2.</p></div>
+    <div class="tarjeta exito fragment surgir"><h3>El formato</h3><p class="mediano">La forma exacta de la respuesta. Un programa necesita datos, no prosa.</p></div>
+  </div>
+  <p class="mediano texto-suave" style="margin-top:24px">La llamada es la del bloque 2.1: mensajes de sistema y de usuario, y tokens de entrada y de salida.</p>
+  <aside class="notes">
+    <p>Qué decir: lo que la app hacía por ti, ahora lo escribes tú.</p>
+    <p>Clic 1 a 3: la instrucción, la historia y el formato.</p>
+    <p>La llamada ya la vimos en el bloque 2.1. Aquí solo cambia quién escribe cada parte.</p>
+    <p>Minuto acumulado: 8 de 60.</p>
+  </aside>
+</section>
+
+<!-- 7. Antes del prompt: el criterio y la prueba -->
+<section data-min="2">
+  <div class="barra-parte"><span class="antetitulo">Parte 2 · El criterio primero</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="prueba"></div></div>
+  <h2>Antes de escribir el prompt</h2>
+  <p class="mediano texto-suave" style="margin-top:-6px">La guía de Anthropic da por hecho que ya tienes tres cosas:</p>
+  <div class="columnas-3">
+    <div class="tarjeta exito fragment surgir"><h3>1. El criterio de éxito</h3><p class="mediano">«Una definición clara de los criterios de éxito para tu caso de uso».</p></div>
+    <div class="tarjeta exito fragment surgir"><h3>2. La forma de probarlo</h3><p class="mediano">«Algunas formas de probar empíricamente contra esos criterios».</p></div>
+    <div class="tarjeta acento fragment surgir"><h3>3. Un primer borrador</h3><p class="mediano">«Un primer borrador de prompt que quieres mejorar».</p></div>
+  </div>
+  <p class="mediano fragment surgir" style="margin-top:22px">«Si no es así, dedica tiempo a establecer eso primero».</p>
+  <p class="credito">Fuente: Anthropic, <a href="https://platform.claude.com/docs/es/build-with-claude/prompt-engineering/overview">descripción general de la ingeniería de prompts</a>, en español. Consulta: 24 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: el orden importa. Primero el criterio y la prueba. Después el prompt.</p>
+    <p>Clic 1 a 3: las tres condiciones, citadas de la guía en español.</p>
+    <p>Clic 4: si no las tienes, empieza por ahí.</p>
+    <p>La misma página dice que no todo se arregla con el prompt: a veces conviene cambiar de modelo. Eso lo vieron en la capa 1.</p>
+    <p>No expliques cómo se resumen varios intentos en una cifra: es la primera pregunta del club.</p>
+    <p>Minuto acumulado: 10 de 60.</p>
+  </aside>
+</section>
+
+<!-- 8. El orden del trabajo -->
+<section data-min="2" class="diapo-programa">
+  <span class="antetitulo">Parte 2 · El criterio primero · Animación</span>
+  <h2>El orden del trabajo</h2>
+  <div class="programa" data-programa="ciclo-trabajo"></div>
+  <aside class="notes">
+    <p>Qué decir: así se trabaja un prompt. Es un ciclo.</p>
+    <p>Clic 1: los casos y el criterio. Son fijos.</p>
+    <p>Clic 2: la primera versión del prompt.</p>
+    <p>Clic 3: corres los mismos casos.</p>
+    <p>Clic 4: mides cuántos pasan.</p>
+    <p>Clic 5: ajustas el prompt y vuelves a correr. El prompt cambia; los casos no.</p>
+    <p>Minuto acumulado: 12 de 60.</p>
+  </aside>
+</section>
+
+<!-- 9. Tus diez casos son la prueba -->
+<section data-min="1">
+  <span class="antetitulo">Parte 2 · El criterio primero</span>
+  <h2>Tus diez casos de la capa 1 son la prueba</h2>
+  <table class="tabla-datos" style="font-size:.58em">
+    <thead><tr><th>Caso</th><th>Entrada</th><th>Esperado en la capa 1</th><th class="fragment surgir">Esperado en la capa 2</th></tr></thead>
+    <tbody>
+      <tr><td>C01</td><td>«La app se cierra al subir una foto en Android 15»</td><td>fallo de la app, alta</td><td class="fragment surgir"><code>{"categoria": "fallo de la app", "prioridad": "alta", "plataforma": "Android", …}</code></td></tr>
+      <tr><td>C02</td><td>…</td><td>…</td><td class="fragment surgir">…</td></tr>
+    </tbody>
+  </table>
+  <p class="mediano fragment surgir" style="margin-top:22px">Los casos no cambian. Solo agregas el registro que esperas de cada uno.</p>
+  <aside class="notes">
+    <p>Qué decir: el grupo ya tiene sus casos. Ahora el resultado esperado de cada uno es un registro con campos.</p>
+    <p>Clic 1: la columna nueva, el registro esperado.</p>
+    <p>Clic 2: el ejemplo del caso bien escrito de la capa 1, ahora como registro.</p>
+    <p>Clic 3 y 4: así con los diez casos.</p>
+    <p>Minuto acumulado: 13 de 60.</p>
+  </aside>
+</section>
+
+<!-- 10. La anatomía de un prompt -->
+<section data-min="1.5">
+  <div class="barra-parte"><span class="antetitulo">Parte 3 · La anatomía de un prompt</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="prompt"></div></div>
+  <h2>Cinco piezas de un buen prompt</h2>
+  <div class="anatomia">
+    <div class="tarjeta fragment surgir" style="--c: var(--t1)"><h3>Instrucción clara</h3><p>Qué hacer, dicho sin rodeos.</p></div>
+    <div class="tarjeta fragment surgir" style="--c: var(--t2)"><h3>Contexto</h3><p>Para qué sirve la respuesta y quién la usa.</p></div>
+    <div class="tarjeta fragment surgir" style="--c: var(--t6)"><h3>Sistema y usuario</h3><p>Qué va en cada mensaje.</p></div>
+    <div class="tarjeta fragment surgir" style="--c: var(--t5)"><h3>Ejemplos</h3><p>De tres a cinco, que muestran la forma.</p></div>
+    <div class="tarjeta fragment surgir" style="--c: var(--t4)"><h3>Formato</h3><p>Cómo debe verse la respuesta.</p></div>
+  </div>
+  <p class="mediano texto-suave fragment surgir" style="margin-top:24px">Hay más técnicas. Una es la cadena de pensamiento (chain of thought): pedirle al modelo que razone antes de responder. La discute el club.</p>
+  <aside class="notes">
+    <p>Qué decir: un buen prompt tiene cinco piezas. Las vemos una por una y después las armamos.</p>
+    <p>Clic 1 a 5: las piezas.</p>
+    <p>Clic 6: la cadena de pensamiento es otra técnica. No la evalúes aquí: la discute el club y el bloque 3.2 muestra la evidencia.</p>
+    <p>Frontera con otras asignaturas (Anexo F): esto es un primer contacto aplicado. El estudio formal de la ingeniería de prompts es de Procesamiento de Lenguaje Natural.</p>
+    <p>Minuto acumulado: 14.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 11. Instrucción clara: la prueba clave -->
+<section data-min="2">
+  <span class="antetitulo">Parte 3 · Instrucción clara</span>
+  <h2>La prueba clave: ¿lo entendería un colega nuevo?</h2>
+  <blockquote class="cita fragment surgir">«Muestra tu prompt a un colega con un contexto mínimo sobre la tarea y pídele que lo siga. Si se confunde, Claude también lo hará».</blockquote>
+  <div class="antes-despues" style="margin-top:18px">
+    <div class="tarjeta alerta fragment surgir"><h3>Vaga</h3><p class="globo mal">Clasifica este ticket.</p></div>
+    <div class="tarjeta exito fragment surgir"><h3>Clara</h3><p class="globo bien">Lee el ticket de soporte de FotoNube, una app de fotos. Asígnale una categoría y una prioridad.</p></div>
+  </div>
+  <p class="credito">Fuente: Anthropic, <a href="https://platform.claude.com/docs/es/build-with-claude/prompt-engineering/claude-prompting-best-practices">Mejores prácticas de prompting</a>, sección «Sé claro y directo». FotoNube es una app ficticia del curso.</p>
+  <aside class="notes">
+    <p>Qué decir: la guía de Anthropic propone una prueba. Muestra tu prompt a alguien que no conoce la tarea.</p>
+    <p>Clic 1: la cita, de la guía en español.</p>
+    <p>Clic 2: una instrucción vaga. ¿Clasificar en qué? ¿Para qué?</p>
+    <p>Clic 3: la instrucción clara dice qué es el texto y qué debe salir.</p>
+    <p>El tutorial antiguo de Anthropic, escrito para Claude 3, la llamaba «regla de oro». La guía actual la llama «prueba clave».</p>
+    <p>Minuto acumulado: 16.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 12. El contexto -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 3 · Contexto</span>
+  <h2>El contexto: para qué sirve la respuesta</h2>
+  <div class="columnas c-60-40">
+    <div class="tarjeta fragment surgir" style="border-left: 5px solid var(--t2)">
+      <h3 style="color: var(--t2)">Contexto</h3>
+      <p class="mediano">El equipo de soporte atiende primero la prioridad alta. Un fallo que impide usar una función principal es de prioridad alta.</p>
+    </div>
+    <div>
+      <p class="mediano fragment surgir">El modelo no sabe qué significa «prioridad alta» en tu equipo.</p>
+      <p class="mediano fragment surgir">Si se lo dices, no tiene que adivinarlo.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: el contexto explica para qué sirve la respuesta y con qué reglas se decide.</p>
+    <p>Clic 1: el contexto del ejemplo.</p>
+    <p>Clic 2 y 3: sin contexto, el modelo usa su propia idea de prioridad. Con contexto, usa la del equipo.</p>
+    <p>En el Laboratorio 2B vieron algo parecido: una instrucción con reglas de prioridad y otra sin ellas.</p>
+    <p>Minuto acumulado: 18 de 60.</p>
+  </aside>
+</section>
+
+<!-- 13. Sistema y usuario -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 3 · El prompt de sistema y el mensaje de usuario</span>
+  <h2>Qué va en cada mensaje</h2>
+  <div class="columnas">
+    <div class="tarjeta acento fragment surgir" style="border-left: 5px solid var(--t6)">
+      <h3 style="color: var(--t6)">Sistema: lo fijo</h3>
+      <ul class="mediano"><li>El rol y la tarea</li><li>Las reglas y las categorías</li><li>Los ejemplos y el formato</li></ul>
+      <p class="chico texto-suave" style="margin-top:8px">Es igual en todas las llamadas.</p>
+    </div>
+    <div class="tarjeta fragment surgir" style="border-left: 5px solid var(--t3)">
+      <h3 style="color: var(--t3)">Usuario: lo que cambia</h3>
+      <ul class="mediano"><li>El ticket de este caso</li></ul>
+      <p class="chico texto-suave" style="margin-top:8px">Cambia en cada llamada.</p>
+    </div>
+  </div>
+  <p class="mediano fragment surgir" style="margin-top:20px">Sobre el rol, la guía dice: «Incluso una sola oración marca la diferencia».</p>
+  <p class="credito">Fuente: Anthropic, <a href="https://platform.claude.com/docs/es/build-with-claude/prompt-engineering/claude-prompting-best-practices">Mejores prácticas de prompting</a>, sección «Dale un rol a Claude».</p>
+  <aside class="notes">
+    <p>Qué decir: el prompt de sistema lleva lo que no cambia. El mensaje de usuario lleva el caso.</p>
+    <p>Clic 1: el sistema. Clic 2: el usuario. Clic 3: el rol.</p>
+    <p>Un matiz con fuente: Zheng et al. (2024) midieron que dar una persona no mejora la exactitud en preguntas de hechos. Su primera versión, de 2023, concluía lo contrario.</p>
+    <p>La guía de Anthropic habla de tono y comportamiento, no de exactitud.</p>
+    <p>Por eso el rol no reemplaza a las pruebas: tus diez casos dicen si ayuda.</p>
+    <p>Minuto acumulado: 19.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 14. Ejemplos -->
+<section data-min="2">
+  <span class="antetitulo">Parte 3 · Ejemplos (few-shot)</span>
+  <h2>Los ejemplos muestran la forma, y el modelo la imita</h2>
+  <div class="columnas c-60-40">
+    <pre class="codigo-figura fragment surgir" style="font-size:16px; white-space:pre-wrap">&lt;ejemplos&gt;
+No puedo iniciar sesión desde el lunes. → cuenta y acceso, alta
+Sería útil ordenar los álbumes por fecha. → solicitud de función, baja
+La galería tarda diez segundos en abrir. → rendimiento, media
+&lt;/ejemplos&gt;</pre>
+    <div>
+      <p class="mediano fragment surgir"><b>De tres a cinco.</b> «Incluye de 3 a 5 ejemplos para obtener los mejores resultados».</p>
+      <p class="mediano fragment surgir"><b>Variados.</b> Que cubran casos límite y no repitan un mismo patrón.</p>
+      <p class="mediano fragment surgir"><b>Separados.</b> Dentro de etiquetas, para no confundirlos con la instrucción.</p>
+    </div>
+  </div>
+  <p class="credito">Fuente: Anthropic, <a href="https://platform.claude.com/docs/es/build-with-claude/prompt-engineering/claude-prompting-best-practices">Mejores prácticas de prompting</a>, sección sobre ejemplos. Tickets de FotoNube, una app ficticia.</p>
+  <aside class="notes">
+    <p>Qué decir: los ejemplos son la forma más directa de mostrar cómo debe verse la respuesta.</p>
+    <p>Clic 1: tres ejemplos, uno por categoría y prioridad distintas.</p>
+    <p>Clic 2 a 4: las tres reglas de la guía: cuántos, variados y separados.</p>
+    <p>Las fuentes no coinciden en cuántos. El blog de Anthropic (2025) sugiere empezar con uno. Schulhoff et al. (2024) dicen que la ganancia puede estancarse pasados unos 20.</p>
+    <p>Riesgo: si todos los ejemplos son de prioridad alta, el modelo tiende a responder alta.</p>
+    <p>Minuto acumulado: 21.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 15. Un clásico: zero-shot, one-shot y few-shot -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 3 · Un clásico</span>
+  <h2>Zero-shot, one-shot y few-shot (Brown et al., 2020)</h2>
+  <div class="columnas c-60-40" style="align-items:start">
+    <figure class="figura"><img src="assets/img/brown2020_figura2_1.png" alt="Figura 2.1 de Brown et al. (2020): zero-shot, one-shot y few-shot frente al fine-tuning, con el ejemplo de traducir del inglés al francés" style="max-height:470px; width:auto"></figure>
+    <div>
+      <p class="mediano fragment surgir"><b>Zero-shot:</b> solo la instrucción.</p>
+      <p class="mediano fragment surgir"><b>One-shot:</b> la instrucción y un ejemplo.</p>
+      <p class="mediano fragment surgir"><b>Few-shot:</b> la instrucción y varios ejemplos.</p>
+      <p class="mediano fragment surgir texto-acento">Los ejemplos van en el prompt. Los pesos no cambian.</p>
+    </div>
+  </div>
+  <p class="credito">Figura 2.1 de Brown et al. (2020), <a href="https://arxiv.org/abs/2005.14165">Language Models are Few-Shot Learners</a>, NeurIPS. Licencia de arXiv, con derechos reservados: uso educativo con crédito.</p>
+  <aside class="notes">
+    <p>Qué decir: el artículo de GPT-3 nombró estas tres formas de usar un modelo. Es el clásico del few-shot.</p>
+    <p>Clic 1 a 3: zero, one y few. El ejemplo es traducir del inglés al francés.</p>
+    <p>Clic 4: la diferencia con el fine-tuning de la derecha: aquí no se ajustan los pesos. Eso lo vimos en el bloque 2.1.</p>
+    <p>Dato: en GPT-3 usaban de 10 a 100 ejemplos, lo que cabía en 2 048 tokens. Hoy la guía de Anthropic sugiere de 3 a 5.</p>
+    <p>Minuto acumulado: 23 de 60.</p>
+  </aside>
+</section>
+
+<!-- 16. Formato de salida y etiquetas XML -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 3 · Formato de salida</span>
+  <h2>Di exactamente cómo debe verse la respuesta</h2>
+  <div class="columnas c-60-40">
+    <pre class="codigo-figura fragment surgir" style="font-size:16px; white-space:pre-wrap"><span class="k">Responde solo con un JSON con los campos categoria,
+prioridad, plataforma, version_app y resumen.
+Si un dato no está en el ticket, escribe null.</span>
+
+&lt;ticket&gt;
+Desde ayer la app se cierra cada vez que subo una foto…
+&lt;/ticket&gt;</pre>
+    <div>
+      <p class="mediano fragment surgir">El formato dice qué campos y qué hacer si falta un dato.</p>
+      <p class="mediano fragment surgir">Las etiquetas separan la instrucción del ticket.</p>
+      <p class="chico texto-suave fragment surgir">«Las etiquetas XML ayudan a Claude a analizar prompts complejos sin ambigüedad».</p>
+    </div>
+  </div>
+  <p class="credito">Fuente: Anthropic, <a href="https://platform.claude.com/docs/es/build-with-claude/prompt-engineering/claude-prompting-best-practices">Mejores prácticas de prompting</a>, sección sobre etiquetas XML.</p>
+  <aside class="notes">
+    <p>Qué decir: la última pieza es el formato. Si no lo dices, el modelo elige uno.</p>
+    <p>Clic 1: la instrucción de formato y el ticket entre etiquetas.</p>
+    <p>Clic 2: el formato también dice qué hacer si falta un dato. Eso evita que el modelo invente.</p>
+    <p>Clic 3 y 4: las etiquetas separan las partes. Un matiz: el blog de Anthropic (2025) dice que los modelos actuales las necesitan menos.</p>
+    <p>En la parte 4 el formato se vuelve un esquema que se valida.</p>
+    <p>Minuto acumulado: 24.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 17. Armar un prompt -->
+<section>
+  <section data-min="3.5" class="diapo-programa">
+    <span class="antetitulo">Parte 3 · La anatomía de un prompt · Animación</span>
+    <h2>Armar un prompt, pieza por pieza</h2>
+    <div class="programa" data-programa="armar-prompt"></div>
+    <aside class="notes">
+      <p>Qué decir: armamos el prompt del ticket pieza por pieza. A la derecha, los tokens y la respuesta.</p>
+      <p>Inicio: la instrucción vaga da una respuesta vaga.</p>
+      <p>Clic 1: la instrucción clara. Clic 2: el contexto. Clic 3: los tres ejemplos. Clic 4: el formato.</p>
+      <p>Clic 5: el prompt completo. Ya se parece al registro esperado.</p>
+      <p>Los tokens son reales: de 55 a 209 con o200k_base. Cada pieza se paga en cada llamada.</p>
+      <p>Las respuestas son ilustrativas: la clave del curso no estaba disponible al construir la sesión.</p>
+      <p>Para explorar en casa: «El taller del prompt», en el índice de la sesión.</p>
+      <p>Minuto acumulado: 28 de 60.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Para consultar</span>
+    <h2>Un catálogo de técnicas: The Prompt Report</h2>
+    <div class="columnas c-40-60">
+      <div class="cifras-catalogo">
+        <div class="tarjeta acento"><p class="cifra-grande">58</p><p class="mediano">técnicas de prompting de texto</p></div>
+        <div class="tarjeta acento-2" style="margin-top:14px"><p class="cifra-grande">40</p><p class="mediano">técnicas para otras modalidades</p></div>
+        <div class="tarjeta" style="margin-top:14px"><p class="cifra-grande">33</p><p class="mediano">términos de vocabulario</p></div>
+      </div>
+      <div>
+        <p class="mediano">Schulhoff et al. (2024) revisaron 1 565 trabajos y ordenaron las técnicas en seis categorías.</p>
+        <p class="mediano">Es un mapa para consultar, no una lista para aprender.</p>
+        <p class="chico texto-suave">Sobre los ejemplos, el mismo informe dice que la ganancia puede estancarse pasados unos 20.</p>
+      </div>
+    </div>
+    <p class="credito">Schulhoff et al. (2024), <a href="https://arxiv.org/abs/2406.06608">The Prompt Report</a>, versión 6 del 26 de febrero de 2025. Licencia CC BY 4.0.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase. Cifras del resumen y del cuerpo del informe.</p></aside>
+  </section>
+  <section data-min="0" data-opcional>
+    <span class="antetitulo">Opcional · Demostración en vivo</span>
+    <h2>Escribe un prompt y mira cuánto cuesta</h2>
+    <div class="programa" data-programa="demo-tokens"></div>
+    <aside class="notes">
+      <p>Diapositiva opcional, sin tiempo de clase. Úsala si sobra tiempo.</p>
+      <p>Escribe o borra piezas del prompt. El conteo usa o200k_base, en el navegador y sin internet.</p>
+      <p>El costo es solo de la entrada, con el precio de Claude Haiku 5.5 del Anexo G.1.</p>
+    </aside>
+  </section>
+</section>
+
+<!-- 18. Un programa lee campos -->
+<section data-min="1.5">
+  <div class="barra-parte"><span class="antetitulo">Parte 4 · De texto libre a JSON</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="cruda,validacion,registro"></div></div>
+  <h2>Un programa lee campos, no párrafos</h2>
+  <div class="antes-despues">
+    <div class="tarjeta alerta fragment surgir">
+      <h3>Prosa</h3>
+      <p class="globo">Parece un fallo de la app, bastante grave, en un Pixel con Android 15. Yo lo atendería pronto.</p>
+      <p class="chico texto-suave" style="margin-top:8px">¿Dónde está la prioridad? ¿Qué significa «bastante grave»?</p>
+    </div>
+    <div class="tarjeta exito fragment surgir">
+      <h3>Registro</h3>
+      <pre class="json-registro">{"categoria": "fallo de la app",
+ "prioridad": "alta",
+ "plataforma": "Android"}</pre>
+      <p class="chico texto-suave" style="margin-top:8px">Cada campo tiene un nombre y un valor.</p>
+    </div>
+  </div>
+  <p class="mediano fragment surgir" style="margin-top:20px">Con un registro, cada campo se puede probar: ¿la prioridad coincide con la esperada?</p>
+  <aside class="notes">
+    <p>Qué decir: la prosa sirve a una persona. Un programa necesita campos.</p>
+    <p>Clic 1: la prosa. Ningún programa sabe dónde está la prioridad.</p>
+    <p>Clic 2: el registro. Cada dato tiene su campo.</p>
+    <p>Clic 3: así cada campo se compara con el esperado. Esa es la prueba de la capa 2.</p>
+    <p>Las dos respuestas son ilustrativas.</p>
+    <p>Minuto acumulado: 29.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 19. El JSON en una diapositiva -->
+<section data-min="2">
+  <span class="antetitulo">Parte 4 · De texto libre a JSON</span>
+  <h2>El JSON en una diapositiva</h2>
+  <div class="json-anotado">
+    <pre class="json-registro">{"categoria": "fallo de la app",
+ "intentos": 3,
+ "se_repite": true,
+ "pasos": ["Abrir la galería", "Subir la foto"],
+ "dispositivo": {"sistema": "Android", "version": 15}}</pre>
+    <div class="tipos-json">
+      <span class="fragment surgir"><b>Texto</b>, entre comillas</span>
+      <span class="fragment surgir"><b>Número</b>, sin comillas</span>
+      <span class="fragment surgir"><b>Verdadero o falso</b>: true o false</span>
+      <span class="fragment surgir"><b>Lista</b>, entre corchetes</span>
+      <span class="fragment surgir"><b>Un objeto dentro de otro</b>, entre llaves</span>
+    </div>
+  </div>
+  <p class="mediano texto-suave" style="margin-top:18px">Cada línea tiene una clave, dos puntos y un valor. Las llaves abren y cierran el registro.</p>
+  <aside class="notes">
+    <p>Qué decir: JSON es un formato de texto para datos. Lo leen las personas y los programas.</p>
+    <p>Clic 1 a 5: los cinco tipos de valor, uno por línea.</p>
+    <p>Un detalle: null significa «vacío». Lo usamos cuando un dato no está en el ticket.</p>
+    <p>En Python, un JSON se lee como un diccionario. Lo vemos en el bloque 3.2.</p>
+    <p>Minuto acumulado: 31.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 20. El esquema -->
+<section data-min="2">
+  <span class="antetitulo">Parte 4 · De texto libre a JSON</span>
+  <h2>El esquema: los campos y sus reglas</h2>
+  <table class="tabla-datos tabla-esquema" style="font-size:.54em">
+    <thead><tr><th>Campo</th><th>Tipo</th><th>¿Obligatorio?</th><th>Valores permitidos</th></tr></thead>
+    <tbody>
+      <tr><td><code>categoria</code></td><td>texto</td><td>sí</td><td>fallo de la app, rendimiento, interfaz, cuenta y acceso, solicitud de función</td></tr>
+      <tr><td><code>prioridad</code></td><td>texto</td><td>sí</td><td>alta, media, baja</td></tr>
+      <tr><td><code>plataforma</code></td><td>texto</td><td>sí</td><td>Android, iOS, web</td></tr>
+      <tr><td><code>version_app</code></td><td>texto o vacío</td><td>no</td><td>null si el ticket no la dice</td></tr>
+      <tr><td><code>resumen</code></td><td>texto</td><td>sí</td><td>una frase</td></tr>
+    </tbody>
+  </table>
+  <pre class="codigo-figura chico-codigo fragment surgir" style="margin-top:14px"><span class="k">class</span> Ticket(BaseModel):
+    categoria: Literal[<span class="s">"fallo de la app"</span>, <span class="s">"rendimiento"</span>, <span class="s">"interfaz"</span>, <span class="s">"cuenta y acceso"</span>, <span class="s">"solicitud de función"</span>]
+    prioridad: Literal[<span class="s">"alta"</span>, <span class="s">"media"</span>, <span class="s">"baja"</span>]
+    plataforma: Literal[<span class="s">"Android"</span>, <span class="s">"iOS"</span>, <span class="s">"web"</span>]
+    version_app: str | <span class="k">None</span> = <span class="k">None</span>
+    resumen: str</pre>
+  <p class="credito">El mismo esquema como clase de <a href="https://docs.pydantic.dev/">Pydantic</a> 2.14. No tienes que escribirla: basta con reconocerla.</p>
+  <aside class="notes">
+    <p>Qué decir: el esquema dice qué campos lleva el registro, de qué tipo y con qué valores.</p>
+    <p>La tabla es para las personas. Clic 1: la misma regla en Python, con Pydantic. La lees en el Laboratorio 3A.</p>
+    <p>Literal significa «uno de estos valores». str es texto. None es vacío.</p>
+    <p>Las categorías son las del Laboratorio 2B.</p>
+    <p>Minuto acumulado: 33.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 21. Del texto al registro -->
+<section>
+  <section data-min="3.5" class="diapo-programa">
+    <span class="antetitulo">Parte 4 · De texto libre a JSON · Animación</span>
+    <h2>Del texto al registro</h2>
+    <div class="programa" data-programa="texto-registro"></div>
+    <aside class="notes">
+      <p>Qué decir: así funciona una salida estructurada, paso a paso.</p>
+      <p>Clic 1: el esquema viaja con la petición.</p>
+      <p>Clic 2: el modelo devuelve un JSON. Clic 3: la validación revisa cada campo.</p>
+      <p>Clic 4: otra respuesta trae «urgente», que no está permitido. El mensaje de error es real: lo da Pydantic.</p>
+      <p>Clic 5: si el ticket no trae la versión, el campo queda vacío. No se inventa.</p>
+      <p>Las respuestas del modelo son ilustrativas. Los mensajes de error salen de <code>ejemplos/validar_ticket.py</code>.</p>
+      <p>Minuto acumulado: 37 de 60.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Para explorar · El validador</span>
+    <h2>Rompe el registro y mira qué detecta la validación</h2>
+    <div class="programa" data-programa="validador"></div>
+    <aside class="notes"><p>Diapositiva de exploración, sin tiempo de clase. La validación es real para este esquema. Los mensajes en inglés son los de Pydantic 2.14.</p></aside>
+  </section>
+</section>
+
+<!-- 22. Solo tokens válidos -->
+<section data-min="2.5" class="diapo-programa">
+  <span class="antetitulo">Parte 4 · De texto libre a JSON · Animación</span>
+  <h2>Solo tokens válidos: la decodificación restringida</h2>
+  <div class="programa" data-programa="tokens-validos"></div>
+  <aside class="notes">
+    <p>Qué decir: ¿cómo puede un proveedor garantizar el esquema? Con las probabilidades del bloque 2.1.</p>
+    <p>Clic 1: el esquema dice los valores permitidos.</p>
+    <p>Clic 2: los tokens que rompen el esquema se apagan. Se llama constrained decoding (decodificación restringida).</p>
+    <p>Clic 3: el modelo elige entre los permitidos. El JSON siempre cumple el esquema.</p>
+    <p>Las probabilidades son ilustrativas.</p>
+    <p>Minuto acumulado: 39.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 23. Qué garantiza cada proveedor -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 4 · De texto libre a JSON</span>
+  <h2>Qué garantiza cada proveedor</h2>
+  <table class="tabla-datos proveedores" style="font-size:.5em">
+    <thead><tr><th>Proveedor</th><th>Cómo se pide</th><th>¿Garantiza el esquema?</th><th>Lo que no garantiza</th></tr></thead>
+    <tbody>
+      <tr class="fragment surgir"><td><span class="logo-celda"><img src="assets/img/logo_anthropic.svg" alt="Logotipo de Anthropic"></span> Claude</td><td><code>output_config.format</code> con <code>json_schema</code>. Estable desde enero de 2026</td><td>Sí, con decodificación restringida, «in most cases»</td><td>Un rechazo, un corte por <code>max_tokens</code> o las mayúsculas de un valor permitido</td></tr>
+      <tr class="fragment surgir"><td><span class="logo-celda"><img src="assets/img/logo_gemini.svg" alt="Logotipo de Gemini"></span> Gemini</td><td><code>response_mime_type</code> y <code>response_json_schema</code></td><td>Sí: un JSON válido que cumple el esquema</td><td>«does not guarantee the values are semantically correct». Ignora las reglas que no admite</td></tr>
+      <tr class="fragment surgir"><td><span class="logo-celda"><img src="assets/img/logo_openai.svg" alt="Logotipo de OpenAI"></span> OpenAI</td><td><code>strict: true</code>. Desde agosto de 2024</td><td>Sí, con una gramática que deja en cero los tokens inválidos</td><td>Un rechazo, un corte por <code>max_tokens</code> y los errores dentro de los valores</td></tr>
+    </tbody>
+  </table>
+  <p class="mediano fragment surgir" style="margin-top:16px">Los tres garantizan la forma, con excepciones. Ninguno garantiza el contenido.</p>
+  <p class="credito">Documentación de <a href="https://platform.claude.com/docs/en/build-with-claude/structured-outputs">Anthropic</a> y de <a href="https://aistudio.google.com/docs/structured-output?generate-content=true">Google</a>, y anuncio de <a href="https://openai.com/index/introducing-structured-outputs-in-the-api/">OpenAI (2024)</a>. Consulta: 24 de noviembre de 2026. Los logotipos solo identifican cada producto.</p>
+  <aside class="notes">
+    <p>Qué decir: los tres proveedores grandes ofrecen salidas estructuradas. Garantizan la forma, con matices.</p>
+    <p>Clic 1: Anthropic. Beta desde noviembre de 2025, estable desde enero de 2026. Claude Haiku 5.5 la admite.</p>
+    <p>Sus excepciones, de la propia página: un rechazo, un corte por max_tokens y las mayúsculas de un valor permitido. Lo que no admite de JSON Schema da error 400.</p>
+    <p>Clic 2: Google compila el esquema en una máquina de estados. Garantiza un JSON válido, no valores correctos. Ignora sin aviso lo que no admite.</p>
+    <p>Clic 3: OpenAI fue el primero, en agosto de 2024, con una gramática.</p>
+    <p>Clic 4: la idea que queda. La forma se puede garantizar; el contenido se prueba.</p>
+    <p>Minuto acumulado: 41 de 60.</p>
+  </aside>
+</section>
+
+<!-- 24. Un dato real -->
+<section data-min="1">
+  <span class="antetitulo">Parte 4 · De texto libre a JSON · Un dato con fecha y método</span>
+  <h2>Pedir JSON en el prompt no basta</h2>
+  <div class="barras-dato" style="margin-top:6px">
+    <div class="barra-dato malo fragment crece" style="--w: 40%"><span>gpt-4-0613, un modelo de 2023</span><div class="pista"><div class="relleno"></div></div><b>&lt; 40 %</b></div>
+    <div class="barra-dato fragment crece" style="--w: 93%"><span>gpt-4o-2024-08-06, sin la restricción</span><div class="pista"><div class="relleno"></div></div><b>93 %</b></div>
+    <div class="barra-dato fragment crece" style="--w: 100%"><span>gpt-4o-2024-08-06, con salidas estructuradas</span><div class="pista"><div class="relleno"></div></div><b>100 %</b></div>
+  </div>
+  <p class="nota-metodo recuadro"><b>Método.</b> Es una prueba del propio proveedor, con esquemas JSON complejos, de agosto de 2024. Mide si la salida cumple el esquema, no si sus valores son correctos.</p>
+  <p class="credito">Fuente: OpenAI (2024, 6 de agosto), <a href="https://openai.com/index/introducing-structured-outputs-in-the-api/">Introducing Structured Outputs in the API</a>. Gráfico propio con las cifras del anuncio.</p>
+  <aside class="notes">
+    <p>Qué decir: ¿por qué no basta con pedir el JSON en el prompt? OpenAI publicó esta medición.</p>
+    <p>Clic 1: un modelo de 2023 cumplía el esquema menos del 40 % de las veces.</p>
+    <p>Clic 2: el modelo nuevo, entrenado para seguir esquemas, llegó al 93 %. Clic 3: con la decodificación restringida, al 100 %.</p>
+    <p>El 93 % parece alto. En un programa que procesa mil tickets, son unos 70 registros que no se pueden leer.</p>
+    <p>Una mirada externa: JSONSchemaBench (Geng et al., 2025). Los motores cerrados aceptan pocos esquemas reales, pero cumplen casi siempre los que aceptan.</p>
+    <p>Este anuncio es la lectura del bloque 3.2. No adelantes sus preguntas.</p>
+    <p>Minuto acumulado: 42 de 60.</p>
+  </aside>
+</section>
+
+<!-- 25. El formato no garantiza el contenido -->
+<section data-min="1">
+  <span class="antetitulo">Parte 4 · De texto libre a JSON</span>
+  <h2>El formato no garantiza el contenido</h2>
+  <div class="columnas">
+    <div class="tarjeta fragment surgir">
+      <p class="chico texto-suave">Ticket: «La app se cierra al subir una foto»</p>
+      <pre class="json-registro">{"categoria": "fallo de la app",
+ "prioridad": <span class="j-error">"baja"</span>,
+ "plataforma": "Android"}</pre>
+    </div>
+    <div>
+      <p class="mediano fragment surgir"><b class="texto-exito">✓ Cumple el esquema:</b> «baja» es un valor permitido.</p>
+      <p class="mediano fragment surgir"><b class="texto-alerta">✗ Pero está mal:</b> un cierre de la app es prioridad alta.</p>
+    </div>
+  </div>
+  <p class="mediano fragment surgir" style="margin-top:20px">Por eso el Laboratorio 3A mide dos cosas: las salidas válidas y los campos correctos.</p>
+  <aside class="notes">
+    <p>Qué decir: un JSON válido puede traer un valor equivocado.</p>
+    <p>Clic 1: un registro válido. Clic 2: cumple el esquema. Clic 3: pero la prioridad está mal.</p>
+    <p>Clic 4: el laboratorio mide aparte la forma y el contenido.</p>
+    <p>OpenAI lo reconoce en su anuncio: «the model may still make mistakes within the values of the JSON object».</p>
+    <p>Minuto acumulado: 43 de 60.</p>
+  </aside>
+</section>
+
+<!-- 26. En LangChain -->
+<section data-min="1">
+  <span class="antetitulo">Parte 4 · De texto libre a JSON · Cómo se ve en el código</span>
+  <h2>En LangChain: with_structured_output</h2>
+  <div class="columnas c-60-40" style="align-items:start">
+    <pre class="codigo-figura chico-codigo">lector = modelo.with_structured_output(
+    Ticket, method=<span class="s">"json_schema"</span>, include_raw=<span class="k">True</span>)
+respuesta = lector.invoke(mensajes)
+respuesta[<span class="s">"raw"</span>]            <span class="c"># el mensaje crudo del modelo</span>
+respuesta[<span class="s">"parsed"</span>]         <span class="c"># el registro, o None si falló</span>
+respuesta[<span class="s">"parsing_error"</span>]  <span class="c"># el error al leer la respuesta</span></pre>
+    <div class="tarjeta alerta fragment surgir">
+      <h3>Un error real de Pydantic</h3>
+      <pre class="json-registro" style="font-size:14px">1 validation error for Ticket
+prioridad
+  Input should be 'alta', 'media'
+  or 'baja' [type=literal_error,
+  input_value='urgente', input_type=str]</pre>
+    </div>
+  </div>
+  <p class="credito">Documentación de <a href="https://docs.langchain.com/oss/python/langchain/structured-output">LangChain sobre salidas estructuradas</a> y código de langchain-anthropic 1.7.10. Error real: <code>ejemplos/validar_ticket.py</code>.</p>
+  <aside class="notes">
+    <p>Qué decir: así se pide una salida estructurada en LangChain. Es una línea.</p>
+    <p>Con include_raw=True recibes tres cosas: la respuesta cruda, el registro y el error, si lo hubo.</p>
+    <p>Clic 1: el error real que da Pydantic con «urgente». Dice el campo, el valor y lo que esperaba.</p>
+    <p>Un detalle para el laboratorio: con Claude, LangChain usa por defecto una herramienta forzada. Con method="json_schema" usa las salidas estructuradas de Claude.</p>
+    <p>Minuto acumulado: 44 de 60.</p>
+  </aside>
+</section>
+
+<!-- 27. La capa 2 -->
+<section data-min="2">
+  <div class="barra-parte"><span class="antetitulo">Parte 5 · La capa 2, parte 1</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="prompt,validacion,prueba"></div></div>
+  <div class="columnas" style="align-items:center">
+    <div class="escena3d capas6-envoltura" aria-label="Seis capas del proyecto apiladas; la capa 2, las instrucciones, está iluminada">
+      <div class="capas6">
+        <div class="capa" style="--i:0; --c: var(--t1)"><div class="rotulo">1. El modelo</div></div>
+        <div class="capa encendida" style="--i:1; --c: var(--t2)"><div class="rotulo">2. Las instrucciones<small>Hoy y en el bloque 3.2</small></div></div>
+        <div class="capa" style="--i:2; --c: var(--t3)"><div class="rotulo">3. El ciclo del agente</div></div>
+        <div class="capa" style="--i:3; --c: var(--t4)"><div class="rotulo">4. Las herramientas</div></div>
+        <div class="capa" style="--i:4; --c: var(--t5)"><div class="rotulo">5. El contexto</div></div>
+        <div class="capa" style="--i:5; --c: var(--t6)"><div class="rotulo">6. La orquestación</div></div>
+      </div>
+    </div>
+    <div>
+      <h2 style="font-size:1.25em">La capa 2: las instrucciones</h2>
+      <p class="mediano">La sección 2 de la ficha del agente tiene cuatro partes:</p>
+      <ul class="mediano">
+        <li class="fragment surgir">El prompt de sistema</li>
+        <li class="fragment surgir">El esquema de la salida</li>
+        <li class="fragment surgir">Los resultados de la validación</li>
+        <li class="fragment surgir">Los casos de robustez</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: la capa 2 del proyecto son las instrucciones del agente.</p>
+    <p>La capa 1 ya eligió el modelo. Ahora le damos instrucciones y un formato de salida.</p>
+    <p>Clic 1 a 4: las cuatro partes de la sección 2 de la ficha (Anexo C.4).</p>
+    <p>Minuto acumulado: 46 de 60.</p>
+  </aside>
+</section>
+
+<!-- 28. La consigna de la parte 1 -->
+<section data-min="3">
+  <span class="antetitulo">Parte 5 · La capa 2, parte 1 · En grupo</span>
+  <h2>La consigna de la parte 1</h2>
+  <ul class="casillas mediano">
+    <li class="fragment marcar"><span class="casilla"></span><span><b>El prompt de sistema</b>, con las cinco piezas de la parte 3.</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span><b>El esquema de la salida:</b> cada campo con su tipo y si es obligatorio.</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span><b>El registro esperado</b> de cada uno de los diez casos de la capa 1.</span></li>
+    <li class="fragment marcar"><span class="casilla"></span><span><b>Tres casos de robustez</b>, con su resultado esperado.</span></li>
+  </ul>
+  <p class="mediano texto-suave" style="margin-top:20px">Todavía no se corre nada: eso es la parte 2, después del bloque 3.2.</p>
+  <aside class="notes">
+    <p>Qué decir: esta es la tarea del grupo después de este bloque. Unas 4 horas.</p>
+    <p>Clic 1 a 4: las cuatro piezas. Todo va en la sección 2 de la ficha.</p>
+    <p>El registro esperado parte del resultado esperado de la capa 1.</p>
+    <p>La consigna está en el trabajo independiente del bloque 3.1.</p>
+    <p>Minuto acumulado: 49 de 60.</p>
+  </aside>
+</section>
+
+<!-- 29. Tres casos de robustez -->
+<section data-min="2">
+  <span class="antetitulo">Parte 5 · La capa 2, parte 1</span>
+  <h2>Tres casos de robustez</h2>
+  <div class="columnas-3">
+    <div class="tarjeta fragment surgir"><h3>Entrada incompleta</h3><p class="mediano">«La app falla.»</p><p class="chico texto-suave" style="margin-top:8px">Sin plataforma ni versión. Los campos opcionales quedan vacíos.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Respuesta mal formada</h3><p class="mediano">Un JSON cortado o con un valor no permitido.</p><p class="chico texto-suave" style="margin-top:8px">La validación la detecta y el programa reintenta.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Fuera de alcance</h3><p class="mediano">«¿Cuánto cuesta el plan premium?»</p><p class="chico texto-suave" style="margin-top:8px">No es un reporte. Prevé una salida para eso, por ejemplo una categoría «fuera de alcance».</p></div>
+  </div>
+  <p class="mediano fragment surgir" style="margin-top:22px">El esquema no pide datos personales: ni nombres, ni correos, ni teléfonos (Anexo C.7).</p>
+  <aside class="notes">
+    <p>Qué decir: los tres casos de robustez de la capa 2, según el Anexo B.</p>
+    <p>Clic 1: una entrada incompleta. Clic 2: una respuesta mal formada. Clic 3: una entrada fuera de alcance.</p>
+    <p>Un consejo de diseño: si el esquema solo tiene categorías de errores, el modelo forzará una. Dale una salida para lo que no aplica.</p>
+    <p>Clic 4: la regla de privacidad del curso.</p>
+    <p>Los ejemplos son genéricos, del mundo tech. Cada grupo escribe los de su proyecto.</p>
+    <p>Minuto acumulado: 51 de 60.</p>
+  </aside>
+</section>
+
+<!-- 30. Cuándo se entrega -->
+<section data-min="1">
+  <span class="antetitulo">Parte 5 · La capa 2</span>
+  <h2>La capa 2 en dos partes</h2>
+  <div class="linea-capa">
+    <div class="tarjeta acento fragment surgir"><span class="etiqueta">Después de este bloque</span><h3>Parte 1</h3><p class="mediano">El prompt, el esquema y los registros esperados.</p></div>
+    <div class="tarjeta acento-2 fragment surgir"><span class="etiqueta violeta">Después del bloque 3.2</span><h3>Parte 2</h3><p class="mediano">Conectar por API, correr las pruebas y registrar.</p></div>
+    <div class="tarjeta exito fragment surgir"><span class="etiqueta">Al inicio del bloque 4.1</span><h3>Entrega</h3><p class="mediano">La sección 2 de la ficha y el código de la capa.</p></div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: la capa 2 se reparte entre los dos bloques de la sesión.</p>
+    <p>Clic 1 a 3: la parte 1, la parte 2 y la entrega.</p>
+    <p>Vale el 5 % de la calificación. Los criterios los vemos en el bloque 3.2.</p>
+    <p>Minuto acumulado: 52 de 60.</p>
+  </aside>
+</section>
+
+<!-- 31. Síntesis -->
+<section data-min="1.5">
+  <span class="antetitulo">Cierre</span>
+  <h2>El bloque 3.1 en tres ideas</h2>
+  <div class="sintesis-sesion">
+    <div class="tarjeta exito fragment surgir"><span class="numero-idea">1</span><h3>El criterio primero</h3><p class="chico">Los casos y su prueba van antes del prompt. Y no cambian.</p></div>
+    <div class="flecha-sintesis fragment surgir" aria-hidden="true"></div>
+    <div class="tarjeta acento fragment surgir"><span class="numero-idea">2</span><h3>Un prompt con piezas</h3><p class="chico">Instrucción clara, contexto, sistema y usuario, ejemplos y formato.</p></div>
+    <div class="flecha-sintesis fragment surgir" aria-hidden="true"></div>
+    <div class="tarjeta alerta fragment surgir"><span class="numero-idea">3</span><h3>Un esquema que se valida</h3><p class="chico">El formato se puede garantizar. El contenido se prueba.</p></div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: el bloque en tres ideas.</p>
+    <p>La lectura del bloque 3.2 está en el trabajo independiente: OpenAI (2024), sobre las salidas estructuradas.</p>
+    <p>Minuto acumulado: 53.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 32. Anuncio del Laboratorio 3A -->
+<section data-min="1.5">
+  <span class="antetitulo">Después del club · 60 minutos en clase</span>
+  <h2>Laboratorio 3A: del chat a la API con salidas estructuradas</h2>
+  <div class="anuncio-lab">
+    <ul>
+      <li><b>Practicas</b> convertir un texto libre en un registro JSON que cumple un esquema. Usas tickets de soporte de una app ficticia.</li>
+      <li><b>Configuras</b> los campos del esquema (nombre, tipo y si es obligatorio) y la instrucción de sistema.</li>
+      <li><b>Mides</b> el porcentaje de salidas válidas, el de campos correctos, los tokens y el costo.</li>
+    </ul>
+    <div class="tarjeta acento">
+      <p class="mediano">No escribes código a mano: lees, ejecutas y configuras.</p>
+      <p class="mediano" style="margin-top:10px">Sin clave de API, el notebook usa respuestas grabadas. Con la clave del curso, corre en vivo.</p>
+      <p class="chico texto-suave" style="margin-top:10px">El notebook trae sus pruebas de funcionamiento y de robustez.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: después del club, el laboratorio. Dura 60 minutos en clase.</p>
+    <p>Es la práctica de esta parte: del texto al registro, con su validación.</p>
+    <p>No muestres resultados: el laboratorio se hace en clase.</p>
+    <p>Fuente: Anexo B, Laboratorio 3A.</p>
+    <p>Minuto acumulado: 55 de 60.</p>
+  </aside>
+</section>
+
+<!-- 33. Club de lectura -->
+<section>
+  <section data-min="5">
+    <span class="antetitulo">Club de lectura · 5 minutos</span>
+    <h2>Club de lectura: Meincke et al. (2025)</h2>
+    <p class="chico texto-suave" style="margin:-6px 0 12px"><em>Prompting Science Report 2: The Decreasing Value of Chain of Thought in Prompting</em>. <a href="https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/">Página del informe</a> · <a href="https://arxiv.org/abs/2506.07142">arXiv</a></p>
+    <ol class="preguntas-club">
+      <li><b>¿Cómo sabes si un prompt funciona?</b> El informe mide el éxito de varias maneras: acertar 25 de 25 veces, 23 de 25 o la mayoría. ¿Por qué no basta con el promedio de aciertos? ¿Qué medida usarías para decidir si tu agente está listo? Apóyate en la sección «How we Benchmark the AI».</li>
+      <li><b>¿Pensar paso a paso vale lo que cuesta?</b> Los autores pidieron a varios modelos razonar paso a paso antes de responder. Compararon los aciertos, el tiempo y los tokens. ¿Qué medirías en tus propios casos antes de pedirle a tu agente que razone? Apóyate en la discusión y en las limitaciones que reconocen los autores.</li>
+    </ol>
+    <p class="mediano texto-acento" style="margin-top:14px">Después del club: Laboratorio 3A.</p>
+    <aside class="notes">
+      <p>Pregunta 1. Sección «How we Benchmark the AI»: cada pregunta se repite 25 veces, y el éxito se mide con cuatro umbrales.</p>
+      <p>Hilo para profundizar: ¿qué umbral elegirías si el agente actúa en nombre de un usuario? Recuerda la consistencia de la capa 1.</p>
+      <p>Pregunta 2. Secciones de discusión y de limitaciones: un solo benchmark, pocos modelos y una versión simple de la técnica.</p>
+      <p>Hilo para profundizar: ¿qué pasa con los modelos que ya razonan por dentro? ¿Cuánto tiempo extra aguanta tu usuario?</p>
+      <p>No respondas las preguntas: la respuesta es de los estudiantes. El bloque 3.2 muestra después las cifras del informe.</p>
+      <p>Cierra con la transición: «Ahora pasamos del texto al registro, en el Laboratorio 3A».</p>
+      <p>Minuto acumulado: 60 de 60.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Para profundizar</span>
+    <h2>Referencias</h2>
+    <div class="referencias compactas">
+      <p>Meincke, Mollick, Mollick y Shapiro (2025, 8 de junio). <em>Prompting Science Report 2: The Decreasing Value of Chain of Thought in Prompting</em>. Wharton Generative AI Labs. <a href="https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/">gail.wharton.upenn.edu</a> · <a href="https://arxiv.org/abs/2506.07142">arxiv.org</a></p>
+      <p>Anthropic. <a href="https://platform.claude.com/docs/es/build-with-claude/prompt-engineering/overview">Descripción general de la ingeniería de prompts</a> y <a href="https://platform.claude.com/docs/es/build-with-claude/prompt-engineering/claude-prompting-best-practices">Mejores prácticas de prompting</a>, en español.</p>
+      <p>Anthropic. <a href="https://platform.claude.com/docs/en/release-notes/system-prompts">Notas de versión de los prompts de sistema</a> de las apps de Claude.</p>
+      <p>Brown et al. (2020). <em>Language Models are Few-Shot Learners</em>. NeurIPS. <a href="https://arxiv.org/abs/2005.14165">arxiv.org</a></p>
+      <p>Schulhoff et al. (2024). <em>The Prompt Report: A Systematic Survey of Prompt Engineering Techniques</em>. <a href="https://arxiv.org/abs/2406.06608">arxiv.org</a></p>
+      <p>Zheng et al. (2024). <em>When “A Helpful Assistant” Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models</em>. Findings of EMNLP. <a href="https://arxiv.org/abs/2311.10054">arxiv.org</a></p>
+      <p>OpenAI (2024, 6 de agosto). <em>Introducing Structured Outputs in the API</em>. <a href="https://openai.com/index/introducing-structured-outputs-in-the-api/">Original</a> · <a href="https://openai.com/es-ES/index/introducing-structured-outputs-in-the-api/">en español</a></p>
+      <p>Anthropic. <a href="https://platform.claude.com/docs/en/build-with-claude/structured-outputs">Structured outputs</a>. Google. <a href="https://aistudio.google.com/docs/structured-output?generate-content=true">Structured output</a>. Geng et al. (2025). <em>JSONSchemaBench</em>. <a href="https://arxiv.org/abs/2501.10868">arxiv.org</a></p>
+      <p>LangChain. <a href="https://docs.langchain.com/oss/python/langchain/structured-output">Salidas estructuradas</a>. Pydantic. <a href="https://docs.pydantic.dev/">Documentación</a>. <a href="https://json-schema.org/">JSON Schema</a>.</p>
+      <p>Huyen, C. (2024). <em>AI Engineering</em>, capítulo 5. O'Reilly.</p>
+    </div>
+    <aside class="notes"><p>Referencias del bloque, sin tiempo de clase. Consulta: 24 de noviembre de 2026.</p></aside>
+  </section>
+</section>
+
+</div>
+</div>
+<script src="assets/vendor/reveal.js-6.0.2/reveal.js"></script>
+<script src="assets/vendor/reveal.js-6.0.2/plugin/notes.js"></script>
+<script src="assets/vendor/react-18.3.1/react.production.min.js"></script>
+<script src="assets/vendor/react-18.3.1/react-dom.production.min.js"></script>
+<script src="assets/vendor/gpt-tokenizer-4.1.2/o200k_base.js"></script>
+<script src="assets/js/programas.js"></script>
+<script src="assets/js/deck.js"></script>
+</body>
+</html>

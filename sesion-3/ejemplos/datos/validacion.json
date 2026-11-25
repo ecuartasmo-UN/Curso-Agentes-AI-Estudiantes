@@ -1,0 +1,146 @@
+{
+  "pydantic": "2.14.4",
+  "esquema": {
+    "properties": {
+      "categoria": {
+        "enum": [
+          "fallo de la app",
+          "rendimiento",
+          "interfaz",
+          "cuenta y acceso",
+          "solicitud de función"
+        ],
+        "title": "Categoria",
+        "type": "string"
+      },
+      "prioridad": {
+        "enum": [
+          "alta",
+          "media",
+          "baja"
+        ],
+        "title": "Prioridad",
+        "type": "string"
+      },
+      "plataforma": {
+        "enum": [
+          "Android",
+          "iOS",
+          "web"
+        ],
+        "title": "Plataforma",
+        "type": "string"
+      },
+      "version_app": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "title": "Version App"
+      },
+      "resumen": {
+        "title": "Resumen",
+        "type": "string"
+      }
+    },
+    "required": [
+      "categoria",
+      "prioridad",
+      "plataforma",
+      "resumen"
+    ],
+    "title": "Ticket",
+    "type": "object"
+  },
+  "casos": [
+    {
+      "id": "bueno",
+      "nombre": "El registro esperado",
+      "json": "{\"categoria\": \"fallo de la app\", \"prioridad\": \"alta\", \"plataforma\": \"Android\", \"version_app\": \"4.2.1\", \"resumen\": \"La app se cierra al subir fotos grandes desde la galería\"}",
+      "valido": true,
+      "registro": {
+        "categoria": "fallo de la app",
+        "prioridad": "alta",
+        "plataforma": "Android",
+        "version_app": "4.2.1",
+        "resumen": "La app se cierra al subir fotos grandes desde la galería"
+      },
+      "errores": []
+    },
+    {
+      "id": "sin_prioridad",
+      "nombre": "Falta un campo obligatorio",
+      "json": "{\"categoria\": \"fallo de la app\", \"plataforma\": \"Android\", \"version_app\": \"4.2.1\", \"resumen\": \"La app se cierra al subir fotos grandes desde la galería\"}",
+      "valido": false,
+      "errores": [
+        {
+          "campo": "prioridad",
+          "tipo": "missing",
+          "mensaje": "Field required"
+        }
+      ],
+      "texto_error": "1 validation error for Ticket\nprioridad\n  Field required [type=missing, input_value={'categoria': 'fallo de l...ndes desde la galería'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing"
+    },
+    {
+      "id": "valor_no_permitido",
+      "nombre": "Un valor que no está permitido",
+      "json": "{\"categoria\": \"fallo de la app\", \"prioridad\": \"urgente\", \"plataforma\": \"Android\", \"version_app\": \"4.2.1\", \"resumen\": \"La app se cierra al subir fotos grandes desde la galería\"}",
+      "valido": false,
+      "errores": [
+        {
+          "campo": "prioridad",
+          "tipo": "literal_error",
+          "mensaje": "Input should be 'alta', 'media' or 'baja'"
+        }
+      ],
+      "texto_error": "1 validation error for Ticket\nprioridad\n  Input should be 'alta', 'media' or 'baja' [type=literal_error, input_value='urgente', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/literal_error"
+    },
+    {
+      "id": "tipo_equivocado",
+      "nombre": "Un tipo que no coincide",
+      "json": "{\"categoria\": \"fallo de la app\", \"prioridad\": \"alta\", \"plataforma\": \"Android\", \"version_app\": 4.21, \"resumen\": \"La app se cierra al subir fotos grandes desde la galería\"}",
+      "valido": false,
+      "errores": [
+        {
+          "campo": "version_app",
+          "tipo": "string_type",
+          "mensaje": "Input should be a valid string"
+        }
+      ],
+      "texto_error": "1 validation error for Ticket\nversion_app\n  Input should be a valid string [type=string_type, input_value=4.21, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.14/v/string_type"
+    },
+    {
+      "id": "sin_version",
+      "nombre": "Un dato que el ticket no trae",
+      "json": "{\"categoria\": \"fallo de la app\", \"prioridad\": \"alta\", \"plataforma\": \"Android\", \"version_app\": null, \"resumen\": \"La app se cierra al subir fotos grandes desde la galería\"}",
+      "valido": true,
+      "registro": {
+        "categoria": "fallo de la app",
+        "prioridad": "alta",
+        "plataforma": "Android",
+        "version_app": null,
+        "resumen": "La app se cierra al subir fotos grandes desde la galería"
+      },
+      "errores": []
+    },
+    {
+      "id": "cortado",
+      "nombre": "Una respuesta cortada por el máximo de tokens",
+      "json": "{\"categoria\": \"fallo de la app\", \"prioridad\": \"alta\", \"plataforma\": \"Android\", \"version_app\": \"4.2.1\", \"resumen\": \"La app se cierra al subir fotos gr",
+      "valido": false,
+      "errores": [
+        {
+          "campo": "(todo el JSON)",
+          "tipo": "json_invalid",
+          "mensaje": "Invalid JSON: EOF while parsing a string at line 1 column 149"
+        }
+      ],
+      "texto_error": "1 validation error for Ticket\n  Invalid JSON: EOF while parsing a string at line 1 column 149 [type=json_invalid, input_value='{\"categoria\": \"fallo de ...ierra al subir fotos gr', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.14/v/json_invalid"
+    }
+  ]
+}
