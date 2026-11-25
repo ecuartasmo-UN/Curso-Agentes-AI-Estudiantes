@@ -2,13 +2,14 @@
 
 **Material para estudiantes** · Especialización en Inteligencia Artificial · UNAL Manizales
 
-Aquí están las presentaciones y los documentos de cada sesión del curso. Cada sesión tiene su carpeta.
+Aquí están las presentaciones, los documentos y los laboratorios de cada sesión del curso. Cada sesión tiene su carpeta.
 
 ## Sesiones
 
 | Carpeta | Sesión | Contenido |
 |---|---|---|
 | [`sesion-1/`](sesion-1/) | Apertura del curso y del proyecto | Dos charlas, las diapositivas del trabajo en grupos, la ficha inicial, la guía del proyecto y el trabajo independiente |
+| [`sesion-2/`](sesion-2/) | Introducción a los modelos de lenguaje | Las presentaciones de los bloques 2.1 y 2.2, la ficha del agente, el trabajo independiente de cada bloque y los laboratorios 2A y 2B |
 
 ## Cómo ver las presentaciones
 
@@ -16,7 +17,7 @@ Aquí están las presentaciones y los documentos de cada sesión del curso. Cada
 
 **Sin conexión:**
 1. Descarga el repositorio: botón **Code** → **Download ZIP**. También puedes clonarlo con git.
-2. Abre `sesion-1/index.html` con doble clic, en Chrome, Edge o Firefox. No necesita servidor.
+2. Abre el `index.html` de la sesión, por ejemplo `sesion-2/index.html`, con doble clic, en Chrome, Edge o Firefox. No necesita servidor.
 3. Desde el índice entras a cada presentación y a cada documento. Las guías en Markdown se abren en GitHub, así que esas sí necesitan internet.
 
 **Teclas en las presentaciones:**
@@ -36,6 +37,22 @@ Aquí están las presentaciones y los documentos de cada sesión del curso. Cada
 - [Ficha inicial en Markdown](sesion-1/ficha_inicial.md): la misma plantilla, con una guía por campo.
 - [Guía para plantear un proyecto agéntico](sesion-1/guia_proyecto_agentico.md): los cinco pasos de la charla 2.
 - [Trabajo independiente](sesion-1/trabajo_independiente.md): completar la ficha y la lectura de la sesión 2.
+
+## Documentos de la sesión 2
+
+- [Ficha del agente en Word](sesion-2/ficha_del_agente.docx): la ficha del proyecto, que crece con cada capa.
+- [Ficha del agente en Markdown](sesion-2/ficha_del_agente.md): la misma ficha, con una guía por campo.
+- [Trabajo independiente del bloque 2.1](sesion-2/trabajo_independiente_bloque1.md): el Laboratorio 2A, los casos de la capa 1 y la lectura del bloque 2.2.
+- [Trabajo independiente del bloque 2.2](sesion-2/trabajo_independiente_bloque2.md): el Laboratorio 2B, la capa 1 completa y la lectura del bloque 3.1.
+
+## Laboratorios de la sesión 2
+
+Cada laboratorio es una carpeta con un notebook de Jupyter. Su `LEEME.md` explica cómo abrirlo en VS Code y qué se entrega.
+
+- [Laboratorio 2A: capacidades y límites de un LLM](sesion-2/labs/lab_2A_capacidades_limites/): preguntas a un LLM con LangChain, comparadas con la respuesta esperada.
+- [Laboratorio 2B: elegir el modelo](sesion-2/labs/lab_2B_elegir_modelo/): varios modelos en la misma tarea, con su calidad, su costo por acierto y su latencia.
+
+Para trabajar un laboratorio en tu computador, descarga el repositorio completo (**Code** → **Download ZIP**) y abre la carpeta del laboratorio en VS Code.
 
 ## Imágenes
 

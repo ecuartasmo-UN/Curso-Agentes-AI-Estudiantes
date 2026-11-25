@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesión 2 · Bloque 1: cómo funciona un LLM por dentro</title>
+<script src="assets/js/tema.js"></script>
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reset.css">
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reveal.css">
+<link rel="stylesheet" href="assets/css/tema-agentes.css">
+<link rel="stylesheet" href="assets/css/sesion2.css">
+</head>
+<body>
+<a class="boton-indice" href="index.html" data-con-tema data-enlace-indice aria-label="Volver al índice de la sesión">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10"/></svg>Índice</a>
+<div class="reveal" data-total-min="60">
+<div class="slides">
+
+<!-- 1. Portada -->
+<section data-min="0.5">
+  <div class="columnas c-60-40" style="height:100%">
+    <div class="portada">
+      <span class="antetitulo">Sesión 2 · Bloque 1</span>
+      <h1>Cómo funciona un LLM por dentro</h1>
+      <p class="subtitulo">Tokens, tokenizer, transformer y pesos. Con animaciones y sin matemáticas.</p>
+      <div class="meta"><span class="etiqueta">60 minutos</span><span class="etiqueta violeta">Club de lectura al final</span><span class="etiqueta exito">Después: Laboratorio 2A</span></div>
+    </div>
+    <div class="portada-tokens" aria-label="La frase de ejemplo cortada en tokens, con sus números">
+      <span class="chip-token" style="--c: var(--t1)">Los<small>16593</small></span>
+      <span class="chip-token" style="--c: var(--t2)"><i class="esp-ejemplo"></i>desarroll<small>16802</small></span>
+      <span class="chip-token" style="--c: var(--t3)">adores<small>7151</small></span>
+      <span class="chip-token" style="--c: var(--t4)"><i class="esp-ejemplo"></i>document<small>3213</small></span>
+      <span class="chip-token" style="--c: var(--t5)">aron<small>9102</small></span>
+      <span class="chip-token" style="--c: var(--t6)"><i class="esp-ejemplo"></i>la<small>557</small></span>
+      <span class="chip-token" style="--c: var(--t1)"><i class="esp-ejemplo"></i>token<small>6602</small></span>
+      <span class="chip-token" style="--c: var(--t2)">ización<small>18856</small></span>
+      <span class="chip-token" style="--c: var(--t3)"><i class="esp-ejemplo"></i>del<small>1083</small></span>
+      <span class="chip-token" style="--c: var(--t4)"><i class="esp-ejemplo"></i>modelo<small>23255</small></span>
+      <span class="chip-token" style="--c: var(--t5)">.<small>13</small></span>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: hoy abrimos la caja de un LLM. Vamos a seguir el camino de tu texto hasta la respuesta.</p>
+    <p>A la derecha está la frase de la parte 1, ya cortada en tokens. Sus números son reales.</p>
+    <p>Minuto acumulado: 0.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 2. El mapa -->
+<section data-min="0.5">
+  <span class="antetitulo">Apertura</span>
+  <h2>Del texto a la respuesta, en siete pasos</h2>
+  <div class="programa" data-programa="mapa"></div>
+  <p class="chico texto-suave" style="text-align:right;margin-top:-6px">Tokens reales de o200k_base. <span class="marca-ilustrativo en-diapositiva">Candidatos ilustrativos</span></p>
+  <aside class="notes">
+    <p>Qué decir: este es el mapa de la hora. El texto entra al tokenizer y sale como tokens, que son números.</p>
+    <p>Cada token se vuelve un vector, pasa por las capas del transformer y sale una probabilidad por token.</p>
+    <p>Clic 1: el token elegido vuelve a entrar. Así se escribe una respuesta, un token a la vez.</p>
+    <p>El punto que se mueve solo acompaña. El mapa reaparece en pequeño al inicio de cada parte.</p>
+    <p>Los números de los tokens son reales. Los candidatos del siguiente token, como «billete», son ilustrativos.</p>
+    <p>Minuto acumulado: 1 de 60.</p>
+  </aside>
+</section>
+
+<!-- 3. Qué es un token -->
+<section data-min="1.5">
+  <div class="barra-parte"><span class="antetitulo">Parte 1 · Tokens y tokenizer</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="tokenizer,tokens"></div></div>
+  <h2>Un token es un trozo de texto</h2>
+  <div class="columnas-3">
+    <div class="tarjeta acento fragment surgir">
+      <h3>Token</h3>
+      <p class="mediano">Una palabra, una parte de una palabra o un signo.</p>
+      <div class="ejemplos-token">
+        <span class="chip-token" style="--c: var(--t4)"><i class="esp-ejemplo"></i>modelo</span>
+        <span class="chip-token" style="--c: var(--t2)"><i class="esp-ejemplo"></i>desarroll</span><span class="chip-token" style="--c: var(--t3)">adores</span>
+        <span class="chip-token" style="--c: var(--t5)">.</span>
+      </div>
+    </div>
+    <div class="tarjeta acento-2 fragment surgir">
+      <h3>Tokenizer</h3>
+      <p class="mediano">Corta el texto en tokens y cambia cada token por su número.</p>
+      <div class="ejemplos-token"><span class="chip-token" style="--c: var(--t1)"><i class="esp-ejemplo"></i>token<small>6602</small></span></div>
+    </div>
+    <div class="tarjeta fragment surgir">
+      <h3>Vocabulario</h3>
+      <p class="mediano">La lista fija de tokens que conoce el modelo. Cada token tiene un número.</p>
+      <p class="cifra" style="font-size:1.7em;margin-top:12px">200 000</p>
+      <p class="chico texto-suave">tokens en o200k_base</p>
+    </div>
+  </div>
+  <p class="credito">Tokens y números calculados con tiktoken 0.14.0 (OpenAI, licencia MIT), tokenizer o200k_base. Consulta: 23 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: el modelo no lee letras ni palabras. Lee tokens.</p>
+    <p>Clic 1: un token puede ser una palabra completa, un trozo o un signo. La marca pequeña es un espacio.</p>
+    <p>Clic 2: el tokenizer corta el texto y cambia cada token por su número en el vocabulario.</p>
+    <p>Clic 3: el vocabulario es fijo. El de o200k_base tiene 200 000 tokens.</p>
+    <p>Dato: o200k_base es el tokenizer de GPT-4o y GPT-5, según el archivo model.py de tiktoken.</p>
+    <p>Fuente: tiktoken 0.14.0 y sus archivos oficiales. 199 998 tokens normales más 2 especiales.</p>
+    <p>Minuto acumulado: 2.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 4. Cortar y numerar -->
+<section data-min="2.5" class="diapo-programa">
+  <span class="antetitulo">Parte 1 · Animación</span>
+  <h2>Cortar y numerar</h2>
+  <div class="programa" data-programa="cortar"></div>
+  <p class="credito">Tokenizer real: o200k_base, con la biblioteca tiktoken 0.14.0 (OpenAI, licencia MIT). Datos: ejemplos/tokens.py.</p>
+  <aside class="notes">
+    <p>Qué decir: vamos a ver un tokenizer real trabajando. Se llama o200k_base.</p>
+    <p>Clic 1: entra la frase, tal como la escribes.</p>
+    <p>Clic 2: el tokenizer la corta. «desarrolladores» queda en dos trozos: «desarroll» y «adores».</p>
+    <p>Clic 3: cada token se cambia por su número. Ese número es lo único que ve el modelo.</p>
+    <p>Clic 4: el vocabulario es una lista fija. El 6602 siempre es « token», con su espacio.</p>
+    <p>Clic 5: siete palabras se volvieron once tokens.</p>
+    <p>Fuente: cálculo propio con tiktoken 0.14.0, script ejemplos/tokens.py.</p>
+    <p>Minuto acumulado: 5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 5. El vocabulario -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 1 · Tokens y tokenizer</span>
+  <h2>El vocabulario es una lista fija</h2>
+  <div class="barras" style="margin-top:20px">
+    <div class="barra"><span><b>gpt2</b> · GPT-2 (2019)</span><span class="pista"><span class="valor" style="--v:25.1%"></span></span><span class="num">50 257</span></div>
+    <div class="barra"><span><b>cl100k_base</b> · GPT-4</span><span class="pista"><span class="valor" style="--v:50.1%"></span></span><span class="num">100 261</span></div>
+    <div class="barra"><span><b>o200k_base</b> · GPT-4o y GPT-5</span><span class="pista"><span class="valor" style="--v:100%"></span></span><span class="num">200 000</span></div>
+  </div>
+  <p class="mediano" style="margin-top:26px">Un vocabulario más grande guarda más palabras enteras, también de otros idiomas.</p>
+  <div class="nota-metodo recuadro"><b>Método.</b> Tokens definidos en los archivos oficiales de tiktoken, con los especiales. Algunos números quedan sin usar: el más alto de o200k_base es el 200 018.</div>
+  <p class="credito">Fuente: tiktoken (OpenAI), archivos .tiktoken y model.py. Consulta: 23 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: el tamaño del vocabulario lo decide quien entrena el modelo, antes de entrenar.</p>
+    <p>GPT-2 tenía 50 257 tokens. o200k_base tiene 200 000.</p>
+    <p>Con más tokens, más palabras quedan enteras. Eso ayuda a idiomas distintos del inglés.</p>
+    <p>Dato: el modelo abierto Olmo 3 usa el vocabulario de cl100k_base más 22 tokens especiales.</p>
+    <p>Fuente: archivos oficiales de tiktoken; informe técnico de Olmo 3 (Ai2, 2025), página 10.</p>
+    <p>Minuto acumulado: 6.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 6. BPE -->
+<section>
+  <section data-min="2.5" class="diapo-programa">
+    <span class="antetitulo">Parte 1 · Animación</span>
+    <h2>Cómo se arma el vocabulario: BPE</h2>
+    <div class="programa" data-programa="bpe"></div>
+    <p class="credito">Ejemplo: Sennrich, Haddow y Birch (2016), ACL, Algoritmo 1. La salida se calculó con su código: ejemplos/bpe_sennrich.py.</p>
+    <aside class="notes">
+      <p>Qué decir: el vocabulario no se escribe a mano. Se aprende de un texto con BPE (byte-pair encoding).</p>
+      <p>Clic 1: el corpus empieza como letras sueltas. El número dice cuántas veces aparece la palabra.</p>
+      <p>Clic 2: se cuentan los pares de símbolos vecinos. Tres pares empatan con 9.</p>
+      <p>Clic 3: el primer par, e + s, se une en un símbolo nuevo: «es».</p>
+      <p>Clic 4: se repite diez veces. Al final, «newest» y «low» son un solo símbolo.</p>
+      <p>Los tokenizers reales repiten esto miles de veces. Así sale una lista de 200 000 tokens.</p>
+      <p>Abajo hay una diapositiva de consulta con la figura del artículo.</p>
+      <p>Fuente: Sennrich et al. (2016), sección 3.2 y Algoritmo 1. La salida no aparece en el artículo.</p>
+      <p>Minuto acumulado: 9 de 60.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>La figura 1 del artículo de BPE</h2>
+    <div class="columnas c-60-40">
+      <figure class="figura"><img src="assets/img/sennrich_figura1.png" alt="Figura 1 de Sennrich et al.: cuatro uniones de BPE, de r y punto a lo y a low" style="width:100%"></figure>
+      <div>
+        <p class="mediano">La figura usa otro diccionario: low, lowest, newer y wider.</p>
+        <p class="mediano">Con esas uniones, una palabra nueva como «lower» se corta en «low» y «er·».</p>
+        <p class="chico texto-suave">El punto marca el final de la palabra. En el código del artículo se escribe &lt;/w&gt;.</p>
+      </div>
+    </div>
+    <p class="credito">Figura 1 de Sennrich, Haddow y Birch (2016), ACL, p. 1718. Licencia CC BY 4.0. <a href="https://aclanthology.org/P16-1162/">aclanthology.org</a></p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 7. Español e inglés -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 1 · Por qué importa</span>
+  <h2>El mismo texto gasta más tokens en español</h2>
+  <div class="programa angosto" data-programa="idiomas"></div>
+  <div class="nota-metodo recuadro" style="margin-top:16px"><b>Método.</b> tiktoken 0.14.0, 23 de noviembre de 2026. El artículo se cuenta desde su primer párrafo. La traducción usa 20 % más palabras; por palabra, o200k_base cuenta 8 % más tokens y GPT-2, 60 % más.</div>
+  <p class="credito">Lee y Trott (2023), original en inglés y traducción autorizada al español (2024), Understanding AI. Conteo propio: ejemplos/tokens.py.</p>
+  <aside class="notes">
+    <p>Qué decir: la misma frase, en español, gasta más tokens que en inglés.</p>
+    <p>Arranca con la frase del ejemplo: 11 tokens en español y 9 en inglés.</p>
+    <p>Clic 1: el artículo completo de la lectura. Con o200k_base, la versión en español gasta 30 % más.</p>
+    <p>Clic 2: con el tokenizer de GPT-2, de 2019, la diferencia sube a 92 %.</p>
+    <p>Lee el recuadro: parte de la diferencia viene de que la traducción tiene más palabras.</p>
+    <p>Lo que importa: pagas y llenas la ventana de contexto por tokens, no por palabras.</p>
+    <p>Fuente: conteo propio con tiktoken 0.14.0 sobre las dos versiones del artículo.</p>
+    <p>Minuto acumulado: 10.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 8. Por qué importan los tokens -->
+<section data-min="1">
+  <span class="antetitulo">Parte 1 · Por qué importa</span>
+  <h2>Por qué importan los tokens</h2>
+  <div class="columnas-3">
+    <div class="tarjeta acento fragment surgir">
+      <h3>Costo y ventana</h3>
+      <p class="mediano">El precio y la ventana de contexto se cuentan en tokens. El bloque 2.2 retoma el costo.</p>
+    </div>
+    <div class="tarjeta acento-2 fragment surgir">
+      <h3>Cada modelo cuenta distinto</h3>
+      <p class="mediano">El tokenizer de Claude Haiku 5.5 produce cerca de un 30 % más tokens que el de Haiku 4.5.</p>
+    </div>
+    <div class="tarjeta fragment surgir">
+      <h3>Ve números, no letras</h3>
+      <p class="mediano">«tokenización» le llega al modelo como dos números:</p>
+      <div class="ejemplos-token"><span class="chip-token" style="--c: var(--t1)"><i class="esp-ejemplo"></i>token<small>6602</small></span><span class="chip-token" style="--c: var(--t2)">ización<small>18856</small></span></div>
+    </div>
+  </div>
+  <p class="credito">Haiku 5.5: Anexo G.1 del curso y glosario de Anthropic (platform.claude.com). Tokens: o200k_base con tiktoken 0.14.0.</p>
+  <aside class="notes">
+    <p>Clic 1: lo que cobra un proveedor y lo que cabe en la ventana de contexto se mide en tokens.</p>
+    <p>Clic 2: el mismo texto cuesta distinto según el tokenizer del modelo.</p>
+    <p>Anthropic dice que su tokenizer nuevo produce cerca de 30 % más tokens para el mismo texto.</p>
+    <p>Clic 3: el modelo recibe números. Por eso le cuesta contar letras dentro de una palabra.</p>
+    <p>Fuentes: Anexo G.1; glosario de Anthropic, entrada «Tokens», consultado el 23 de noviembre de 2026.</p>
+    <p>Minuto acumulado: 11.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 9. Demostración en vivo (opcional) -->
+<section data-min="1.5" data-opcional>
+  <span class="antetitulo">Parte 1 · Demostración en vivo</span>
+  <h2>Pruébalo: escribe y mira los tokens</h2>
+  <div class="programa angosto" data-programa="demo"></div>
+  <p class="credito">Tokenizer o200k_base en el navegador, sin internet: gpt-tokenizer 4.1.2 (licencia MIT), en copia local.</p>
+  <aside class="notes">
+    <p>Diapositiva opcional. Úsala si hay tiempo.</p>
+    <p>Haz clic en el recuadro y escribe. Los tokens cambian al instante.</p>
+    <p>Prueba una palabra rara, una cifra como 1.5.0, una frase en inglés y otra en español.</p>
+    <p>Para volver a las diapositivas, haz clic fuera del recuadro y usa la flecha.</p>
+    <p>Si el tokenizer no carga, la diapositiva muestra frases ya cortadas con tiktoken.</p>
+    <p>Minuto acumulado: 13 de 60.</p>
+  </aside>
+</section>
+
+<!-- 10. Buscar la fila -->
+<section data-min="2.5" class="diapo-programa">
+  <div class="barra-parte"><span class="antetitulo">Parte 2 · De token a vector</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="embeddings"></div></div>
+  <h2>De token a vector: buscar la fila</h2>
+  <div class="programa" data-programa="fila"></div>
+  <p class="credito">Pesos reales de GPT-2 pequeño (OpenAI, 2019), archivo model.safetensors en Hugging Face, licencia MIT. Datos: ejemplos/gpt2_pesos.py.</p>
+  <aside class="notes">
+    <p>Qué decir: el modelo no puede hacer cuentas con el número 11241. Necesita una lista de números.</p>
+    <p>Clic 1: el token « token» en GPT-2 pequeño. Su número es el 11241.</p>
+    <p>Clic 2: el número elige una fila de la tabla de embeddings. La tabla tiene una fila por token.</p>
+    <p>Clic 3: la fila sale como una lista de 768 números. Es el vector del token.</p>
+    <p>Clic 4: la tabla entera es parte de los pesos. Otra tabla le dice al modelo el orden de los tokens.</p>
+    <p>Los valores que se ven son los reales del archivo de GPT-2.</p>
+    <p>Minuto acumulado: 15.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 11. El espacio de los significados -->
+<section data-min="2" class="diapo-programa">
+  <span class="antetitulo">Parte 2 · Escena 3D</span>
+  <h2>El espacio de los significados</h2>
+  <div class="programa" data-programa="nube"></div>
+  <p class="credito">Posiciones reales: vectores de GPT-2 pequeño reducidos de 768 a 3 dimensiones con PCA, que conserva el 39 % de la variación. Cálculo: ejemplos/gpt2_pesos.py.</p>
+  <aside class="notes">
+    <p>Qué decir: cada vector es un punto en un espacio de 768 dimensiones. Aquí lo vemos en 3.</p>
+    <p>PCA es una forma de resumir muchas dimensiones en pocas. Pierde detalle, pero conserva grupos.</p>
+    <p>Mira los grupos: lenguajes de programación, países, números, comida y personas.</p>
+    <p>Las palabras van en inglés porque el vocabulario de GPT-2 es casi todo en inglés.</p>
+    <p>Clic 1: la flecha de «man» a «woman» es casi paralela a la de «king» a «queen».</p>
+    <p>Con los 768 números, king − man + woman da «queen» como la palabra más cercana.</p>
+    <p>Ojo: en 3D las flechas se ven casi paralelas. En las 768 dimensiones se parecen menos, pero la cuenta igual da «queen».</p>
+    <p>Fuente: cálculo propio con los pesos de GPT-2. Sin contar las tres palabras de la pregunta.</p>
+    <p>Minuto acumulado: 17.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 12. Las relaciones se vuelven direcciones -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 2 · De token a vector</span>
+  <h2>Las relaciones se vuelven direcciones</h2>
+  <div class="columnas c-60-40">
+    <figure class="figura"><img src="assets/img/lee_trott_analogias_es.png" alt="Figura de Lee y Trott: hombre a mujer y rey a reina; grande a grandísimo y pequeño a pequeñísimo" style="width:100%"></figure>
+    <div>
+      <p class="mediano">De «hombre» a «mujer» hay la misma dirección que de «rey» a «reina».</p>
+      <p class="mediano">La lectura del club explica estas analogías. GPT-2 muestra la primera con datos reales.</p>
+      <p class="chico texto-suave">Así un vector guarda parte del significado: los parecidos quedan cerca.</p>
+    </div>
+  </div>
+  <p class="credito">Figura: Lee y Trott (2023), traducción autorizada al español (2024), Understanding AI. © Timothy B. Lee. <a href="https://www.understandingai.org/p/grandes-modelos-de-lenguaje-llm-una">understandingai.org</a></p>
+  <aside class="notes">
+    <p>Qué decir: esta figura es de la lectura del club. Muestra dos analogías con vectores de palabras.</p>
+    <p>Restar y sumar vectores sigue relaciones de sentido. No es magia: sale del entrenamiento.</p>
+    <p>La escena anterior mostró la primera analogía con los pesos reales de GPT-2.</p>
+    <p>Minuto acumulado: 19 de 60.</p>
+  </aside>
+</section>
+
+<!-- 13. Programa 1: la atención -->
+<section data-min="3.5" class="diapo-programa">
+  <div class="barra-parte"><span class="antetitulo">Parte 3 · El transformer por dentro · 1 de 5</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="transformer"></div></div>
+  <h2>La atención: cada palabra pregunta y las demás responden</h2>
+  <div class="programa" data-programa="atencion"></div>
+  <p class="credito">Frase y etiquetas por capa: Lee y Trott (2023), traducción autorizada al español. Programa propio en React.</p>
+  <aside class="notes">
+    <p>Qué decir: «banco» puede ser una institución financiera o el banco de un río. ¿Cómo lo decide el modelo?</p>
+    <p>Clic 1: se ilumina «banco».</p>
+    <p>Clic 2: «banco» lanza su pregunta. Se llama query: ¿qué palabra me dice qué tipo de banco soy?</p>
+    <p>Clic 3: cada palabra anterior muestra su etiqueta. Se llama key: dice lo que puede ofrecer.</p>
+    <p>Clic 4: el parecido entre pregunta y etiqueta se vuelve un porcentaje. Todos suman 100 %.</p>
+    <p>Clic 5: cada palabra envía su contenido, el value, según su porcentaje. Son las partículas.</p>
+    <p>Clic 6: el vector de «banco» se mezcla y ahora dice «institución financiera».</p>
+    <p>Esto pasa en cada capa, como en la figura en español de Lee y Trott.</p>
+    <p>Puedes tocar otra palabra, como «su», para ver sus conexiones. Los porcentajes son ilustrativos.</p>
+    <p>Minuto acumulado: 22.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 14. Programa 2: muchas cabezas -->
+<section data-min="2.5" class="diapo-programa">
+  <div class="barra-parte"><span class="antetitulo">Parte 3 · El transformer por dentro · 2 de 5</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="transformer"></div></div>
+  <h2>Muchas cabezas: varias maneras de mirar a la vez</h2>
+  <div class="programa" data-programa="cabezas"></div>
+  <p class="credito">Escala: Brown et al. (2020), tabla 2.1, y config.json de GPT-2 pequeño en Hugging Face. Patrones ilustrativos.</p>
+  <aside class="notes">
+    <p>Qué decir: una sola manera de mirar no basta. Por eso hay muchas cabezas: multi-head attention.</p>
+    <p>Clic 1: una cabeza. «su» mira a «John» para saber de quién es.</p>
+    <p>Clic 2: cuatro cabezas en paralelo. Cada una busca algo distinto y tiene su color.</p>
+    <p>Clic 3: en 3D, cada cabeza es un plano. Al separarlos se ve el patrón de cada una.</p>
+    <p>Clic 4: lo que encontró cada cabeza se junta en un solo vector por palabra.</p>
+    <p>Clic 5: GPT-3 tiene 96 cabezas en cada una de sus 96 capas: 9 216 cabezas.</p>
+    <p>Puedes tocar una cabeza en la lista para verla sola.</p>
+    <p>Fuente: Brown et al. (2020), tabla 2.1, página 8.</p>
+    <p>Minuto acumulado: 25 de 60.</p>
+  </aside>
+</section>
+
+<!-- 15. Animación 3: el encoder -->
+<section data-min="2" class="diapo-programa">
+  <div class="barra-parte"><span class="antetitulo">Parte 3 · El transformer por dentro · 3 de 5</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="transformer"></div></div>
+  <h2>El encoder: leer toda la frase para entenderla</h2>
+  <div class="programa" data-programa="encoder"></div>
+  <p class="credito">BERT: Devlin et al. (2019), NAACL, sección 3. Licencia de ACL Anthology: CC BY 4.0. Intensidades ilustrativas.</p>
+  <aside class="notes">
+    <p>Qué decir: el transformer original tiene dos mitades. La primera es el encoder.</p>
+    <p>Clic 1: el encoder lee toda la frase a la vez.</p>
+    <p>Clic 2: cada token mira a todos los demás, antes y después. La matriz se llena completa: un cuadrado.</p>
+    <p>Clic 3: sale un vector por token. Cada uno lleva el contexto de la frase entera.</p>
+    <p>Clic 4: sirve para entender, clasificar y buscar por significado.</p>
+    <p>Muchos modelos de embeddings para buscar documentos usan un encoder. La sesión 6 vuelve a esto.</p>
+    <p>Clic 5: BERT es el ejemplo clásico. BERT-base tiene 12 capas, 12 cabezas y 110 millones de parámetros.</p>
+    <p>Fuente: Devlin et al. (2019), sección 3: «a multi-layer bidirectional Transformer encoder».</p>
+    <p>Minuto acumulado: 27 de 60.</p>
+  </aside>
+</section>
+
+<!-- 16. Animación 4: el decoder -->
+<section data-min="3" class="diapo-programa">
+  <div class="barra-parte"><span class="antetitulo">Parte 3 · El transformer por dentro · 4 de 5</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="transformer,probabilidades,siguiente"></div></div>
+  <h2>El decoder: escribir un token a la vez</h2>
+  <div class="programa" data-programa="decoder"></div>
+  <p class="credito">Máscara y capas: archivo y config.json de GPT-2. GPT-3: Brown et al. (2020). Gemini: Gemini Team (2023). Claude: fichas de Anthropic.</p>
+  <aside class="notes">
+    <p>Qué decir: la segunda mitad es el decoder. Es la que escribe.</p>
+    <p>Clic 1: el decoder genera un token a la vez, siempre al final de lo que ya hay.</p>
+    <p>Clic 2: cada token solo mira hacia atrás. El cuadrado del encoder se vuelve un triángulo.</p>
+    <p>Los unos y ceros son reales: así guarda esa regla el archivo de GPT-2.</p>
+    <p>Clic 3: después de la atención, cada vector pasa por su capa feed-forward.</p>
+    <p>Esa capa agrega información guardada en los pesos. Lee y Trott dan un ejemplo con Varsovia y Polonia.</p>
+    <p>Clic 4: el bloque de atención y feed-forward se repite. GPT-2 pequeño tiene 12 bloques; GPT-3, 96.</p>
+    <p>Clic 5: el último vector da una probabilidad por token. Se elige uno y vuelve a entrar.</p>
+    <p>Con temperatura baja, casi siempre sale el más probable. Con temperatura alta, hay más variedad.</p>
+    <p>Dato para el laboratorio: Claude Haiku 5.5 no acepta el parámetro de temperatura (Anexo G.1).</p>
+    <p>Clic 6: sirve para generar texto. GPT es decoder-only, como los LLMs de chat.</p>
+    <p>Google dice que Gemini se basa en «Transformer decoders» y, desde la versión 1.5, en mixture-of-experts.</p>
+    <p>Anthropic dijo en 2023 que Claude 2 usa una arquitectura transformer. No publica la de sus modelos actuales.</p>
+    <p>Minuto acumulado: 30 de 60.</p>
+  </aside>
+</section>
+
+<!-- 17. Programa 5: encoder y decoder juntos -->
+<section data-min="2" class="diapo-programa">
+  <div class="barra-parte"><span class="antetitulo">Parte 3 · El transformer por dentro · 5 de 5</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="transformer"></div></div>
+  <h2>Encoder y decoder juntos: el transformer original</h2>
+  <div class="programa" data-programa="traduccion"></div>
+  <p class="credito">Figura 1: Vaswani et al. (2017), «Attention Is All You Need», arXiv v7. Reproducida con el permiso de Google para obras académicas.</p>
+  <aside class="notes">
+    <p>Qué decir: el transformer de 2017 se creó para traducir. Usa las dos mitades juntas.</p>
+    <p>Clic 1: el encoder lee toda la frase en español a la vez.</p>
+    <p>Clic 2: el decoder escribe la traducción al inglés, un token a la vez.</p>
+    <p>Clic 3: en cada paso, el decoder mira lo que leyó el encoder. Se llama cross-attention.</p>
+    <p>Puedes tocar un token en inglés para fijar a qué tokens en español mira.</p>
+    <p>Clic 4: la figura 1 del artículo se arma pieza por pieza. Cian es el encoder; violeta, el decoder.</p>
+    <p>Clic 5: tres familias. BERT es solo encoder, GPT es solo decoder y T5 usa los dos.</p>
+    <p>Fuentes: Vaswani et al. (2017); Devlin et al. (2019); Radford et al. (2018); Raffel et al. (2020).</p>
+    <p>Minuto acumulado: 32 de 60.</p>
+  </aside>
+</section>
+
+<!-- 18. ¿Dónde están los pesos? -->
+<section data-min="2" class="diapo-programa">
+  <div class="barra-parte"><span class="antetitulo">Parte 4 · Los pesos del modelo</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="embeddings,transformer,probabilidades"></div></div>
+  <h2>¿Dónde están los pesos?</h2>
+  <div class="programa" data-programa="mapa-pesos"></div>
+  <p class="credito">Conteo propio de los pesos de GPT-2 pequeño, por pieza: ejemplos/gpt2_pesos.py. Los números que caen son pesos reales.</p>
+  <aside class="notes">
+    <p>Qué decir: volvamos al mapa. ¿Dónde están los números que el modelo aprendió?</p>
+    <p>Clic 1: en la tabla de embeddings, con la de posiciones.</p>
+    <p>Clic 2: en la atención de cada capa.</p>
+    <p>Clic 3: en las capas feed-forward. Es la pieza más grande.</p>
+    <p>Clic 4: la salida de GPT-2 usa la misma tabla de los embeddings.</p>
+    <p>Clic 5: en total, 124 439 808 números. Se llaman pesos o parámetros.</p>
+    <p>El tokenizer no tiene pesos: es una lista fija.</p>
+    <p>Fuente: conteo propio sobre el archivo model.safetensors, sin las máscaras.</p>
+    <p>Minuto acumulado: 34 de 60.</p>
+  </aside>
+</section>
+
+<!-- 19. Un LLM es tres cosas -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 4 · Los pesos del modelo</span>
+  <h2>Un LLM es tres cosas</h2>
+  <div class="tres-cosas">
+    <div class="tarjeta acento fragment surgir">
+      <h3>El tokenizer</h3>
+      <p class="mediano">La lista fija de tokens y cómo cortar el texto.</p>
+      <span class="archivo">tokenizer.json<small>1.36 MB</small></span>
+    </div>
+    <div class="tarjeta acento-2 fragment surgir">
+      <h3>La arquitectura</h3>
+      <p class="mediano">La receta: cuántas capas, cuántas cabezas y de qué tamaño son los vectores.</p>
+      <span class="archivo">config.json<small>665 bytes</small></span>
+    </div>
+    <div class="tarjeta exito fragment surgir">
+      <h3>Los pesos</h3>
+      <p class="mediano">Los números aprendidos en el entrenamiento.</p>
+      <span class="archivo">model.safetensors<small>548 MB</small></span>
+    </div>
+  </div>
+  <p class="mediano texto-suave" style="margin-top:24px">Así se ven las tres cosas en los archivos de GPT-2 pequeño en Hugging Face.</p>
+  <p class="credito">Tamaños de los archivos de openai-community/gpt2 en Hugging Face. Consulta: 23 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: esta es la idea que queda. Un LLM son tres cosas.</p>
+    <p>Clic 1: el tokenizer. Clic 2: la arquitectura, que es la receta. Clic 3: los pesos.</p>
+    <p>La receta ocupa 665 bytes. Los pesos ocupan 548 MB. Casi todo el modelo son números.</p>
+    <p>El archivo de pesos también guarda las máscaras del decoder. Por eso pesa un poco más.</p>
+    <p>Minuto acumulado: 35.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 20. Cuántos son -->
+<section>
+  <section data-min="2">
+    <span class="antetitulo">Parte 4 · Los pesos del modelo</span>
+    <h2>¿Cuántos pesos tiene un modelo?</h2>
+    <div class="programa angosto" data-programa="parametros"></div>
+    <div class="nota-metodo recuadro"><b>Escala logarítmica.</b> Cada marca vale diez veces la anterior. Claude y Gemini no publican su número de parámetros.</div>
+    <p class="credito">GPT-2: conteo propio del archivo de pesos. Olmo 3 7B: Ai2, archivos en Hugging Face. GPT-3: Brown et al. (2020), tabla 2.1.</p>
+    <aside class="notes">
+      <p>Qué decir: un modelo puede tener de millones a cientos de miles de millones de pesos.</p>
+      <p>Clic 1: GPT-2 pequeño, de 2019: 124 millones.</p>
+      <p>Clic 2: Olmo 3 7B, un modelo abierto de 2025: 7.3 mil millones.</p>
+      <p>Clic 3: GPT-3, de 2020: 175 mil millones. Unas 1 400 veces GPT-2 pequeño.</p>
+      <p>La escala es logarítmica. Si fuera normal, GPT-2 sería una línea invisible.</p>
+      <p>Abajo hay una tabla de consulta con las cifras de cada modelo y su fuente.</p>
+      <p>Minuto acumulado: 37.5 de 60.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Las cifras de los modelos de la hora</h2>
+    <table class="tabla-datos">
+      <tr><th>Modelo</th><th>Capas</th><th>Cabezas</th><th>Vector</th><th>Vocabulario</th><th>Parámetros</th><th>Tokens de entrenamiento</th></tr>
+      <tr><td>GPT-2 pequeño (2019)</td><td>12</td><td>12</td><td>768</td><td>50 257</td><td>124 439 808</td><td>no publicado</td></tr>
+      <tr><td>BERT-base (2019)</td><td>12</td><td>12</td><td>768</td><td>30 000</td><td>110 millones</td><td>no aplica a esta tabla</td></tr>
+      <tr><td>GPT-3 (2020)</td><td>96</td><td>96</td><td>12 288</td><td>no publicado</td><td>175 mil millones</td><td>300 mil millones</td></tr>
+      <tr><td>Olmo 3 7B (2025)</td><td>32</td><td>32</td><td>4 096</td><td>100 278</td><td>7 298 011 136</td><td>5.93 billones de pretraining</td></tr>
+    </table>
+    <p class="chico texto-suave" style="margin-top:14px">Fuentes: config.json de GPT-2 y conteo propio; Devlin et al. (2019); Brown et al. (2020), tabla 2.1; Ai2, config.json e informe técnico de Olmo 3. Consulta: 23 de noviembre de 2026.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase. OpenAI corrigió la cifra de GPT-2 pequeño: era 117 millones en su artículo y es 124 millones.</p></aside>
+  </section>
+</section>
+
+<!-- 21. Cuánto pesan -->
+<section data-min="2.5">
+  <span class="antetitulo">Parte 4 · Los pesos del modelo</span>
+  <h2>¿Cuánto pesa el archivo de los pesos?</h2>
+  <div class="columnas" style="grid-template-columns: 1.15fr 1fr; align-items:start; gap:28px">
+    <div class="programa" data-programa="calculadora"></div>
+    <figure class="figura"><img src="assets/img/hf_olmo3_archivos.png" alt="Página de archivos de Olmo 3 7B en Hugging Face: tres archivos de pesos de 4.97, 4.98 y 4.64 GB" style="width:100%;max-height:440px;object-fit:contain;object-position:top">
+      <figcaption>Olmo 3 publica sus pesos: cualquiera los descarga. Claude y Gemini solo se usan por API.</figcaption></figure>
+  </div>
+  <p class="credito">Captura de la página de archivos de allenai/Olmo-3-1025-7B en Hugging Face, 23 de noviembre de 2026. Licencia del modelo: Apache 2.0.</p>
+  <aside class="notes">
+    <p>Qué decir: el tamaño del archivo sale de una multiplicación.</p>
+    <p>Clic 1: un peso de 16 bits ocupa 2 bytes. Olmo 3 7B tiene 7 298 011 136 pesos: unos 14.6 GB.</p>
+    <p>Clic 2: los tres archivos reales en Hugging Face suman 14.6 GB. La cuenta coincide.</p>
+    <p>Clic 3: con quantization a 4 bits, cada peso ocupa medio byte. El archivo queda en cerca de la cuarta parte.</p>
+    <p>La quantization (guardar cada peso con menos bits) permite correr modelos en computadores más modestos.</p>
+    <p>Pesos abiertos: algunos modelos publican sus pesos. El bloque 2.2 retoma sus licencias.</p>
+    <p>Fuente: API y página de archivos de Hugging Face; ficha de Olmo 3 7B.</p>
+    <p>Minuto acumulado: 40 de 60.</p>
+  </aside>
+</section>
+
+<!-- 22. Cómo se aprenden -->
+<section data-min="2.5" class="diapo-programa">
+  <span class="antetitulo">Parte 4 · Los pesos del modelo</span>
+  <h2>Cómo se aprenden los pesos: el pretraining</h2>
+  <div class="programa" data-programa="aprendizaje"></div>
+  <p class="credito">Ejemplo de Lee y Trott (2023). Tokens: Brown et al. (2020), tabla 2.1; informe técnico de Olmo 3 (Ai2, 2025), tabla 35.</p>
+  <aside class="notes">
+    <p>Qué decir: nadie escribe los pesos a mano. Se ajustan solos, con un ciclo que se repite.</p>
+    <p>Clic 1: el modelo lee «Me gusta el café con crema y» y predice el siguiente token.</p>
+    <p>Clic 2: compara su predicción con el token real del texto: «azúcar».</p>
+    <p>Clic 3: ajusta un poco los pesos para acercarse a la respuesta. Mira la cuadrícula.</p>
+    <p>La cuadrícula parte de pesos reales de GPT-2. El cambio que ves es ilustrativo.</p>
+    <p>Clic 4: repite con billones de tokens. GPT-3 usó 300 mil millones; Olmo 3 7B, 5.93 billones.</p>
+    <p>Recuerda: un billón en español es un millón de millones.</p>
+    <p>Minuto acumulado: 42.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 23. Los pesos se congelan -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 4 · Los pesos del modelo</span>
+  <h2>Después del entrenamiento, los pesos se congelan</h2>
+  <div class="programa angosto" data-programa="congelados"></div>
+  <p class="mediano texto-suave" style="margin-top:22px">El modelo no aprende de tu conversación. Lo retomamos en los límites del bloque 2.2 y en la memoria de la sesión 6.</p>
+  <aside class="notes">
+    <p>Qué decir: cuando termina el entrenamiento, los pesos ya no cambian.</p>
+    <p>Clic 1: los pesos se congelan. Cada vez que usas el modelo, usas los mismos números.</p>
+    <p>Clic 2: tu conversación no cambia los pesos. El modelo no aprende de lo que le dices.</p>
+    <p>La fecha de corte es el final de sus datos de entrenamiento. Lo posterior no está en sus pesos.</p>
+    <p>Minuto acumulado: 44 de 60.</p>
+  </aside>
+</section>
+
+<!-- 24. Del modelo base al asistente -->
+<section data-min="2" class="diapo-programa">
+  <span class="antetitulo">Parte 4 · Los pesos del modelo</span>
+  <h2>Del modelo base al asistente</h2>
+  <div class="columnas" style="grid-template-columns: 1fr 1.05fr; align-items:start; gap:26px">
+    <div class="programa" data-programa="base-asistente"></div>
+    <figure class="figura"><img src="assets/img/instructgpt_figura2.png" alt="Figura 2 de InstructGPT: los tres pasos, ajuste supervisado, modelo de recompensa y optimización" style="width:100%">
+      <figcaption>InstructGPT de 1.3 mil millones de parámetros se prefirió a GPT-3, de 175 mil millones.</figcaption></figure>
+  </div>
+  <p class="credito">Figura 2 de Ouyang et al. (2022), «Training language models to follow instructions with human feedback», arXiv. Derechos reservados de sus autores.</p>
+  <aside class="notes">
+    <p>Qué decir: el modelo que sale del pretraining solo completa texto. Se llama modelo base.</p>
+    <p>Clic 1: el fine-tuning con instrucciones lo entrena con pedidos y buenas respuestas.</p>
+    <p>Clic 2: con RLHF, personas ordenan respuestas y el modelo se ajusta a sus preferencias.</p>
+    <p>Clic 3: los cambios son pequeños y ocurren en los mismos pesos. El modelo pasa de completar a responder.</p>
+    <p>La figura muestra los tres pasos de InstructGPT, el ejemplo clásico.</p>
+    <p>Dato: personas prefirieron las respuestas del InstructGPT de 1.3 mil millones a las de GPT-3.</p>
+    <p>Fuente: Ouyang et al. (2022), resumen y figura 2.</p>
+    <p>Minuto acumulado: 46 de 60.</p>
+  </aside>
+</section>
+
+<!-- 25. Formas de uso -->
+<section data-min="1">
+  <div class="barra-parte"><span class="antetitulo">Parte 5 · Cómo lo usas</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="texto,siguiente"></div></div>
+  <h2>Tres formas de usar un LLM</h2>
+  <div class="columnas-3">
+    <div class="tarjeta acento fragment surgir"><h3>Aplicaciones de chat</h3><p class="mediano">Escribes en una ventana y lees la respuesta. Por ejemplo, Claude o Gemini.</p></div>
+    <div class="tarjeta acento-2 fragment surgir"><h3>La API</h3><p class="mediano">Tu programa le envía mensajes al modelo y recibe su respuesta. Así trabaja el curso.</p></div>
+    <div class="tarjeta exito fragment surgir"><h3>Dentro de productos</h3><p class="mediano">El modelo viene integrado, como los asistentes de código en el editor.</p></div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: el mismo tipo de modelo llega de tres formas.</p>
+    <p>Clic 1: las aplicaciones de chat. Clic 2: la API, que usaremos en el curso. Clic 3: los productos.</p>
+    <p>Minuto acumulado: 47 de 60.</p>
+  </aside>
+</section>
+
+<!-- 26. Una llamada -->
+<section data-min="2" class="diapo-programa">
+  <span class="antetitulo">Parte 5 · Cómo lo usas</span>
+  <h2>Una llamada por API</h2>
+  <div class="programa" data-programa="llamada"></div>
+<pre class="codigo-figura" aria-label="Ejemplo de llamada con LangChain"><span class="k">from</span> langchain.chat_models <span class="k">import</span> init_chat_model
+modelo = init_chat_model(<span class="s">"anthropic:claude-haiku-5-5"</span>)  <span class="c"># o "google_genai:gemini-2.5-flash-lite"</span>
+mensajes = [(<span class="s">"system"</span>, <span class="s">"Respondes preguntas sobre Python en una frase."</span>),
+            (<span class="s">"user"</span>, <span class="s">"¿Qué versión de Python exige langchain 1.5.0?"</span>)]
+respuesta = modelo.invoke(mensajes)
+respuesta.usage_metadata  <span class="c"># tokens de entrada y de salida</span></pre>
+  <aside class="notes">
+    <p>Qué decir: así se ve una llamada por API. No hace falta programar para entenderla.</p>
+    <p>Clic 1: los mensajes de sistema y de usuario pasan por el tokenizer y entran como tokens.</p>
+    <p>Clic 2: el modelo genera los tokens de salida, uno a la vez.</p>
+    <p>Clic 3: la respuesta vuelve con su conteo de tokens. Con ese conteo se cobra.</p>
+    <p>El código es solo una figura. Con init_chat_model, cambias de proveedor en una línea.</p>
+    <p>Los tokens y los conteos son de o200k_base. Cada API cuenta con su tokenizer y suma el formato de los mensajes.</p>
+    <p>El dato de Python 3.11 sale del Anexo G.1.</p>
+    <p>Minuto acumulado: 49 de 60.</p>
+  </aside>
+</section>
+
+<!-- 27. El proyecto por capas -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 6 · La capa 1, parte 1</span>
+  <h2>Tu proyecto crece por capas</h2>
+  <div class="columnas" style="grid-template-columns: 1fr 1fr; gap:20px">
+    <div class="escena3d capas6-envoltura" aria-label="Seis capas del proyecto apiladas; la capa 1, el modelo, está iluminada">
+      <div class="capas6">
+        <div class="capa encendida" style="--i:0; --c: var(--t1)"><div class="rotulo">1. El modelo<small>Hoy y en el bloque 2.2</small></div></div>
+        <div class="capa" style="--i:1; --c: var(--t2)"><div class="rotulo">2. Las instrucciones</div></div>
+        <div class="capa" style="--i:2; --c: var(--t3)"><div class="rotulo">3. El ciclo del agente</div></div>
+        <div class="capa" style="--i:3; --c: var(--t4)"><div class="rotulo">4. Las herramientas</div></div>
+        <div class="capa" style="--i:4; --c: var(--t5)"><div class="rotulo">5. El contexto</div></div>
+        <div class="capa" style="--i:5; --c: var(--t6)"><div class="rotulo">6. La orquestación</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>La ficha del agente</h3>
+      <ul class="mediano">
+        <li>La sección 0 es la ficha inicial de la sesión 1.</li>
+        <li>Cada capa agrega una sección a la ficha.</li>
+        <li>Hoy empieza la sección 1: el modelo.</li>
+      </ul>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: el proyecto crece en seis capas, una por sesión. Hoy empieza la capa 1: el modelo.</p>
+    <p>La ficha del agente reúne todo. La sección 0 es la ficha inicial que ya entregaron.</p>
+    <p>La plantilla está en el índice de la sesión: ficha_del_agente.md.</p>
+    <p>Fuente: Anexo C.3 y C.4 del curso.</p>
+    <p>Minuto acumulado: 50.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 28. La consigna de la parte 1 -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 6 · La capa 1, parte 1</span>
+  <h2>La capa 1, parte 1: diez casos</h2>
+  <ol class="pasos mediano">
+    <li class="fragment surgir">Diez casos de la tarea central, a partir de los cinco de tu ficha inicial.</li>
+    <li class="fragment surgir">Fáciles, difíciles y de borde. Cada uno con un resultado esperado que se pueda comprobar.</li>
+    <li class="fragment surgir">Tres casos de robustez: una entrada ambigua, una premisa falsa y una pregunta fuera de alcance.</li>
+    <li class="fragment surgir">Llévalos al bloque 2.2. La capa completa se entrega al inicio del bloque 3.1.</li>
+  </ol>
+  <aside class="notes">
+    <p>Qué decir: esta es la tarea del grupo para el bloque 2.2.</p>
+    <p>Clic 1 a 3: los diez casos, sus tipos y los tres de robustez.</p>
+    <p>Clic 4: los casos se usan en el bloque 2.2 para probar modelos. No se califican por separado.</p>
+    <p>El detalle está en el trabajo independiente del bloque.</p>
+    <p>Minuto acumulado: 52 de 60.</p>
+  </aside>
+</section>
+
+<!-- 29. Un caso mal escrito y uno bien escrito -->
+<section data-min="1">
+  <span class="antetitulo">Parte 6 · La capa 1, parte 1</span>
+  <h2>Un caso mal escrito y uno bien escrito</h2>
+  <div class="antes-despues">
+    <div class="ad-caja mal e1"><span class="rotulo-ad">Mal escrito</span><span class="texto-ad">Entrada: un reporte de error. Resultado esperado: que lo clasifique bien.</span></div>
+    <div class="ad-caja bien e1"><span class="rotulo-ad">Bien escrito</span><span class="texto-ad">Entrada: «La app se cierra al subir una foto en Android 15». Resultado esperado: categoría «fallo de la app» y prioridad alta.</span></div>
+    <span class="fragment" data-estado="bien-1"></span>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: un caso sirve si alguien más puede comprobar el resultado.</p>
+    <p>El primero no dice qué entra ni qué es «bien».</p>
+    <p>Clic 1: el segundo trae una entrada concreta y un resultado que se compara campo por campo.</p>
+    <p>Minuto acumulado: 53 de 60.</p>
+  </aside>
+</section>
+
+<!-- 30. Síntesis -->
+<section data-min="1">
+  <span class="antetitulo">Cierre</span>
+  <h2>Lo que viste hoy</h2>
+  <div class="programa" data-programa="mapa-sintesis"></div>
+  <p class="mediano" style="margin-top:10px">Un LLM es un tokenizer, una arquitectura y unos pesos congelados que predicen el siguiente token.</p>
+  <aside class="notes">
+    <p>Qué decir: el mismo mapa del comienzo, ahora con todas sus piezas.</p>
+    <p>El texto se vuelve tokens, los tokens se vuelven vectores y el transformer los mezcla capa a capa.</p>
+    <p>Al final sale una probabilidad por token. Se elige uno y vuelve a entrar.</p>
+    <p>Minuto acumulado: 54 de 60.</p>
+  </aside>
+</section>
+
+<!-- 31. Anuncio del Laboratorio 2A -->
+<section data-min="1">
+  <span class="antetitulo">Después del club · 60 minutos en clase</span>
+  <h2>Laboratorio 2A: capacidades y límites de un LLM</h2>
+  <div class="anuncio-lab">
+    <ul>
+      <li><b>Practicas</b> hacer preguntas a un LLM con LangChain y comparar cada respuesta con la esperada.</li>
+      <li><b>Configuras</b> la lista de preguntas: hecho verificable, premisa falsa, fuera de alcance o posterior a la fecha de corte.</li>
+      <li><b>Mides</b> los aciertos por tipo de pregunta, los tokens y el costo.</li>
+    </ul>
+    <div class="tarjeta acento">
+      <p class="mediano">No escribes código a mano: lees, ejecutas y configuras.</p>
+      <p class="mediano" style="margin-top:10px">Sin clave de API, el notebook usa respuestas grabadas. Con la clave del curso, corre en vivo.</p>
+      <p class="chico texto-suave" style="margin-top:10px">El notebook trae sus pruebas de funcionamiento y de robustez.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: después del club, el laboratorio. Dura 60 minutos en clase.</p>
+    <p>Un ejemplo de pregunta posterior a la fecha de corte: «¿Qué cambió en LangChain 1.5.0?».</p>
+    <p>No muestres resultados: el laboratorio se hace en clase.</p>
+    <p>Fuente: Anexo B, Laboratorio 2A.</p>
+    <p>Minuto acumulado: 55 de 60.</p>
+  </aside>
+</section>
+
+<!-- 32. Club de lectura -->
+<section>
+  <section data-min="5">
+    <span class="antetitulo">Club de lectura · 5 minutos</span>
+    <h2>Club de lectura: Lee y Trott (2023)</h2>
+    <p class="chico texto-suave" style="margin:-6px 0 12px">Lee la <a href="https://www.understandingai.org/p/grandes-modelos-de-lenguaje-llm-una">traducción autorizada al español</a> o el <a href="https://www.understandingai.org/p/large-language-models-explained-with">original en inglés</a>.</p>
+    <ol class="preguntas-club">
+      <li><b>¿Cómo sale tanto de predecir la siguiente palabra?</b> Según los autores, un modelo aprende con una sola tarea: predecir la siguiente palabra. Aun así, escribe ensayos y hace analogías. ¿Cómo explicas ese salto? Si un agente decide sus acciones con este mecanismo, ¿qué te da confianza y qué no? Apóyate en la sección «Cómo se entrenan los modelos de lenguaje».</li>
+      <li><b>¿Por qué un modelo puede inventar un dato?</b> Los autores distinguen lo que el modelo «recuerda» de su entrenamiento y lo que trae el prompt. ¿Por qué crees que un modelo puede inventar un dato con total seguridad? ¿Qué gana un agente cuando busca información y la pone en el prompt? Apóyate en la sección sobre las capas de atención y las capas feed-forward.</li>
+      <li><b>¿Qué le falta a un modelo que solo completa texto?</b> El artículo explica el entrenamiento para predecir texto. En una nota, dice que ChatGPT pasó además por un ajuste con retroalimentación humana. Imagina que le pides «Resume este contrato» a un modelo que solo completa texto. ¿Qué crees que respondería? Apóyate en la nota 2 del artículo.</li>
+    </ol>
+    <p class="mediano texto-acento" style="margin-top:12px">Después del club: Laboratorio 2A.</p>
+    <aside class="notes">
+      <p>Elige una o dos preguntas. Sugerencia: la 1 y la 2, porque la hora mostró su mecanismo.</p>
+      <p>Pregunta 1. Sección: «Cómo se entrenan los modelos de lenguaje». Hilos: el ejemplo del café y la escala de datos.</p>
+      <p>Hilo para profundizar: ¿qué le pasa a un agente si el texto de entrenamiento no cubre su tarea?</p>
+      <p>Pregunta 2. Sección: atención y feed-forward. Hilo: la feed-forward guarda hechos en los pesos.</p>
+      <p>Otro hilo: los pesos están congelados, y el prompt trae información fresca.</p>
+      <p>Pregunta 3. Nota 2 del artículo. Úsala si el grupo quiere discutir el paso del modelo base al asistente.</p>
+      <p>No respondas las preguntas: la respuesta es de los estudiantes.</p>
+      <p>Cierra con la transición: «Ahora lo comprobamos en el Laboratorio 2A».</p>
+      <p>Minuto acumulado: 60 de 60.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Para profundizar</span>
+    <h2>Referencias</h2>
+    <div class="columnas" style="grid-template-columns: 1.3fr 1fr; gap:24px; align-items:start">
+      <div class="referencias compactas" style="columns:1">
+        <p>Lee, T. B. y Trott, S. (2023). <em>Large language models, explained with a minimum of math and jargon</em>. <a href="https://www.understandingai.org/p/large-language-models-explained-with">Original</a> · <a href="https://www.understandingai.org/p/grandes-modelos-de-lenguaje-llm-una">traducción al español (2024)</a></p>
+        <p>Vaswani et al. (2017). <em>Attention Is All You Need</em>. NeurIPS. <a href="https://arxiv.org/abs/1706.03762">arxiv.org</a></p>
+        <p>Sennrich, Haddow y Birch (2016). <em>Neural Machine Translation of Rare Words with Subword Units</em>. ACL. <a href="https://aclanthology.org/P16-1162/">aclanthology.org</a></p>
+        <p>Radford et al. (2018). <em>Improving Language Understanding by Generative Pre-Training</em>. <a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf">openai.com</a></p>
+        <p>Devlin et al. (2019). <em>BERT</em>. NAACL. <a href="https://aclanthology.org/N19-1423/">aclanthology.org</a></p>
+        <p>Raffel et al. (2020). <em>Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer</em>. JMLR. <a href="https://www.jmlr.org/papers/v21/20-074.html">jmlr.org</a></p>
+        <p>Brown et al. (2020). <em>Language Models are Few-Shot Learners</em>. <a href="https://arxiv.org/abs/2005.14165">arxiv.org</a></p>
+        <p>Ouyang et al. (2022). <em>Training language models to follow instructions with human feedback</em>. <a href="https://arxiv.org/abs/2203.02155">arxiv.org</a></p>
+        <p>Olmo Team (2025). <em>Olmo 3</em>. <a href="https://arxiv.org/abs/2512.13961">arxiv.org</a> · <a href="https://huggingface.co/allenai/Olmo-3-1025-7B">Hugging Face</a></p>
+        <p>Huyen, C. (2024). <em>AI Engineering</em>, capítulos 1 y 2. O'Reilly.</p>
+        <p>Sanderson, G. (2024). 3Blue1Brown: <a href="https://www.3blue1brown.com/lessons/mini-llm">LLMs en 8 minutos</a> · <a href="https://www.3blue1brown.com/lessons/gpt">Transformers</a> · <a href="https://www.3blue1brown.com/lessons/attention">Atención</a>. Con audio en español en YouTube.</p>
+        <p>Wolfram, S. (2023). <em>What Is ChatGPT Doing … and Why Does It Work?</em> <a href="https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/">writings.stephenwolfram.com</a></p>
+        <p>LangChain. Documentación de modelos. <a href="https://docs.langchain.com/oss/python/langchain/models">docs.langchain.com</a></p>
+      </div>
+      <div class="galeria" style="--n:1; --alto:190px; gap:12px">
+        <figure class="figura"><img src="assets/img/transformer_explainer.jpg" alt="Captura de Transformer Explainer con GPT-2 pequeño"><figcaption><a href="https://poloclub.github.io/transformer-explainer/">Transformer Explainer</a> (Polo Club, Georgia Tech). Código MIT.</figcaption></figure>
+        <figure class="figura"><img src="assets/img/bbycroft_llm.jpg" alt="Captura de la visualización 3D de un LLM de Brendan Bycroft"><figcaption><a href="https://bbycroft.net/llm">LLM Visualization</a> (Brendan Bycroft). Código MIT.</figcaption></figure>
+      </div>
+    </div>
+    <aside class="notes"><p>Referencias del bloque, sin tiempo de clase. Las capturas son del 23 de noviembre de 2026.</p></aside>
+  </section>
+</section>
+
+</div>
+</div>
+<script src="assets/vendor/reveal.js-6.0.2/reveal.js"></script>
+<script src="assets/vendor/reveal.js-6.0.2/plugin/notes.js"></script>
+<script src="assets/vendor/react-18.3.1/react.production.min.js"></script>
+<script src="assets/vendor/react-18.3.1/react-dom.production.min.js"></script>
+<script src="assets/vendor/gpt-tokenizer-4.1.2/o200k_base.js"></script>
+<script src="assets/js/programas.js"></script>
+<script src="assets/js/deck.js"></script>
+</body>
+</html>

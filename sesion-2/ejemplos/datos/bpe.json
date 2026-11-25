@@ -1,0 +1,1031 @@
+{
+ "fuente": "Sennrich, Haddow y Birch (2016), ACL, Algoritmo 1",
+ "vocabulario_inicial": [
+  {
+   "palabra": "l o w </w>",
+   "frecuencia": 5
+  },
+  {
+   "palabra": "l o w e r </w>",
+   "frecuencia": 2
+  },
+  {
+   "palabra": "n e w e s t </w>",
+   "frecuencia": 6
+  },
+  {
+   "palabra": "w i d e s t </w>",
+   "frecuencia": 3
+  }
+ ],
+ "pasos": [
+  {
+   "paso": 1,
+   "pares": [
+    {
+     "par": [
+      "e",
+      "s"
+     ],
+     "frecuencia": 9
+    },
+    {
+     "par": [
+      "s",
+      "t"
+     ],
+     "frecuencia": 9
+    },
+    {
+     "par": [
+      "t",
+      "</w>"
+     ],
+     "frecuencia": 9
+    },
+    {
+     "par": [
+      "w",
+      "e"
+     ],
+     "frecuencia": 8
+    },
+    {
+     "par": [
+      "l",
+      "o"
+     ],
+     "frecuencia": 7
+    },
+    {
+     "par": [
+      "o",
+      "w"
+     ],
+     "frecuencia": 7
+    },
+    {
+     "par": [
+      "n",
+      "e"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "e",
+      "w"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "</w>"
+     ],
+     "frecuencia": 5
+    },
+    {
+     "par": [
+      "w",
+      "i"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "i",
+      "d"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "d",
+      "e"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "e",
+      "r"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "r",
+      "</w>"
+     ],
+     "frecuencia": 2
+    }
+   ],
+   "union": [
+    "e",
+    "s"
+   ],
+   "frecuencia": 9,
+   "vocabulario_despues": [
+    {
+     "palabra": "l o w </w>",
+     "frecuencia": 5
+    },
+    {
+     "palabra": "l o w e r </w>",
+     "frecuencia": 2
+    },
+    {
+     "palabra": "n e w es t </w>",
+     "frecuencia": 6
+    },
+    {
+     "palabra": "w i d es t </w>",
+     "frecuencia": 3
+    }
+   ]
+  },
+  {
+   "paso": 2,
+   "pares": [
+    {
+     "par": [
+      "es",
+      "t"
+     ],
+     "frecuencia": 9
+    },
+    {
+     "par": [
+      "t",
+      "</w>"
+     ],
+     "frecuencia": 9
+    },
+    {
+     "par": [
+      "l",
+      "o"
+     ],
+     "frecuencia": 7
+    },
+    {
+     "par": [
+      "o",
+      "w"
+     ],
+     "frecuencia": 7
+    },
+    {
+     "par": [
+      "n",
+      "e"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "e",
+      "w"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "es"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "</w>"
+     ],
+     "frecuencia": 5
+    },
+    {
+     "par": [
+      "w",
+      "i"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "i",
+      "d"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "d",
+      "es"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "w",
+      "e"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "e",
+      "r"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "r",
+      "</w>"
+     ],
+     "frecuencia": 2
+    }
+   ],
+   "union": [
+    "es",
+    "t"
+   ],
+   "frecuencia": 9,
+   "vocabulario_despues": [
+    {
+     "palabra": "l o w </w>",
+     "frecuencia": 5
+    },
+    {
+     "palabra": "l o w e r </w>",
+     "frecuencia": 2
+    },
+    {
+     "palabra": "n e w est </w>",
+     "frecuencia": 6
+    },
+    {
+     "palabra": "w i d est </w>",
+     "frecuencia": 3
+    }
+   ]
+  },
+  {
+   "paso": 3,
+   "pares": [
+    {
+     "par": [
+      "est",
+      "</w>"
+     ],
+     "frecuencia": 9
+    },
+    {
+     "par": [
+      "l",
+      "o"
+     ],
+     "frecuencia": 7
+    },
+    {
+     "par": [
+      "o",
+      "w"
+     ],
+     "frecuencia": 7
+    },
+    {
+     "par": [
+      "n",
+      "e"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "e",
+      "w"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "est"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "</w>"
+     ],
+     "frecuencia": 5
+    },
+    {
+     "par": [
+      "w",
+      "i"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "i",
+      "d"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "d",
+      "est"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "w",
+      "e"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "e",
+      "r"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "r",
+      "</w>"
+     ],
+     "frecuencia": 2
+    }
+   ],
+   "union": [
+    "est",
+    "</w>"
+   ],
+   "frecuencia": 9,
+   "vocabulario_despues": [
+    {
+     "palabra": "l o w </w>",
+     "frecuencia": 5
+    },
+    {
+     "palabra": "l o w e r </w>",
+     "frecuencia": 2
+    },
+    {
+     "palabra": "n e w est</w>",
+     "frecuencia": 6
+    },
+    {
+     "palabra": "w i d est</w>",
+     "frecuencia": 3
+    }
+   ]
+  },
+  {
+   "paso": 4,
+   "pares": [
+    {
+     "par": [
+      "l",
+      "o"
+     ],
+     "frecuencia": 7
+    },
+    {
+     "par": [
+      "o",
+      "w"
+     ],
+     "frecuencia": 7
+    },
+    {
+     "par": [
+      "n",
+      "e"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "e",
+      "w"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "est</w>"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "</w>"
+     ],
+     "frecuencia": 5
+    },
+    {
+     "par": [
+      "w",
+      "i"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "i",
+      "d"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "d",
+      "est</w>"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "w",
+      "e"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "e",
+      "r"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "r",
+      "</w>"
+     ],
+     "frecuencia": 2
+    }
+   ],
+   "union": [
+    "l",
+    "o"
+   ],
+   "frecuencia": 7,
+   "vocabulario_despues": [
+    {
+     "palabra": "lo w </w>",
+     "frecuencia": 5
+    },
+    {
+     "palabra": "lo w e r </w>",
+     "frecuencia": 2
+    },
+    {
+     "palabra": "n e w est</w>",
+     "frecuencia": 6
+    },
+    {
+     "palabra": "w i d est</w>",
+     "frecuencia": 3
+    }
+   ]
+  },
+  {
+   "paso": 5,
+   "pares": [
+    {
+     "par": [
+      "lo",
+      "w"
+     ],
+     "frecuencia": 7
+    },
+    {
+     "par": [
+      "n",
+      "e"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "e",
+      "w"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "est</w>"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "</w>"
+     ],
+     "frecuencia": 5
+    },
+    {
+     "par": [
+      "w",
+      "i"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "i",
+      "d"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "d",
+      "est</w>"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "w",
+      "e"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "e",
+      "r"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "r",
+      "</w>"
+     ],
+     "frecuencia": 2
+    }
+   ],
+   "union": [
+    "lo",
+    "w"
+   ],
+   "frecuencia": 7,
+   "vocabulario_despues": [
+    {
+     "palabra": "low </w>",
+     "frecuencia": 5
+    },
+    {
+     "palabra": "low e r </w>",
+     "frecuencia": 2
+    },
+    {
+     "palabra": "n e w est</w>",
+     "frecuencia": 6
+    },
+    {
+     "palabra": "w i d est</w>",
+     "frecuencia": 3
+    }
+   ]
+  },
+  {
+   "paso": 6,
+   "pares": [
+    {
+     "par": [
+      "n",
+      "e"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "e",
+      "w"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "est</w>"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "low",
+      "</w>"
+     ],
+     "frecuencia": 5
+    },
+    {
+     "par": [
+      "w",
+      "i"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "i",
+      "d"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "d",
+      "est</w>"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "low",
+      "e"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "e",
+      "r"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "r",
+      "</w>"
+     ],
+     "frecuencia": 2
+    }
+   ],
+   "union": [
+    "n",
+    "e"
+   ],
+   "frecuencia": 6,
+   "vocabulario_despues": [
+    {
+     "palabra": "low </w>",
+     "frecuencia": 5
+    },
+    {
+     "palabra": "low e r </w>",
+     "frecuencia": 2
+    },
+    {
+     "palabra": "ne w est</w>",
+     "frecuencia": 6
+    },
+    {
+     "palabra": "w i d est</w>",
+     "frecuencia": 3
+    }
+   ]
+  },
+  {
+   "paso": 7,
+   "pares": [
+    {
+     "par": [
+      "ne",
+      "w"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "w",
+      "est</w>"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "low",
+      "</w>"
+     ],
+     "frecuencia": 5
+    },
+    {
+     "par": [
+      "w",
+      "i"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "i",
+      "d"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "d",
+      "est</w>"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "low",
+      "e"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "e",
+      "r"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "r",
+      "</w>"
+     ],
+     "frecuencia": 2
+    }
+   ],
+   "union": [
+    "ne",
+    "w"
+   ],
+   "frecuencia": 6,
+   "vocabulario_despues": [
+    {
+     "palabra": "low </w>",
+     "frecuencia": 5
+    },
+    {
+     "palabra": "low e r </w>",
+     "frecuencia": 2
+    },
+    {
+     "palabra": "new est</w>",
+     "frecuencia": 6
+    },
+    {
+     "palabra": "w i d est</w>",
+     "frecuencia": 3
+    }
+   ]
+  },
+  {
+   "paso": 8,
+   "pares": [
+    {
+     "par": [
+      "new",
+      "est</w>"
+     ],
+     "frecuencia": 6
+    },
+    {
+     "par": [
+      "low",
+      "</w>"
+     ],
+     "frecuencia": 5
+    },
+    {
+     "par": [
+      "w",
+      "i"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "i",
+      "d"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "d",
+      "est</w>"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "low",
+      "e"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "e",
+      "r"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "r",
+      "</w>"
+     ],
+     "frecuencia": 2
+    }
+   ],
+   "union": [
+    "new",
+    "est</w>"
+   ],
+   "frecuencia": 6,
+   "vocabulario_despues": [
+    {
+     "palabra": "low </w>",
+     "frecuencia": 5
+    },
+    {
+     "palabra": "low e r </w>",
+     "frecuencia": 2
+    },
+    {
+     "palabra": "newest</w>",
+     "frecuencia": 6
+    },
+    {
+     "palabra": "w i d est</w>",
+     "frecuencia": 3
+    }
+   ]
+  },
+  {
+   "paso": 9,
+   "pares": [
+    {
+     "par": [
+      "low",
+      "</w>"
+     ],
+     "frecuencia": 5
+    },
+    {
+     "par": [
+      "w",
+      "i"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "i",
+      "d"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "d",
+      "est</w>"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "low",
+      "e"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "e",
+      "r"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "r",
+      "</w>"
+     ],
+     "frecuencia": 2
+    }
+   ],
+   "union": [
+    "low",
+    "</w>"
+   ],
+   "frecuencia": 5,
+   "vocabulario_despues": [
+    {
+     "palabra": "low</w>",
+     "frecuencia": 5
+    },
+    {
+     "palabra": "low e r </w>",
+     "frecuencia": 2
+    },
+    {
+     "palabra": "newest</w>",
+     "frecuencia": 6
+    },
+    {
+     "palabra": "w i d est</w>",
+     "frecuencia": 3
+    }
+   ]
+  },
+  {
+   "paso": 10,
+   "pares": [
+    {
+     "par": [
+      "w",
+      "i"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "i",
+      "d"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "d",
+      "est</w>"
+     ],
+     "frecuencia": 3
+    },
+    {
+     "par": [
+      "low",
+      "e"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "e",
+      "r"
+     ],
+     "frecuencia": 2
+    },
+    {
+     "par": [
+      "r",
+      "</w>"
+     ],
+     "frecuencia": 2
+    }
+   ],
+   "union": [
+    "w",
+    "i"
+   ],
+   "frecuencia": 3,
+   "vocabulario_despues": [
+    {
+     "palabra": "low</w>",
+     "frecuencia": 5
+    },
+    {
+     "palabra": "low e r </w>",
+     "frecuencia": 2
+    },
+    {
+     "palabra": "newest</w>",
+     "frecuencia": 6
+    },
+    {
+     "palabra": "wi d est</w>",
+     "frecuencia": 3
+    }
+   ]
+  }
+ ]
+}

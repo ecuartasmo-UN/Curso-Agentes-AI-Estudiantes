@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sesión 2 · Bloque 2: capacidades, límites y cómo elegir el modelo</title>
+<script src="assets/js/tema.js"></script>
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reset.css">
+<link rel="stylesheet" href="assets/vendor/reveal.js-6.0.2/reveal.css">
+<link rel="stylesheet" href="assets/css/tema-agentes.css">
+<link rel="stylesheet" href="assets/css/sesion2.css">
+</head>
+<body>
+<a class="boton-indice" href="index.html" data-con-tema data-enlace-indice aria-label="Volver al índice de la sesión">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10"/></svg>Índice</a>
+<div class="reveal" data-total-min="60">
+<div class="slides">
+
+<!-- 1. Portada -->
+<section data-min="0.5">
+  <div class="columnas c-60-40" style="height:100%">
+    <div class="portada">
+      <span class="antetitulo">Sesión 2 · Bloque 2</span>
+      <h1>Capacidades, límites y cómo elegir el modelo</h1>
+      <p class="subtitulo">Qué hace bien un LLM, por qué falla y cuánto cuesta. Y cómo elegir el modelo de tu proyecto.</p>
+      <div class="meta"><span class="etiqueta">60 minutos</span><span class="etiqueta violeta">Club de lectura al final</span><span class="etiqueta exito">Después: Laboratorio 2B</span></div>
+    </div>
+    <div class="escena3d capas3d-envoltura" aria-label="Tres capas apiladas: calidad, costo y datos">
+      <div class="capas3d" style="transform: translateY(40px) rotateX(58deg) rotateZ(var(--giro)) scale(.74)">
+        <div class="capa" style="--i:0; --c: var(--acento)"><div class="rotulo">Calidad<small>¿Resuelve tu tarea?</small></div></div>
+        <div class="capa" style="--i:1; --c: var(--acento-2)"><div class="rotulo">Costo<small>Por caso y por acierto</small></div></div>
+        <div class="capa" style="--i:2; --c: var(--aviso)"><div class="rotulo">Datos<small>Qué hace el proveedor con ellos</small></div></div>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: en el bloque 2.1 vimos cómo funciona un LLM. Hoy vemos qué hace bien, por qué falla y cómo elegir uno.</p>
+    <p>Las tres capas de la derecha son los criterios para elegir: calidad, costo y datos.</p>
+    <p>Minuto acumulado: 0.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 2. Del Laboratorio 2A a este bloque -->
+<section data-min="0.5">
+  <span class="antetitulo">Apertura</span>
+  <h2>Del Laboratorio 2A a este bloque</h2>
+  <div class="columnas-4 tipos-pregunta">
+    <div class="tarjeta acento fragment surgir"><h3>Hecho verificable</h3><p class="chico">Capacidades y alucinaciones</p></div>
+    <div class="tarjeta acento-2 fragment surgir"><h3>Premisa falsa</h3><p class="chico">Plausible, pero falso</p></div>
+    <div class="tarjeta fragment surgir"><h3>Fuera de alcance</h3><p class="chico">Adivinar o decir «no lo sé»</p></div>
+    <div class="tarjeta alerta fragment surgir"><h3>Posterior a la fecha de corte</h3><p class="chico">La fecha de corte</p></div>
+  </div>
+  <p class="mediano texto-suave" style="margin-top:28px">Cada tipo de pregunta del laboratorio tiene su explicación en este bloque.</p>
+  <aside class="notes">
+    <p>Qué decir: en el Laboratorio 2A hicieron cuatro tipos de pregunta. Hoy vemos qué hay detrás de cada uno.</p>
+    <p>Clic 1 a 4: cada tipo y la parte del bloque que lo explica.</p>
+    <p>No uses cifras del laboratorio: cada grupo obtuvo las suyas.</p>
+    <p>Minuto acumulado: 1 de 60.</p>
+  </aside>
+</section>
+
+<!-- 3. Generar -->
+<section data-min="2">
+  <span class="antetitulo">Parte 1 · Capacidades</span>
+  <h2>Generar: cuatro tareas del mundo tech</h2>
+  <div class="columnas-4 tareas-generar">
+    <div class="tarjeta acento fragment surgir"><h3>Resumir</h3><p class="chico">Un hilo largo de un reporte en GitHub</p><p class="flecha-tarea">→ los puntos clave y el estado</p></div>
+    <div class="tarjeta acento-2 fragment surgir"><h3>Explicar</h3><p class="chico">Un mensaje de error de Python</p><p class="flecha-tarea">→ qué significa y qué revisar</p></div>
+    <div class="tarjeta fragment surgir"><h3>Traducir</h3><p class="chico">Documentación técnica en inglés</p><p class="flecha-tarea">→ español, sin cambiar los nombres del código</p></div>
+    <div class="tarjeta exito fragment surgir"><h3>Escribir código</h3><p class="chico">Una función de Python</p><p class="flecha-tarea">→ su prueba unitaria</p></div>
+  </div>
+  <p class="mediano fragment surgir" style="margin-top:26px">Las cuatro parten de un texto que le das. El modelo lo transforma.</p>
+  <aside class="notes">
+    <p>Qué decir: esto es lo que un LLM hace bien hoy, con ejemplos del trabajo con software.</p>
+    <p>Clic 1 a 4: resumir, explicar, traducir y escribir código.</p>
+    <p>Clic 5: las cuatro tareas parten de un texto que le das. Cuando la respuesta no está en ese texto, aumenta el riesgo de error. Lo vemos en la parte 2.</p>
+    <p>Minuto acumulado: 3 de 60.</p>
+  </aside>
+</section>
+
+<!-- 4. Razonar -->
+<section data-min="2" class="diapo-programa">
+  <span class="antetitulo">Parte 1 · Capacidades</span>
+  <h2>Razonar antes de responder</h2>
+  <div class="programa" data-programa="razonamiento"></div>
+  <p class="credito">Precios: Anexo G.1 del curso. Cobro del razonamiento: documentación de <a href="https://platform.claude.com/docs/en/build-with-claude/thinking">Anthropic</a> y de <a href="https://aistudio.google.com/docs/thinking">Google</a>, 23 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: algunos modelos escriben sus pasos antes de responder. Se llaman modelos que razonan.</p>
+    <p>Clic 1: primero generan tokens de razonamiento. Aquí, la cuenta del costo de un laboratorio.</p>
+    <p>Clic 2: después escriben la respuesta, que es lo único que ves.</p>
+    <p>Clic 3: los tokens de razonamiento se cobran como salida. Razonar mejora muchas respuestas, pero cuesta más.</p>
+    <p>Anthropic: «the tokens Claude spends reasoning are billed as output tokens». Google cobra igual: salida más razonamiento.</p>
+    <p>En Haiku 5.5 el razonamiento está activo por defecto, y no ves su texto. Igual lo pagas.</p>
+    <p>La cuenta es real: con los precios del Anexo G.1, un laboratorio cuesta USD 0.0225. Los conteos de tokens son ilustrativos.</p>
+    <p>Dato del Anexo G.1: el curso graba las respuestas de Haiku 5.5 con el razonamiento desactivado.</p>
+    <p>Minuto acumulado: 5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 5. Capacidades con fecha y método -->
+<section data-min="2" class="diapo-programa">
+  <span class="antetitulo">Parte 1 · Capacidades · Una medida con fecha y método</span>
+  <h2>Tareas cada vez más largas</h2>
+  <div class="programa" data-programa="horizonte"></div>
+  <p class="credito">Datos: <a href="https://metr.org/blog/2026-11-20-q4-2026-capability-update/">METR (2026, 20 de noviembre)</a>, figura 10, suites TH1.1 y TH2. Licencia CC BY. Gráfico propio.</p>
+  <aside class="notes">
+    <p>Qué decir: ¿cuánto mejoran los modelos? METR mide el horizonte de tiempo de las tareas que completan.</p>
+    <p>Es la duración de una tarea que un agente completa con 50 % de éxito. La duración la marca un experto humano.</p>
+    <p>No es el tiempo que tarda la IA. Mide qué tan difícil es la tarea.</p>
+    <p>Clic 1: cada punto es un modelo. GPT-4o, de mayo de 2024: 7 minutos. GPT-6 Astra, de septiembre de 2026: unas 40 horas.</p>
+    <p>Clic 2: la tendencia se duplica cada 3.6 meses, con un intervalo de 2.1 a 4.9 meses.</p>
+    <p>Clic 3: la incertidumbre de los modelos nuevos es enorme. GPT-6 Astra va de 13 a 2 645 horas.</p>
+    <p>Las tareas son de software. Para tu proyecto cuenta tu tarea: tus diez casos.</p>
+    <p>Una crítica: Nguyen y Fithian (2026) advierten que no todos los saltos de diez veces son igual de difíciles.</p>
+    <p>Minuto acumulado: 7 de 60.</p>
+  </aside>
+</section>
+
+<!-- 6. Por qué alucina -->
+<section data-min="1">
+  <div class="barra-parte"><span class="antetitulo">Parte 2 · Límites</span><div class="minimapa-caja" data-programa="minimapa" data-resaltar="probabilidades,siguiente"></div></div>
+  <h2>Por qué alucina: elige lo plausible, no lo verdadero</h2>
+  <div class="columnas-3">
+    <div class="tarjeta acento fragment surgir"><h3>1. Probabilidades</h3><p class="mediano">El decoder da una probabilidad a cada token. Lo vimos en el bloque 2.1.</p></div>
+    <div class="tarjeta acento-2 fragment surgir"><h3>2. Lo plausible</h3><p class="mediano">Se elige un token que encaja con los patrones de sus pesos.</p></div>
+    <div class="tarjeta alerta fragment surgir"><h3>3. Sin fuente</h3><p class="mediano">Nada comprueba que sea verdad. El modelo no consulta una fuente.</p></div>
+  </div>
+  <p class="mediano texto-suave" style="margin-top:24px">Una alucinación es una respuesta plausible, pero falsa.</p>
+  <aside class="notes">
+    <p>Qué decir: el mapa del bloque 2.1 explica las alucinaciones. El modelo elige tokens probables.</p>
+    <p>Clic 1 a 3: probabilidades, lo plausible y la falta de una fuente.</p>
+    <p>La definición sigue a OpenAI (2025): «declaraciones verosímiles pero falsas».</p>
+    <p>Minuto acumulado: 8 de 60.</p>
+  </aside>
+</section>
+
+<!-- 7. Plausible, pero falso -->
+<section data-min="2.5" class="diapo-programa">
+  <span class="antetitulo">Parte 2 · Límites · Animación</span>
+  <h2>Plausible, pero falso: un paquete que no existe</h2>
+  <div class="programa" data-programa="plausible"></div>
+  <p class="credito">Spracklen et al. (2025), <a href="https://www.usenix.org/conference/usenixsecurity25/presentation/spracklen">USENIX Security</a>. Lanyado (2024), <a href="https://www.lasso.security/blog/ai-package-hallucinations">Lasso Security</a>. <a href="https://github.com/alibaba/GraphTranslator/commit/bf7c4469dd66fa9e3ece044cf99e0abbacc11620">Commit de Alibaba</a>.</p>
+  <aside class="notes">
+    <p>Qué decir: un caso real del mundo tech. Un modelo recomendó instalar un paquete que no existía.</p>
+    <p>Clic 1: la pregunta de un desarrollador. Los tres comandos parecen razonables. Las probabilidades son ilustrativas.</p>
+    <p>Clic 2: el más probable, «pip install huggingface-cli», no existía. «huggingface-cli» era el nombre del comando, no del paquete.</p>
+    <p>En 2024, la documentación de Hugging Face lo instalaba con «pip install -U "huggingface_hub[cli]"». Hoy la herramienta se llama hf.</p>
+    <p>Clic 3: Spracklen et al. (2025) generaron 576 000 programas con 16 modelos.</p>
+    <p>En promedio, 5.2 % de los paquetes de los modelos GPT no existían. En los de código abierto, 21.7 %.</p>
+    <p>El 43 % de los paquetes inventados se repitió en las diez repeticiones de la misma pregunta. Por eso se pueden predecir.</p>
+    <p>Una réplica de 2026, sin revisión por pares todavía, encuentra tasas menores, de 3.6 a 5.0 %.</p>
+    <p>Clic 4: un investigador de Lasso Security registró ese nombre con un paquete vacío. Tuvo más de 30 000 descargas en tres meses.</p>
+    <p>El README de un proyecto de Alibaba lo instalaba. Alibaba lo corrigió el 29 de marzo de 2024.</p>
+    <p>Lección: revisa todo nombre de paquete que proponga un modelo antes de instalarlo.</p>
+    <p>Minuto acumulado: 10.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 8. Cursor -->
+<section data-min="1">
+  <span class="antetitulo">Parte 2 · Límites · Un caso que ya viste</span>
+  <h2>Cuando el error llega a los usuarios</h2>
+  <div class="columnas c-40-60" style="align-items:center">
+    <div class="marco-logo" style="height:150px"><img src="assets/img/logo_cursor.svg" alt="Logotipo de Cursor" style="height:80px"></div>
+    <div>
+      <p class="mediano">Abril de 2025: el bot de soporte de Cursor, un editor de código con IA, inventó una política.</p>
+      <p class="mediano">Dijo que una suscripción servía en un solo dispositivo. No era cierto.</p>
+      <blockquote class="cita violeta" style="margin-top:14px">«Apologies - something very clearly went wrong here»<footer>Cofundador de Cursor, Hacker News, 15 de abril de 2025</footer></blockquote>
+    </div>
+  </div>
+  <p class="credito">Caso de la sesión 1. <a href="https://news.ycombinator.com/item?id=43700931">Hacker News, 15 de abril de 2025</a>. Logotipo: <a href="https://cursor.com/brand">Cursor</a>.</p>
+  <aside class="notes">
+    <p>Qué decir: lo vimos en la sesión 1. Una respuesta plausible y falsa llegó a los clientes.</p>
+    <p>Desde entonces, las respuestas de soporte hechas con IA van marcadas.</p>
+    <p>Lección para el proyecto: un agente que responde a personas necesita pruebas de robustez.</p>
+    <p>Minuto acumulado: 11.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 9. Adivinar o decir no sé -->
+<section data-min="2.5" class="diapo-programa">
+  <span class="antetitulo">Parte 2 · Límites · Animación</span>
+  <h2>Adivinar o decir «no lo sé»</h2>
+  <div class="programa" data-programa="adivinar"></div>
+  <p class="credito">OpenAI (2025, 5 de septiembre), <a href="https://openai.com/es-419/index/why-language-models-hallucinate/">«Por qué los modelos de lenguaje alucinan»</a>. La tabla de SimpleQA sale de la ficha del sistema de GPT-5.</p>
+  <aside class="notes">
+    <p>Qué decir: la lectura de hoy explica por qué los modelos adivinan. Lo seguimos tal como lo cuenta.</p>
+    <p>Clic 1: en una prueba de opciones múltiples, adivinar puede sumar puntos. En blanco, cero seguro.</p>
+    <p>Clic 2: el ejemplo del cumpleaños. Adivinar «10 de septiembre» acierta 1 vez de cada 365.</p>
+    <p>Clic 3: datos reales de SimpleQA, una prueba de preguntas de hechos, sin búsqueda web. o4-mini acierta un poco más, 24 % contra 22 %.</p>
+    <p>Pero o4-mini se equivoca en 75 % de las preguntas. gpt-5-thinking-mini se abstiene en 52 % y se equivoca en 26 %.</p>
+    <p>Clic 4: la propuesta del artículo. Castigar más un error seguro que la duda, y dar crédito parcial a la incertidumbre.</p>
+    <p>El ejemplo de puntajes sale del artículo de investigación (Kalai et al., 2025, p. 13): con un umbral de 50 %, un error resta 1 punto.</p>
+    <p>No respondas las preguntas del club: allí se aplican estas ideas al proyecto de cada grupo.</p>
+    <p>Minuto acumulado: 14 de 60.</p>
+  </aside>
+</section>
+
+<!-- 10. Sesgos -->
+<section data-min="2.5" class="diapo-programa">
+  <span class="antetitulo">Parte 2 · Límites · Sesgos</span>
+  <h2>Los vectores aprenden los sesgos del texto</h2>
+  <div class="programa angosto" data-programa="sesgo"></div>
+  <p class="credito">Cálculo propio con los pesos de GPT-2 pequeño (ejemplos/sesgo_gpt2.py), con la idea de <a href="https://proceedings.neurips.cc/paper/2016/hash/a486cd07e4ac3d270571622f4f316ec5-Abstract.html">Bolukbasi et al. (2016)</a>, NeurIPS.</p>
+  <aside class="notes">
+    <p>Qué decir: los vectores aprenden del texto, también sus estereotipos.</p>
+    <p>Bolukbasi et al. (2016) lo mostraron con word2vec de Google News. El título del artículo lo resume: «Man is to Computer Programmer as Woman is to Homemaker?».</p>
+    <p>Clic 1: con los pesos reales de GPT-2, armamos la dirección she − he con siete pares de palabras.</p>
+    <p>Clic 2: cada profesión cae en algún punto. Nadie lo programó: sale del texto de entrenamiento.</p>
+    <p>Clic 3: nurse, dancer y secretary quedan del lado de she. Architect, captain y engineer, del lado de he.</p>
+    <p>En Bolukbasi et al., nurse también quedó en el extremo de she, y architect y captain en el de he.</p>
+    <p>Un matiz: Nissim et al. (2020) muestran que las analogías pueden exagerar el sesgo. Que el sesgo existe, lo aceptan.</p>
+    <p>Para tu proyecto: si tu agente clasifica o recomienda sobre personas, prueba casos que crucen grupos.</p>
+    <p>Minuto acumulado: 16.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 11. Fecha de corte -->
+<section data-min="2.5" class="diapo-programa">
+  <span class="antetitulo">Parte 2 · Límites · Animación</span>
+  <h2>La fecha de corte: los pesos no saben lo que pasó después</h2>
+  <div class="programa" data-programa="fecha-corte"></div>
+  <p class="credito">Claude Haiku 5.5: corte de los datos de entrenamiento en junio de 2026 y lanzamiento el 7 de octubre de 2026 (<a href="https://platform.claude.com/docs/en/models/haiku-5-5/overview">Anthropic</a>). langchain 1.5.0: <a href="https://pypi.org/project/langchain/1.5.0/">PyPI</a>.</p>
+  <aside class="notes">
+    <p>Qué decir: los pesos se congelan al final del entrenamiento. Lo vimos en el bloque 2.1.</p>
+    <p>Clic 1: el corte de los datos de entrenamiento de Claude Haiku 5.5 es junio de 2026.</p>
+    <p>Clic 2: el modelo salió el 7 de octubre de 2026, unos cuatro meses después.</p>
+    <p>Clic 3: langchain 1.5.0 salió el 11 de noviembre de 2026. Por ejemplo, dejó de funcionar con Python 3.10.</p>
+    <p>Clic 4: si preguntas qué cambió en esa versión, el modelo no lo sabe. Puede inventar una respuesta plausible.</p>
+    <p>Es el tipo de pregunta «posterior a la fecha de corte» del Laboratorio 2A.</p>
+    <p>La solución es darle la información: con herramientas o en el contexto. Lo vemos en las sesiones 5 y 6.</p>
+    <p>Anthropic publica dos cortes: el de los datos y el del conocimiento confiable. Para Haiku 5.5, los dos son junio de 2026.</p>
+    <p>Minuto acumulado: 19 de 60.</p>
+  </aside>
+</section>
+
+<!-- 12. Dónde están los pesos -->
+<section data-min="2" class="diapo-programa">
+  <span class="antetitulo">Parte 3 · Modelos y proveedores</span>
+  <h2>¿Dónde están los pesos?</h2>
+  <div class="programa" data-programa="donde-pesos"></div>
+  <p class="credito">Tamaños de Olmo 3 7B: archivos en Hugging Face y cálculo del bloque 2.1.</p>
+  <aside class="notes">
+    <p>Qué decir: en el bloque 2.1 vimos que un LLM son tres cosas. Los pesos viven en algún computador.</p>
+    <p>Clic 1: detrás de una API. Tu programa envía el texto por internet a los servidores del proveedor.</p>
+    <p>Clic 2: en tu computador. Descargas los pesos y el texto no sale de tu máquina.</p>
+    <p>Clic 3: con una API, tus datos salen de tu computador. La parte 5 muestra qué hace cada proveedor con ellos.</p>
+    <p>Minuto acumulado: 21 de 60.</p>
+  </aside>
+</section>
+
+<!-- 13. Pesos abiertos y código abierto -->
+<section data-min="2.5">
+  <span class="antetitulo">Parte 3 · Modelos y proveedores</span>
+  <h2>Pesos abiertos no es lo mismo que código abierto</h2>
+  <table class="tabla-datos tabla-licencias">
+    <tr><th>Modelo</th><th>Pesos</th><th>Licencia</th><th>Datos de entrenamiento</th></tr>
+    <tr class="fragment surgir"><td>Olmo 3 (Ai2, 2025)</td><td class="si">se descargan</td><td>Apache 2.0</td><td class="si">publicados (Dolma 3)</td></tr>
+    <tr class="fragment surgir"><td>gpt-oss (OpenAI, 2025)</td><td class="si">se descargan</td><td>Apache 2.0</td><td class="parcial">descritos, no publicados</td></tr>
+    <tr class="fragment surgir"><td>Qwen3 (Alibaba, 2025)</td><td class="si">se descargan</td><td>Apache 2.0</td><td class="parcial">descritos, no publicados</td></tr>
+    <tr class="fragment surgir"><td>Llama 3.1 (Meta, 2024)</td><td class="si">se descargan</td><td class="parcial">propia: más de 700 millones de usuarios exige permiso</td><td class="no">no publicados</td></tr>
+    <tr class="fragment surgir"><td>Claude y Gemini</td><td class="no">solo por API</td><td>términos del proveedor</td><td class="no">no publicados</td></tr>
+  </table>
+  <blockquote class="cita fragment surgir" style="margin-top:16px;font-size:.72em">«“Open Source models” and “Open Source weights” must include the data information and code used to derive those parameters.»<footer>Open Source AI Definition 1.0, Open Source Initiative (2024)</footer></blockquote>
+  <p class="credito">Fichas y licencias de <a href="https://huggingface.co/allenai/Olmo-3-1025-7B">Olmo 3</a>, <a href="https://openai.com/index/introducing-gpt-oss/">gpt-oss</a>, <a href="https://qwenlm.github.io/blog/qwen3/">Qwen3</a> y <a href="https://www.llama.com/llama3_1/license/">Llama 3.1</a>. <a href="https://opensource.org/ai/open-source-ai-definition">OSAID 1.0</a>. Consulta: 23 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: un modelo de pesos abiertos se puede descargar. No por eso es de código abierto.</p>
+    <p>Clic 1: Olmo 3 publica pesos, código y datos. Es el caso más abierto de la tabla.</p>
+    <p>Clic 2 y 3: gpt-oss y Qwen3 publican sus pesos con Apache 2.0, una licencia permisiva. Describen sus datos, pero no los publican.</p>
+    <p>Clic 4: Llama 3.1 tiene una licencia propia. Si tu producto supera 700 millones de usuarios activos al mes, necesitas permiso de Meta.</p>
+    <p>Esa licencia también exige mostrar «Built with Llama» y cumplir una política de uso aceptable. La OSI dice que Llama no es de código abierto.</p>
+    <p>Clic 5: Claude y Gemini no publican sus pesos. Solo se usan por API, con los términos del proveedor.</p>
+    <p>Clic 6: la definición de la OSI pide más que los pesos. Pide la información de los datos y el código que los produjo.</p>
+    <p>Para el proyecto: la licencia dice qué puedes hacer con el modelo. Revísala antes de elegir.</p>
+    <p>Minuto acumulado: 23.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 14. Cómo elegir -->
+<section data-min="2">
+  <span class="antetitulo">Parte 3 · Modelos y proveedores</span>
+  <h2>Cómo elegir un modelo: cuatro criterios</h2>
+  <div class="columnas-4">
+    <div class="tarjeta acento fragment surgir"><h3>Calidad en tu tarea</h3><p class="chico">Con tus casos, no con un benchmark general.</p></div>
+    <div class="tarjeta acento-2 fragment surgir"><h3>Costo y latencia</h3><p class="chico">Cuánto cuesta cada acierto y cuánto tarda.</p></div>
+    <div class="tarjeta fragment surgir"><h3>Ventana de contexto</h3><p class="chico">Cuántos tokens caben en una llamada.</p></div>
+    <div class="tarjeta alerta fragment surgir"><h3>Datos y licencia</h3><p class="chico">Qué hace el proveedor con tus datos y qué permite la licencia.</p></div>
+  </div>
+  <p class="mediano texto-suave" style="margin-top:26px">Un benchmark general mide otras tareas. Tus diez casos miden la tuya.</p>
+  <aside class="notes">
+    <p>Qué decir: no hay un mejor modelo en general. Hay un mejor modelo para tu tarea.</p>
+    <p>Clic 1 a 4: calidad en tu tarea, costo y latencia, ventana de contexto, y datos y licencia.</p>
+    <p>La ventana de contexto es el número máximo de tokens que el modelo lee en una llamada.</p>
+    <p>Minuto acumulado: 25.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 15. Los modelos del curso -->
+<section data-min="1.5">
+  <span class="antetitulo">Parte 3 · Modelos y proveedores</span>
+  <h2>Los modelos del curso</h2>
+  <table class="tabla-datos tabla-modelos">
+    <tr><th></th><th>Claude Haiku 5.5</th><th>Gemini 2.5 Flash-Lite</th><th>Gemini 3.5 Flash-Lite</th></tr>
+    <tr><td>Proveedor</td><td>Anthropic</td><td>Google</td><td>Google</td></tr>
+    <tr><td>USD por millón de tokens (entrada / salida)</td><td>0.10 / 0.50 *</td><td>0.10 / 0.40</td><td>0.30 / 2.50</td></tr>
+    <tr><td>Ventana de contexto</td><td>1 millón de tokens</td><td>1 048 576 tokens</td><td>1 048 576 tokens</td></tr>
+    <tr><td>Fecha de corte</td><td>junio de 2026</td><td>enero de 2025</td><td>marzo de 2026 **</td></tr>
+    <tr><td>Lanzamiento</td><td>7 de octubre de 2026</td><td>22 de julio de 2025</td><td>21 de julio de 2026</td></tr>
+  </table>
+  <p class="chico texto-suave" style="margin-top:10px">* Con prompts de hasta 100 000 tokens; por encima, 0.50 / 2.50. ** En algunos temas, solo hasta enero de 2025.</p>
+  <div class="nota-metodo recuadro" style="margin-top:12px"><b>Aviso.</b> Desde el 18 de septiembre de 2026, Google limita Gemini 2.5 Flash-Lite a quien ya lo usaba. Para proyectos nuevos recomienda 3.5 Flash-Lite.</div>
+  <p class="credito">Anthropic: <a href="https://platform.claude.com/docs/en/models/haiku-5-5/overview">ficha de Claude Haiku 5.5</a>. Google: <a href="https://aistudio.google.com/docs/models/gemini-2.5-flash-lite">fichas de los modelos</a> y <a href="https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/">model card de 3.5 Flash-Lite</a>. Consulta: 23 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: el curso usa Claude Haiku 5.5 o Gemini (Anexo G.1). Estos son sus datos, en sus fuentes oficiales.</p>
+    <p>Fíjate en la fecha de corte: Gemini 2.5 Flash-Lite no sabe nada posterior a enero de 2025.</p>
+    <p>Aviso importante: desde el 18 de septiembre de 2026, Google solo deja usar 2.5 Flash-Lite a quien ya lo usaba. Una cuenta nueva podría no tener acceso.</p>
+    <p>Dos detalles para los laboratorios: Haiku 5.5 no acepta el parámetro de temperatura, y su razonamiento está activo por defecto.</p>
+    <p>Minuto acumulado: 27 de 60.</p>
+  </aside>
+</section>
+
+<!-- 16. La cuenta -->
+<section data-min="3" class="diapo-programa">
+  <span class="antetitulo">Parte 4 · Costo · Animación</span>
+  <h2>La cuenta: cuánto cuesta un caso</h2>
+  <div class="programa" data-programa="cuenta"></div>
+  <p class="credito">Precios y supuesto de un laboratorio: Anexo G.1 del curso. Tokens en español: conteo propio del bloque 2.1.</p>
+  <aside class="notes">
+    <p>Qué decir: el costo se cuenta en tokens de entrada y de salida, cada uno con su precio.</p>
+    <p>Clic 1: 2 000 tokens de entrada por USD 0.10 el millón: USD 0.0002.</p>
+    <p>Clic 2: 500 tokens de salida por USD 0.50 el millón: USD 0.00025. El caso cuesta USD 0.00045.</p>
+    <p>Clic 3: con 50 llamadas, un laboratorio cuesta USD 0.0225 por estudiante.</p>
+    <p>Clic 4: el tokenizer decide cuántos tokens pagas. Lo vimos en la parte 1 del bloque 2.1.</p>
+    <p>Fuente: Anexo G.1 del curso, con precios de la página oficial de Anthropic.</p>
+    <p>Minuto acumulado: 30 de 60.</p>
+  </aside>
+</section>
+
+<!-- 17. Costo por acierto -->
+<section data-min="2.5" class="diapo-programa">
+  <span class="antetitulo">Parte 4 · Costo · Animación</span>
+  <h2>El costo que importa: el costo por acierto</h2>
+  <div class="programa" data-programa="costo-acierto"></div>
+  <aside class="notes">
+    <p>Qué decir: el costo por caso no basta. Importa cuánto cuesta cada respuesta correcta.</p>
+    <p>Clic 1: el modelo A cuesta menos por caso.</p>
+    <p>Clic 2: pero resuelve 4 de 10 casos. El modelo B resuelve 9.</p>
+    <p>Clic 3: costo por acierto es el costo total entre los casos bien resueltos.</p>
+    <p>Clic 4: el modelo barato que falla cuesta más por acierto. El Laboratorio 2B lo mide.</p>
+    <p>Los precios y los aciertos de esta animación son ilustrativos.</p>
+    <p>Minuto acumulado: 32.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 18. Los precios -->
+<section>
+  <section data-min="2.5" class="diapo-programa">
+    <span class="antetitulo">Parte 4 · Costo</span>
+    <h2>Los precios: la salida cuesta más que la entrada</h2>
+    <div class="programa" data-programa="precios"></div>
+    <div class="nota-metodo recuadro" style="margin-top:6px"><b>Método.</b> Plan pagado, entrada de texto. Haiku 5.5 con prompts de hasta 100 000 tokens. Laboratorio: 50 llamadas de 2 000 tokens de entrada y 500 de salida (Anexo G.1).</div>
+    <p class="credito">Páginas oficiales de precios de <a href="https://platform.claude.com/docs/en/about-claude/pricing">Anthropic</a> y de <a href="https://aistudio.google.com/docs/pricing">Google</a>, 23 de noviembre de 2026.</p>
+    <aside class="notes">
+      <p>Qué decir: estos son los precios por millón de tokens. La escala es logarítmica: cada marca vale diez veces la anterior.</p>
+      <p>Clic 1: el costo de un laboratorio por estudiante. Haiku 5.5: USD 0.0225. Gemini 2.5 Flash-Lite: USD 0.02. Gemini 3.5 Flash-Lite: USD 0.0925.</p>
+      <p>Clic 2: Claude Opus 5.5, un modelo grande, cuesta 40 veces más que Haiku 5.5. El mismo laboratorio costaría USD 0.90 por estudiante.</p>
+      <p>Para la mayoría de las tareas del curso, un modelo pequeño basta. Los diez casos lo comprueban.</p>
+      <p>Dato: el modelo grande de Google es Gemini 4 Carbon. Cuesta 2 / 10 hasta el 30 de noviembre de 2026, y 4 / 20 después.</p>
+      <p>Abajo hay una diapositiva de consulta con las capturas de las dos páginas de precios.</p>
+      <p>Minuto acumulado: 35 de 60.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Consulta</span>
+    <h2>Las páginas oficiales de precios</h2>
+    <div class="galeria" style="--n:2; --alto:470px">
+      <figure class="figura"><img src="assets/img/precios_anthropic.png" alt="Tabla de precios de Anthropic con Claude Fable 5.2, Opus 5.5, Sonnet 5.5 y Haiku 5.5"><figcaption>Anthropic: precios por millón de tokens.</figcaption></figure>
+      <figure class="figura"><img src="assets/img/precios_google.png" alt="Precios de Gemini 3.5 Flash-Lite en el nivel gratuito y en el pagado"><figcaption>Google: Gemini 3.5 Flash-Lite, gratuito y pagado.</figcaption></figure>
+    </div>
+    <p class="credito">Capturas del 23 de noviembre de 2026: <a href="https://platform.claude.com/docs/en/about-claude/pricing">platform.claude.com</a> y <a href="https://aistudio.google.com/docs/pricing">aistudio.google.com</a>.</p>
+    <aside class="notes"><p>Diapositiva de consulta, sin tiempo de clase.</p></aside>
+  </section>
+</section>
+
+<!-- 19. Matriz de datos -->
+<section data-min="3">
+  <span class="antetitulo">Parte 5 · Los datos según el plan</span>
+  <h2>Qué hace cada proveedor con lo que le envías</h2>
+  <table class="tabla-datos matriz-datos">
+    <tr><th>Proveedor y plan</th><th>¿Usa tus datos para mejorar sus productos?</th><th>¿Revisión humana?</th><th>¿Cuánto los guarda?</th></tr>
+    <tr class="fragment surgir"><td><span class="logo-celda"><img src="assets/img/logo_gemini.svg" alt="Gemini"></span>API de Gemini, gratuita</td><td class="si">Sí</td><td class="si">Sí, pueden leerlos</td><td>Los términos no fijan plazo</td></tr>
+    <tr class="fragment surgir"><td><span class="logo-celda"><img src="assets/img/logo_gemini.svg" alt="Gemini"></span>API de Gemini, pagada</td><td class="no">No</td><td>Solo lo marcado como abuso</td><td>55 días, para detectar abusos</td></tr>
+    <tr class="fragment surgir"><td><span class="logo-celda"><img src="assets/img/logo_openai.svg" alt="OpenAI"></span>API de OpenAI</td><td class="no">No, salvo que lo autorices</td><td>Solo para revisar abusos</td><td>Hasta 30 días</td></tr>
+    <tr class="fragment surgir"><td><span class="logo-celda"><img src="assets/img/logo_anthropic.svg" alt="Anthropic"></span>API de Anthropic</td><td class="no">No, salvo que lo autorices</td><td>Revisión de seguridad</td><td>Borra entradas y salidas en 30 días</td></tr>
+  </table>
+  <blockquote class="cita violeta fragment surgir" style="margin-top:14px;font-size:.7em">«Do not submit sensitive, confidential, or personal information to the Unpaid Services.»<footer>Google, términos adicionales de la API de Gemini, vigentes desde el 23 de marzo de 2026</footer></blockquote>
+  <p class="credito">Google: <a href="https://aistudio.google.com/docs/terms">términos de la API de Gemini</a>. OpenAI: <a href="https://developers.openai.com/api/docs/guides/your-data">«Your data»</a>. Anthropic: <a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">centro de privacidad</a>. Consulta: 23 de noviembre de 2026.</p>
+  <aside class="notes">
+    <p>Qué decir: cuando usas una API, tus datos salen de tu computador. Esto hace cada proveedor con ellos.</p>
+    <p>Clic 1: en la API gratuita de Gemini, Google usa lo que envías para mejorar sus productos, y personas pueden leerlo.</p>
+    <p>Clic 2: en la API pagada, no lo usa para mejorar productos. Pagada significa un proyecto de Cloud con facturación activa, no solo una clave.</p>
+    <p>Google guarda 55 días los datos para detectar abusos. Y exige tener 18 años o más para usar sus APIs.</p>
+    <p>Clic 3: OpenAI no entrena con los datos de la API desde marzo de 2023, salvo que lo autorices. Los guarda hasta 30 días.</p>
+    <p>Clic 4: Anthropic no entrena con los datos de la API por defecto, y borra entradas y salidas en 30 días.</p>
+    <p>Excepción: el contenido marcado como abuso puede guardarse hasta 2 años. Los tres ofrecen retención cero solo con aprobación.</p>
+    <p>Clic 5: la frase de Google es la regla del curso, dicha por el proveedor.</p>
+    <p>Minuto acumulado: 38 de 60.</p>
+  </aside>
+</section>
+
+<!-- 20. La regla del curso -->
+<section data-min="2">
+  <span class="antetitulo">Parte 5 · Los datos según el plan</span>
+  <h2>La regla del curso: ningún dato personal real entra a un modelo</h2>
+  <div class="columnas" style="grid-template-columns: 1fr 1fr; gap:24px; align-items:start">
+    <div class="tarjeta acento fragment surgir">
+      <h3>Ley 1581 de 2012</h3>
+      <p class="chico">Dato personal: «Cualquier información vinculada o que pueda asociarse a una o varias personas naturales determinadas o determinables» (art. 3).</p>
+      <p class="chico" style="margin-top:8px">Tratarlo exige la autorización previa e informada del titular (art. 9).</p>
+    </div>
+    <div class="tarjeta acento-2 fragment surgir">
+      <h3>Circular Externa 002 de 2024, SIC</h3>
+      <p class="chico">Lineamientos sobre el tratamiento de datos personales en sistemas de inteligencia artificial.</p>
+      <p class="chico" style="margin-top:8px">«La información personal que es “accesible al público” no es, per se, información “de naturaleza pública”».</p>
+    </div>
+  </div>
+  <div class="tarjeta exito fragment surgir" style="margin-top:20px">
+    <p class="mediano">En el proyecto: datos sintéticos o anonimizados. Los que genera un LLM se revisan antes de usarlos.</p>
+  </div>
+  <p class="credito"><a href="http://www.secretariasenado.gov.co/senado/basedoc/ley_1581_2012.html">Ley Estatutaria 1581 de 2012</a>. <a href="https://sedeelectronica.sic.gov.co/sites/default/files/normativa/Circular%20Externa%20No.%20002%20del%2021%20de%20agosto%20de%202024.pdf">Circular Externa 002 del 21 de agosto de 2024</a>, Superintendencia de Industria y Comercio.</p>
+  <aside class="notes">
+    <p>Qué decir: la regla del curso tiene base legal en Colombia.</p>
+    <p>Clic 1: la Ley 1581 de 2012 define el dato personal. Tratarlo exige la autorización del titular.</p>
+    <p>Clic 2: la SIC aplicó esa ley a la inteligencia artificial en 2024. Un dato en internet no es por eso público.</p>
+    <p>La circular también pide un estudio de impacto de privacidad antes de diseñar sistemas de alto riesgo. Lo vemos en la sesión 7.</p>
+    <p>Clic 3: en el proyecto usan datos sintéticos o anonimizados. Los datos que genera un LLM pueden repetir datos reales que vio (Anexo C.7).</p>
+    <p>Minuto acumulado: 40 de 60.</p>
+  </aside>
+</section>
+
+<!-- 21. Las pruebas de la capa -->
+<section data-min="3.5" class="diapo-programa">
+  <span class="antetitulo">Parte 6 · La capa 1, parte 2</span>
+  <h2>Las pruebas de la capa 1</h2>
+  <div class="programa" data-programa="pruebas-capa"></div>
+  <aside class="notes">
+    <p>Qué decir: esta es la consigna de la capa 1. Usan los casos que escribieron después del bloque 2.1.</p>
+    <p>Clic 1: los diez casos en dos modelos, con la clave del curso.</p>
+    <p>Clic 2: los tres casos de robustez, en los mismos modelos.</p>
+    <p>Clic 3: la consistencia. Tres casos, tres veces cada uno, en cada modelo.</p>
+    <p>Clic 4: cada prueba deja una fila en la tabla de resultados de la ficha.</p>
+    <p>En total son 44 pruebas. No es una clase de evaluación: los laboratorios enseñan a hacerlas.</p>
+    <p>Minuto acumulado: 43.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 22. Cómo elegir el modelo del proyecto -->
+<section data-min="3">
+  <span class="antetitulo">Parte 6 · La capa 1, parte 2</span>
+  <h2>Cómo elegir el modelo de tu proyecto</h2>
+  <table class="tabla-datos tabla-eleccion">
+    <tr><th>Criterio</th><th>Modelo 1</th><th>Modelo 2</th><th>Cómo se mide</th></tr>
+    <tr class="fragment surgir"><td>Calidad en los diez casos</td><td class="vacia">?</td><td class="vacia">?</td><td>Aciertos y pass^k</td></tr>
+    <tr class="fragment surgir"><td>Costo por acierto</td><td class="vacia">?</td><td class="vacia">?</td><td>Costo total entre aciertos</td></tr>
+    <tr class="fragment surgir"><td>Latencia</td><td class="vacia">?</td><td class="vacia">?</td><td>Segundos por respuesta</td></tr>
+    <tr class="fragment surgir"><td>Tratamiento de los datos</td><td class="vacia">?</td><td class="vacia">?</td><td>Plan y política del proveedor</td></tr>
+  </table>
+  <p class="mediano fragment surgir" style="margin-top:20px">Escriban en la ficha el modelo elegido y la razón, con estos cuatro criterios.</p>
+  <aside class="notes">
+    <p>Qué decir: con los resultados de las pruebas, el grupo elige su modelo.</p>
+    <p>Clic 1 a 4: los cuatro criterios y cómo se mide cada uno.</p>
+    <p>pass^k es la proporción de casos que aciertan en todos los intentos (Anexo J.6).</p>
+    <p>Clic 5: la razón va en la sección 1 de la ficha del agente.</p>
+    <p>Minuto acumulado: 46.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 23. Cómo trabajar -->
+<section data-min="3">
+  <span class="antetitulo">Parte 6 · La capa 1, parte 2</span>
+  <h2>Cómo trabajar sin riesgos</h2>
+  <div class="columnas" style="grid-template-columns: 1fr 1fr; align-items:start; gap:26px">
+    <div class="fragment surgir">
+      <h3>La clave vive en un archivo .env</h3>
+<pre class="codigo-figura" aria-label="Ejemplo de archivo .env y de .gitignore"><span class="c"># .env: nunca va en el código ni se publica</span>
+ANTHROPIC_API_KEY=<span class="s">…</span>
+GOOGLE_API_KEY=<span class="s">…</span>
+<span class="c"># .gitignore</span>
+.env</pre>
+    </div>
+    <div class="pasos-trabajo">
+      <div class="tarjeta acento-2 fragment surgir"><h3>Graben las respuestas</h3><p class="chico">Mientras desarrollan, trabajen con respuestas grabadas. No gastan crédito.</p></div>
+      <div class="tarjeta exito fragment surgir"><h3>Datos sintéticos o anonimizados</h3><p class="chico">Los que genera un LLM se revisan antes de usarlos: pueden repetir datos reales.</p></div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: tres reglas para trabajar con la clave del curso.</p>
+    <p>Clic 1: la clave vive en un archivo .env y el archivo .gitignore impide subirlo. Nunca va en el código (Anexo A.7).</p>
+    <p>Conviene fijar un límite de gasto en la consola del proveedor.</p>
+    <p>Clic 2: mientras desarrollan, graben respuestas y trabajen con ellas, como en los laboratorios (Anexo C.1).</p>
+    <p>Clic 3: datos sintéticos o anonimizados. Los que genera un LLM se revisan: pueden reproducir datos reales que vio (Anexo C.7).</p>
+    <p>Minuto acumulado: 49.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 24. Qué entregas -->
+<section data-min="2.5">
+  <span class="antetitulo">Parte 6 · La capa 1, parte 2</span>
+  <h2>Qué entregas: la sección 1 de la ficha del agente</h2>
+  <div class="columnas" style="grid-template-columns: 1fr 1.2fr; gap:30px; align-items:center">
+    <div class="tarjeta acento">
+      <p class="cifra" style="font-size:2.2em">5 %</p>
+      <p class="mediano">de la calificación del curso</p>
+      <p class="chico texto-suave" style="margin-top:10px">Al inicio del bloque 3.1. En Word o en Markdown.</p>
+    </div>
+    <div class="criterios-capa">
+      <div class="criterio fragment surgir" style="--w:40%"><span>Funciona según su criterio de éxito</span><b>40 %</b></div>
+      <div class="criterio fragment surgir" style="--w:40%"><span>Las pruebas están completas y corridas</span><b>40 %</b></div>
+      <div class="criterio fragment surgir" style="--w:20%"><span>La ficha está al día</span><b>20 %</b></div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: la entrega es la sección 1 de la ficha del agente, al inicio del bloque 3.1.</p>
+    <p>Clic 1 a 3: los criterios del Anexo D. Funciona, pruebas completas y ficha al día.</p>
+    <p>La plantilla está en el índice de la sesión, en Word y en Markdown.</p>
+    <p>Minuto acumulado: 52 de 60.</p>
+  </aside>
+</section>
+
+<!-- 25. Síntesis -->
+<section data-min="1.5">
+  <span class="antetitulo">Cierre</span>
+  <h2>La sesión 2 en tres ideas</h2>
+  <div class="sintesis-sesion">
+    <div class="tarjeta acento fragment surgir"><span class="numero-idea">1</span><h3>Cómo funciona</h3><p class="chico">Tokens, transformer y pesos que predicen el siguiente token.</p></div>
+    <div class="flecha-sintesis fragment surgir" aria-hidden="true"></div>
+    <div class="tarjeta alerta fragment surgir"><span class="numero-idea">2</span><h3>Por qué falla</h3><p class="chico">Elige lo plausible, aprende sesgos y no sabe lo que pasó después del corte.</p></div>
+    <div class="flecha-sintesis fragment surgir" aria-hidden="true"></div>
+    <div class="tarjeta exito fragment surgir"><span class="numero-idea">3</span><h3>Cómo elegir</h3><p class="chico">Calidad en tus casos, costo por acierto y tratamiento de los datos.</p></div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: la sesión 2 en tres ideas. Cómo funciona, por qué falla y cómo elegir.</p>
+    <p>Minuto acumulado: 53.5 de 60.</p>
+  </aside>
+</section>
+
+<!-- 26. La lectura del bloque 3.1 -->
+<section data-min="0.5">
+  <span class="antetitulo">Cierre · Lectura del bloque 3.1</span>
+  <h2>Para el próximo bloque: una lectura sobre prompting</h2>
+  <div class="columnas c-60-40" style="align-items:center">
+    <div class="tarjeta acento-2">
+      <h3>Meincke, Mollick, Mollick y Shapiro (2025, 8 de junio)</h3>
+      <p class="mediano"><em>Prompting Science Report 2: The Decreasing Value of Chain of Thought in Prompting</em>. Wharton Generative AI Labs.</p>
+      <p class="chico texto-suave" style="margin-top:10px">19 páginas: el cuerpo ocupa unas 8. Solo en inglés.</p>
+    </div>
+    <div>
+      <p class="mediano">Un experimento: ¿ayuda pedirle a un modelo que razone paso a paso?</p>
+      <p class="mediano">Las dos preguntas guía están en el trabajo independiente.</p>
+    </div>
+  </div>
+  <p class="credito"><a href="https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/">gail.wharton.upenn.edu</a> · <a href="https://arxiv.org/abs/2506.07142">arXiv 2506.07142</a></p>
+  <aside class="notes">
+    <p>Qué decir: la lectura del bloque 3.1 abre la sesión de prompting.</p>
+    <p>No adelantes sus resultados: se discuten en el club del bloque 3.1.</p>
+    <p>Minuto acumulado: 54 de 60.</p>
+  </aside>
+</section>
+
+<!-- 27. Anuncio del Laboratorio 2B -->
+<section data-min="1">
+  <span class="antetitulo">Después del club · 60 minutos en clase</span>
+  <h2>Laboratorio 2B: elegir el modelo</h2>
+  <div class="anuncio-lab">
+    <ul>
+      <li><b>Practicas</b> comparar varios modelos en la misma tarea, con reportes de errores de una app.</li>
+      <li><b>Configuras</b> la instrucción de la tarea, los modelos que comparas y el criterio de éxito.</li>
+      <li><b>Mides</b> la tasa de éxito, los tokens, el costo por caso, el costo por acierto y la latencia.</li>
+    </ul>
+    <div class="tarjeta acento">
+      <p class="mediano">No escribes código a mano: lees, ejecutas y configuras.</p>
+      <p class="mediano" style="margin-top:10px">Sin clave de API, el notebook usa respuestas grabadas. Con la clave del curso, corre en vivo.</p>
+      <p class="chico texto-suave" style="margin-top:10px">El notebook trae sus pruebas de funcionamiento y de robustez.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Qué decir: después del club, el laboratorio. Dura 60 minutos en clase.</p>
+    <p>Es la práctica de la capa 1: el mismo código con distintos modelos, gracias a init_chat_model.</p>
+    <p>No muestres resultados: el laboratorio se hace en clase.</p>
+    <p>Fuente: Anexo B, Laboratorio 2B.</p>
+    <p>Minuto acumulado: 55 de 60.</p>
+  </aside>
+</section>
+
+<!-- 28. Club de lectura -->
+<section>
+  <section data-min="5">
+    <span class="antetitulo">Club de lectura · 5 minutos</span>
+    <h2>Club de lectura: OpenAI (2025)</h2>
+    <p class="chico texto-suave" style="margin:-6px 0 12px">Lee la <a href="https://openai.com/es-419/index/why-language-models-hallucinate/">versión en español</a> o el <a href="https://openai.com/index/why-language-models-hallucinate/">original en inglés</a>.</p>
+    <ol class="preguntas-club">
+      <li><b>¿Cuándo debe tu agente decir «no lo sé»?</b> El artículo propone calificar distinto: castigar más un error seguro que una abstención. Piensa en la tarea de tu proyecto. ¿Qué error sería peor que no responder? ¿Cómo lo reflejarías en tus diez casos? Apóyate en la sección «Una mejor manera de calificar las evaluaciones».</li>
+      <li><b>¿Qué datos de tu proyecto son difíciles de predecir?</b> Según los autores, la ortografía sigue patrones, pero un dato como el cumpleaños de una mascota no. ¿Qué datos de tu tarea se parecen a ese cumpleaños? ¿Dónde los buscaría tu agente en lugar de adivinarlos? Apóyate en la sección sobre la predicción de la siguiente palabra.</li>
+    </ol>
+    <p class="mediano texto-acento" style="margin-top:14px">Después del club: Laboratorio 2B.</p>
+    <aside class="notes">
+      <p>Pregunta 1 y el Laboratorio 2A: recuerda las preguntas de premisa falsa y fuera de alcance. ¿El modelo se abstuvo o inventó?</p>
+      <p>Hilo para profundizar: en un agente de soporte, un error seguro puede ser peor que pedir ayuda a una persona.</p>
+      <p>Pregunta 2 y el Laboratorio 2A: recuerda las preguntas posteriores a la fecha de corte. El modelo no tenía cómo saberlas.</p>
+      <p>Hilo para profundizar: esos datos se buscan con herramientas o se ponen en el contexto. Lo vemos en las sesiones 5 y 6.</p>
+      <p>No respondas las preguntas: la respuesta es de los estudiantes.</p>
+      <p>Cierra con la transición: «Ahora elegimos un modelo con datos, en el Laboratorio 2B».</p>
+      <p>Minuto acumulado: 60 de 60.</p>
+    </aside>
+  </section>
+  <section data-min="0">
+    <span class="antetitulo">Para profundizar</span>
+    <h2>Referencias</h2>
+    <div class="referencias compactas">
+      <p>OpenAI (2025, 5 de septiembre). <em>Why language models hallucinate</em>. <a href="https://openai.com/index/why-language-models-hallucinate/">Original</a> · <a href="https://openai.com/es-419/index/why-language-models-hallucinate/">en español</a></p>
+      <p>Kalai, Nachum, Vempala y Zhang (2025). <em>Why Language Models Hallucinate</em>. <a href="https://arxiv.org/abs/2509.04664">arxiv.org</a></p>
+      <p>Spracklen et al. (2025). <em>We Have a Package for You!</em> USENIX Security. <a href="https://www.usenix.org/conference/usenixsecurity25/presentation/spracklen">usenix.org</a></p>
+      <p>Lanyado, B. (2024, 28 de marzo). <em>Diving Deeper into AI Package Hallucinations</em>. Lasso Security. <a href="https://www.lasso.security/blog/ai-package-hallucinations">lasso.security</a></p>
+      <p>Bolukbasi et al. (2016). <em>Man is to Computer Programmer as Woman is to Homemaker? Debiasing Word Embeddings</em>. NeurIPS. <a href="https://proceedings.neurips.cc/paper/2016/hash/a486cd07e4ac3d270571622f4f316ec5-Abstract.html">neurips.cc</a></p>
+      <p>Nissim, van Noord y van der Goot (2020). <em>Fair Is Better than Sensational</em>. Computational Linguistics. <a href="https://aclanthology.org/2020.cl-2.7/">aclanthology.org</a></p>
+      <p>METR (2026, 20 de noviembre). <em>Q4 2026 capability update</em>. <a href="https://metr.org/blog/2026-11-20-q4-2026-capability-update/">metr.org</a> · Kwa et al. (2025). <a href="https://arxiv.org/abs/2503.14499">arxiv.org</a></p>
+      <p>Open Source Initiative (2024). <em>The Open Source AI Definition 1.0</em>. <a href="https://opensource.org/ai/open-source-ai-definition">opensource.org</a></p>
+      <p>Licencias: <a href="https://www.llama.com/llama3_1/license/">Llama 3.1</a> · <a href="https://openai.com/index/introducing-gpt-oss/">gpt-oss</a> · <a href="https://qwenlm.github.io/blog/qwen3/">Qwen3</a> · <a href="https://huggingface.co/allenai/Olmo-3-1025-7B">Olmo 3</a></p>
+      <p>Precios: <a href="https://platform.claude.com/docs/en/about-claude/pricing">Anthropic</a> · <a href="https://aistudio.google.com/docs/pricing">Google</a>. Modelos: <a href="https://platform.claude.com/docs/en/models/haiku-5-5/overview">Claude Haiku 5.5</a> · <a href="https://aistudio.google.com/docs/models/gemini-2.5-flash-lite">Gemini</a></p>
+      <p>Datos: <a href="https://aistudio.google.com/docs/terms">Google</a> · <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI</a> · <a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">Anthropic</a></p>
+      <p>Colombia: <a href="http://www.secretariasenado.gov.co/senado/basedoc/ley_1581_2012.html">Ley 1581 de 2012</a> · <a href="https://sedeelectronica.sic.gov.co/sites/default/files/normativa/Circular%20Externa%20No.%20002%20del%2021%20de%20agosto%20de%202024.pdf">Circular Externa 002 de 2024 de la SIC</a></p>
+      <p>Meincke, Mollick, Mollick y Shapiro (2025). <em>Prompting Science Report 2</em>. <a href="https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/">gail.wharton.upenn.edu</a></p>
+      <p>Huyen, C. (2024). <em>AI Engineering</em>, capítulos 1 y 2. O'Reilly. LangChain, <a href="https://docs.langchain.com/oss/python/langchain/models">documentación de modelos</a>.</p>
+    </div>
+    <aside class="notes"><p>Referencias del bloque, sin tiempo de clase. Consulta: 23 de noviembre de 2026.</p></aside>
+  </section>
+</section>
+
+</div>
+</div>
+<script src="assets/vendor/reveal.js-6.0.2/reveal.js"></script>
+<script src="assets/vendor/reveal.js-6.0.2/plugin/notes.js"></script>
+<script src="assets/vendor/react-18.3.1/react.production.min.js"></script>
+<script src="assets/vendor/react-18.3.1/react-dom.production.min.js"></script>
+<script src="assets/js/programas.js"></script>
+<script src="assets/js/deck.js"></script>
+</body>
+</html>

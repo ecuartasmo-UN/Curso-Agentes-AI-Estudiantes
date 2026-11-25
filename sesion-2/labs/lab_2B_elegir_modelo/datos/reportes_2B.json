@@ -1,0 +1,242 @@
+{
+  "laboratorio": "2B",
+  "version": "2026-11-24",
+  "app": "FotoNube, una app de fotos ficticia creada para el curso",
+  "categorias": {
+    "fallo de la app": "la app se cierra, se congela o una función no hace lo que debe",
+    "rendimiento": "la app funciona, pero va lenta o gasta mucha batería, memoria o datos",
+    "interfaz": "textos, colores, botones o pantallas que se ven mal",
+    "cuenta y acceso": "problemas para entrar, registrarse o recuperar la cuenta",
+    "solicitud de función": "una idea o un pedido de algo que la app no tiene"
+  },
+  "prioridades": [
+    "alta",
+    "media",
+    "baja"
+  ],
+  "reglas_prioridad": {
+    "alta": "la app se cierra o se congela, se pierden fotos o cambios, o falla el acceso a la cuenta",
+    "media": "una función falla o la app va lenta, pero la persona puede seguir usándola",
+    "baja": "detalles visuales, textos o sugerencias",
+    "varios problemas": "si el reporte trae varios problemas, se clasifica el más grave"
+  },
+  "instrucciones": {
+    "basica": "Clasificas reportes de errores de FotoNube, una app de fotos.\nElige una categoría:\n- fallo de la app: la app se cierra, se congela o una función no hace lo que debe.\n- rendimiento: la app funciona, pero va lenta o gasta mucha batería, memoria o datos.\n- interfaz: textos, colores, botones o pantallas que se ven mal.\n- cuenta y acceso: problemas para entrar, registrarse o recuperar la cuenta.\n- solicitud de función: una idea o un pedido de algo que la app no tiene.\nElige una prioridad: alta, media o baja.\nResponde solo con una línea, con este formato exacto:\nCategoría: <categoría> | Prioridad: <prioridad>",
+    "con_reglas": "Clasificas reportes de errores de FotoNube, una app de fotos.\nElige una categoría:\n- fallo de la app: la app se cierra, se congela o una función no hace lo que debe.\n- rendimiento: la app funciona, pero va lenta o gasta mucha batería, memoria o datos.\n- interfaz: textos, colores, botones o pantallas que se ven mal.\n- cuenta y acceso: problemas para entrar, registrarse o recuperar la cuenta.\n- solicitud de función: una idea o un pedido de algo que la app no tiene.\nElige una prioridad con estas reglas:\n- alta: la app se cierra o se congela, se pierden fotos o cambios, o falla el acceso a la cuenta.\n- media: una función falla o la app va lenta, pero la persona puede seguir usándola.\n- baja: detalles visuales, textos o sugerencias.\nSi el reporte trae varios problemas, clasifica el más grave.\nResponde solo con una línea, con este formato exacto:\nCategoría: <categoría> | Prioridad: <prioridad>"
+  },
+  "caso_guia": "R-01",
+  "base": [
+    {
+      "caso_id": "R-01",
+      "tipo_caso": "normal",
+      "tipo_prueba": "funcionamiento",
+      "entrada": "La app se cierra al subir una foto en Android 15.",
+      "categoria": "fallo de la app",
+      "prioridad": "alta",
+      "por_que": "Es el caso guía de la capa 1: la app se cierra."
+    },
+    {
+      "caso_id": "R-02",
+      "tipo_caso": "normal",
+      "tipo_prueba": "funcionamiento",
+      "entrada": "Las miniaturas de la galería tardan casi un minuto en cargar desde la última actualización.",
+      "categoria": "rendimiento",
+      "prioridad": "media",
+      "por_que": "La app funciona, pero va lenta."
+    },
+    {
+      "caso_id": "R-03",
+      "tipo_caso": "normal",
+      "tipo_prueba": "funcionamiento",
+      "entrada": "El texto del botón Compartir aparece cortado en el menú, en iOS 18.",
+      "categoria": "interfaz",
+      "prioridad": "baja",
+      "por_que": "Es un detalle visual."
+    },
+    {
+      "caso_id": "R-04",
+      "tipo_caso": "normal",
+      "tipo_prueba": "funcionamiento",
+      "entrada": "No puedo iniciar sesión: la app dice que mi contraseña es incorrecta, aunque la acabo de cambiar.",
+      "categoria": "cuenta y acceso",
+      "prioridad": "alta",
+      "por_que": "Falla el acceso a la cuenta."
+    },
+    {
+      "caso_id": "R-05",
+      "tipo_caso": "normal",
+      "tipo_prueba": "funcionamiento",
+      "entrada": "Sería útil poder ordenar los álbumes por fecha de creación.",
+      "categoria": "solicitud de función",
+      "prioridad": "baja",
+      "por_que": "Es una sugerencia."
+    },
+    {
+      "caso_id": "R-06",
+      "tipo_caso": "normal",
+      "tipo_prueba": "funcionamiento",
+      "entrada": "Desde ayer, la app gasta mucha batería aunque no la esté usando.",
+      "categoria": "rendimiento",
+      "prioridad": "media",
+      "por_que": "La app funciona, pero gasta mucha batería."
+    },
+    {
+      "caso_id": "R-07",
+      "tipo_caso": "borde",
+      "tipo_prueba": "robustez",
+      "entrada": "Al subir más de 500 fotos a la vez, la app se congela y hay que cerrarla. Con menos fotos funciona bien.",
+      "categoria": "fallo de la app",
+      "prioridad": "alta",
+      "por_que": "Se congela: la regla dice alta, aunque haya otra forma de subir las fotos."
+    },
+    {
+      "caso_id": "R-08",
+      "tipo_caso": "borde",
+      "tipo_prueba": "robustez",
+      "entrada": "Borré un álbum por error y las fotos no aparecen en la papelera.",
+      "categoria": "fallo de la app",
+      "prioridad": "alta",
+      "por_que": "Se pierden fotos, aunque el error lo empezó la persona."
+    },
+    {
+      "caso_id": "R-09",
+      "tipo_caso": "borde",
+      "tipo_prueba": "robustez",
+      "entrada": "La app no se cierra, pero el editor tarda 20 segundos en aplicar cada filtro.",
+      "categoria": "rendimiento",
+      "prioridad": "media",
+      "por_que": "Dice que la app no se cierra: el problema es la lentitud."
+    },
+    {
+      "caso_id": "R-10",
+      "tipo_caso": "mal escrita",
+      "tipo_prueba": "robustez",
+      "entrada": "app no sirve!!! las fotos no suben ayudaaa",
+      "categoria": "fallo de la app",
+      "prioridad": "media",
+      "por_que": "Una función falla, pero el resto de la app funciona. El tono urgente no cambia la regla."
+    },
+    {
+      "caso_id": "R-11",
+      "tipo_caso": "mal escrita",
+      "tipo_prueba": "robustez",
+      "entrada": "no puedo entrar ni con google ni con correo y tampoco me llega el codigo",
+      "categoria": "cuenta y acceso",
+      "prioridad": "alta",
+      "por_que": "Falla el acceso a la cuenta."
+    },
+    {
+      "caso_id": "R-12",
+      "tipo_caso": "ambigua",
+      "tipo_prueba": "robustez",
+      "entrada": "La foto de perfil se ve borrosa y además la app se cerró una vez ayer.",
+      "categoria": "fallo de la app",
+      "prioridad": "alta",
+      "por_que": "Trae dos problemas. El más grave es que la app se cerró."
+    }
+  ],
+  "banco": [
+    {
+      "caso_id": "B-01",
+      "tipo_caso": "borde",
+      "entrada": "Cuando giro el teléfono mientras edito, se pierden los cambios del recorte.",
+      "pista": "Mira la regla de prioridad alta: ¿se pierde algo?",
+      "huella_categoria": "fb7d64f47911",
+      "huella_prioridad": "f2b56e6a4628"
+    },
+    {
+      "caso_id": "B-02",
+      "tipo_caso": "mal escrita",
+      "entrada": "estaria bueno q se pudiera poner musica a las presentaciones",
+      "pista": "¿Reporta algo que falla, o pide algo que la app no tiene?",
+      "huella_categoria": "4500877c4d4f",
+      "huella_prioridad": "b7995358ce23"
+    },
+    {
+      "caso_id": "B-03",
+      "tipo_caso": "borde",
+      "entrada": "El buscador no encuentra fotos por fecha si escribo el mes con mayúscula.",
+      "pista": "Una función falla, pero la persona puede seguir usando la app. Mira la regla de prioridad media.",
+      "huella_categoria": "a483b0f39ff2",
+      "huella_prioridad": "c80749ee9677"
+    },
+    {
+      "caso_id": "B-04",
+      "tipo_caso": "normal",
+      "entrada": "Desde la versión 5.8, la app tarda unos 15 segundos en abrir.",
+      "pista": "¿La app falla, o funciona pero va lenta?",
+      "huella_categoria": "c6233b60699b",
+      "huella_prioridad": "46ae861f55a2"
+    },
+    {
+      "caso_id": "B-05",
+      "tipo_caso": "borde",
+      "entrada": "No me deja cambiar el correo de mi cuenta: el botón Guardar no hace nada.",
+      "pista": "Lee la definición de «cuenta y acceso». ¿La persona no puede entrar, o falla un botón?",
+      "huella_categoria": "b2aa13aff03a",
+      "huella_prioridad": "8b2cd8b5fa5b"
+    },
+    {
+      "caso_id": "B-06",
+      "tipo_caso": "mal escrita",
+      "entrada": "la app se cierra sola cada q abro un album compartido",
+      "pista": "Mira la regla de prioridad alta: ¿qué le pasa a la app?",
+      "huella_categoria": "36194ead340c",
+      "huella_prioridad": "de47139b479c"
+    },
+    {
+      "caso_id": "B-07",
+      "tipo_caso": "normal",
+      "entrada": "Olvidé mi contraseña y el correo de recuperación nunca llega.",
+      "pista": "¿La persona puede entrar a su cuenta?",
+      "huella_categoria": "e993b1e475ed",
+      "huella_prioridad": "f46f950fc364"
+    },
+    {
+      "caso_id": "B-08",
+      "tipo_caso": "ambigua",
+      "entrada": "Las notificaciones llegan en inglés aunque tengo la app en español, y a veces llegan repetidas.",
+      "pista": "Trae dos problemas. La regla dice que clasifiques el más grave.",
+      "huella_categoria": "36a04f6e53e7",
+      "huella_prioridad": "a67cecd21356"
+    }
+  ],
+  "tiempo_agotado": {
+    "caso_id": "R-TIEMPO",
+    "reporte": "R-01",
+    "limite_s": 0.05
+  },
+  "consistencia_k": 3,
+  "modelos": {
+    "anthropic:claude-haiku-5-5": {
+      "nombre": "Claude Haiku 5.5",
+      "proveedor": "Anthropic",
+      "precio": "0.10 / 0.50",
+      "ventana": "1 millón de tokens",
+      "corte": "junio de 2026",
+      "razonamiento": "activo por defecto; el curso lo desactiva",
+      "latencia": "la más rápida de Anthropic",
+      "fuente": "https://platform.claude.com/docs/en/models/haiku-5-5/overview"
+    },
+    "google_genai:gemini-3.5-flash-lite": {
+      "nombre": "Gemini 3.5 Flash-Lite",
+      "proveedor": "Google",
+      "precio": "0.30 / 2.50",
+      "ventana": "1 048 576 tokens",
+      "corte": "marzo de 2026 (enero de 2025 en algunos temas)",
+      "razonamiento": "nivel mínimo por defecto, cobrado como salida",
+      "latencia": "sin dato oficial comparable",
+      "fuente": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/"
+    },
+    "anthropic:claude-opus-5-5": {
+      "nombre": "Claude Opus 5.5",
+      "proveedor": "Anthropic",
+      "precio": "4 / 20",
+      "ventana": "1 millón de tokens",
+      "corte": "junio de 2026",
+      "razonamiento": "siempre activo (adaptativo); no se puede desactivar",
+      "latencia": "moderada, según Anthropic",
+      "fuente": "https://platform.claude.com/docs/en/models/haiku-5-5/overview"
+    }
+  }
+}

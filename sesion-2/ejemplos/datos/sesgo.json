@@ -1,0 +1,100 @@
+{
+ "fuente": "GPT-2 pequeño (openai-community/gpt2), embeddings de entrada (wte)",
+ "metodo": "vectores centrados; coseno con el promedio normalizado de 7 diferencias: she − he, her − his, woman − man, girl − boy, mother − father, daughter − son, female − male",
+ "referencias": {
+  "she": 0.36,
+  "he": -0.31
+ },
+ "profesiones": [
+  {
+   "palabra": "nurse",
+   "es": "enfermería",
+   "puntaje": 0.213
+  },
+  {
+   "palabra": "dancer",
+   "es": "danza",
+   "puntaje": 0.176
+  },
+  {
+   "palabra": "secretary",
+   "es": "secretaría",
+   "puntaje": 0.095
+  },
+  {
+   "palabra": "teacher",
+   "es": "docencia",
+   "puntaje": 0.04
+  },
+  {
+   "palabra": "assistant",
+   "es": "asistencia",
+   "puntaje": 0.028
+  },
+  {
+   "palabra": "programmer",
+   "es": "programación",
+   "puntaje": 0.026
+  },
+  {
+   "palabra": "designer",
+   "es": "diseño",
+   "puntaje": 0.015
+  },
+  {
+   "palabra": "scientist",
+   "es": "ciencia",
+   "puntaje": 0.008
+  },
+  {
+   "palabra": "lawyer",
+   "es": "abogacía",
+   "puntaje": 0.005
+  },
+  {
+   "palabra": "doctor",
+   "es": "medicina",
+   "puntaje": -0.01
+  },
+  {
+   "palabra": "pilot",
+   "es": "piloto",
+   "puntaje": -0.013
+  },
+  {
+   "palabra": "mechanic",
+   "es": "mecánica",
+   "puntaje": -0.021
+  },
+  {
+   "palabra": "developer",
+   "es": "desarrollo",
+   "puntaje": -0.028
+  },
+  {
+   "palabra": "soldier",
+   "es": "ejército",
+   "puntaje": -0.032
+  },
+  {
+   "palabra": "manager",
+   "es": "gerencia",
+   "puntaje": -0.037
+  },
+  {
+   "palabra": "engineer",
+   "es": "ingeniería",
+   "puntaje": -0.05
+  },
+  {
+   "palabra": "captain",
+   "es": "capitán",
+   "puntaje": -0.076
+  },
+  {
+   "palabra": "architect",
+   "es": "arquitectura",
+   "puntaje": -0.078
+  }
+ ]
+}

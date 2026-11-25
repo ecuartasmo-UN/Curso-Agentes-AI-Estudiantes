@@ -1,0 +1,1336 @@
+FotoNube · Registro de cambios
+
+FotoNube es una app de fotos ficticia, creada para el curso Agentes de IA (aplicado).
+Ninguna empresa real publica este registro. Las versiones más antiguas van primero.
+
+Versión 1.0.0 · 2019-01-25
+- Agrega atajos de teclado para la descarga de álbumes completos en la versión web.
+- Reduce el consumo de batería del control de brillo.
+- Simplifica los pasos del modo oscuro.
+- Soluciona un problema de memoria en el inicio de sesión con correo con el idioma portugués.
+
+Versión 1.0.1 · 2019-02-03
+- Agrega la opción de ordenar los enlaces para invitados por tamaño.
+- Agrega un historial de cambios en la vista de calendario.
+- Corrige el orden de las fotos en la compresión de videos cortos en Android 14.
+- Reduce el consumo de batería del panel de almacenamiento.
+- Retira una opción poco usada de los permisos de los álbumes.
+
+Versión 1.0.2 · 2019-02-17
+- Corrige textos cortados en el visor de metadatos después de actualizar la app.
+- Corrige un cierre inesperado de la línea de tiempo después de actualizar la app.
+- Soluciona un problema de memoria en el modo oscuro con más de 1 000 fotos en un álbum.
+- Soluciona un problema de memoria en el tutorial de bienvenida en Android 14.
+
+Versión 1.0.3 · 2019-03-07
+- Actualiza las traducciones de las copias de seguridad.
+- Simplifica los pasos del inicio de sesión con correo.
+- Soluciona un problema de memoria en la vista de mapa con más de 1 000 fotos en un álbum.
+
+Versión 1.0.4 · 2019-03-26
+- Agrega un botón para deshacer en la subida de fotos.
+- Corrige el orden de las fotos en el menú de ajustes en pantallas pequeñas.
+- Corrige el orden de las fotos en el tutorial de bienvenida en iOS 18.
+- Mejora el contraste de la lista de contactos en el modo oscuro.
+
+Versión 1.1.0 · 2019-04-13
+- Corrige un error que duplicaba fotos en la vista de calendario al girar el teléfono.
+- Mejora la velocidad del tutorial de bienvenida con el idioma portugués.
+- Soluciona un fallo visual en la vista previa de videos en el primer inicio.
+- Soluciona un problema de memoria en la detección de fotos duplicadas en el primer inicio.
+
+Versión 1.1.1 · 2019-04-29
+- Agrupa las opciones del tutorial de bienvenida en una sola pantalla.
+- Corrige el control de brillo, que a veces no respondía en pantallas pequeñas.
+- Corrige un cierre inesperado del selector de idioma en iOS 16.
+- Corrige un error que duplicaba fotos en los comentarios en las fotos en Android 12.
+- Soluciona un fallo visual en los recuerdos del año en el primer inicio.
+
+Versión 1.1.2 · 2019-05-17
+- Agrega un historial de cambios en el panel de almacenamiento.
+- Hace más claros los mensajes de error de la papelera.
+- Soluciona un problema de memoria en los enlaces para invitados en iOS 16.
+
+Versión 1.1.3 · 2019-06-04
+- Agrega un historial de cambios en el control de brillo.
+- Corrige el control de brillo, que a veces no respondía con más de 1 000 fotos en un álbum.
+- Hace más claros los mensajes de error de los filtros de color.
+
+Versión 1.1.4 · 2019-06-21
+- Agrega un resumen semanal del panel de almacenamiento.
+- Agrupa las opciones de las etiquetas automáticas en una sola pantalla.
+- Mueve la rotación automática al menú principal.
+
+Versión 1.2.0 · 2019-07-05
+- Agrega un historial de cambios en la lista de contactos.
+- Corrige los enlaces para invitados, que a veces no respondía con nombres de archivo largos.
+- Corrige textos cortados en la galería de favoritos con muchas fotos seleccionadas.
+- Corrige un error que duplicaba fotos en los permisos de los álbumes con nombres de archivo largos.
+- Reduce el consumo de batería de la compresión de videos cortos.
+
+Versión 1.2.1 · 2019-07-16
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Cambia el ícono de las notificaciones de comentarios.
+- Soluciona un fallo visual en el menú de ajustes en Android 13.
+
+Versión 1.2.2 · 2019-07-27
+- Agrega la búsqueda por color dominante.
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Corrige textos cortados en la exportación a PDF en la versión web.
+- Corrige textos cortados en la exportación a PDF en pantallas pequeñas.
+- Soluciona un error de permisos en los comentarios en las fotos en la versión web.
+
+Versión 1.2.3 · 2019-08-13
+- Agrega atajos de teclado para la vista de mapa en la versión web.
+- Corrige el reconocimiento de paisajes, que a veces no respondía al girar el teléfono.
+- Mejora la accesibilidad de la lista de contactos para lectores de pantalla.
+- Retira una opción poco usada del editor de recortes.
+
+Versión 1.2.4 · 2019-08-23
+- Agrega una vista en cuadrícula para la vista de mapa.
+- Corrige el orden de las fotos en la exportación a PDF en Android 15.
+- Corrige la vista de calendario, que a veces no respondía con muchas fotos seleccionadas.
+- Mejora la accesibilidad de los recuerdos del año para lectores de pantalla.
+- Reduce el espacio que ocupa los filtros de color en el teléfono.
+
+Versión 1.3.0 · 2019-09-10
+- Agrega la opción de ordenar la vista de calendario por tamaño.
+- Agrega un filtro por tipo de archivo.
+- Corrige el orden de las fotos en las etiquetas automáticas en Android 12.
+
+Versión 1.3.1 · 2019-09-19
+- Hace más claros los mensajes de error del tutorial de bienvenida.
+- Mejora la velocidad de las presentaciones de fotos con nombres de archivo largos.
+- Reduce el espacio que ocupa el modo oscuro en el teléfono.
+- Simplifica los pasos del visor de metadatos.
+
+Versión 1.3.2 · 2019-10-04
+- Cambia el ícono del editor de recortes.
+- Hace más claros los mensajes de error del editor de recortes.
+- Mejora el contraste del panel de almacenamiento en el modo oscuro.
+- Reduce el espacio que ocupa el modo oscuro en el teléfono.
+
+Versión 1.3.3 · 2019-10-21
+- Corrige el orden de las fotos en los álbumes compartidos en iOS 16.
+- Reduce el consumo de batería del modo oscuro.
+- Soluciona un error de permisos en el editor de recortes con más de 1 000 fotos en un álbum.
+
+Versión 1.3.4 · 2019-11-05
+- Agrega un botón para compartir la detección de fotos duplicadas.
+- Corrige el orden de las fotos en los recuerdos del año con el idioma portugués.
+- Corrige textos cortados en las copias de seguridad en iOS 17.
+- Mejora la accesibilidad de la rotación automática para lectores de pantalla.
+
+Versión 1.4.0 · 2019-11-19
+- Corrige el orden de las fotos en los comentarios en las fotos en iOS 17.
+- Mejora la accesibilidad de la búsqueda por fecha para lectores de pantalla.
+- Reduce el espacio que ocupa la compresión de videos cortos en el teléfono.
+
+Versión 1.4.1 · 2019-12-05
+- Agrupa las opciones del inicio de sesión con correo en una sola pantalla.
+- Cambia el ícono del visor de metadatos.
+- Soluciona un fallo visual en la lista de contactos en pantallas pequeñas.
+
+Versión 1.4.2 · 2019-12-19
+- Acelera la vista previa de videos con más de 1 000 fotos en un álbum.
+- Agrega una vista en cuadrícula para los permisos de los álbumes.
+- Retira una opción poco usada de la galería de favoritos.
+- Soluciona un problema de memoria en el reconocimiento de paisajes con nombres de archivo largos.
+
+Versión 1.4.3 · 2019-12-29
+- Acelera las marcas de agua con el idioma portugués.
+- Agrega plantillas nuevas para el control de brillo.
+- Corrige el orden de las fotos en la vista de mapa en Android 12.
+- Corrige los álbumes compartidos, que a veces no respondía en la versión web.
+
+Versión 1.4.4 · 2020-01-13
+- Cambia el ícono del panel de almacenamiento.
+- Corrige el orden de las fotos en los filtros de color con fotos de más de 20 MB.
+- Retira una opción poco usada de la subida de fotos.
+- Soluciona un fallo visual en la lista de contactos en pantallas pequeñas.
+
+Versión 1.5.0 · 2020-01-30
+- Actualiza los textos de ayuda del control de brillo.
+- Agrega atajos de teclado para la galería de favoritos en la versión web.
+- Agrega la opción de fijar álbumes arriba de la lista.
+
+Versión 1.5.1 · 2020-02-13
+- Agrega un aviso antes de vaciar la papelera.
+- Agrega un modo de selección rápida para las notificaciones de comentarios.
+- Agrupa las opciones de los enlaces para invitados en una sola pantalla.
+- Corrige el orden de las fotos en las etiquetas automáticas en la versión web.
+
+Versión 1.5.2 · 2020-03-03
+- Actualiza los textos de ayuda del panel de almacenamiento.
+- Agrega un aviso antes de vaciar la papelera.
+- Corrige un error que duplicaba fotos en el reconocimiento de paisajes con muchas fotos seleccionadas.
+
+Versión 1.5.3 · 2020-03-13
+- Agrega plantillas nuevas para la impresión de álbumes.
+- Corrige las presentaciones de fotos, que a veces no respondía en el primer inicio.
+- Mejora la accesibilidad de los permisos de los álbumes para lectores de pantalla.
+- Soluciona un error de permisos en los filtros de color al girar el teléfono.
+
+Versión 1.5.4 · 2020-03-27
+- Acelera la descarga de álbumes completos con muchas fotos seleccionadas.
+- Corrige el selector de idioma, que a veces no respondía con muchas fotos seleccionadas.
+- Corrige un error que duplicaba fotos en el tutorial de bienvenida en pantallas pequeñas.
+- Mueve las presentaciones de fotos al menú principal.
+
+Versión 1.6.0 · 2020-04-09
+- Agrega plantillas nuevas para el visor de metadatos.
+- Agrega un contador de fotos por álbum.
+- Soluciona un problema de memoria en la lista de contactos en Android 15.
+
+Versión 1.6.1 · 2020-04-23
+- Agrega la búsqueda por color dominante.
+- Agrega una vista en cuadrícula para el panel de almacenamiento.
+- Corrige el orden de las fotos en la exportación a PDF en Android 12.
+- Corrige textos cortados en las copias de seguridad al girar el teléfono.
+- Corrige textos cortados en los enlaces para invitados con el idioma portugués.
+
+Versión 1.6.2 · 2020-05-09
+- Agrega un filtro por tipo de archivo.
+- Mejora la velocidad de los comentarios en las fotos con el idioma portugués.
+- Soluciona un error de permisos en el reconocimiento de paisajes después de actualizar la app.
+- Soluciona un fallo visual en el modo oscuro en pantallas pequeñas.
+
+Versión 1.6.3 · 2020-05-19
+- Agrega una vista en cuadrícula para los filtros de color.
+- Cambia el ícono de la compresión de videos cortos.
+- Corrige un error que duplicaba fotos en la vista previa de videos con muchas fotos seleccionadas.
+
+Versión 1.6.4 · 2020-05-28
+- Agrega plantillas nuevas para el selector de idioma.
+- Mueve el control de brillo al menú principal.
+- Retira una opción poco usada de la detección de fotos duplicadas.
+- Soluciona un problema de memoria en la compresión de videos cortos al girar el teléfono.
+
+Versión 1.7.0 · 2020-06-06
+- Agrega la búsqueda por color dominante.
+- Corrige textos cortados en la impresión de álbumes con el ahorro de batería activo.
+- Corrige textos cortados en los permisos de los álbumes en iOS 18.
+- Hace más claros los mensajes de error de las etiquetas automáticas.
+- Mueve las marcas de agua al menú principal.
+
+Versión 1.7.1 · 2020-06-22
+- Actualiza las traducciones de la exportación a PDF.
+- Actualiza las traducciones de los comentarios en las fotos.
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Mejora la accesibilidad de la vista previa de videos para lectores de pantalla.
+- Soluciona un error de permisos en las presentaciones de fotos en el primer inicio.
+
+Versión 1.7.2 · 2020-07-01
+- Corrige la papelera, que a veces no respondía en iOS 18.
+- Hace más claros los mensajes de error del control de brillo.
+- Soluciona un error de permisos en los enlaces para invitados en iOS 16.
+- Soluciona un fallo visual en las marcas de agua en la versión web.
+
+Versión 1.7.3 · 2020-07-12
+- Acelera la lista de contactos en iOS 16.
+- Agrega plantillas nuevas para las copias de seguridad.
+- Corrige el orden de las fotos en la búsqueda por fecha en Android 13.
+- Mejora el contraste de la búsqueda por fecha en el modo oscuro.
+- Soluciona un error de permisos en la exportación a PDF en iOS 16.
+
+Versión 1.7.4 · 2020-07-31
+- Agrega un aviso antes de vaciar la papelera.
+- Agrega un botón para compartir la galería de favoritos.
+- Corrige el orden de las fotos en la búsqueda por fecha en Android 15.
+- Corrige un error que duplicaba fotos en el inicio de sesión con correo después de actualizar la app.
+- Retira una opción poco usada de los enlaces para invitados.
+
+Versión 1.8.0 · 2020-08-14
+- Agrega la opción de ocultar fotos de la línea de tiempo.
+- Agrega un resumen semanal de los filtros de color.
+- Mejora la accesibilidad de los comentarios en las fotos para lectores de pantalla.
+
+Versión 1.8.1 · 2020-08-26
+- Agrega un botón para deshacer en la lista de contactos.
+- Agrupa las opciones del tutorial de bienvenida en una sola pantalla.
+- Mueve los filtros de color al menú principal.
+- Simplifica los pasos de las notificaciones de comentarios.
+
+Versión 1.8.2 · 2020-09-07
+- Agrega un historial de cambios en los filtros de color.
+- Agrupa las opciones del editor de recortes en una sola pantalla.
+- Mejora el contraste de los recuerdos del año en el modo oscuro.
+- Mueve el tutorial de bienvenida al menú principal.
+- Reduce el espacio que ocupa la impresión de álbumes en el teléfono.
+
+Versión 1.8.3 · 2020-09-16
+- Agrega plantillas nuevas para la rotación automática.
+- Agrega un contador de fotos por álbum.
+- Mueve la lista de contactos al menú principal.
+- Retira una opción poco usada de la vista previa de videos.
+
+Versión 1.8.4 · 2020-10-05
+- Actualiza los textos de ayuda de las presentaciones de fotos.
+- Agrega un modo de selección rápida para los recuerdos del año.
+- Corrige un error que duplicaba fotos en el reconocimiento de paisajes con nombres de archivo largos.
+- Simplifica los pasos de la vista de mapa.
+- Soluciona un problema de memoria en los álbumes compartidos en Android 14.
+
+Versión 2.0.0 · 2020-10-23
+- Actualiza los textos de ayuda de los filtros de color.
+- Agrega atajos de teclado para las copias de seguridad en la versión web.
+- Agrega un aviso antes de vaciar la papelera.
+- Reduce el consumo de batería de los álbumes compartidos.
+
+Versión 2.0.1 · 2020-11-06
+- Cambia el ícono de la galería de favoritos.
+- Corrige el selector de idioma, que a veces no respondía en Android 13.
+- Mejora el contraste de las presentaciones de fotos en el modo oscuro.
+- Retira una opción poco usada de la papelera.
+- Simplifica los pasos de la descarga de álbumes completos.
+
+Versión 2.0.2 · 2020-11-24
+- Actualiza las traducciones de los recuerdos del año.
+- Agrega un filtro por tipo de archivo.
+- Corrige la rotación automática, que a veces no respondía en Android 13.
+- Retira una opción poco usada de la vista de calendario.
+
+Versión 2.0.3 · 2020-12-03
+- Acelera las marcas de agua en iOS 18.
+- Actualiza los textos de ayuda de la vista previa de videos.
+- Cambia el ícono del selector de idioma.
+- Reduce el consumo de batería del reconocimiento de paisajes.
+
+Versión 2.0.4 · 2020-12-15
+- Agrega un botón para deshacer en los comentarios en las fotos.
+- Reduce el consumo de batería de los álbumes compartidos.
+- Soluciona un error de permisos en la detección de fotos duplicadas en iOS 17.
+
+Versión 2.1.0 · 2020-12-31
+- Agrega atajos de teclado para la impresión de álbumes en la versión web.
+- Agrupa las opciones de los álbumes compartidos en una sola pantalla.
+- Corrige el orden de las fotos en la vista de calendario en Android 13.
+- Corrige un cierre inesperado de los filtros de color en Android 14.
+- Mejora la velocidad del reconocimiento de paisajes después de actualizar la app.
+
+Versión 2.1.1 · 2021-01-10
+- Agrega un contador de fotos por álbum.
+- Corrige un error que duplicaba fotos en los álbumes compartidos en Android 12.
+- Soluciona un fallo visual en el menú de ajustes en iOS 17.
+- Soluciona un fallo visual en el menú de ajustes en la versión web.
+- Soluciona un fallo visual en los enlaces para invitados en Android 13.
+
+Versión 2.1.2 · 2021-01-27
+- Agrega atajos de teclado para el reconocimiento de paisajes en la versión web.
+- Cambia el ícono de las copias de seguridad.
+- Corrige el control de brillo, que a veces no respondía al girar el teléfono.
+
+Versión 2.1.3 · 2021-02-12
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Agrega un historial de cambios en el control de brillo.
+- Agrega una vista en cuadrícula para el editor de recortes.
+- Agrega una vista en cuadrícula para el modo oscuro.
+- Reduce el espacio que ocupa los comentarios en las fotos en el teléfono.
+
+Versión 2.1.4 · 2021-02-24
+- Agrega un historial de cambios en el reconocimiento de paisajes.
+- Cambia el ícono del editor de recortes.
+- Mejora la velocidad de la exportación a PDF con fotos de más de 20 MB.
+- Simplifica los pasos de la línea de tiempo.
+
+Versión 2.2.0 · 2021-03-06
+- Actualiza los textos de ayuda de la galería de favoritos.
+- Hace más claros los mensajes de error de las copias de seguridad.
+- Mueve la descarga de álbumes completos al menú principal.
+
+Versión 2.2.1 · 2021-03-25
+- Cambia el ícono de la línea de tiempo.
+- Corrige textos cortados en los permisos de los álbumes en pantallas pequeñas.
+- Corrige un error que duplicaba fotos en el inicio de sesión con correo al girar el teléfono.
+- Reduce el consumo de batería de la subida de fotos.
+- Soluciona un problema de memoria en la rotación automática en pantallas pequeñas.
+
+Versión 2.2.2 · 2021-04-04
+- Agrega plantillas nuevas para la lista de contactos.
+- Agrega plantillas nuevas para la vista de calendario.
+- Corrige textos cortados en las notificaciones de comentarios con el idioma portugués.
+- Mejora el contraste de la rotación automática en el modo oscuro.
+- Mejora la accesibilidad de las presentaciones de fotos para lectores de pantalla.
+
+Versión 2.2.3 · 2021-04-17
+- Agrega la opción de ordenar la descarga de álbumes completos por tamaño.
+- Agrupa las opciones de las copias de seguridad en una sola pantalla.
+- Corrige textos cortados en los álbumes compartidos en iOS 18.
+- Mejora la velocidad de los enlaces para invitados en Android 13.
+
+Versión 2.2.4 · 2021-05-05
+- Actualiza las traducciones del inicio de sesión con correo.
+- Agrega una vista en cuadrícula para la rotación automática.
+- Corrige textos cortados en la compresión de videos cortos con el idioma portugués.
+- Soluciona un error de permisos en la vista de calendario después de actualizar la app.
+- Soluciona un error de permisos en la vista previa de videos con más de 1 000 fotos en un álbum.
+
+Versión 2.3.0 · 2021-05-17
+- Actualiza los textos de ayuda de la rotación automática.
+- Actualiza los textos de ayuda del menú de ajustes.
+- Agrega un botón para compartir el tutorial de bienvenida.
+- Agrega un resumen semanal de la vista de mapa.
+- Cambia el ícono del visor de metadatos.
+
+Versión 2.3.1 · 2021-05-29
+- Acelera la vista de mapa en Android 14.
+- Agrega atajos de teclado para el reconocimiento de paisajes en la versión web.
+- Corrige un cierre inesperado del selector de idioma en tabletas.
+- Reduce el consumo de batería del modo oscuro.
+
+Versión 2.3.2 · 2021-06-10
+- Actualiza las traducciones del reconocimiento de paisajes.
+- Actualiza los textos de ayuda del reconocimiento de paisajes.
+- Agrega un historial de cambios en el tutorial de bienvenida.
+- Agrega un resumen semanal de los comentarios en las fotos.
+- Reduce el consumo de batería de los enlaces para invitados.
+
+Versión 2.3.3 · 2021-06-26
+- Agrega un historial de cambios en la búsqueda por fecha.
+- Corrige el tutorial de bienvenida, que a veces no respondía en Android 15.
+- Corrige un error que duplicaba fotos en la búsqueda por fecha con nombres de archivo largos.
+- Mejora la accesibilidad de las etiquetas automáticas para lectores de pantalla.
+
+Versión 2.3.4 · 2021-07-05
+- Corrige el orden de las fotos en el selector de idioma en Android 14.
+- Corrige un error que duplicaba fotos en la vista de mapa en tabletas.
+- Mejora el contraste de los permisos de los álbumes en el modo oscuro.
+
+Versión 2.4.0 · 2021-07-19
+- Acelera los permisos de los álbumes en tabletas.
+- Corrige el orden de las fotos en la vista previa de videos con más de 1 000 fotos en un álbum.
+- Corrige el orden de las fotos en la vista previa de videos con nombres de archivo largos.
+- Soluciona un error de permisos en las notificaciones de comentarios con muchas fotos seleccionadas.
+
+Versión 2.4.1 · 2021-08-05
+- Actualiza las traducciones de la papelera.
+- Agrega un modo de selección rápida para la detección de fotos duplicadas.
+- Reduce el consumo de batería de la compresión de videos cortos.
+- Simplifica los pasos de la compresión de videos cortos.
+
+Versión 2.4.2 · 2021-08-23
+- Corrige textos cortados en la descarga de álbumes completos con muchas fotos seleccionadas.
+- Mejora el contraste del panel de almacenamiento en el modo oscuro.
+- Mejora la velocidad del panel de almacenamiento en pantallas pequeñas.
+- Mueve la vista de mapa al menú principal.
+
+Versión 2.4.3 · 2021-09-06
+- Agrega un botón para compartir la detección de fotos duplicadas.
+- Corrige el orden de las fotos en la compresión de videos cortos con más de 1 000 fotos en un álbum.
+- Hace más claros los mensajes de error del reconocimiento de paisajes.
+- Reduce el consumo de batería del menú de ajustes.
+
+Versión 2.4.4 · 2021-09-16
+- Agrega una vista en cuadrícula para la vista de calendario.
+- Corrige un cierre inesperado de la vista de mapa con el idioma portugués.
+- Simplifica los pasos de la exportación a PDF.
+
+Versión 2.5.0 · 2021-09-28
+- Agrega la opción de ocultar fotos de la línea de tiempo.
+- Hace más claros los mensajes de error de la lista de contactos.
+- Reduce el consumo de batería de las etiquetas automáticas.
+
+Versión 2.5.1 · 2021-10-13
+- Agrega un botón para compartir la lista de contactos.
+- Agrega un historial de cambios en el selector de idioma.
+- Mejora la velocidad del menú de ajustes en iOS 17.
+- Mueve las etiquetas automáticas al menú principal.
+
+Versión 2.5.2 · 2021-10-29
+- Agrega plantillas nuevas para las copias de seguridad.
+- Corrige un error que duplicaba fotos en la galería de favoritos en Android 12.
+- Hace más claros los mensajes de error de las presentaciones de fotos.
+- Mejora la accesibilidad del reconocimiento de paisajes para lectores de pantalla.
+
+Versión 2.5.3 · 2021-11-07
+- Actualiza los textos de ayuda del visor de metadatos.
+- Hace más claros los mensajes de error de las marcas de agua.
+- Soluciona un error de permisos en la impresión de álbumes con nombres de archivo largos.
+
+Versión 2.5.4 · 2021-11-24
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Corrige el orden de las fotos en la impresión de álbumes al girar el teléfono.
+- Soluciona un error de permisos en las etiquetas automáticas en tabletas.
+
+Versión 2.6.0 · 2021-12-05
+- Agrega un contador de fotos por álbum.
+- Corrige un error que duplicaba fotos en la galería de favoritos en iOS 18.
+- Simplifica los pasos de la rotación automática.
+
+Versión 2.6.1 · 2021-12-19
+- Corrige textos cortados en los permisos de los álbumes en iOS 16.
+- Corrige un cierre inesperado del inicio de sesión con correo en pantallas pequeñas.
+- Hace más claros los mensajes de error de las etiquetas automáticas.
+- Retira una opción poco usada del menú de ajustes.
+
+Versión 2.6.2 · 2021-12-29
+- Corrige el orden de las fotos en las etiquetas automáticas en el primer inicio.
+- Corrige textos cortados en los permisos de los álbumes en Android 15.
+- Retira una opción poco usada de las copias de seguridad.
+
+Versión 2.6.3 · 2022-01-13
+- Actualiza los textos de ayuda de la impresión de álbumes.
+- Agrega un historial de cambios en el editor de recortes.
+- Corrige textos cortados en las presentaciones de fotos en Android 15.
+
+Versión 2.6.4 · 2022-02-01
+- Agrega la opción de ocultar fotos de la línea de tiempo.
+- Agrega la opción de ordenar la compresión de videos cortos por tamaño.
+- Corrige textos cortados en la lista de contactos después de actualizar la app.
+- Mejora la velocidad de los enlaces para invitados en el primer inicio.
+
+Versión 2.7.0 · 2022-02-18
+- Agrega un botón para deshacer en la línea de tiempo.
+- Agrega un historial de cambios en los álbumes compartidos.
+- Corrige un cierre inesperado del editor de recortes con más de 1 000 fotos en un álbum.
+
+Versión 2.7.1 · 2022-03-09
+- Agrega plantillas nuevas para el reconocimiento de paisajes.
+- Agrega una vista en cuadrícula para el modo oscuro.
+- Corrige textos cortados en la vista previa de videos en el primer inicio.
+- Soluciona un fallo visual en el inicio de sesión con correo en iOS 18.
+
+Versión 2.7.2 · 2022-03-28
+- Agrega la búsqueda por color dominante.
+- Agrega una vista en cuadrícula para la lista de contactos.
+- Corrige textos cortados en el tutorial de bienvenida con fotos de más de 20 MB.
+
+Versión 2.7.3 · 2022-04-12
+- Agrega un contador de fotos por álbum.
+- Agrega un filtro por tipo de archivo.
+- Cambia el ícono de la detección de fotos duplicadas.
+- Simplifica los pasos de las notificaciones de comentarios.
+
+Versión 2.7.4 · 2022-04-24
+- Agrupa las opciones del reconocimiento de paisajes en una sola pantalla.
+- Hace más claros los mensajes de error de la vista de calendario.
+- Reduce el consumo de batería del reconocimiento de paisajes.
+- Simplifica los pasos del inicio de sesión con correo.
+- Soluciona un error de permisos en la rotación automática después de actualizar la app.
+
+Versión 2.8.0 · 2022-05-09
+- Agrega un aviso antes de vaciar la papelera.
+- Agrega un botón para compartir el modo oscuro.
+- Corrige el orden de las fotos en las presentaciones de fotos en tabletas.
+
+Versión 2.8.1 · 2022-05-18
+- Agrega atajos de teclado para el visor de metadatos en la versión web.
+- Corrige el orden de las fotos en la lista de contactos en iOS 16.
+- Corrige el orden de las fotos en la vista de calendario en iOS 17.
+- Corrige un error que duplicaba fotos en la línea de tiempo en pantallas pequeñas.
+- Mejora la velocidad de las marcas de agua en la versión web.
+
+Versión 2.8.2 · 2022-06-04
+- Agrega un botón para compartir el editor de recortes.
+- Agrupa las opciones de las etiquetas automáticas en una sola pantalla.
+- Mejora la velocidad de los álbumes compartidos al girar el teléfono.
+
+Versión 2.8.3 · 2022-06-22
+- Agrega la búsqueda por color dominante.
+- Agrega un filtro por tipo de archivo.
+- Soluciona un fallo visual en los álbumes compartidos con el ahorro de batería activo.
+
+Versión 2.8.4 · 2022-07-01
+- Actualiza los textos de ayuda del selector de idioma.
+- Agrega atajos de teclado para los permisos de los álbumes en la versión web.
+- Agrega un filtro por tipo de archivo.
+- Corrige un error que duplicaba fotos en la vista previa de videos después de actualizar la app.
+
+Versión 3.0.0 · 2022-07-18
+- Actualiza los textos de ayuda de los álbumes compartidos.
+- Agrega un resumen semanal de los filtros de color.
+- Retira una opción poco usada de las notificaciones de comentarios.
+
+Versión 3.0.1 · 2022-07-28
+- Agrega un botón para compartir la exportación a PDF.
+- Corrige un cierre inesperado de los comentarios en las fotos en iOS 16.
+- Simplifica los pasos del control de brillo.
+- Soluciona un error de permisos en los enlaces para invitados en Android 15.
+
+Versión 3.0.2 · 2022-08-13
+- Acelera la compresión de videos cortos en el primer inicio.
+- Corrige la impresión de álbumes, que a veces no respondía en iOS 18.
+- Reduce el consumo de batería de los filtros de color.
+
+Versión 3.0.3 · 2022-08-29
+- Actualiza los textos de ayuda de la detección de fotos duplicadas.
+- Actualiza los textos de ayuda de la vista de mapa.
+- Agrega un modo de selección rápida para la lista de contactos.
+- Reduce el espacio que ocupa el visor de metadatos en el teléfono.
+- Soluciona un error de permisos en la vista de mapa después de actualizar la app.
+
+Versión 3.0.4 · 2022-09-13
+- Agrega atajos de teclado para la lista de contactos en la versión web.
+- Agrega un botón para deshacer en el selector de idioma.
+- Agrega un resumen semanal del inicio de sesión con correo.
+- Corrige el orden de las fotos en las presentaciones de fotos con muchas fotos seleccionadas.
+
+Versión 3.1.0 · 2022-09-29
+- Agrega plantillas nuevas para el editor de recortes.
+- Agrega un contador de fotos por álbum.
+- Agrupa las opciones de la vista previa de videos en una sola pantalla.
+- Corrige el visor de metadatos, que a veces no respondía en iOS 16.
+- Corrige textos cortados en los filtros de color en la versión web.
+
+Versión 3.1.1 · 2022-10-08
+- Acelera el inicio de sesión con correo en tabletas.
+- Agrega atajos de teclado para el reconocimiento de paisajes en la versión web.
+- Agrega atajos de teclado para la subida de fotos en la versión web.
+- Corrige un error que duplicaba fotos en las marcas de agua en Android 13.
+- Simplifica los pasos del menú de ajustes.
+
+Versión 3.1.2 · 2022-10-22
+- Acelera el reconocimiento de paisajes en la versión web.
+- Corrige la impresión de álbumes, que a veces no respondía en el primer inicio.
+- Corrige textos cortados en la rotación automática con muchas fotos seleccionadas.
+
+Versión 3.1.3 · 2022-11-01
+- Agrega plantillas nuevas para las marcas de agua.
+- Agrega un filtro por tipo de archivo.
+- Agrupa las opciones del menú de ajustes en una sola pantalla.
+- Corrige textos cortados en las copias de seguridad en el primer inicio.
+- Soluciona un problema de memoria en la vista previa de videos con el ahorro de batería activo.
+
+Versión 3.1.4 · 2022-11-10
+- Actualiza los textos de ayuda de la línea de tiempo.
+- Agrega un historial de cambios en los filtros de color.
+- Agrupa las opciones de la impresión de álbumes en una sola pantalla.
+- Soluciona un error de permisos en las marcas de agua en Android 14.
+
+Versión 3.2.0 · 2022-11-19
+- Agrega el modo sin conexión: puedes ver y editar tus álbumes sin internet, y los cambios se sincronizan cuando vuelves a conectarte.
+- Actualiza los textos de ayuda de la lista de contactos.
+- Agrega un botón para compartir el editor de recortes.
+- Agrega un botón para deshacer en la rotación automática.
+- Corrige los filtros de color, que a veces no respondía en Android 15.
+- Corrige un error que duplicaba fotos en la vista de mapa al girar el teléfono.
+
+Versión 3.2.1 · 2022-12-03
+- Corrige el modo oscuro, que a veces no respondía en Android 14.
+- Corrige la vista de calendario, que a veces no respondía en Android 15.
+- Corrige un error que duplicaba fotos en las notificaciones de comentarios después de actualizar la app.
+- Mejora la accesibilidad de la detección de fotos duplicadas para lectores de pantalla.
+- Reduce el consumo de batería del inicio de sesión con correo.
+
+Versión 3.2.2 · 2022-12-14
+- Agrega plantillas nuevas para los enlaces para invitados.
+- Mejora el contraste de la exportación a PDF en el modo oscuro.
+- Simplifica los pasos de las notificaciones de comentarios.
+
+Versión 3.2.3 · 2022-12-23
+- Acelera los recuerdos del año en Android 14.
+- Corrige la vista previa de videos, que a veces no respondía al girar el teléfono.
+- Corrige textos cortados en los permisos de los álbumes en iOS 17.
+- Mejora el contraste de la detección de fotos duplicadas en el modo oscuro.
+
+Versión 3.2.4 · 2023-01-10
+- Agrega la opción de ocultar fotos de la línea de tiempo.
+- Agrega un filtro por tipo de archivo.
+- Reduce el espacio que ocupa el visor de metadatos en el teléfono.
+- Soluciona un error de permisos en el editor de recortes con fotos de más de 20 MB.
+- Soluciona un problema de memoria en los enlaces para invitados con fotos de más de 20 MB.
+
+Versión 3.3.0 · 2023-01-26
+- Agrega un resumen semanal del inicio de sesión con correo.
+- Corrige el orden de las fotos en el selector de idioma en Android 13.
+- Soluciona un problema de memoria en los filtros de color en la versión web.
+
+Versión 3.3.1 · 2023-02-11
+- Agrega un aviso antes de vaciar la papelera.
+- Corrige el orden de las fotos en la subida de fotos en la versión web.
+- Mejora la velocidad del visor de metadatos con fotos de más de 20 MB.
+
+Versión 3.3.2 · 2023-02-26
+- Corrige el menú de ajustes, que a veces no respondía en Android 13.
+- Corrige el orden de las fotos en el panel de almacenamiento en Android 14.
+- Corrige los álbumes compartidos, que a veces no respondía en tabletas.
+- Corrige textos cortados en la subida de fotos en el primer inicio.
+- Mejora el contraste de la papelera en el modo oscuro.
+
+Versión 3.3.3 · 2023-03-09
+- Agrega un botón para compartir la papelera.
+- Soluciona un error de permisos en el menú de ajustes con nombres de archivo largos.
+- Soluciona un problema de memoria en el editor de recortes con muchas fotos seleccionadas.
+
+Versión 3.3.4 · 2023-03-24
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Agrega plantillas nuevas para los enlaces para invitados.
+- Corrige la galería de favoritos, que a veces no respondía después de actualizar la app.
+- Mejora el contraste del editor de recortes en el modo oscuro.
+- Mueve las copias de seguridad al menú principal.
+
+Versión 3.4.0 · 2023-04-08
+- Cambia el ícono de la galería de favoritos.
+- Corrige el tutorial de bienvenida, que a veces no respondía en la versión web.
+- Hace más claros los mensajes de error de las etiquetas automáticas.
+- Reduce el consumo de batería de la descarga de álbumes completos.
+- Soluciona un problema de memoria en las notificaciones de comentarios en Android 15.
+
+Versión 3.4.1 · 2023-04-21
+- Acelera la descarga de álbumes completos en iOS 16.
+- Mejora el contraste de los permisos de los álbumes en el modo oscuro.
+- Retira una opción poco usada de las marcas de agua.
+
+Versión 3.4.2 · 2023-05-01
+- Agrega atajos de teclado para los álbumes compartidos en la versión web.
+- Agrega la búsqueda por color dominante.
+- Corrige un error que duplicaba fotos en los filtros de color en iOS 17.
+- Mejora el contraste de las copias de seguridad en el modo oscuro.
+- Retira una opción poco usada del modo oscuro.
+
+Versión 3.4.3 · 2023-05-17
+- Agrega un contador de fotos por álbum.
+- Agrupa las opciones de las marcas de agua en una sola pantalla.
+- Soluciona un error de permisos en la búsqueda por fecha en el primer inicio.
+
+Versión 3.4.4 · 2023-06-01
+- Agrega la opción de ocultar fotos de la línea de tiempo.
+- Mejora la accesibilidad de la vista de mapa para lectores de pantalla.
+- Retira una opción poco usada de los álbumes compartidos.
+- Soluciona un problema de memoria en los enlaces para invitados con muchas fotos seleccionadas.
+
+Versión 3.5.0 · 2023-06-15
+- Corrige el orden de las fotos en las etiquetas automáticas en Android 14.
+- Corrige un cierre inesperado de las marcas de agua con el idioma portugués.
+- Mejora el contraste del selector de idioma en el modo oscuro.
+
+Versión 3.5.1 · 2023-06-24
+- Actualiza los textos de ayuda del menú de ajustes.
+- Agrega la búsqueda por color dominante.
+- Corrige el orden de las fotos en los recuerdos del año después de actualizar la app.
+- Mejora la accesibilidad del editor de recortes para lectores de pantalla.
+
+Versión 3.5.2 · 2023-07-10
+- Agrega atajos de teclado para las etiquetas automáticas en la versión web.
+- Mejora el contraste de las etiquetas automáticas en el modo oscuro.
+- Mejora la accesibilidad de los enlaces para invitados para lectores de pantalla.
+- Retira una opción poco usada de la compresión de videos cortos.
+- Soluciona un error de permisos en la rotación automática en Android 14.
+
+Versión 3.5.3 · 2023-07-28
+- Agrega un contador de fotos por álbum.
+- Agrega un resumen semanal de las etiquetas automáticas.
+- Corrige un cierre inesperado de los filtros de color en Android 14.
+- Corrige un cierre inesperado del panel de almacenamiento con fotos de más de 20 MB.
+- Mejora la accesibilidad de la vista de calendario para lectores de pantalla.
+
+Versión 3.5.4 · 2023-08-16
+- Corrige el orden de las fotos en la vista de calendario en iOS 16.
+- Simplifica los pasos de las notificaciones de comentarios.
+- Soluciona un error de permisos en las presentaciones de fotos en Android 15.
+
+Versión 3.6.0 · 2023-08-29
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Agrega la opción de ordenar las copias de seguridad por tamaño.
+- Corrige el orden de las fotos en el control de brillo en Android 12.
+- Mueve las marcas de agua al menú principal.
+- Reduce el espacio que ocupa el control de brillo en el teléfono.
+
+Versión 3.6.1 · 2023-09-13
+- Agrega un aviso antes de vaciar la papelera.
+- Agrega un resumen semanal de los permisos de los álbumes.
+- Agrega un resumen semanal del visor de metadatos.
+- Corrige el orden de las fotos en las marcas de agua en Android 12.
+- Reduce el consumo de batería de los filtros de color.
+
+Versión 3.6.2 · 2023-10-01
+- Corrige textos cortados en la impresión de álbumes con el idioma portugués.
+- Corrige textos cortados en los recuerdos del año con nombres de archivo largos.
+- Simplifica los pasos de los recuerdos del año.
+
+Versión 3.6.3 · 2023-10-20
+- Agrega plantillas nuevas para las etiquetas automáticas.
+- Agrega un botón para deshacer en el inicio de sesión con correo.
+- Agrega un modo de selección rápida para la vista de mapa.
+- Corrige un error que duplicaba fotos en los recuerdos del año en Android 14.
+- Soluciona un fallo visual en el tutorial de bienvenida al girar el teléfono.
+
+Versión 3.6.4 · 2023-11-08
+- Actualiza los textos de ayuda de los recuerdos del año.
+- Mejora el contraste de la galería de favoritos en el modo oscuro.
+- Reduce el espacio que ocupa el control de brillo en el teléfono.
+- Soluciona un problema de memoria en la rotación automática con nombres de archivo largos.
+
+Versión 3.7.0 · 2023-11-21
+- Actualiza las traducciones de la exportación a PDF.
+- Actualiza los textos de ayuda de los filtros de color.
+- Reduce el espacio que ocupa la compresión de videos cortos en el teléfono.
+
+Versión 3.7.1 · 2023-12-08
+- Agrega un resumen semanal de la descarga de álbumes completos.
+- Corrige el orden de las fotos en la rotación automática después de actualizar la app.
+- Mueve los filtros de color al menú principal.
+
+Versión 3.7.2 · 2023-12-26
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Agrega un aviso antes de vaciar la papelera.
+- Mejora la accesibilidad de las marcas de agua para lectores de pantalla.
+- Soluciona un error de permisos en el menú de ajustes con el ahorro de batería activo.
+- Soluciona un problema de memoria en el visor de metadatos en Android 15.
+
+Versión 3.7.3 · 2024-01-11
+- Agrega atajos de teclado para las copias de seguridad en la versión web.
+- Agrega un botón para deshacer en la compresión de videos cortos.
+- Agrega un filtro por tipo de archivo.
+- Simplifica los pasos de la exportación a PDF.
+- Soluciona un fallo visual en las etiquetas automáticas en el primer inicio.
+
+Versión 3.7.4 · 2024-01-27
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Agrega un aviso antes de vaciar la papelera.
+- Simplifica los pasos de los álbumes compartidos.
+
+Versión 3.8.0 · 2024-02-13
+- Agrega un resumen semanal de las copias de seguridad.
+- Corrige un error que duplicaba fotos en los permisos de los álbumes con el ahorro de batería activo.
+- Mejora la accesibilidad de la exportación a PDF para lectores de pantalla.
+- Mueve el editor de recortes al menú principal.
+
+Versión 3.8.1 · 2024-02-26
+- Agrega la opción de ocultar fotos de la línea de tiempo.
+- Corrige textos cortados en los enlaces para invitados después de actualizar la app.
+- Hace más claros los mensajes de error del visor de metadatos.
+- Soluciona un fallo visual en el modo oscuro en Android 15.
+
+Versión 3.8.2 · 2024-03-13
+- Actualiza las traducciones de las marcas de agua.
+- Agrega un filtro por tipo de archivo.
+- Retira una opción poco usada de los comentarios en las fotos.
+
+Versión 3.8.3 · 2024-03-29
+- Actualiza los textos de ayuda de los recuerdos del año.
+- Agrega un resumen semanal del modo oscuro.
+- Corrige el orden de las fotos en los recuerdos del año en iOS 17.
+- Mejora el contraste de la vista de calendario en el modo oscuro.
+
+Versión 3.8.4 · 2024-04-10
+- Agrega un modo de selección rápida para los permisos de los álbumes.
+- Cambia el ícono de los comentarios en las fotos.
+- Reduce el espacio que ocupa el control de brillo en el teléfono.
+
+Versión 4.0.0 · 2024-04-26
+- Corrige las etiquetas automáticas, que a veces no respondía en iOS 16.
+- Mejora el contraste del editor de recortes en el modo oscuro.
+- Reduce el espacio que ocupa la vista de calendario en el teléfono.
+- Soluciona un problema de memoria en el menú de ajustes en la versión web.
+
+Versión 4.0.1 · 2024-05-10
+- Agrega un botón para deshacer en la compresión de videos cortos.
+- Agrega un botón para deshacer en los comentarios en las fotos.
+- Corrige un error que duplicaba fotos en la búsqueda por fecha en iOS 17.
+
+Versión 4.0.2 · 2024-05-19
+- Agrega la opción de ocultar fotos de la línea de tiempo.
+- Corrige textos cortados en las marcas de agua en iOS 16.
+- Corrige un cierre inesperado del panel de almacenamiento con muchas fotos seleccionadas.
+- Mejora la accesibilidad de la descarga de álbumes completos para lectores de pantalla.
+- Retira una opción poco usada de la rotación automática.
+
+Versión 4.0.3 · 2024-06-01
+- Actualiza los textos de ayuda del menú de ajustes.
+- Corrige el orden de las fotos en el inicio de sesión con correo en tabletas.
+- Corrige la detección de fotos duplicadas, que a veces no respondía en Android 13.
+- Reduce el espacio que ocupa las notificaciones de comentarios en el teléfono.
+- Soluciona un error de permisos en los filtros de color en iOS 16.
+
+Versión 4.0.4 · 2024-06-19
+- Agrega un modo de selección rápida para la subida de fotos.
+- Hace más claros los mensajes de error de la lista de contactos.
+- Reduce el espacio que ocupa las copias de seguridad en el teléfono.
+- Retira una opción poco usada de las presentaciones de fotos.
+- Soluciona un error de permisos en los enlaces para invitados en pantallas pequeñas.
+
+Versión 4.1.0 · 2024-06-29
+- Agrega un botón para compartir los filtros de color.
+- Agrega un filtro por tipo de archivo.
+- Agrega un historial de cambios en la lista de contactos.
+- Corrige textos cortados en la papelera con nombres de archivo largos.
+- Mejora la accesibilidad de las presentaciones de fotos para lectores de pantalla.
+
+Versión 4.1.1 · 2024-07-16
+- Corrige textos cortados en las presentaciones de fotos en el primer inicio.
+- Reduce el consumo de batería de la búsqueda por fecha.
+- Simplifica los pasos de la lista de contactos.
+
+Versión 4.1.2 · 2024-07-31
+- Agrega la búsqueda por color dominante.
+- Simplifica los pasos de la lista de contactos.
+- Soluciona un problema de memoria en las presentaciones de fotos en tabletas.
+
+Versión 4.1.3 · 2024-08-12
+- Corrige los filtros de color, que a veces no respondía con nombres de archivo largos.
+- Corrige textos cortados en el control de brillo en Android 12.
+- Reduce el espacio que ocupa el selector de idioma en el teléfono.
+
+Versión 4.1.4 · 2024-08-23
+- Agrega atajos de teclado para la vista de mapa en la versión web.
+- Agrega atajos de teclado para los recuerdos del año en la versión web.
+- Agrega la opción de ordenar los recuerdos del año por tamaño.
+- Corrige un cierre inesperado de la vista de calendario en tabletas.
+
+Versión 4.2.0 · 2024-09-06
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Retira una opción poco usada de las etiquetas automáticas.
+- Soluciona un error de permisos en la línea de tiempo en la versión web.
+
+Versión 4.2.1 · 2024-09-25
+- Agrega atajos de teclado para la descarga de álbumes completos en la versión web.
+- Agrupa las opciones de los comentarios en las fotos en una sola pantalla.
+- Mejora la accesibilidad del panel de almacenamiento para lectores de pantalla.
+- Mejora la velocidad de la vista previa de videos en tabletas.
+- Soluciona un problema de memoria en el inicio de sesión con correo en Android 14.
+
+Versión 4.2.2 · 2024-10-04
+- Cambia el ícono de la descarga de álbumes completos.
+- Corrige el orden de las fotos en la línea de tiempo en la versión web.
+- Corrige textos cortados en la búsqueda por fecha en Android 15.
+- Corrige un error que duplicaba fotos en los enlaces para invitados con más de 1 000 fotos en un álbum.
+
+Versión 4.2.3 · 2024-10-20
+- Agrega un aviso antes de vaciar la papelera.
+- Agrega una vista en cuadrícula para el selector de idioma.
+- Mejora la accesibilidad del reconocimiento de paisajes para lectores de pantalla.
+- Retira una opción poco usada de la lista de contactos.
+- Soluciona un error de permisos en los recuerdos del año con nombres de archivo largos.
+
+Versión 4.2.4 · 2024-11-02
+- Agrega un filtro por tipo de archivo.
+- Corrige un error que duplicaba fotos en la subida de fotos con fotos de más de 20 MB.
+- Mejora la accesibilidad del reconocimiento de paisajes para lectores de pantalla.
+- Mejora la accesibilidad del tutorial de bienvenida para lectores de pantalla.
+
+Versión 4.3.0 · 2024-11-19
+- Corrige el orden de las fotos en la búsqueda por fecha al girar el teléfono.
+- Corrige las notificaciones de comentarios, que a veces no respondía en Android 15.
+- Mejora la accesibilidad del modo oscuro para lectores de pantalla.
+
+Versión 4.3.1 · 2024-12-07
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Agrega una vista en cuadrícula para las marcas de agua.
+- Mejora la accesibilidad de la vista de calendario para lectores de pantalla.
+
+Versión 4.3.2 · 2024-12-26
+- Agrega la búsqueda por color dominante.
+- Agrega la opción de ordenar el tutorial de bienvenida por tamaño.
+- Agrega un contador de fotos por álbum.
+- Mejora la velocidad de los enlaces para invitados en iOS 16.
+- Soluciona un error de permisos en los enlaces para invitados en iOS 17.
+
+Versión 4.3.3 · 2025-01-04
+- Acelera las copias de seguridad en Android 13.
+- Corrige textos cortados en el reconocimiento de paisajes en iOS 18.
+- Mueve la rotación automática al menú principal.
+
+Versión 4.3.4 · 2025-01-19
+- Actualiza las traducciones de la línea de tiempo.
+- Agrega la opción de ordenar la línea de tiempo por tamaño.
+- Hace más claros los mensajes de error del menú de ajustes.
+- Simplifica los pasos del editor de recortes.
+
+Versión 4.4.0 · 2025-02-06
+- Acelera el reconocimiento de paisajes con fotos de más de 20 MB.
+- Actualiza los textos de ayuda del selector de idioma.
+- Corrige el orden de las fotos en los álbumes compartidos en pantallas pequeñas.
+- Corrige la lista de contactos, que a veces no respondía en Android 12.
+- Corrige un cierre inesperado de las copias de seguridad con fotos de más de 20 MB.
+
+Versión 4.4.1 · 2025-02-19
+- Agrega una vista en cuadrícula para el panel de almacenamiento.
+- Corrige los enlaces para invitados, que a veces no respondía en pantallas pequeñas.
+- Soluciona un fallo visual en los álbumes compartidos en el primer inicio.
+
+Versión 4.4.2 · 2025-03-08
+- Agrega la búsqueda por color dominante.
+- Agrega un contador de fotos por álbum.
+- Corrige un cierre inesperado de las presentaciones de fotos en iOS 18.
+- Mejora la accesibilidad de la descarga de álbumes completos para lectores de pantalla.
+
+Versión 4.4.3 · 2025-03-27
+- Agrupa las opciones de la descarga de álbumes completos en una sola pantalla.
+- Corrige la rotación automática, que a veces no respondía en iOS 17.
+- Mejora la velocidad del modo oscuro con nombres de archivo largos.
+
+Versión 4.4.4 · 2025-04-12
+- Acelera la lista de contactos en pantallas pequeñas.
+- Corrige la compresión de videos cortos, que a veces no respondía en pantallas pequeñas.
+- Retira una opción poco usada de las copias de seguridad.
+- Retira una opción poco usada del editor de recortes.
+
+Versión 4.5.0 · 2025-04-22
+- Actualiza los textos de ayuda de la rotación automática.
+- Agrega atajos de teclado para la impresión de álbumes en la versión web.
+- Hace más claros los mensajes de error de la descarga de álbumes completos.
+- Mejora el contraste de la descarga de álbumes completos en el modo oscuro.
+- Reduce el espacio que ocupa el menú de ajustes en el teléfono.
+
+Versión 4.5.1 · 2025-05-07
+- Cambia el ícono de la búsqueda por fecha.
+- Corrige un error que duplicaba fotos en las etiquetas automáticas en Android 12.
+- Soluciona un error de permisos en la vista de calendario en el primer inicio.
+
+Versión 4.5.2 · 2025-05-19
+- Agrega la opción de ocultar fotos de la línea de tiempo.
+- Retira una opción poco usada de los enlaces para invitados.
+- Soluciona un problema de memoria en la descarga de álbumes completos con fotos de más de 20 MB.
+
+Versión 4.5.3 · 2025-06-05
+- Agrega atajos de teclado para los álbumes compartidos en la versión web.
+- Agrega un aviso antes de vaciar la papelera.
+- Cambia el ícono de los álbumes compartidos.
+
+Versión 4.5.4 · 2025-06-18
+- Acelera el menú de ajustes en el primer inicio.
+- Agrega la opción de ocultar fotos de la línea de tiempo.
+- Agrega un filtro por tipo de archivo.
+- Soluciona un fallo visual en los álbumes compartidos en pantallas pequeñas.
+
+Versión 4.6.0 · 2025-06-30
+- Cambia el ícono de la detección de fotos duplicadas.
+- Corrige un error que duplicaba fotos en el visor de metadatos en Android 15.
+- Mejora la velocidad de la descarga de álbumes completos en la versión web.
+
+Versión 4.6.1 · 2025-07-09
+- Agrega un historial de cambios en los filtros de color.
+- Agrupa las opciones del modo oscuro en una sola pantalla.
+- Corrige textos cortados en la búsqueda por fecha en la versión web.
+
+Versión 4.6.2 · 2025-07-23
+- Agrega un botón para deshacer en el selector de idioma.
+- Mejora la velocidad del editor de recortes en el primer inicio.
+- Soluciona un error de permisos en el inicio de sesión con correo en iOS 16.
+- Soluciona un problema de memoria en los comentarios en las fotos en pantallas pequeñas.
+
+Versión 4.6.3 · 2025-08-07
+- Agrega plantillas nuevas para la lista de contactos.
+- Agrega un contador de fotos por álbum.
+- Mejora la accesibilidad de la compresión de videos cortos para lectores de pantalla.
+- Soluciona un fallo visual en las copias de seguridad en pantallas pequeñas.
+
+Versión 4.6.4 · 2025-08-26
+- Agrega un aviso antes de vaciar la papelera.
+- Cambia el ícono de la vista de mapa.
+- Soluciona un fallo visual en la línea de tiempo en Android 15.
+
+Versión 4.7.0 · 2025-09-13
+- Acelera las presentaciones de fotos en el primer inicio.
+- Actualiza las traducciones de la vista de mapa.
+- Agrega un filtro por tipo de archivo.
+- Corrige un error que duplicaba fotos en la exportación a PDF con fotos de más de 20 MB.
+
+Versión 4.7.1 · 2025-09-25
+- Agrega atajos de teclado para la compresión de videos cortos en la versión web.
+- Agrega un modo de selección rápida para el modo oscuro.
+- Mejora el contraste de la compresión de videos cortos en el modo oscuro.
+- Mejora el contraste de la vista de mapa en el modo oscuro.
+- Reduce el espacio que ocupa el control de brillo en el teléfono.
+
+Versión 4.7.2 · 2025-10-08
+- Actualiza los textos de ayuda de la exportación a PDF.
+- Mueve la vista de mapa al menú principal.
+- Reduce el consumo de batería de las etiquetas automáticas.
+
+Versión 4.7.3 · 2025-10-23
+- Corrige el orden de las fotos en la detección de fotos duplicadas con fotos de más de 20 MB.
+- Hace más claros los mensajes de error de los permisos de los álbumes.
+- Mejora la accesibilidad de los recuerdos del año para lectores de pantalla.
+- Simplifica los pasos de las etiquetas automáticas.
+- Soluciona un fallo visual en las etiquetas automáticas al girar el teléfono.
+
+Versión 4.7.4 · 2025-11-01
+- Agrega un historial de cambios en las etiquetas automáticas.
+- Corrige la detección de fotos duplicadas, que a veces no respondía en el primer inicio.
+- Retira una opción poco usada de los álbumes compartidos.
+
+Versión 4.8.0 · 2025-11-13
+- Agrega un filtro por tipo de archivo.
+- Corrige la vista de calendario, que a veces no respondía en la versión web.
+- Corrige textos cortados en los álbumes compartidos en Android 14.
+- Soluciona un problema de memoria en la subida de fotos en iOS 18.
+
+Versión 4.8.1 · 2025-11-28
+- Agrega atajos de teclado para la búsqueda por fecha en la versión web.
+- Agrega un filtro por tipo de archivo.
+- Agrega un modo de selección rápida para la vista de mapa.
+- Corrige el inicio de sesión con correo, que a veces no respondía en la versión web.
+
+Versión 4.8.2 · 2025-12-07
+- Acelera la línea de tiempo en Android 15.
+- Actualiza los textos de ayuda de la descarga de álbumes completos.
+- Agrega un contador de fotos por álbum.
+- Mejora la velocidad de los enlaces para invitados en Android 12.
+- Simplifica los pasos del modo oscuro.
+
+Versión 4.8.3 · 2025-12-18
+- Acelera el editor de recortes en Android 12.
+- Agrega un modo de selección rápida para los comentarios en las fotos.
+- Hace más claros los mensajes de error de las presentaciones de fotos.
+- Soluciona un fallo visual en la búsqueda por fecha en pantallas pequeñas.
+
+Versión 4.8.4 · 2026-01-02
+- Agrega la opción de ordenar el modo oscuro por tamaño.
+- Mejora la accesibilidad de la vista previa de videos para lectores de pantalla.
+- Mueve el visor de metadatos al menú principal.
+- Reduce el consumo de batería de los recuerdos del año.
+
+Versión 5.0.0 · 2026-01-20
+- Agrega un botón para compartir la papelera.
+- Cambia el ícono de los enlaces para invitados.
+- Corrige el orden de las fotos en el reconocimiento de paisajes con muchas fotos seleccionadas.
+- Corrige un error que duplicaba fotos en los enlaces para invitados con muchas fotos seleccionadas.
+- Mueve la rotación automática al menú principal.
+
+Versión 5.0.1 · 2026-02-03
+- Actualiza los textos de ayuda de las presentaciones de fotos.
+- Agrega un botón para deshacer en el inicio de sesión con correo.
+- Corrige el orden de las fotos en los álbumes compartidos en iOS 18.
+- Mejora la accesibilidad de la búsqueda por fecha para lectores de pantalla.
+
+Versión 5.0.2 · 2026-02-19
+- Corrige un error que duplicaba fotos en la compresión de videos cortos con muchas fotos seleccionadas.
+- Reduce el consumo de batería del modo oscuro.
+- Reduce el espacio que ocupa los recuerdos del año en el teléfono.
+- Soluciona un fallo visual en los álbumes compartidos en el primer inicio.
+
+Versión 5.0.3 · 2026-02-28
+- Actualiza las traducciones de los filtros de color.
+- Corrige un error que duplicaba fotos en los recuerdos del año en Android 13.
+- Mejora el contraste del editor de recortes en el modo oscuro.
+
+Versión 5.0.4 · 2026-03-19
+- Agrega un botón para compartir el reconocimiento de paisajes.
+- Cambia el ícono de la búsqueda por fecha.
+- Corrige la vista de calendario, que a veces no respondía con el ahorro de batería activo.
+- Corrige un error que duplicaba fotos en las marcas de agua en Android 15.
+- Retira una opción poco usada del selector de idioma.
+
+Versión 5.1.0 · 2026-04-03
+- Agrega plantillas nuevas para la rotación automática.
+- Agrega un historial de cambios en la descarga de álbumes completos.
+- Corrige un error que duplicaba fotos en la galería de favoritos con más de 1 000 fotos en un álbum.
+- Mejora el contraste del tutorial de bienvenida en el modo oscuro.
+
+Versión 5.1.1 · 2026-04-17
+- Actualiza las traducciones de la impresión de álbumes.
+- Corrige la vista previa de videos, que a veces no respondía en la versión web.
+- Mejora la accesibilidad de la compresión de videos cortos para lectores de pantalla.
+
+Versión 5.1.2 · 2026-04-30
+- Corrige un cierre inesperado de la detección de fotos duplicadas con muchas fotos seleccionadas.
+- Mejora la accesibilidad del visor de metadatos para lectores de pantalla.
+- Reduce el espacio que ocupa los enlaces para invitados en el teléfono.
+
+Versión 5.1.3 · 2026-05-11
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Agrega un botón para compartir las presentaciones de fotos.
+- Mejora el contraste de los enlaces para invitados en el modo oscuro.
+
+Versión 5.1.4 · 2026-05-24
+- Corrige el orden de las fotos en la detección de fotos duplicadas en Android 15.
+- Corrige los enlaces para invitados, que a veces no respondía después de actualizar la app.
+- Soluciona un fallo visual en las copias de seguridad después de actualizar la app.
+
+Versión 5.2.0 · 2026-06-11
+- Cambia el ícono del control de brillo.
+- Corrige un cierre inesperado de las etiquetas automáticas con nombres de archivo largos.
+- Mejora la accesibilidad de las copias de seguridad para lectores de pantalla.
+- Reduce el consumo de batería de la vista de mapa.
+
+Versión 5.2.1 · 2026-06-22
+- Actualiza los textos de ayuda de los comentarios en las fotos.
+- Cambia el ícono de los enlaces para invitados.
+- Mejora la accesibilidad del inicio de sesión con correo para lectores de pantalla.
+- Reduce el consumo de batería de los recuerdos del año.
+
+Versión 5.2.2 · 2026-07-11
+- Actualiza las traducciones de las marcas de agua.
+- Actualiza los textos de ayuda del selector de idioma.
+- Corrige el orden de las fotos en las presentaciones de fotos con muchas fotos seleccionadas.
+- Corrige las presentaciones de fotos, que a veces no respondía después de actualizar la app.
+- Mejora el contraste de las copias de seguridad en el modo oscuro.
+
+Versión 5.2.3 · 2026-07-21
+- Actualiza los textos de ayuda de la subida de fotos.
+- Agrega la opción de ordenar las notificaciones de comentarios por tamaño.
+- Corrige textos cortados en la exportación a PDF al girar el teléfono.
+- Reduce el espacio que ocupa la rotación automática en el teléfono.
+
+Versión 5.2.4 · 2026-08-08
+- Actualiza los textos de ayuda del reconocimiento de paisajes.
+- Agrega un filtro por tipo de archivo.
+- Corrige textos cortados en la rotación automática con el idioma portugués.
+
+Versión 5.3.0 · 2026-08-27
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Agrega un botón para deshacer en la lista de contactos.
+- Agrega un resumen semanal del tutorial de bienvenida.
+- Corrige el tutorial de bienvenida, que a veces no respondía con fotos de más de 20 MB.
+
+Versión 5.3.1 · 2026-09-06
+- Agrega un resumen semanal de los recuerdos del año.
+- Corrige el editor de recortes, que a veces no respondía en Android 12.
+- Corrige las presentaciones de fotos, que a veces no respondía en Android 15.
+
+Versión 5.3.2 · 2026-09-24
+- Agrega la opción de ordenar el editor de recortes por tamaño.
+- Corrige el orden de las fotos en la búsqueda por fecha al girar el teléfono.
+- Corrige el orden de las fotos en los comentarios en las fotos en Android 12.
+
+Versión 5.3.3 · 2026-10-07
+- Agrega un botón para deshacer en la vista previa de videos.
+- Corrige textos cortados en los comentarios en las fotos con muchas fotos seleccionadas.
+- Corrige un error que duplicaba fotos en la vista previa de videos en pantallas pequeñas.
+- Reduce el consumo de batería del reconocimiento de paisajes.
+
+Versión 5.3.4 · 2026-10-20
+- Agrega la opción de ordenar el inicio de sesión con correo por tamaño.
+- Hace más claros los mensajes de error de la vista de mapa.
+- Reduce el consumo de batería de los permisos de los álbumes.
+- Soluciona un error de permisos en la subida de fotos con el ahorro de batería activo.
+
+Versión 5.4.0 · 2026-11-06
+- Actualiza las traducciones de la compresión de videos cortos.
+- Agrega atajos de teclado para las etiquetas automáticas en la versión web.
+- Corrige un cierre inesperado de la galería de favoritos en Android 12.
+- Corrige un cierre inesperado de los recuerdos del año con más de 1 000 fotos en un álbum.
+- Mejora el contraste del reconocimiento de paisajes en el modo oscuro.
+
+Versión 5.4.1 · 2026-11-19
+- Agrupa las opciones de la lista de contactos en una sola pantalla.
+- Corrige textos cortados en la exportación a PDF en la versión web.
+- Retira una opción poco usada del tutorial de bienvenida.
+
+Versión 5.4.2 · 2026-12-07
+- Agrega un resumen semanal del editor de recortes.
+- Corrige un cierre inesperado de los enlaces para invitados con muchas fotos seleccionadas.
+- Reduce el consumo de batería de los recuerdos del año.
+- Soluciona un error de permisos en el editor de recortes con el ahorro de batería activo.
+
+Versión 5.4.3 · 2026-12-25
+- Agrega un contador de fotos por álbum.
+- Retira una opción poco usada del visor de metadatos.
+- Soluciona un error de permisos en la galería de favoritos con nombres de archivo largos.
+- Soluciona un fallo visual en la impresión de álbumes en pantallas pequeñas.
+- Soluciona un problema de memoria en el visor de metadatos en Android 14.
+
+Versión 5.4.4 · 2027-01-12
+- Actualiza las traducciones del modo oscuro.
+- Agrega un historial de cambios en el editor de recortes.
+- Cambia el ícono del selector de idioma.
+- Corrige textos cortados en la papelera en pantallas pequeñas.
+
+Versión 5.5.0 · 2027-01-25
+- Corrige un cierre inesperado de las marcas de agua con nombres de archivo largos.
+- Mejora la accesibilidad de la búsqueda por fecha para lectores de pantalla.
+- Simplifica los pasos de las notificaciones de comentarios.
+
+Versión 5.5.1 · 2027-02-07
+- Acelera los filtros de color en pantallas pequeñas.
+- Acelera los álbumes compartidos en tabletas.
+- Simplifica los pasos de los enlaces para invitados.
+
+Versión 5.5.2 · 2027-02-25
+- Agrega atajos de teclado para las presentaciones de fotos en la versión web.
+- Corrige la compresión de videos cortos, que a veces no respondía en Android 12.
+- Corrige un cierre inesperado del visor de metadatos después de actualizar la app.
+- Soluciona un error de permisos en los álbumes compartidos con el ahorro de batería activo.
+- Soluciona un problema de memoria en la papelera en la versión web.
+
+Versión 5.5.3 · 2027-03-15
+- Actualiza las traducciones de las etiquetas automáticas.
+- Agrega un filtro por tipo de archivo.
+- Corrige el orden de las fotos en la búsqueda por fecha con el ahorro de batería activo.
+
+Versión 5.5.4 · 2027-04-03
+- Agrega un botón para deshacer en la lista de contactos.
+- Agrega un modo de selección rápida para la lista de contactos.
+- Corrige textos cortados en la vista de mapa con muchas fotos seleccionadas.
+- Mejora la accesibilidad de las notificaciones de comentarios para lectores de pantalla.
+
+Versión 5.6.0 · 2027-04-12
+- Agrega atajos de teclado para el selector de idioma en la versión web.
+- Hace más claros los mensajes de error del inicio de sesión con correo.
+- Simplifica los pasos de la galería de favoritos.
+- Soluciona un problema de memoria en el editor de recortes al girar el teléfono.
+
+Versión 5.6.1 · 2027-04-30
+- Corrige el orden de las fotos en los comentarios en las fotos en el primer inicio.
+- Corrige un error que duplicaba fotos en el tutorial de bienvenida en iOS 17.
+- Reduce el consumo de batería de la detección de fotos duplicadas.
+
+Versión 5.6.2 · 2027-05-11
+- Agrega la opción de ordenar la rotación automática por tamaño.
+- Agrega un filtro por tipo de archivo.
+- Mejora el contraste de la detección de fotos duplicadas en el modo oscuro.
+- Reduce el espacio que ocupa la vista de mapa en el teléfono.
+- Soluciona un problema de memoria en la exportación a PDF en iOS 17.
+
+Versión 5.6.3 · 2027-05-20
+- Acelera el menú de ajustes en Android 12.
+- Agrega un botón para deshacer en la exportación a PDF.
+- Corrige el orden de las fotos en la subida de fotos al girar el teléfono.
+- Corrige un error que duplicaba fotos en los permisos de los álbumes en iOS 16.
+- Retira una opción poco usada de los recuerdos del año.
+
+Versión 5.6.4 · 2027-05-31
+- Corrige la galería de favoritos, que a veces no respondía con muchas fotos seleccionadas.
+- Corrige textos cortados en los comentarios en las fotos con fotos de más de 20 MB.
+- Reduce el consumo de batería del modo oscuro.
+
+Versión 5.7.0 · 2027-06-14
+- Cambia el ícono de la impresión de álbumes.
+- Cambia el ícono de los filtros de color.
+- Soluciona un error de permisos en los enlaces para invitados en el primer inicio.
+
+Versión 5.7.1 · 2027-06-23
+- Agrega un botón para deshacer en el reconocimiento de paisajes.
+- Corrige la exportación a PDF, que a veces no respondía en iOS 17.
+- Corrige un cierre inesperado de los filtros de color después de actualizar la app.
+
+Versión 5.7.2 · 2027-07-08
+- Agrega un botón para compartir las presentaciones de fotos.
+- Corrige un cierre inesperado de las presentaciones de fotos en pantallas pequeñas.
+- Mejora la velocidad de las notificaciones de comentarios con el idioma portugués.
+- Soluciona un error de permisos en la impresión de álbumes al girar el teléfono.
+- Soluciona un fallo visual en el menú de ajustes con fotos de más de 20 MB.
+
+Versión 5.7.3 · 2027-07-25
+- Actualiza los textos de ayuda de las etiquetas automáticas.
+- Corrige el orden de las fotos en la rotación automática en pantallas pequeñas.
+- Corrige el orden de las fotos en la vista de mapa con más de 1 000 fotos en un álbum.
+- Soluciona un fallo visual en la descarga de álbumes completos con más de 1 000 fotos en un álbum.
+
+Versión 5.7.4 · 2027-08-11
+- Actualiza las traducciones de los álbumes compartidos.
+- Agrega la opción de fijar álbumes arriba de la lista.
+- Agrega un filtro por tipo de archivo.
+- Agrega una vista en cuadrícula para la vista de calendario.
+- Corrige el orden de las fotos en el selector de idioma en Android 14.
+
+Versión 5.8.0 · 2027-08-21
+- Actualiza las traducciones de la vista de mapa.
+- Agrega atajos de teclado para el inicio de sesión con correo en la versión web.
+- Agrega atajos de teclado para la búsqueda por fecha en la versión web.
+- Retira una opción poco usada del modo oscuro.
+
+Versión 5.8.1 · 2027-09-03
+- Agrega la búsqueda por color dominante.
+- Agrega la opción de ordenar la vista de mapa por tamaño.
+- Hace más claros los mensajes de error de la lista de contactos.
+- Simplifica los pasos de la detección de fotos duplicadas.
+
+Versión 5.8.2 · 2027-09-15
+- Corrige textos cortados en el control de brillo con fotos de más de 20 MB.
+- Mejora el contraste de la subida de fotos en el modo oscuro.
+- Soluciona un error de permisos en la compresión de videos cortos en tabletas.
+
+Versión 5.8.3 · 2027-09-26
+- Actualiza los textos de ayuda de la galería de favoritos.
+- Agrega un filtro por tipo de archivo.
+- Corrige un error que duplicaba fotos en la vista de mapa en iOS 18.
+
+Versión 5.8.4 · 2027-10-12
+- Agrupa las opciones de la papelera en una sola pantalla.
+- Mejora el contraste del visor de metadatos en el modo oscuro.
+- Mejora la velocidad de los permisos de los álbumes con el idioma portugués.
+- Mueve la papelera al menú principal.
+- Reduce el consumo de batería de la línea de tiempo.

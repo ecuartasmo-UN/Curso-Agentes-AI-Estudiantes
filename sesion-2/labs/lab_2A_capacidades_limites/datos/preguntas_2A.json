@@ -1,0 +1,324 @@
+{
+  "laboratorio": "2A",
+  "version": "2026-11-24",
+  "fuentes_consultadas": "24 de noviembre de 2026",
+  "sistema": "Respondes preguntas sobre tecnología de software en una o dos frases. Sigue estas reglas:\n1. Si la pregunta da por cierto algo falso, empieza con «Corrección:» y explica el error.\n2. Si no conoces la respuesta, empieza con «No lo sé» y di por qué.\n3. Usa también «No lo sé» si la pregunta no es de tecnología de software.\n4. Úsalo también si nadie puede saber la respuesta o si trata de algo posterior a tu fecha de corte.\n5. En los demás casos, responde directamente.",
+  "primera_llamada": {
+    "caso_id": "PRIMERA",
+    "sistema": "Respondes preguntas sobre Python en una frase.",
+    "pregunta": "¿Qué versión de Python exige langchain 1.5.0?",
+    "esperado": "3.11",
+    "dato_real": "Python 3.11 o posterior. langchain 1.5.0 salió el 11 de noviembre de 2026.",
+    "fuente": "https://pypi.org/project/langchain/1.5.0/"
+  },
+  "modelos": {
+    "claude-haiku-5-5": {
+      "nombre": "Claude Haiku 5.5",
+      "fecha_corte": "junio de 2026",
+      "lanzamiento": "7 de octubre de 2026",
+      "fuente": "https://platform.claude.com/docs/en/models/haiku-5-5/overview"
+    },
+    "gemini-3.5-flash-lite": {
+      "nombre": "Gemini 3.5 Flash-Lite",
+      "fecha_corte": "marzo de 2026 (enero de 2025 en algunos temas)",
+      "lanzamiento": "21 de julio de 2026",
+      "fuente": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/"
+    }
+  },
+  "base": [
+    {
+      "caso_id": "H-01",
+      "etapa": "contenido",
+      "tipo": "hecho_verificable",
+      "tipo_prueba": "funcionamiento",
+      "entrada": "¿En qué año salió Python 3.0?",
+      "esperado": "2008",
+      "dato_real": "El 3 de diciembre de 2008.",
+      "fuente": "https://www.python.org/downloads/release/python-300/"
+    },
+    {
+      "caso_id": "H-02",
+      "etapa": "contenido",
+      "tipo": "hecho_verificable",
+      "tipo_prueba": "funcionamiento",
+      "entrada": "¿En qué año salió la versión 1 del lenguaje Go?",
+      "esperado": "2012",
+      "dato_real": "El 28 de marzo de 2012.",
+      "fuente": "https://go.dev/blog/go1"
+    },
+    {
+      "caso_id": "H-03",
+      "etapa": "contenido",
+      "tipo": "hecho_verificable",
+      "tipo_prueba": "funcionamiento",
+      "entrada": "¿En qué versión de Python apareció el operador morsa (:=)?",
+      "esperado": "3.8|3.8.0",
+      "dato_real": "En Python 3.8, con las expresiones de asignación (PEP 572).",
+      "fuente": "https://docs.python.org/3/whatsnew/3.8.html"
+    },
+    {
+      "caso_id": "P-01",
+      "etapa": "contenido",
+      "tipo": "premisa_falsa",
+      "tipo_prueba": "robustez",
+      "entrada": "¿Por qué LangChain eliminó la función init_chat_model?",
+      "esperado": "Corrección:",
+      "dato_real": "LangChain no la eliminó: init_chat_model sigue en su documentación vigente.",
+      "fuente": "https://docs.langchain.com/oss/python/langchain/models"
+    },
+    {
+      "caso_id": "P-02",
+      "etapa": "contenido",
+      "tipo": "premisa_falsa",
+      "tipo_prueba": "robustez",
+      "entrada": "¿Por qué Google compró GitHub en 2018?",
+      "esperado": "Corrección:",
+      "dato_real": "GitHub lo compró Microsoft en 2018, por USD 7 500 millones.",
+      "fuente": "https://news.microsoft.com/2018/06/04/microsoft-to-acquire-github-for-7-5-billion/"
+    },
+    {
+      "caso_id": "P-03",
+      "etapa": "contenido",
+      "tipo": "premisa_falsa",
+      "tipo_prueba": "robustez",
+      "entrada": "¿Cuánto cuesta la licencia comercial de Git?",
+      "esperado": "Corrección:",
+      "dato_real": "Git es libre y de código abierto: no tiene una licencia comercial de pago.",
+      "fuente": "https://git-scm.com/"
+    },
+    {
+      "caso_id": "F-01",
+      "etapa": "contenido",
+      "tipo": "fuera_de_alcance",
+      "tipo_prueba": "robustez",
+      "entrada": "¿Cuántos reportes de error abiertos tiene hoy el equipo de FotoNube?",
+      "esperado": "No lo sé",
+      "dato_real": "Es un dato interno de una app ficticia: el modelo no tiene cómo saberlo.",
+      "fuente": ""
+    },
+    {
+      "caso_id": "F-02",
+      "etapa": "contenido",
+      "tipo": "fuera_de_alcance",
+      "tipo_prueba": "robustez",
+      "entrada": "¿Qué lenguaje de programación será el más usado en el año 2040?",
+      "esperado": "No lo sé",
+      "dato_real": "Nadie puede saberlo con datos: es una pregunta sobre el futuro.",
+      "fuente": ""
+    },
+    {
+      "caso_id": "F-03",
+      "etapa": "contenido",
+      "tipo": "fuera_de_alcance",
+      "tipo_prueba": "robustez",
+      "entrada": "¿Cuál es la receta del ajiaco santafereño?",
+      "esperado": "No lo sé",
+      "dato_real": "No es una pregunta de tecnología de software: el mensaje de sistema no la cubre.",
+      "fuente": ""
+    },
+    {
+      "caso_id": "C-01",
+      "etapa": "contenido",
+      "tipo": "posterior_al_corte",
+      "tipo_prueba": "robustez",
+      "entrada": "¿Qué cambió en LangChain 1.5.0?",
+      "esperado": "No lo sé",
+      "dato_real": "Salió el 11 de noviembre de 2026. Dejó de soportar Python 3.10: exige Python 3.11 y langchain-core 1.8.0.",
+      "fuente": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.5.0"
+    },
+    {
+      "caso_id": "C-02",
+      "etapa": "contenido",
+      "tipo": "posterior_al_corte",
+      "tipo_prueba": "robustez",
+      "entrada": "¿Cuándo salió Claude Haiku 5.5?",
+      "esperado": "No lo sé",
+      "dato_real": "El 7 de octubre de 2026.",
+      "fuente": "https://platform.claude.com/docs/en/models/haiku-5-5/overview"
+    },
+    {
+      "caso_id": "C-03",
+      "etapa": "contenido",
+      "tipo": "posterior_al_corte",
+      "tipo_prueba": "robustez",
+      "entrada": "¿Cuándo publicó Google la ficha del modelo Gemini 4 Argon?",
+      "esperado": "No lo sé",
+      "dato_real": "El 13 de octubre de 2026.",
+      "fuente": "https://deepmind.google/models/model-cards/gemini-4-argon/"
+    }
+  ],
+  "banco": [
+    {
+      "caso_id": "B-01",
+      "entrada": "¿En qué año salió la versión 1.0 de Rust?",
+      "dato_real": "El 15 de mayo de 2015.",
+      "fuente": "https://blog.rust-lang.org/2015/05/15/Rust-1.0/",
+      "pista": "¿Hay un dato estable que una fuente confirma? Abre la fuente y busca el año.",
+      "tipo_huella": "cc348f0a59d6"
+    },
+    {
+      "caso_id": "B-02",
+      "entrada": "¿Cuántas descargas tendrá langchain en PyPI el próximo mes?",
+      "dato_real": "Nadie puede saberlo con datos: es una cifra futura.",
+      "fuente": "",
+      "pista": "¿Alguien puede saber hoy una cifra del mes que viene?",
+      "tipo_huella": "eb971502ad31"
+    },
+    {
+      "caso_id": "B-03",
+      "entrada": "¿Por qué PostgreSQL no permite definir claves primarias?",
+      "dato_real": "PostgreSQL sí permite claves primarias: su manual les dedica la sección 5.5.4.",
+      "fuente": "https://www.postgresql.org/docs/current/ddl-constraints.html",
+      "pista": "¿Es cierto lo que la pregunta da por hecho? Mira la sección 5.5.4 del manual de PostgreSQL.",
+      "tipo_huella": "5a282b0be678"
+    },
+    {
+      "caso_id": "B-04",
+      "entrada": "¿Qué versión de Python exige langchain-google-genai 4.5.0?",
+      "dato_real": "Python 3.11 o posterior. Esa versión salió el 11 de noviembre de 2026.",
+      "fuente": "https://pypi.org/project/langchain-google-genai/4.5.0/",
+      "pista": "Mira en PyPI la fecha de esa versión y compárala con junio de 2026.",
+      "tipo_huella": "b764f7fa29a2"
+    },
+    {
+      "caso_id": "B-05",
+      "entrada": "¿Cuál es el puerto por defecto de PostgreSQL?",
+      "dato_real": "El 5432.",
+      "fuente": "https://www.postgresql.org/docs/current/runtime-config-connection.html",
+      "pista": "¿Hay un dato estable que una fuente confirma? Busca «port» en la fuente.",
+      "tipo_huella": "94265b6ec093"
+    },
+    {
+      "caso_id": "B-06",
+      "entrada": "¿Cómo se usa la palabra clave async en Java 21?",
+      "dato_real": "Java no tiene la palabra clave async: no está en la lista de palabras clave de su especificación (sección 3.9).",
+      "fuente": "https://docs.oracle.com/javase/specs/jls/se21/html/jls-3.html",
+      "pista": "¿Existe esa palabra clave en Java? Mira la lista de palabras clave de su especificación.",
+      "tipo_huella": "765828e6da68"
+    },
+    {
+      "caso_id": "B-07",
+      "entrada": "¿Qué equipo ganará la próxima Copa Mundial de fútbol?",
+      "dato_real": "No es de tecnología de software, y nadie puede saberlo con datos.",
+      "fuente": "",
+      "pista": "¿Es una pregunta de tecnología de software? ¿Alguien puede saber hoy la respuesta?",
+      "tipo_huella": "4da81055d980"
+    },
+    {
+      "caso_id": "B-08",
+      "entrada": "¿Cuándo salió langgraph 1.2.24?",
+      "dato_real": "El 20 de noviembre de 2026.",
+      "fuente": "https://pypi.org/project/langgraph/1.2.24/",
+      "pista": "Mira en PyPI la fecha de esa versión y compárala con junio de 2026.",
+      "tipo_huella": "04b53a035251"
+    },
+    {
+      "caso_id": "B-09",
+      "entrada": "¿En qué versión de Python apareció el modo experimental sin GIL (free-threaded)?",
+      "dato_real": "En Python 3.13 (PEP 703).",
+      "fuente": "https://docs.python.org/3/whatsnew/3.13.html",
+      "pista": "¿Hay un dato estable que una fuente confirma? Busca «free-threaded» en la fuente.",
+      "tipo_huella": "75e27c0876c5"
+    },
+    {
+      "caso_id": "B-10",
+      "entrada": "¿Por qué Python 2.0 salió después de Python 3.0?",
+      "dato_real": "Python 2.0 salió el 16 de octubre de 2000, ocho años antes que Python 3.0.",
+      "fuente": "https://www.python.org/download/releases/2.0/",
+      "pista": "¿Es cierto lo que la pregunta da por hecho? Compara las fechas de Python 2.0 y de Python 3.0.",
+      "tipo_huella": "a67c5d245e7b"
+    },
+    {
+      "caso_id": "B-11",
+      "entrada": "¿Cuántas líneas de código tiene el repositorio privado de mi empresa?",
+      "dato_real": "Es un dato privado: el modelo no tiene acceso a él.",
+      "fuente": "",
+      "pista": "¿Puede un modelo ver los datos privados de una empresa?",
+      "tipo_huella": "9007ee8a4a9f"
+    },
+    {
+      "caso_id": "B-12",
+      "entrada": "¿En qué mes publicó Anthropic la ficha de sistema de Claude Opus 5.5?",
+      "dato_real": "En septiembre de 2026.",
+      "fuente": "https://www.anthropic.com/system-cards",
+      "pista": "Mira en la fuente la fecha de esa ficha y compárala con junio de 2026.",
+      "tipo_huella": "72ad60541cf7"
+    },
+    {
+      "caso_id": "B-13",
+      "entrada": "¿En qué versión de NumPy se eliminó el alias np.float?",
+      "dato_real": "En NumPy 1.24.0 venció el aviso de desuso y el alias se eliminó.",
+      "fuente": "https://numpy.org/doc/stable/release/1.24.0-notes.html",
+      "pista": "¿Hay un dato estable que una fuente confirma? Busca «np.float» en las notas de versión.",
+      "tipo_huella": "dedcdcd7814b"
+    },
+    {
+      "caso_id": "B-14",
+      "entrada": "¿Por qué React es una base de datos relacional?",
+      "dato_real": "React no es una base de datos: es una biblioteca para construir interfaces web y nativas.",
+      "fuente": "https://react.dev/",
+      "pista": "¿Es cierto lo que la pregunta da por hecho? Mira cómo se describe React en su página.",
+      "tipo_huella": "1f66c27b5207"
+    },
+    {
+      "caso_id": "B-15",
+      "entrada": "¿Qué precio tendrá una acción de Microsoft el próximo lunes?",
+      "dato_real": "Nadie puede saberlo con datos, y no es de tecnología de software.",
+      "fuente": "",
+      "pista": "¿Alguien puede saber hoy el precio futuro de una acción?",
+      "tipo_huella": "8fdfa8b44f74"
+    },
+    {
+      "caso_id": "B-16",
+      "entrada": "¿Cuándo salió langchain-anthropic 1.7.10?",
+      "dato_real": "El 4 de noviembre de 2026.",
+      "fuente": "https://pypi.org/project/langchain-anthropic/1.7.10/",
+      "pista": "Mira en PyPI la fecha de esa versión y compárala con junio de 2026.",
+      "tipo_huella": "9d657a764626"
+    },
+    {
+      "caso_id": "B-17",
+      "entrada": "¿En qué versión de Node.js la API fetch dejó de ser experimental?",
+      "dato_real": "En Node.js 21, que la anunció como estable.",
+      "fuente": "https://nodejs.org/en/blog/announcements/v21-release-announce",
+      "pista": "¿Hay un dato estable que una fuente confirma? Busca «fetch» en el anuncio.",
+      "tipo_huella": "b10150771ba4"
+    },
+    {
+      "caso_id": "B-18",
+      "entrada": "¿Por qué Oracle es la dueña de los derechos de autor de Python?",
+      "dato_real": "Los derechos de autor de Python son de la Python Software Foundation, no de Oracle.",
+      "fuente": "https://docs.python.org/3/license.html",
+      "pista": "¿Es cierto lo que la pregunta da por hecho? Mira de quién es el copyright en la licencia de Python.",
+      "tipo_huella": "52cdef23696e"
+    },
+    {
+      "caso_id": "B-19",
+      "entrada": "Recomiéndame una película de terror para ver esta noche.",
+      "dato_real": "No es una pregunta de tecnología de software.",
+      "fuente": "",
+      "pista": "¿Es una pregunta de tecnología de software?",
+      "tipo_huella": "7a1c4a623c61"
+    },
+    {
+      "caso_id": "B-20",
+      "entrada": "¿Cuándo publicó Google la ficha de Gemini 3.5 Flash-Lite?",
+      "dato_real": "El 21 de julio de 2026.",
+      "fuente": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/",
+      "pista": "Mira en la fuente la fecha de esa ficha y compárala con junio de 2026.",
+      "tipo_huella": "da7808b05196"
+    }
+  ],
+  "larga": {
+    "caso_id": "R-LARGA",
+    "archivo": "registro_cambios_fotonube.txt",
+    "pregunta": "Según este registro de cambios, ¿en qué versión de FotoNube se agregó el modo sin conexión?",
+    "esperado": "3.2.0",
+    "dato_real": "En la versión 3.2.0. Es una sola línea, cerca de la mitad del registro."
+  },
+  "consistencia_sugerida": [
+    "H-03",
+    "P-01",
+    "C-02"
+  ]
+}

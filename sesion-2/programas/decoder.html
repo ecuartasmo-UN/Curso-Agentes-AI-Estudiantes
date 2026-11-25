@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El decoder · El transformer por dentro</title>
+<script src="../assets/js/tema.js"></script>
+<link rel="stylesheet" href="../assets/css/tema-agentes.css">
+<link rel="stylesheet" href="../assets/css/sesion2.css">
+<style>
+  body { font-family: "Inter", system-ui, sans-serif; min-height: 100vh; }
+  .pagina-programa { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; padding: 70px 24px 40px; }
+  .pagina-programa h1 { font: 700 40px/1.1 "Space Grotesk", sans-serif; margin: 6px 0 8px; }
+  .pagina-programa .intro { font-size: 18px; color: var(--texto-suave); margin: 0 0 18px; max-width: 900px; }
+  .pagina-programa .volver { font-size: 15px; color: var(--acento); }
+  .pagina-programa .programa { max-width: 1200px; }
+  .pie-pagina { margin-top: 18px; font-size: 14px; color: var(--texto-tenue); }
+</style>
+</head>
+<body>
+<main class="pagina-programa">
+  <a class="volver" href="../index.html" data-con-tema>← Índice de la sesión 2</a>
+  <p class="antetitulo" style="display:flex;width:max-content;margin-top:18px">El transformer por dentro · 4 de 5</p>
+  <h1>El decoder</h1>
+  <p class="intro">Un token a la vez, la máscara real de GPT-2, el feed-forward, la pila de bloques y la temperatura. Usa los botones o las flechas del teclado. La tecla T cambia el tema.</p>
+  <div class="programa" data-programa="decoder" data-base="../assets/"></div>
+  <p class="pie-pagina">Programa del bloque 2.1 de Agentes de IA (aplicado). Los valores marcados como ilustrativos no salen de un modelo real. Las fuentes están en el README de la sesión.</p>
+</main>
+<script src="../assets/vendor/react-18.3.1/react.production.min.js"></script>
+<script src="../assets/vendor/react-18.3.1/react-dom.production.min.js"></script>
+<script src="../assets/js/programas.js"></script>
+</body>
+</html>
