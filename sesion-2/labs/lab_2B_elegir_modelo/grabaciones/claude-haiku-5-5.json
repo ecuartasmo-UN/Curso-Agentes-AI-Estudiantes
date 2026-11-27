@@ -1,0 +1,1586 @@
+{
+ "modelo": "claude-haiku-5-5",
+ "laboratorio": "2B",
+ "fecha": "2026-11-27",
+ "parametros": {
+  "thinking": {
+   "type": "disabled"
+  },
+  "max_tokens": 512,
+  "timeout": 60,
+  "max_retries": 3
+ },
+ "versiones": {
+  "langchain": "1.5.0",
+  "langchain-core": "1.8.5",
+  "langchain-anthropic": "1.7.10",
+  "langchain-google-genai": "4.5.0"
+ },
+ "simulado": false,
+ "indice": {
+  "15b70c24a9ceed855ff4": {
+   "caso_id": "R-01",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "La app se cierra al subir una foto en Android 15."
+  },
+  "051641e78247a361b6ae": {
+   "caso_id": "R-02",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "Las miniaturas de la galería tardan casi un minuto en cargar desde la última actualización."
+  },
+  "def91f25c5eb12ede58f": {
+   "caso_id": "R-03",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "El texto del botón Compartir aparece cortado en el menú, en iOS 18."
+  },
+  "2b9483427cf69e79493f": {
+   "caso_id": "R-04",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "No puedo iniciar sesión: la app dice que mi contraseña es incorrecta, aunque la acabo de cambiar."
+  },
+  "7be46b52378409164631": {
+   "caso_id": "R-05",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "Sería útil poder ordenar los álbumes por fecha de creación."
+  },
+  "71abbe7e97981c1f539c": {
+   "caso_id": "R-06",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "Desde ayer, la app gasta mucha batería aunque no la esté usando."
+  },
+  "04173092633b5b187fe2": {
+   "caso_id": "R-07",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "Al subir más de 500 fotos a la vez, la app se congela y hay que cerrarla. Con menos fotos funciona bien."
+  },
+  "99d41f02918dfa5cd0f8": {
+   "caso_id": "R-08",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "Borré un álbum por error y las fotos no aparecen en la papelera."
+  },
+  "15f23fc3ea99c8b7cbcf": {
+   "caso_id": "R-09",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "La app no se cierra, pero el editor tarda 20 segundos en aplicar cada filtro."
+  },
+  "6e5ca8fe2198834a6c26": {
+   "caso_id": "R-10",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "app no sirve!!! las fotos no suben ayudaaa"
+  },
+  "55f9e8c84204f89f8b7e": {
+   "caso_id": "R-11",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "no puedo entrar ni con google ni con correo y tampoco me llega el codigo"
+  },
+  "60f280857c68c527cc33": {
+   "caso_id": "R-12",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "La foto de perfil se ve borrosa y además la app se cerró una vez ayer."
+  },
+  "f6fd439de563f52be66d": {
+   "caso_id": "B-01",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "Cuando giro el teléfono mientras edito, se pierden los cambios del recorte."
+  },
+  "10f6df3ea480cd0cfa63": {
+   "caso_id": "B-02",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "estaria bueno q se pudiera poner musica a las presentaciones"
+  },
+  "2140f2ada3fb8f634da1": {
+   "caso_id": "B-03",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "El buscador no encuentra fotos por fecha si escribo el mes con mayúscula."
+  },
+  "dbadb1ba7df628fda27b": {
+   "caso_id": "B-04",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "Desde la versión 5.8, la app tarda unos 15 segundos en abrir."
+  },
+  "6f2418b0342548751105": {
+   "caso_id": "B-05",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "No me deja cambiar el correo de mi cuenta: el botón Guardar no hace nada."
+  },
+  "ee0caa16a75b5007af06": {
+   "caso_id": "B-06",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "la app se cierra sola cada q abro un album compartido"
+  },
+  "4fc26aac02992fa2e681": {
+   "caso_id": "B-07",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "Olvidé mi contraseña y el correo de recuperación nunca llega."
+  },
+  "e7dcd23f6d620c17f0a8": {
+   "caso_id": "B-08",
+   "variante": "basica",
+   "escenario": "",
+   "entrada": "Las notificaciones llegan en inglés aunque tengo la app en español, y a veces llegan repetidas."
+  },
+  "cb37669200c3b4682ddb": {
+   "caso_id": "R-TIEMPO",
+   "variante": "basica",
+   "escenario": "tiempo_agotado",
+   "entrada": "La app se cierra al subir una foto en Android 15."
+  },
+  "b459a6f55c10a663a806": {
+   "caso_id": "R-01",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "La app se cierra al subir una foto en Android 15."
+  },
+  "d1f451f090cc17de8169": {
+   "caso_id": "R-02",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "Las miniaturas de la galería tardan casi un minuto en cargar desde la última actualización."
+  },
+  "ea7b9c936c53daf7ea87": {
+   "caso_id": "R-03",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "El texto del botón Compartir aparece cortado en el menú, en iOS 18."
+  },
+  "c16fb14950728d5812da": {
+   "caso_id": "R-04",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "No puedo iniciar sesión: la app dice que mi contraseña es incorrecta, aunque la acabo de cambiar."
+  },
+  "af72fdb6de40d2b6b1d1": {
+   "caso_id": "R-05",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "Sería útil poder ordenar los álbumes por fecha de creación."
+  },
+  "6e48ab91b3c428e88e8c": {
+   "caso_id": "R-06",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "Desde ayer, la app gasta mucha batería aunque no la esté usando."
+  },
+  "66429964a9b8f4a6d1f3": {
+   "caso_id": "R-07",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "Al subir más de 500 fotos a la vez, la app se congela y hay que cerrarla. Con menos fotos funciona bien."
+  },
+  "894b4764f8406df46abe": {
+   "caso_id": "R-08",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "Borré un álbum por error y las fotos no aparecen en la papelera."
+  },
+  "1ad57afc26d26aa45a9b": {
+   "caso_id": "R-09",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "La app no se cierra, pero el editor tarda 20 segundos en aplicar cada filtro."
+  },
+  "16e5f76827e5485ad5c8": {
+   "caso_id": "R-10",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "app no sirve!!! las fotos no suben ayudaaa"
+  },
+  "73f239ec43576ea24054": {
+   "caso_id": "R-11",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "no puedo entrar ni con google ni con correo y tampoco me llega el codigo"
+  },
+  "6540f1f5980eeaebbf94": {
+   "caso_id": "R-12",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "La foto de perfil se ve borrosa y además la app se cerró una vez ayer."
+  },
+  "050d4f6c95973add0bff": {
+   "caso_id": "B-01",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "Cuando giro el teléfono mientras edito, se pierden los cambios del recorte."
+  },
+  "be3d0582d37886bd7c18": {
+   "caso_id": "B-02",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "estaria bueno q se pudiera poner musica a las presentaciones"
+  },
+  "e5a92eeb1fef5fcd300c": {
+   "caso_id": "B-03",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "El buscador no encuentra fotos por fecha si escribo el mes con mayúscula."
+  },
+  "e1ffdb8fc8f0e3bcc0af": {
+   "caso_id": "B-04",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "Desde la versión 5.8, la app tarda unos 15 segundos en abrir."
+  },
+  "d5970fc36f6949e4e1c4": {
+   "caso_id": "B-05",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "No me deja cambiar el correo de mi cuenta: el botón Guardar no hace nada."
+  },
+  "e231951ef0eba4ffd61e": {
+   "caso_id": "B-06",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "la app se cierra sola cada q abro un album compartido"
+  },
+  "815539fa140dffd1b3b6": {
+   "caso_id": "B-07",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "Olvidé mi contraseña y el correo de recuperación nunca llega."
+  },
+  "cafde8cd2cf6be81f6cb": {
+   "caso_id": "B-08",
+   "variante": "con_reglas",
+   "escenario": "",
+   "entrada": "Las notificaciones llegan en inglés aunque tengo la app en español, y a veces llegan repetidas."
+  },
+  "362919dc979436fe4a7b": {
+   "caso_id": "R-TIEMPO",
+   "variante": "con_reglas",
+   "escenario": "tiempo_agotado",
+   "entrada": "La app se cierra al subir una foto en Android 15."
+  }
+ },
+ "respuestas": {
+  "15b70c24a9ceed855ff4": [
+   {
+    "fecha": "2026-11-27T17:07:55",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 278,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.834,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:07:56",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 278,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.595,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:07:57",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 278,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.543,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "051641e78247a361b6ae": [
+   {
+    "fecha": "2026-11-27T17:07:58",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 292,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.432,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:07:58",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 292,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.419,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:07:59",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 292,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.446,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "def91f25c5eb12ede58f": [
+   {
+    "fecha": "2026-11-27T17:08:00",
+    "texto": "Categoría: interfaz | Prioridad: baja",
+    "tokens_entrada": 288,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.435,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:00",
+    "texto": "Categoría: interfaz | Prioridad: baja",
+    "tokens_entrada": 288,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.484,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:01",
+    "texto": "Categoría: interfaz | Prioridad: baja",
+    "tokens_entrada": 288,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.451,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "2b9483427cf69e79493f": [
+   {
+    "fecha": "2026-11-27T17:08:02",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 303,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.494,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:02",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 303,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.437,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:03",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 303,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.457,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "7be46b52378409164631": [
+   {
+    "fecha": "2026-11-27T17:08:04",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 284,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.439,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:04",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 284,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.45,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:05",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 284,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.46,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "71abbe7e97981c1f539c": [
+   {
+    "fecha": "2026-11-27T17:08:06",
+    "texto": "Categoría: rendimiento | Prioridad: alta",
+    "tokens_entrada": 287,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.444,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:06",
+    "texto": "Categoría: rendimiento | Prioridad: alta",
+    "tokens_entrada": 287,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:07",
+    "texto": "Categoría: rendimiento | Prioridad: alta",
+    "tokens_entrada": 287,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.441,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "04173092633b5b187fe2": [
+   {
+    "fecha": "2026-11-27T17:08:08",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 305,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.997,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:09",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 305,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.992,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:10",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 305,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.466,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "99d41f02918dfa5cd0f8": [
+   {
+    "fecha": "2026-11-27T17:08:12",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 285,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.898,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:13",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 285,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.693,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:14",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 285,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.829,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "15f23fc3ea99c8b7cbcf": [
+   {
+    "fecha": "2026-11-27T17:08:15",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 293,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.444,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:15",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 293,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.436,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:16",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 293,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.435,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "6e5ca8fe2198834a6c26": [
+   {
+    "fecha": "2026-11-27T17:08:17",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 281,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.43,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:17",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 281,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.493,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:18",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 281,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.441,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "55f9e8c84204f89f8b7e": [
+   {
+    "fecha": "2026-11-27T17:08:19",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 288,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.448,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:19",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 288,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.419,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:20",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 288,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.461,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "60f280857c68c527cc33": [
+   {
+    "fecha": "2026-11-27T17:08:21",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 289,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.589,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:21",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 289,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.637,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:22",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 289,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.55,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "f6fd439de563f52be66d": [
+   {
+    "fecha": "2026-11-27T17:08:23",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 290,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.455,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:24",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 290,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.423,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:24",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 290,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.427,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "10f6df3ea480cd0cfa63": [
+   {
+    "fecha": "2026-11-27T17:08:25",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 283,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.528,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:26",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 283,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.525,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:26",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 283,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.531,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "2140f2ada3fb8f634da1": [
+   {
+    "fecha": "2026-11-27T17:08:27",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 290,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.427,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:28",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 290,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.604,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:28",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 290,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.42,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "dbadb1ba7df628fda27b": [
+   {
+    "fecha": "2026-11-27T17:08:29",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 289,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.415,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:30",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 289,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.444,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:30",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 289,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "6f2418b0342548751105": [
+   {
+    "fecha": "2026-11-27T17:08:31",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 292,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.444,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:32",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 292,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.444,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:32",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 292,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.451,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "ee0caa16a75b5007af06": [
+   {
+    "fecha": "2026-11-27T17:08:33",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 278,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.43,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:34",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 278,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.448,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:34",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 278,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.441,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "4fc26aac02992fa2e681": [
+   {
+    "fecha": "2026-11-27T17:08:35",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 286,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.262,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:36",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 286,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.859,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:37",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 286,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.81,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "e7dcd23f6d620c17f0a8": [
+   {
+    "fecha": "2026-11-27T17:08:38",
+    "texto": "Categoría: interfaz | Prioridad: media",
+    "tokens_entrada": 297,
+    "tokens_salida": 19,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.189,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:40",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 297,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.526,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:42",
+    "texto": "Categoría: interfaz | Prioridad: media",
+    "tokens_entrada": 297,
+    "tokens_salida": 19,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.041,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "cb37669200c3b4682ddb": [
+   {
+    "fecha": "2026-11-27T17:08:43",
+    "texto": "",
+    "tokens_entrada": 0,
+    "tokens_salida": 0,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.134,
+    "stop_reason": null,
+    "error": {
+     "tipo": "AnthropicTimeoutError",
+     "mensaje": "Request timed out or interrupted. This could be due to a network timeout, dropped connection, or request cancellation. See https://docs.anthropic.com/en/api/errors#long-requests for more details."
+    }
+   }
+  ],
+  "b459a6f55c10a663a806": [
+   {
+    "fecha": "2026-11-27T17:08:43",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 393,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.408,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:44",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 393,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.42,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:44",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 393,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.433,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "d1f451f090cc17de8169": [
+   {
+    "fecha": "2026-11-27T17:08:45",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 407,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.554,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:46",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 407,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.519,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:47",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 407,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.55,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "ea7b9c936c53daf7ea87": [
+   {
+    "fecha": "2026-11-27T17:08:47",
+    "texto": "Categoría: interfaz | Prioridad: baja",
+    "tokens_entrada": 403,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.454,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:48",
+    "texto": "Categoría: interfaz | Prioridad: baja",
+    "tokens_entrada": 403,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.406,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:49",
+    "texto": "Categoría: interfaz | Prioridad: baja",
+    "tokens_entrada": 403,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.454,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "c16fb14950728d5812da": [
+   {
+    "fecha": "2026-11-27T17:08:49",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 418,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.822,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:50",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 418,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.964,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:51",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 418,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.971,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "af72fdb6de40d2b6b1d1": [
+   {
+    "fecha": "2026-11-27T17:08:53",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 399,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.537,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:53",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 399,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.463,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:54",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 399,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.42,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "6e48ab91b3c428e88e8c": [
+   {
+    "fecha": "2026-11-27T17:08:55",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 402,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.446,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:55",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 402,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:56",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 402,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.494,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "66429964a9b8f4a6d1f3": [
+   {
+    "fecha": "2026-11-27T17:08:57",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 420,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.716,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:58",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 420,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.413,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:08:59",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 420,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.312,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "894b4764f8406df46abe": [
+   {
+    "fecha": "2026-11-27T17:09:01",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 400,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.441,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:01",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 400,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.428,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:02",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 400,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.454,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "1ad57afc26d26aa45a9b": [
+   {
+    "fecha": "2026-11-27T17:09:03",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 408,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.017,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:04",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 408,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.056,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:05",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 408,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.771,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "16e5f76827e5485ad5c8": [
+   {
+    "fecha": "2026-11-27T17:09:06",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 396,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.455,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:07",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 396,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.466,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:07",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 396,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.627,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "73f239ec43576ea24054": [
+   {
+    "fecha": "2026-11-27T17:09:08",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 403,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:09",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 403,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.436,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:09",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 403,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.455,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "6540f1f5980eeaebbf94": [
+   {
+    "fecha": "2026-11-27T17:09:10",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 404,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.443,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:11",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 404,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.446,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:11",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 404,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.436,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "050d4f6c95973add0bff": [
+   {
+    "fecha": "2026-11-27T17:09:12",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 405,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.533,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:13",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 405,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.519,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:14",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 405,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.513,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "be3d0582d37886bd7c18": [
+   {
+    "fecha": "2026-11-27T17:09:14",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 398,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.431,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:15",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 398,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.441,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:16",
+    "texto": "Categoría: solicitud de función | Prioridad: baja",
+    "tokens_entrada": 398,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "e5a92eeb1fef5fcd300c": [
+   {
+    "fecha": "2026-11-27T17:09:16",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 405,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:17",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 405,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.43,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:17",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 405,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "e1ffdb8fc8f0e3bcc0af": [
+   {
+    "fecha": "2026-11-27T17:09:18",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 404,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.457,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:19",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 404,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.431,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:19",
+    "texto": "Categoría: rendimiento | Prioridad: media",
+    "tokens_entrada": 404,
+    "tokens_salida": 20,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.429,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "d5970fc36f6949e4e1c4": [
+   {
+    "fecha": "2026-11-27T17:09:20",
+    "texto": "Categoría: cuenta y acceso | Prioridad: media",
+    "tokens_entrada": 407,
+    "tokens_salida": 23,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.098,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:21",
+    "texto": "Categoría: cuenta y acceso | Prioridad: media",
+    "tokens_entrada": 407,
+    "tokens_salida": 23,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.733,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:22",
+    "texto": "Categoría: cuenta y acceso | Prioridad: media",
+    "tokens_entrada": 407,
+    "tokens_salida": 23,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.151,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "e231951ef0eba4ffd61e": [
+   {
+    "fecha": "2026-11-27T17:09:24",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 393,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.433,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:24",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 393,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.44,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:25",
+    "texto": "Categoría: fallo de la app | Prioridad: alta",
+    "tokens_entrada": 393,
+    "tokens_salida": 22,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.449,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "815539fa140dffd1b3b6": [
+   {
+    "fecha": "2026-11-27T17:09:26",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 401,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.471,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:26",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 401,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.45,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:27",
+    "texto": "Categoría: cuenta y acceso | Prioridad: alta",
+    "tokens_entrada": 401,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.437,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "cafde8cd2cf6be81f6cb": [
+   {
+    "fecha": "2026-11-27T17:09:28",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 412,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.45,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:28",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 412,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.445,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T17:09:29",
+    "texto": "Categoría: fallo de la app | Prioridad: media",
+    "tokens_entrada": 412,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.508,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "362919dc979436fe4a7b": [
+   {
+    "fecha": "2026-11-27T17:09:30",
+    "texto": "",
+    "tokens_entrada": 0,
+    "tokens_salida": 0,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.11,
+    "stop_reason": null,
+    "error": {
+     "tipo": "AnthropicTimeoutError",
+     "mensaje": "Request timed out or interrupted. This could be due to a network timeout, dropped connection, or request cancellation. See https://docs.anthropic.com/en/api/errors#long-requests for more details."
+    }
+   }
+  ]
+ }
+}
