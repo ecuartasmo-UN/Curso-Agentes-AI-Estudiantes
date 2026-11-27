@@ -1,0 +1,5957 @@
+{
+ "modelo": "claude-haiku-5-5",
+ "laboratorio": "3B",
+ "fecha": "2026-11-27",
+ "parametros": {
+  "thinking": {
+   "type": "disabled"
+  },
+  "max_tokens": 512,
+  "timeout": 60,
+  "max_retries": 3
+ },
+ "versiones": {
+  "langchain": "1.5.0",
+  "langchain-core": "1.8.5",
+  "langchain-anthropic": "1.7.10",
+  "langchain-google-genai": "4.5.0",
+  "pydantic": "2.14.4"
+ },
+ "simulado": false,
+ "indice": {
+  "acced5cbad2677d2de74": {
+   "caso_id": "I-01",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla."
+  },
+  "79296d85ed1d01fcc51d": {
+   "caso_id": "I-02",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos."
+  },
+  "10d2d4be9bfc8ede86b9": {
+   "caso_id": "I-03",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas."
+  },
+  "9abbcb7eacb4b072bf57": {
+   "caso_id": "I-04",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto."
+  },
+  "78659ed738fa5f0db3f7": {
+   "caso_id": "I-05",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita."
+  },
+  "32c5bcd9017bdd7baa00": {
+   "caso_id": "I-06",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir."
+  },
+  "238425eec0a5348afac5": {
+   "caso_id": "I-07",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?"
+  },
+  "869c710111458231a460": {
+   "caso_id": "I-08",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?"
+  },
+  "ad6877cab97d5c1015f1": {
+   "caso_id": "I-09",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?"
+  },
+  "ef0b4f681defe6e96d48": {
+   "caso_id": "I-10",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho."
+  },
+  "282b2ed2537cc59b8445": {
+   "caso_id": "I-11",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe."
+  },
+  "929beb156dc11c359117": {
+   "caso_id": "I-12",
+   "variante": "sin_ejemplos",
+   "escenario": "",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??"
+  },
+  "4f23d3145fdb926d7870": {
+   "caso_id": "I-01",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla."
+  },
+  "7debd687d563ccb41115": {
+   "caso_id": "I-02",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos."
+  },
+  "3324625abb517732eb04": {
+   "caso_id": "I-03",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas."
+  },
+  "f3c1c01ff8ce8165da47": {
+   "caso_id": "I-04",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto."
+  },
+  "346b7533e8532b16e33a": {
+   "caso_id": "I-05",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita."
+  },
+  "5e9e50b4d43dfcea117a": {
+   "caso_id": "I-06",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir."
+  },
+  "27b9436e0ea3cc67b134": {
+   "caso_id": "I-07",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?"
+  },
+  "2839454839f14c47d32f": {
+   "caso_id": "I-08",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?"
+  },
+  "d33d346b9e5f179a3a66": {
+   "caso_id": "I-09",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?"
+  },
+  "d8dafd6333a8a0f4d4b0": {
+   "caso_id": "I-10",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho."
+  },
+  "635fa77f999b27b23e2b": {
+   "caso_id": "I-11",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe."
+  },
+  "541d186b4017c6540152": {
+   "caso_id": "I-12",
+   "variante": "tres_ejemplos",
+   "escenario": "",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??"
+  },
+  "b17a576fc4e769205edc": {
+   "caso_id": "I-01",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla."
+  },
+  "af3d45a46cd767d7e833": {
+   "caso_id": "I-02",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos."
+  },
+  "0ee11d35512c41ff3506": {
+   "caso_id": "I-03",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas."
+  },
+  "71b4f6f7ae9322b04bfa": {
+   "caso_id": "I-04",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto."
+  },
+  "0f24513c8500a4730afc": {
+   "caso_id": "I-05",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita."
+  },
+  "f482515f2701b5815e89": {
+   "caso_id": "I-06",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir."
+  },
+  "960e7488ea2750b21bab": {
+   "caso_id": "I-07",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?"
+  },
+  "73650de24b2d27985a9e": {
+   "caso_id": "I-08",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?"
+  },
+  "b3f07afc79316b9e0b20": {
+   "caso_id": "I-09",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?"
+  },
+  "1d3b48627857ae0aeef5": {
+   "caso_id": "I-10",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho."
+  },
+  "98f63319a3d4d490ddc7": {
+   "caso_id": "I-11",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe."
+  },
+  "046b77fc1275d157d838": {
+   "caso_id": "I-12",
+   "variante": "formato",
+   "escenario": "",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??"
+  },
+  "6a24f07cb217ed1e8953": {
+   "caso_id": "I-01",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla."
+  },
+  "660a6664dd4541a5a5a0": {
+   "caso_id": "I-02",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos."
+  },
+  "42cd9f3816dde152570f": {
+   "caso_id": "I-03",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas."
+  },
+  "6304b2829caffdfac50e": {
+   "caso_id": "I-04",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto."
+  },
+  "29e7f749b00aac4efaa2": {
+   "caso_id": "I-05",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita."
+  },
+  "b1147ec0518ed6052fc3": {
+   "caso_id": "I-06",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir."
+  },
+  "c7cc9c74361f8ba59578": {
+   "caso_id": "I-07",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?"
+  },
+  "5b0db1c42b6f0a49ada5": {
+   "caso_id": "I-08",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?"
+  },
+  "301494515fe5faab7cd9": {
+   "caso_id": "I-09",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?"
+  },
+  "ba393445b2bcb00714e8": {
+   "caso_id": "I-10",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho."
+  },
+  "c0c49fa305b381375256": {
+   "caso_id": "I-11",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe."
+  },
+  "f42ed2a6017e1f3a9906": {
+   "caso_id": "I-12",
+   "variante": "cadena",
+   "escenario": "",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??"
+  },
+  "869abb381334bf8db9ff": {
+   "caso_id": "I-01",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla."
+  },
+  "712edd54268dedd6222c": {
+   "caso_id": "I-02",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos."
+  },
+  "fef83a45e096bbb23a7c": {
+   "caso_id": "I-03",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas."
+  },
+  "23f649eed1b54e03c7fc": {
+   "caso_id": "I-04",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto."
+  },
+  "40f2aa52b3b457a53cbb": {
+   "caso_id": "I-05",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita."
+  },
+  "e7c98d6635e7e8f402d5": {
+   "caso_id": "I-06",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir."
+  },
+  "3c398a0ca4b6477c6bc5": {
+   "caso_id": "I-07",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?"
+  },
+  "10f94072d23b3708ac38": {
+   "caso_id": "I-08",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?"
+  },
+  "cc59d3257ccbba0b0a6c": {
+   "caso_id": "I-09",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?"
+  },
+  "38a2c580558660543b05": {
+   "caso_id": "I-10",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho."
+  },
+  "f13fa14b9827cb9039d9": {
+   "caso_id": "I-11",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe."
+  },
+  "266c9562c366f74a858a": {
+   "caso_id": "I-12",
+   "variante": "ejemplos_formato",
+   "escenario": "",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??"
+  },
+  "67432ff22d7c997aa8bc": {
+   "caso_id": "I-01",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla."
+  },
+  "4631015c7acc3e2a7465": {
+   "caso_id": "I-02",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos."
+  },
+  "1caa0299df08eef79609": {
+   "caso_id": "I-03",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas."
+  },
+  "6ca9d28b9d52ca4286f3": {
+   "caso_id": "I-04",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto."
+  },
+  "5c5dd4f8992026fd02ff": {
+   "caso_id": "I-05",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita."
+  },
+  "f2165c7af2d529f76954": {
+   "caso_id": "I-06",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir."
+  },
+  "3303f61d169317f2378f": {
+   "caso_id": "I-07",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?"
+  },
+  "9d0a202bb48fa4db2f87": {
+   "caso_id": "I-08",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?"
+  },
+  "61eaa9e71f9d2d5648e4": {
+   "caso_id": "I-09",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?"
+  },
+  "08c81fb9d9f60a0f451f": {
+   "caso_id": "I-10",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho."
+  },
+  "d3e2b99e41630cbcfba1": {
+   "caso_id": "I-11",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe."
+  },
+  "008290f05cbea89a3f1e": {
+   "caso_id": "I-12",
+   "variante": "ejemplos_cadena",
+   "escenario": "",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??"
+  },
+  "4b571e463027a8b4c646": {
+   "caso_id": "I-01",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla."
+  },
+  "2dd22ffc894378cdd14b": {
+   "caso_id": "I-02",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos."
+  },
+  "c664cdc44f5bfd338b7b": {
+   "caso_id": "I-03",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas."
+  },
+  "02045355431be649c45f": {
+   "caso_id": "I-04",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto."
+  },
+  "da1853b15e6349d4960c": {
+   "caso_id": "I-05",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita."
+  },
+  "d800148e54a6ffef8b4c": {
+   "caso_id": "I-06",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir."
+  },
+  "f46127384d18e7b0a1fc": {
+   "caso_id": "I-07",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?"
+  },
+  "481830bc4db958b6563c": {
+   "caso_id": "I-08",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?"
+  },
+  "968688d58973e32d7668": {
+   "caso_id": "I-09",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?"
+  },
+  "b481ea003ce3b93502d3": {
+   "caso_id": "I-10",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho."
+  },
+  "dcc9c7a8e704a69f0b19": {
+   "caso_id": "I-11",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe."
+  },
+  "1291f2b0cc1b2814a624": {
+   "caso_id": "I-12",
+   "variante": "cuatro_ejemplos",
+   "escenario": "",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??"
+  },
+  "16176777012bbc0973fa": {
+   "caso_id": "I-01",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla."
+  },
+  "221c7a54956de255afb3": {
+   "caso_id": "I-02",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos."
+  },
+  "d58254abac4b784dabc3": {
+   "caso_id": "I-03",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas."
+  },
+  "392523f8bc4846cf1572": {
+   "caso_id": "I-04",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto."
+  },
+  "200b14bea5467a2d9e76": {
+   "caso_id": "I-05",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita."
+  },
+  "eb103398a3a9036b7891": {
+   "caso_id": "I-06",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir."
+  },
+  "65c085b9d9006bbc381e": {
+   "caso_id": "I-07",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?"
+  },
+  "2fef3afdd96e68b4136c": {
+   "caso_id": "I-08",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?"
+  },
+  "2adbce366b7c1f1949c6": {
+   "caso_id": "I-09",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?"
+  },
+  "7b75f1631e0c3f67b821": {
+   "caso_id": "I-10",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho."
+  },
+  "6a284d488db5065ed7aa": {
+   "caso_id": "I-11",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe."
+  },
+  "6a7bf75fc127aebfb9bb": {
+   "caso_id": "I-12",
+   "variante": "definiciones",
+   "escenario": "",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??"
+  },
+  "df6e30bd09d25deceeaa": {
+   "caso_id": "I-01",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla."
+  },
+  "1fbf3759260a4d7bba37": {
+   "caso_id": "I-02",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos."
+  },
+  "ae8c049536a79e2a0d0a": {
+   "caso_id": "I-03",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas."
+  },
+  "bbdaf4f144e44ce9ef78": {
+   "caso_id": "I-04",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto."
+  },
+  "b564aa92eba5bfe0edc3": {
+   "caso_id": "I-05",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita."
+  },
+  "902f97df16af659bb2ec": {
+   "caso_id": "I-06",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir."
+  },
+  "454a800d852225b471fe": {
+   "caso_id": "I-07",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?"
+  },
+  "0588768b34c19f40486c": {
+   "caso_id": "I-08",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?"
+  },
+  "339110097c58a7c95c0c": {
+   "caso_id": "I-09",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?"
+  },
+  "b69b836a83d0ee98b70f": {
+   "caso_id": "I-10",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho."
+  },
+  "7dd07a7915a7891a3b85": {
+   "caso_id": "I-11",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe."
+  },
+  "3b26b1073bc41ca12a93": {
+   "caso_id": "I-12",
+   "variante": "ejemplos_turnos",
+   "escenario": "",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??"
+  },
+  "5d4dec1f87d867aeb986": {
+   "caso_id": "I-01",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla."
+  },
+  "a5cfbe9c469f548aeed7": {
+   "caso_id": "I-02",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos."
+  },
+  "d205c3029b7e6dc7c66c": {
+   "caso_id": "I-03",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas."
+  },
+  "b3275e555ee09393d1f0": {
+   "caso_id": "I-04",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto."
+  },
+  "af18c3087aafd7b18b8e": {
+   "caso_id": "I-05",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita."
+  },
+  "730c9225ac4969cdb892": {
+   "caso_id": "I-06",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir."
+  },
+  "a4be66ac21641895f26f": {
+   "caso_id": "I-07",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?"
+  },
+  "8c587c5dfbfbaaffbed1": {
+   "caso_id": "I-08",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?"
+  },
+  "a27c53b708345918c3fb": {
+   "caso_id": "I-09",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?"
+  },
+  "833fbabdea78e4205fa2": {
+   "caso_id": "I-10",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho."
+  },
+  "709dc037a6b0223cef3b": {
+   "caso_id": "I-11",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe."
+  },
+  "39ef441e67a498c612a7": {
+   "caso_id": "I-12",
+   "variante": "explicacion_corta",
+   "escenario": "",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??"
+  },
+  "c58c2d95858f194a2ee9": {
+   "caso_id": "I-01",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla.",
+   "esfuerzo": "medium"
+  },
+  "2eda87fdd4b128b557d9": {
+   "caso_id": "I-02",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos.",
+   "esfuerzo": "medium"
+  },
+  "110ff9f27604408c8cc0": {
+   "caso_id": "I-03",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas.",
+   "esfuerzo": "medium"
+  },
+  "8f21a1379266ddabe7a6": {
+   "caso_id": "I-04",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto.",
+   "esfuerzo": "medium"
+  },
+  "e47e68ed113780a35d25": {
+   "caso_id": "I-05",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita.",
+   "esfuerzo": "medium"
+  },
+  "f03205d8b272db7c6f89": {
+   "caso_id": "I-06",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir.",
+   "esfuerzo": "medium"
+  },
+  "0edb027abd028d72fdc2": {
+   "caso_id": "I-07",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?",
+   "esfuerzo": "medium"
+  },
+  "375e99a943261cc1479b": {
+   "caso_id": "I-08",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?",
+   "esfuerzo": "medium"
+  },
+  "9c91560334084c212bc2": {
+   "caso_id": "I-09",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?",
+   "esfuerzo": "medium"
+  },
+  "3522ade8ca5fdde5c08d": {
+   "caso_id": "I-10",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho.",
+   "esfuerzo": "medium"
+  },
+  "e4b41abe1318aa092ff1": {
+   "caso_id": "I-11",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe.",
+   "esfuerzo": "medium"
+  },
+  "4d0df9b0ccffb8dee6d7": {
+   "caso_id": "I-12",
+   "variante": "razonamiento_medio",
+   "escenario": "razonamiento_medio",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??",
+   "esfuerzo": "medium"
+  },
+  "a1ae26d8498ce6bbadb6": {
+   "caso_id": "I-01",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "Al girar el teléfono, el botón de subir fotos queda fuera de la pantalla.",
+   "esfuerzo": "high"
+  },
+  "ca909a2c33269b4ec720": {
+   "caso_id": "I-02",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "La app se cierra al abrir un álbum compartido que tiene más de 100 fotos.",
+   "esfuerzo": "high"
+  },
+  "b251b4f3b50e58565537": {
+   "caso_id": "I-03",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "Sería útil poder elegir la calidad de las fotos antes de subirlas.",
+   "esfuerzo": "high"
+  },
+  "38b155fa8c9ffe62094e": {
+   "caso_id": "I-04",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "Propongo agregar una vista de mapa con el lugar donde se tomó cada foto.",
+   "esfuerzo": "high"
+  },
+  "1279a6af4e837a7fcd67": {
+   "caso_id": "I-05",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "La guía de instalación no dice qué versión de Node.js se necesita.",
+   "esfuerzo": "high"
+  },
+  "a4a7ae9acce8eae7d561": {
+   "caso_id": "I-06",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "El README tiene un enlace roto a la guía para contribuir.",
+   "esfuerzo": "high"
+  },
+  "8f856e36d2316d1f0a85": {
+   "caso_id": "I-07",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "¿La API de FotoNube permite subir videos, o solo fotos?",
+   "esfuerzo": "high"
+  },
+  "2c8e45153b1086546439": {
+   "caso_id": "I-08",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "¿Hay un límite de fotos por álbum en el plan gratuito?",
+   "esfuerzo": "high"
+  },
+  "8bdeee7da0fe3cc49c34": {
+   "caso_id": "I-09",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "¿Es normal que la app se cierre cada vez que subo una foto desde la galería?",
+   "esfuerzo": "high"
+  },
+  "fa121bb9d0bb18681265": {
+   "caso_id": "I-10",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "La app no tiene modo oscuro, y de noche la pantalla molesta mucho.",
+   "esfuerzo": "high"
+  },
+  "1172a5f3cebdb6a1e348": {
+   "caso_id": "I-11",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "El ejemplo del README para subir una foto usa una función que ya no existe.",
+   "esfuerzo": "high"
+  },
+  "d3166a7b8a38baae2d9d": {
+   "caso_id": "I-12",
+   "variante": "razonamiento_alto",
+   "escenario": "razonamiento_alto",
+   "entrada": "no sale nada cuando busco fotos x fecha, esta roto??",
+   "esfuerzo": "high"
+  }
+ },
+ "respuestas": {
+  "acced5cbad2677d2de74": [
+   {
+    "fecha": "2026-11-27T13:50:05",
+    "texto": "**Etiqueta:** error",
+    "tokens_entrada": 94,
+    "tokens_salida": 12,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.764,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:05",
+    "texto": "**Etiqueta: error**",
+    "tokens_entrada": 94,
+    "tokens_salida": 12,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.473,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:06",
+    "texto": "**Etiqueta: error**",
+    "tokens_entrada": 94,
+    "tokens_salida": 12,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.492,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "79296d85ed1d01fcc51d": [
+   {
+    "fecha": "2026-11-27T13:50:07",
+    "texto": "**Etiqueta: error**",
+    "tokens_entrada": 93,
+    "tokens_salida": 12,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.895,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:08",
+    "texto": "**Etiqueta: error**",
+    "tokens_entrada": 93,
+    "tokens_salida": 12,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.705,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:10",
+    "texto": "**error**",
+    "tokens_entrada": 93,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.288,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "10d2d4be9bfc8ede86b9": [
+   {
+    "fecha": "2026-11-27T13:50:12",
+    "texto": "Etiqueta: **mejora**",
+    "tokens_entrada": 90,
+    "tokens_salida": 14,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.526,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:12",
+    "texto": "mejora",
+    "tokens_entrada": 90,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.462,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:13",
+    "texto": "mejora",
+    "tokens_entrada": 90,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.514,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "9abbcb7eacb4b072bf57": [
+   {
+    "fecha": "2026-11-27T13:50:14",
+    "texto": "**Etiqueta: mejora**",
+    "tokens_entrada": 93,
+    "tokens_salida": 14,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.478,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:14",
+    "texto": "**Etiqueta:** mejora",
+    "tokens_entrada": 93,
+    "tokens_salida": 14,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.465,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:15",
+    "texto": "mejora",
+    "tokens_entrada": 93,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.485,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "78659ed738fa5f0db3f7": [
+   {
+    "fecha": "2026-11-27T13:50:15",
+    "texto": "**Etiqueta:** documentación",
+    "tokens_entrada": 87,
+    "tokens_salida": 14,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.434,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:16",
+    "texto": "**Etiqueta asignada: documentación**\n\nEste issue trata sobre información faltante en la guía de instalación, por lo que corresponde a la categoría documentación.",
+    "tokens_entrada": 87,
+    "tokens_salida": 57,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.745,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:17",
+    "texto": "**Etiqueta asignada: documentación**\n\nEste issue describe una carencia en la guía de instalación (falta indicar la versión de Node.js requerida), lo que corresponde a un problema de documentación y no a un error de funcionamiento del código.",
+    "tokens_entrada": 87,
+    "tokens_salida": 84,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.776,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "32c5bcd9017bdd7baa00": [
+   {
+    "fecha": "2026-11-27T13:50:18",
+    "texto": "**documentación**",
+    "tokens_entrada": 84,
+    "tokens_salida": 7,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.422,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:18",
+    "texto": "**documentación**",
+    "tokens_entrada": 84,
+    "tokens_salida": 7,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.43,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:19",
+    "texto": "documentación",
+    "tokens_entrada": 84,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.438,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "238425eec0a5348afac5": [
+   {
+    "fecha": "2026-11-27T13:50:19",
+    "texto": "pregunta",
+    "tokens_entrada": 87,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.42,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:20",
+    "texto": "pregunta",
+    "tokens_entrada": 87,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.43,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:20",
+    "texto": "**pregunta**",
+    "tokens_entrada": 87,
+    "tokens_salida": 8,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.448,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "869c710111458231a460": [
+   {
+    "fecha": "2026-11-27T13:50:21",
+    "texto": "pregunta",
+    "tokens_entrada": 88,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.408,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:21",
+    "texto": "pregunta",
+    "tokens_entrada": 88,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.416,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:22",
+    "texto": "pregunta",
+    "tokens_entrada": 88,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.419,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "ad6877cab97d5c1015f1": [
+   {
+    "fecha": "2026-11-27T13:50:22",
+    "texto": "pregunta",
+    "tokens_entrada": 92,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.431,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:23",
+    "texto": "**pregunta**",
+    "tokens_entrada": 92,
+    "tokens_salida": 8,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.425,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:23",
+    "texto": "pregunta",
+    "tokens_entrada": 92,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.437,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "ef0b4f681defe6e96d48": [
+   {
+    "fecha": "2026-11-27T13:50:24",
+    "texto": "mejora",
+    "tokens_entrada": 92,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.496,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:25",
+    "texto": "mejora",
+    "tokens_entrada": 92,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.454,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:25",
+    "texto": "mejora",
+    "tokens_entrada": 92,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.476,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "282b2ed2537cc59b8445": [
+   {
+    "fecha": "2026-11-27T13:50:26",
+    "texto": "**mejora**\n\nAunque el issue describe un error (un ejemplo del README que usa una función inexistente), se trata de un problema de documentación, así que la etiqueta más adecuada es **documentación**.",
+    "tokens_entrada": 88,
+    "tokens_salida": 70,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.678,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:27",
+    "texto": "**Etiqueta sugerida: `documentación`**\n\nEl issue trata sobre un ejemplo del README que usa una función inexistente. Aunque podría parecer un error, el problema está en el texto de la documentación y no en el código de FotoNube, por lo que `documentación` es la etiqueta más adecuada.",
+    "tokens_entrada": 88,
+    "tokens_salida": 106,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.927,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:28",
+    "texto": "**mejora**\n\nAunque el issue describe un README con código desactualizado (lo que suele considerarse un problema de documentación), el texto habla de que una función \"ya no existe\", lo cual implica un fallo en el ejemplo que debe corregirse. Dado que las opciones son error, mejora, documentación o pregunta, la etiqueta más adecuada es **documentación**.\n\n**Etiqueta: documentación**",
+    "tokens_entrada": 88,
+    "tokens_salida": 140,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.079,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "929beb156dc11c359117": [
+   {
+    "fecha": "2026-11-27T13:50:29",
+    "texto": "**Etiqueta: error**",
+    "tokens_entrada": 86,
+    "tokens_salida": 12,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.417,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:29",
+    "texto": "**Etiqueta: error**",
+    "tokens_entrada": 86,
+    "tokens_salida": 12,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.455,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:30",
+    "texto": "**Etiqueta: error**",
+    "tokens_entrada": 86,
+    "tokens_salida": 12,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.434,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "4f23d3145fdb926d7870": [
+   {
+    "fecha": "2026-11-27T13:50:30",
+    "texto": "error",
+    "tokens_entrada": 173,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.438,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:31",
+    "texto": "error",
+    "tokens_entrada": 173,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.459,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:31",
+    "texto": "error",
+    "tokens_entrada": 173,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.449,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "7debd687d563ccb41115": [
+   {
+    "fecha": "2026-11-27T13:50:32",
+    "texto": "error",
+    "tokens_entrada": 172,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.446,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:33",
+    "texto": "error",
+    "tokens_entrada": 172,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.477,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:33",
+    "texto": "error",
+    "tokens_entrada": 172,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.449,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "3324625abb517732eb04": [
+   {
+    "fecha": "2026-11-27T13:50:34",
+    "texto": "mejora",
+    "tokens_entrada": 169,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.417,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:34",
+    "texto": "mejora",
+    "tokens_entrada": 169,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.464,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:35",
+    "texto": "mejora",
+    "tokens_entrada": 169,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.441,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "f3c1c01ff8ce8165da47": [
+   {
+    "fecha": "2026-11-27T13:50:35",
+    "texto": "mejora",
+    "tokens_entrada": 172,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.464,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:36",
+    "texto": "mejora",
+    "tokens_entrada": 172,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.543,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:37",
+    "texto": "mejora",
+    "tokens_entrada": 172,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.419,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "346b7533e8532b16e33a": [
+   {
+    "fecha": "2026-11-27T13:50:37",
+    "texto": "documentación",
+    "tokens_entrada": 166,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.449,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:38",
+    "texto": "documentación",
+    "tokens_entrada": 166,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.418,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:38",
+    "texto": "documentación",
+    "tokens_entrada": 166,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.572,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "5e9e50b4d43dfcea117a": [
+   {
+    "fecha": "2026-11-27T13:50:39",
+    "texto": "documentación",
+    "tokens_entrada": 163,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.448,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:39",
+    "texto": "documentación",
+    "tokens_entrada": 163,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.424,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:40",
+    "texto": "documentación",
+    "tokens_entrada": 163,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.429,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "27b9436e0ea3cc67b134": [
+   {
+    "fecha": "2026-11-27T13:50:40",
+    "texto": "pregunta",
+    "tokens_entrada": 166,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.443,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:41",
+    "texto": "pregunta",
+    "tokens_entrada": 166,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.466,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:42",
+    "texto": "pregunta",
+    "tokens_entrada": 166,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "2839454839f14c47d32f": [
+   {
+    "fecha": "2026-11-27T13:50:42",
+    "texto": "pregunta",
+    "tokens_entrada": 167,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.44,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:43",
+    "texto": "pregunta",
+    "tokens_entrada": 167,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.481,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:43",
+    "texto": "pregunta",
+    "tokens_entrada": 167,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.469,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "d33d346b9e5f179a3a66": [
+   {
+    "fecha": "2026-11-27T13:50:44",
+    "texto": "pregunta",
+    "tokens_entrada": 171,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.499,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:44",
+    "texto": "error",
+    "tokens_entrada": 171,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.433,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:45",
+    "texto": "error",
+    "tokens_entrada": 171,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.441,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "d8dafd6333a8a0f4d4b0": [
+   {
+    "fecha": "2026-11-27T13:50:45",
+    "texto": "mejora",
+    "tokens_entrada": 171,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.437,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:46",
+    "texto": "mejora",
+    "tokens_entrada": 171,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.466,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:47",
+    "texto": "mejora",
+    "tokens_entrada": 171,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.501,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "635fa77f999b27b23e2b": [
+   {
+    "fecha": "2026-11-27T13:50:47",
+    "texto": "documentación",
+    "tokens_entrada": 167,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.451,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:48",
+    "texto": "documentación",
+    "tokens_entrada": 167,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.455,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:48",
+    "texto": "documentación",
+    "tokens_entrada": 167,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.459,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "541d186b4017c6540152": [
+   {
+    "fecha": "2026-11-27T13:50:49",
+    "texto": "error",
+    "tokens_entrada": 165,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.81,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:50",
+    "texto": "error",
+    "tokens_entrada": 165,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.836,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:51",
+    "texto": "error",
+    "tokens_entrada": 165,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.715,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "b17a576fc4e769205edc": [
+   {
+    "fecha": "2026-11-27T13:50:52",
+    "texto": "error",
+    "tokens_entrada": 121,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.453,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:52",
+    "texto": "error",
+    "tokens_entrada": 121,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.425,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:53",
+    "texto": "error",
+    "tokens_entrada": 121,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.434,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "af3d45a46cd767d7e833": [
+   {
+    "fecha": "2026-11-27T13:50:53",
+    "texto": "error",
+    "tokens_entrada": 120,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.477,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:54",
+    "texto": "error",
+    "tokens_entrada": 120,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.46,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:54",
+    "texto": "error",
+    "tokens_entrada": 120,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.45,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "0ee11d35512c41ff3506": [
+   {
+    "fecha": "2026-11-27T13:50:55",
+    "texto": "mejora",
+    "tokens_entrada": 117,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.464,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:55",
+    "texto": "mejora",
+    "tokens_entrada": 117,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.465,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:56",
+    "texto": "mejora",
+    "tokens_entrada": 117,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.419,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "71b4f6f7ae9322b04bfa": [
+   {
+    "fecha": "2026-11-27T13:50:56",
+    "texto": "mejora",
+    "tokens_entrada": 120,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.461,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:57",
+    "texto": "mejora",
+    "tokens_entrada": 120,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.449,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:58",
+    "texto": "mejora",
+    "tokens_entrada": 120,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.467,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "0f24513c8500a4730afc": [
+   {
+    "fecha": "2026-11-27T13:50:58",
+    "texto": "documentación",
+    "tokens_entrada": 114,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.438,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:59",
+    "texto": "documentación",
+    "tokens_entrada": 114,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.411,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:50:59",
+    "texto": "documentación",
+    "tokens_entrada": 114,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.43,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "f482515f2701b5815e89": [
+   {
+    "fecha": "2026-11-27T13:51:00",
+    "texto": "documentación",
+    "tokens_entrada": 111,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.461,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:00",
+    "texto": "documentación",
+    "tokens_entrada": 111,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.551,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:01",
+    "texto": "documentación",
+    "tokens_entrada": 111,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.476,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "960e7488ea2750b21bab": [
+   {
+    "fecha": "2026-11-27T13:51:02",
+    "texto": "pregunta",
+    "tokens_entrada": 114,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.821,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:02",
+    "texto": "pregunta",
+    "tokens_entrada": 114,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.429,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:04",
+    "texto": "pregunta",
+    "tokens_entrada": 114,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.762,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "73650de24b2d27985a9e": [
+   {
+    "fecha": "2026-11-27T13:51:05",
+    "texto": "pregunta",
+    "tokens_entrada": 115,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.508,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:06",
+    "texto": "pregunta",
+    "tokens_entrada": 115,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.418,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:06",
+    "texto": "pregunta",
+    "tokens_entrada": 115,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.423,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "b3f07afc79316b9e0b20": [
+   {
+    "fecha": "2026-11-27T13:51:07",
+    "texto": "error",
+    "tokens_entrada": 119,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.523,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:08",
+    "texto": "error",
+    "tokens_entrada": 119,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.349,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:10",
+    "texto": "error",
+    "tokens_entrada": 119,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.84,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "1d3b48627857ae0aeef5": [
+   {
+    "fecha": "2026-11-27T13:51:11",
+    "texto": "mejora",
+    "tokens_entrada": 119,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.445,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:11",
+    "texto": "mejora",
+    "tokens_entrada": 119,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.406,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:12",
+    "texto": "mejora",
+    "tokens_entrada": 119,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.485,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "98f63319a3d4d490ddc7": [
+   {
+    "fecha": "2026-11-27T13:51:12",
+    "texto": "documentación",
+    "tokens_entrada": 115,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.33,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:14",
+    "texto": "documentación",
+    "tokens_entrada": 115,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.716,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:14",
+    "texto": "documentación",
+    "tokens_entrada": 115,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.103,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "046b77fc1275d157d838": [
+   {
+    "fecha": "2026-11-27T13:51:16",
+    "texto": "error",
+    "tokens_entrada": 113,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.431,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:16",
+    "texto": "error",
+    "tokens_entrada": 113,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:17",
+    "texto": "error",
+    "tokens_entrada": 113,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.427,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "6a24f07cb217ed1e8953": [
+   {
+    "fecha": "2026-11-27T13:51:17",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe un comportamiento incorrecto: al rotar el teléfono, un elemento de la interfaz (el botón de subir fotos) deja de verse.\n2. Esto no es una pregunta ni una petición de documentación, porque no se solicita información ni se pide cambiar textos o guías.\n3. Tampoco es una mejora nueva, porque no se propone una funcionalidad adicional; se reporta que algo que debería funcionar no se muestra bien.\n4. Por tanto, corresponde a un fallo de la aplicación en su diseño responsivo al cambiar de orientación.\n\nEtiqueta: error",
+    "tokens_entrada": 132,
+    "tokens_salida": 225,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.415,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:19",
+    "texto": "Razonamiento paso a paso:\n\n1. El reporte describe un comportamiento incorrecto: al rotar el dispositivo, un elemento de la interfaz (el botón de subir fotos) deja de ser visible.\n2. Eso no es una duda ni una petición de información, así que no encaja con \"pregunta\".\n3. Tampoco se trata de documentación faltante ni de una propuesta de nueva funcionalidad o mejora; lo que se reporta es que algo que debería funcionar no lo hace.\n4. Por lo tanto, corresponde a un defecto en el diseño responsivo de la pantalla.\n\nEtiqueta: error",
+    "tokens_entrada": 132,
+    "tokens_salida": 217,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.361,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:20",
+    "texto": "Razonamiento paso a paso:\n\n1. El reporte describe un comportamiento incorrecto: al rotar el dispositivo, un elemento de la interfaz (el botón de subir fotos) deja de verse.\n2. Esto no es una duda sobre cómo usar la aplicación ni una solicitud de documentación.\n3. Tampoco es una propuesta de nueva funcionalidad o mejora, sino un fallo de diseño responsivo que impide usar una función existente.\n4. Por tanto, corresponde a un error.\n\nEtiqueta: error",
+    "tokens_entrada": 132,
+    "tokens_salida": 188,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.155,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "660a6664dd4541a5a5a0": [
+   {
+    "fecha": "2026-11-27T13:51:22",
+    "texto": "Razonamiento paso a paso:\n\n1. El texto describe un comportamiento incorrecto: la app se cierra (crash) al abrir un álbum compartido con más de 100 fotos.\n2. No se pide una nueva funcionalidad ni una mejora de algo que ya funciona.\n3. No es una duda ni una consulta sobre cómo usar la app.\n4. No se trata de documentación faltante o incorrecta.\n5. Por tanto, la categoría que corresponde es \"error\".\n\nEtiqueta: error",
+    "tokens_entrada": 131,
+    "tokens_salida": 175,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.12,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:23",
+    "texto": "Razonamiento paso a paso:\n1. El issue describe que la aplicación se cierra al abrir un álbum compartido con más de 100 fotos.\n2. Un cierre inesperado de la app es un comportamiento incorrecto del software, es decir, un fallo.\n3. No se pide una nueva funcionalidad ni una mejora, ni se trata de documentación o de una duda.\n4. Por tanto, corresponde a la categoría de error.\n\nEtiqueta: error",
+    "tokens_entrada": 131,
+    "tokens_salida": 161,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.092,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:24",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe que la aplicación se cierra al abrir un álbum compartido con más de 100 fotos.\n2. Un cierre inesperado de la app es un fallo en el comportamiento actual del software, no una petición de nueva funcionalidad.\n3. No se trata de una mejora (no pide algo nuevo ni optimizar algo que funciona), ni de documentación, ni de una pregunta.\n4. Por tanto, corresponde a la etiqueta de error.\n\nEtiqueta: error",
+    "tokens_entrada": 131,
+    "tokens_salida": 183,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.159,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "42cd9f3816dde152570f": [
+   {
+    "fecha": "2026-11-27T13:51:25",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe una funcionalidad que no existe: poder elegir la calidad de las fotos antes de subirlas.\n2. No reporta un fallo en el comportamiento actual, así que no encaja en \"error\".\n3. No pide aclarar cómo usar algo ni habla de documentación.\n4. No es una pregunta formulada al equipo.\n5. Propone una nueva capacidad que mejora la aplicación, por lo que corresponde a \"mejora\".\n\nEtiqueta: mejora",
+    "tokens_entrada": 128,
+    "tokens_salida": 180,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.619,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:27",
+    "texto": "Razonamiento: El issue solicita una funcionalidad nueva (permitir elegir la calidad de las fotos antes de subirlas), que no corrige un fallo existente, no trata de documentación ni hace una pregunta. Encaja en la categoría de mejora.\n\nEtiqueta: mejora",
+    "tokens_entrada": 128,
+    "tokens_salida": 103,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.976,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:29",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe una funcionalidad que no existe todavía: poder elegir la calidad de las fotos antes de subirlas.\n2. No reporta un fallo en algo que ya funciona, así que no es un \"error\".\n3. No pide aclarar cómo usar algo ni es una duda, así que no es una \"pregunta\".\n4. No trata sobre documentación.\n5. Propone una mejora concreta a una funcionalidad de la aplicación, por lo que encaja en \"mejora\".\n\nEtiqueta: mejora",
+    "tokens_entrada": 128,
+    "tokens_salida": 188,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.796,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "6304b2829caffdfac50e": [
+   {
+    "fecha": "2026-11-27T13:51:31",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe una funcionalidad nueva: una vista de mapa que muestre dónde se tomó cada foto.\n2. No reporta un fallo ni un comportamiento incorrecto de algo existente, así que no corresponde \"error\".\n3. No pide mejorar algo ya existente de forma explícita; propone añadir una capacidad nueva. Aun así, la categoría más cercana entre las opciones disponibles es \"mejora\", ya que agrega valor a la aplicación.\n4. No trata sobre documentación ni formula una pregunta al equipo.\n\nEtiqueta: mejora",
+    "tokens_entrada": 131,
+    "tokens_salida": 214,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.337,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:32",
+    "texto": "Razonamiento paso a paso:\n1. El issue describe una funcionalidad nueva: una vista de mapa que muestre dónde se tomó cada foto.\n2. No reporta un fallo ni un comportamiento incorrecto, así que no corresponde \"error\".\n3. No pide cambios en la documentación ni plantea una duda, así que tampoco encajan \"documentación\" ni \"pregunta\".\n4. Al tratarse de una mejora o adición a la aplicación, la etiqueta adecuada es \"mejora\".\n\nEtiqueta: mejora",
+    "tokens_entrada": 131,
+    "tokens_salida": 187,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.296,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:34",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue propone una funcionalidad nueva: una vista de mapa que muestre dónde se tomó cada foto.\n2. No describe un fallo ni un comportamiento incorrecto del sistema, así que no encaja con \"error\".\n3. No pide cambiar ni mejorar algo ya existente de forma explícita; introduce algo que todavía no existe, lo cual se acerca más a una mejora que a una nueva categoría.\n4. No se trata de documentación ni de una pregunta.\n5. Entre las opciones disponibles, \"mejora\" es la que mejor describe una propuesta de nueva funcionalidad.\n\nEtiqueta: mejora",
+    "tokens_entrada": 131,
+    "tokens_salida": 235,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.448,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "29e7f749b00aac4efaa2": [
+   {
+    "fecha": "2026-11-27T13:51:35",
+    "texto": "Razonamiento: el issue señala que falta un dato en la guía de instalación (la versión de Node.js requerida). Eso no es un fallo de funcionamiento del software, ni una propuesta de nueva funcionalidad, ni una pregunta al equipo; es una carencia de información en la documentación, así que corresponde a la etiqueta de documentación.\n\nEtiqueta: documentación",
+    "tokens_entrada": 125,
+    "tokens_salida": 132,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.622,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:38",
+    "texto": "Razonamiento: el issue reporta que falta información en la guía de instalación (la versión de Node.js requerida). No describe un fallo de funcionamiento del software, ni pide una mejora de funcionalidad, ni hace una pregunta directa al equipo. Se trata de una carencia en la documentación, así que la etiqueta adecuada es \"documentación\".\n\nEtiqueta: documentación",
+    "tokens_entrada": 125,
+    "tokens_salida": 133,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.56,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:41",
+    "texto": "Razonamiento: el issue señala que falta información en la guía de instalación (la versión de Node.js requerida). No describe un fallo del software, ni pide una funcionalidad nueva, ni hace una pregunta directa. Se trata de añadir un dato a la documentación, por lo que encaja en \"documentación\".\n\nEtiqueta: documentación",
+    "tokens_entrada": 125,
+    "tokens_salida": 117,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.507,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "b1147ec0518ed6052fc3": [
+   {
+    "fecha": "2026-11-27T13:51:42",
+    "texto": "Razonamiento: el issue describe un enlace roto en el README, que es parte de la documentación del proyecto. No reporta un fallo de funcionamiento del código, no propone una nueva funcionalidad y no formula una pregunta. El problema afecta al contenido documental, por lo que la etiqueta adecuada es \"documentación\".\n\nEtiqueta: documentación",
+    "tokens_entrada": 122,
+    "tokens_salida": 124,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.267,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:44",
+    "texto": "Razonamiento: el issue reporta un enlace roto en el README, que es documentación. No describe un fallo de código ni pide una mejora de funcionalidad, ni hace una pregunta. Por eso la etiqueta adecuada es \"documentación\".\n\nEtiqueta: documentación",
+    "tokens_entrada": 122,
+    "tokens_salida": 97,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.169,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:45",
+    "texto": "Razonamiento: el issue describe un enlace roto en el README, que es parte de la documentación del proyecto. No reporta un fallo en el comportamiento del software, no propone una nueva funcionalidad y no es una duda. Por eso encaja en la categoría de documentación.\n\nEtiqueta: documentación",
+    "tokens_entrada": 122,
+    "tokens_salida": 105,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.25,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "c7cc9c74361f8ba59578": [
+   {
+    "fecha": "2026-11-27T13:51:46",
+    "texto": "Analizando el issue paso a paso: el texto pregunta si la API de FotoNube admite la subida de videos o solo de fotos. No describe un comportamiento incorrecto ni solicita una funcionalidad nueva, y tampoco pide cambios en la documentación. Lo que busca es información sobre lo que la API ya hace, es decir, una consulta directa.\n\nEtiqueta: pregunta",
+    "tokens_entrada": 125,
+    "tokens_salida": 137,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.162,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:48",
+    "texto": "Razonamiento: El issue pregunta si la API de FotoNube admite videos o solo fotos. No reporta un fallo, no propone una mejora ni pide cambiar documentación; es una consulta sobre capacidades del producto. Por eso encaja en \"pregunta\".\n\nEtiqueta: pregunta",
+    "tokens_entrada": 125,
+    "tokens_salida": 106,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.076,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:49",
+    "texto": "Este issue es una consulta sobre qué tipos de archivo admite la API, así que encaja en \"pregunta\" y no en documentación, que sería si se pidiera añadir o corregir la documentación.\n\nEtiqueta: pregunta",
+    "tokens_entrada": 125,
+    "tokens_salida": 80,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.068,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "5b0db1c42b6f0a49ada5": [
+   {
+    "fecha": "2026-11-27T13:51:50",
+    "texto": "Razonamiento: el issue plantea una duda sobre los límites del plan gratuito, sin reportar un fallo, pedir una funcionalidad nueva ni señalar documentación incorrecta. Es una consulta directa, por lo que corresponde a la etiqueta de pregunta.\n\nEtiqueta: pregunta",
+    "tokens_entrada": 126,
+    "tokens_salida": 111,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.013,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:51",
+    "texto": "Etiqueta: pregunta",
+    "tokens_entrada": 126,
+    "tokens_salida": 13,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.431,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:52",
+    "texto": "Etiqueta: pregunta",
+    "tokens_entrada": 126,
+    "tokens_salida": 13,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.466,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "301494515fe5faab7cd9": [
+   {
+    "fecha": "2026-11-27T13:51:52",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe que la aplicación se cierra al subir una foto desde la galería. Es un comportamiento anómalo que impide usar una funcionalidad principal.\n2. Pregunta si es normal. La respuesta esperada es que no lo es, lo que indica un fallo en el software.\n3. No solicita explicación de cómo usar algo, ni propone una nueva funcionalidad, ni trata sobre documentación.\n4. Aunque está redactado como pregunta, la intención real es reportar un crash reproducible, por lo que corresponde a un error.\n\nEtiqueta: error",
+    "tokens_entrada": 130,
+    "tokens_salida": 212,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.466,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:54",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe que la app se cierra al subir una foto desde la galería.\n2. Un cierre inesperado de la aplicación al realizar una acción concreta es un fallo de funcionamiento, no una petición de nueva funcionalidad ni una duda de uso.\n3. No se trata de una mejora de rendimiento o de interfaz, ni de documentación faltante, ni de una simple pregunta: aunque tenga forma de pregunta (\"¿Es normal...?\"), la intención es reportar un comportamiento defectuoso.\n4. Por tanto, la etiqueta más adecuada es \"error\".\n\nEtiqueta: error",
+    "tokens_entrada": 130,
+    "tokens_salida": 228,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.344,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:55",
+    "texto": "Analizando el issue paso a paso:\n\n1. El usuario describe un comportamiento inesperado: la app se cierra al subir una foto desde la galería.\n2. Pregunta si \"es normal\", lo que indica que considera que algo no funciona bien.\n3. Un cierre inesperado (crash) al realizar una acción concreta es un fallo de la aplicación, no una petición de información ni una mejora.\n4. No se trata de una duda de uso que requiera documentación, aunque la formulación sea interrogativa.\n\nEtiqueta: error",
+    "tokens_entrada": 130,
+    "tokens_salida": 182,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.212,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "ba393445b2bcb00714e8": [
+   {
+    "fecha": "2026-11-27T13:51:56",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe que la aplicación no tiene modo oscuro.\n2. Esto es una funcionalidad inexistente que el usuario desearía tener, no un fallo de algo que ya debería funcionar.\n3. No se reporta un comportamiento incorrecto ni un crash, así que no encaja en \"error\".\n4. No es una petición de documentación ni una duda sobre cómo usar la app.\n5. Encaja en \"mejora\", ya que propone añadir una nueva característica para mejorar la experiencia de uso.\n\nEtiqueta: mejora",
+    "tokens_entrada": 130,
+    "tokens_salida": 201,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.267,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:58",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe una funcionalidad que no existe: la app no tiene modo oscuro.\n2. El reporte no indica que algo funcione mal ni que se haya roto una función que antes estaba presente.\n3. Tampoco es una pregunta ni una petición de documentación.\n4. Es una propuesta de nueva funcionalidad o de mejora de la experiencia de usuario (la pantalla resulta molesta de noche).\n\nPor tanto, la etiqueta adecuada es \"mejora\".\n\nEtiqueta: mejora",
+    "tokens_entrada": 130,
+    "tokens_salida": 193,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.335,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:51:59",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe una funcionalidad que no existe: la app no tiene modo oscuro.\n2. Describe una molestia de uso: de noche la pantalla resulta incómoda.\n3. No reporta un fallo: nada se rompe ni funciona mal; simplemente falta una opción.\n4. No es documentación ni una pregunta; el usuario no pide información.\n5. Lo que pide es añadir una capacidad nueva para mejorar la experiencia, lo que encaja con \"mejora\".\n\nEtiqueta: mejora",
+    "tokens_entrada": 130,
+    "tokens_salida": 193,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.359,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "c0c49fa305b381375256": [
+   {
+    "fecha": "2026-11-27T13:52:01",
+    "texto": "Etiqueta: documentación",
+    "tokens_entrada": 126,
+    "tokens_salida": 12,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.209,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:02",
+    "texto": "Razonamiento: el issue reporta que un ejemplo de código en el README usa una función que ya no existe. Eso describe un fallo en la documentación: el texto no coincide con el código actual. No reporta un bug del software en sí (el código funciona como debe, solo el ejemplo está desactualizado), no pide una nueva funcionalidad y no es una duda. La categoría que mejor encaja es \"documentación\".\n\nEtiqueta: documentación",
+    "tokens_entrada": 126,
+    "tokens_salida": 151,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.912,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:04",
+    "texto": "Analizando el issue: el README contiene un ejemplo de código que llama a una función que ya no existe en el proyecto. Esto significa que la documentación está desactualizada respecto al código, y el problema afecta a la explicación de cómo usar la librería, no al comportamiento del software en sí.\n\nEtiqueta: documentación",
+    "tokens_entrada": 126,
+    "tokens_salida": 110,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.545,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "f42ed2a6017e1f3a9906": [
+   {
+    "fecha": "2026-11-27T13:52:06",
+    "texto": "Razonamiento: el usuario reporta que al buscar fotos por fecha no aparece ningún resultado y pregunta si está roto. Eso describe un comportamiento incorrecto de la aplicación (la búsqueda no funciona como debería), no una mejora solicitada, ni una duda de uso ni un problema de documentación. Por eso encaja en \"error\".\n\nEtiqueta: error",
+    "tokens_entrada": 124,
+    "tokens_salida": 133,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.413,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:08",
+    "texto": "Raz",
+    "tokens_entrada": 124,
+    "tokens_salida": 2,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.935,
+    "stop_reason": "refusal",
+    "stop_details": {
+     "category": "reasoning_extraction",
+     "explanation": "This request was blocked as it seems to violate Anthropic's Terms of Service restrictions on reverse engineering or duplicating model outputs. To learn more, visit https://www.anthropic.com/legal/commercial-terms. API integrators: you can reduce refusals for your users by configuring a fallback model — see https://platform.claude.com/docs/en/build-with-claude/refusals-and-fallback",
+     "type": "refusal"
+    },
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:09",
+    "texto": "Razonamiento: El usuario reporta que la búsqueda de fotos por fecha no muestra resultados y pregunta si está roto. Describe un comportamiento inesperado de la aplicación (una funcionalidad que no devuelve lo esperado), lo que corresponde a un fallo y no a una mejora, documentación o pregunta de uso.\n\nEtiqueta: error",
+    "tokens_entrada": 124,
+    "tokens_salida": 128,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.472,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "869abb381334bf8db9ff": [
+   {
+    "fecha": "2026-11-27T13:52:11",
+    "texto": "error",
+    "tokens_entrada": 200,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.47,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:11",
+    "texto": "error",
+    "tokens_entrada": 200,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:12",
+    "texto": "error",
+    "tokens_entrada": 200,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.497,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "712edd54268dedd6222c": [
+   {
+    "fecha": "2026-11-27T13:52:13",
+    "texto": "error",
+    "tokens_entrada": 199,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.509,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:13",
+    "texto": "error",
+    "tokens_entrada": 199,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.461,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:14",
+    "texto": "error",
+    "tokens_entrada": 199,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.476,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "fef83a45e096bbb23a7c": [
+   {
+    "fecha": "2026-11-27T13:52:14",
+    "texto": "mejora",
+    "tokens_entrada": 196,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.438,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:15",
+    "texto": "mejora",
+    "tokens_entrada": 196,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.449,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:15",
+    "texto": "mejora",
+    "tokens_entrada": 196,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.446,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "23f649eed1b54e03c7fc": [
+   {
+    "fecha": "2026-11-27T13:52:16",
+    "texto": "mejora",
+    "tokens_entrada": 199,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.457,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:17",
+    "texto": "mejora",
+    "tokens_entrada": 199,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.426,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:17",
+    "texto": "mejora",
+    "tokens_entrada": 199,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.43,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "40f2aa52b3b457a53cbb": [
+   {
+    "fecha": "2026-11-27T13:52:18",
+    "texto": "documentación",
+    "tokens_entrada": 193,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.705,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:19",
+    "texto": "documentación",
+    "tokens_entrada": 193,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.954,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:20",
+    "texto": "documentación",
+    "tokens_entrada": 193,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.898,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "e7c98d6635e7e8f402d5": [
+   {
+    "fecha": "2026-11-27T13:52:21",
+    "texto": "documentación",
+    "tokens_entrada": 190,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.452,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:22",
+    "texto": "documentación",
+    "tokens_entrada": 190,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.448,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:23",
+    "texto": "documentación",
+    "tokens_entrada": 190,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.474,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "3c398a0ca4b6477c6bc5": [
+   {
+    "fecha": "2026-11-27T13:52:23",
+    "texto": "pregunta",
+    "tokens_entrada": 193,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.469,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:24",
+    "texto": "pregunta",
+    "tokens_entrada": 193,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.474,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:24",
+    "texto": "pregunta",
+    "tokens_entrada": 193,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.46,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "10f94072d23b3708ac38": [
+   {
+    "fecha": "2026-11-27T13:52:25",
+    "texto": "pregunta",
+    "tokens_entrada": 194,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.436,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:25",
+    "texto": "pregunta",
+    "tokens_entrada": 194,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.467,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:26",
+    "texto": "pregunta",
+    "tokens_entrada": 194,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.435,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "cc59d3257ccbba0b0a6c": [
+   {
+    "fecha": "2026-11-27T13:52:26",
+    "texto": "pregunta",
+    "tokens_entrada": 198,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.458,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:27",
+    "texto": "pregunta",
+    "tokens_entrada": 198,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.449,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:28",
+    "texto": "pregunta",
+    "tokens_entrada": 198,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.435,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "38a2c580558660543b05": [
+   {
+    "fecha": "2026-11-27T13:52:28",
+    "texto": "mejora",
+    "tokens_entrada": 198,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.465,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:29",
+    "texto": "mejora",
+    "tokens_entrada": 198,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.438,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:29",
+    "texto": "mejora",
+    "tokens_entrada": 198,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.459,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "f13fa14b9827cb9039d9": [
+   {
+    "fecha": "2026-11-27T13:52:30",
+    "texto": "documentación",
+    "tokens_entrada": 194,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.511,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:30",
+    "texto": "documentación",
+    "tokens_entrada": 194,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.509,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:31",
+    "texto": "documentación",
+    "tokens_entrada": 194,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.491,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "266c9562c366f74a858a": [
+   {
+    "fecha": "2026-11-27T13:52:32",
+    "texto": "error",
+    "tokens_entrada": 192,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.457,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:32",
+    "texto": "error",
+    "tokens_entrada": 192,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.452,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:33",
+    "texto": "error",
+    "tokens_entrada": 192,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.484,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "67432ff22d7c997aa8bc": [
+   {
+    "fecha": "2026-11-27T13:52:33",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe un comportamiento incorrecto: al girar el teléfono, un botón queda fuera de la pantalla.\n2. Eso es un fallo de la interfaz que ya existe, no una función nueva ni una petición de cambio.\n3. No es documentación ni una pregunta.\n4. Por tanto, encaja en \"error\".\n\nEtiqueta: error",
+    "tokens_entrada": 211,
+    "tokens_salida": 138,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.246,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:35",
+    "texto": "Razonamiento paso a paso:\n1. El issue describe un comportamiento incorrecto: al rotar el dispositivo, un elemento de la interfaz deja de ser visible.\n2. Eso es un fallo en el funcionamiento esperado de la app, no una petición de funcionalidad nueva ni una duda.\n3. No se trata de documentación, porque no pide ni señala un problema en los textos del proyecto.\n4. Por tanto, encaja en la categoría de error.\n\nEtiqueta: error",
+    "tokens_entrada": 211,
+    "tokens_salida": 172,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.473,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:37",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe un comportamiento que no funciona: al girar el teléfono, un elemento de la interfaz queda fuera de la pantalla.\n2. Eso es un fallo en la interfaz existente, no una petición de nueva funcionalidad ni una duda ni un problema de documentación.\n3. Por tanto, encaja con la categoría \"error\".\n\nEtiqueta: error",
+    "tokens_entrada": 211,
+    "tokens_salida": 143,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.218,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "4631015c7acc3e2a7465": [
+   {
+    "fecha": "2026-11-27T13:52:39",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe que la aplicación se cierra de forma inesperada.\n2. Un cierre inesperado indica un fallo en el funcionamiento, no una solicitud de nueva funcionalidad.\n3. No se trata de documentación ni de una pregunta, porque no se pide información ni se menciona un texto del proyecto.\n4. Por tanto, corresponde a un error.\n\nEtiqueta: error",
+    "tokens_entrada": 210,
+    "tokens_salida": 152,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.803,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:42",
+    "texto": "Razonamiento: el issue describe que la aplicación se cierra inesperadamente al abrir un álbum compartido con más de 100 fotos. Eso es un fallo en el comportamiento esperado (un cierre inesperado), no una solicitud de nueva funcionalidad, ni una duda, ni un problema de documentación.\n\nEtiqueta: error",
+    "tokens_entrada": 210,
+    "tokens_salida": 121,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.96,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:45",
+    "texto": "Razonamiento: El issue describe que la aplicación se cierra inesperadamente (un fallo o crash) al abrir un álbum con más de 100 fotos. Eso es un comportamiento incorrecto del software, no una solicitud de una nueva funcionalidad, no una falta de documentación y tampoco una pregunta. Encaja con el patrón del ejemplo \"La app se cierra al abrir un álbum vacío\", que se etiquetó como error.\n\nEtiqueta: error",
+    "tokens_entrada": 210,
+    "tokens_salida": 165,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.69,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "1caa0299df08eef79609": [
+   {
+    "fecha": "2026-11-27T13:52:46",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue no reporta un fallo: no dice que algo se rompa ni que funcione mal, así que no es \"error\".\n2. No pide aclarar cómo usar algo ni habla de documentación, así que tampoco encaja en \"documentación\" ni en \"pregunta\".\n3. Propone una funcionalidad nueva que hoy no existe: elegir la calidad de subida. Eso es una mejora de la aplicación.\n\nEtiqueta: mejora",
+    "tokens_entrada": 207,
+    "tokens_salida": 166,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.469,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:48",
+    "texto": "No voy a detallar mi razonamiento paso a paso, pero la etiqueta es esta: el issue pide una funcionalidad nueva (elegir la calidad de subida), no reporta un fallo ni pide documentación ni plantea una duda, así que corresponde a una mejora.\n\nEtiqueta: mejora",
+    "tokens_entrada": 207,
+    "tokens_salida": 108,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.74,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:50",
+    "texto": "Razonamiento: el issue pide una funcionalidad nueva (elegir la calidad de las fotos al subirlas). No describe un fallo de la app ni una falta de documentación ni una duda. Encaja con el ejemplo de \"modo oscuro\": es una propuesta de mejora.\n\nEtiqueta: mejora",
+    "tokens_entrada": 207,
+    "tokens_salida": 110,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.062,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "6ca9d28b9d52ca4286f3": [
+   {
+    "fecha": "2026-11-27T13:52:51",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe una funcionalidad que aún no existe: una vista de mapa que muestre dónde se tomó cada foto.\n2. No reporta un fallo ni un comportamiento incorrecto, así que no corresponde a \"error\".\n3. No pide aclarar cómo usar algo ni plantea una duda, así que no es \"pregunta\".\n4. No trata sobre documentación del proyecto.\n5. Propone añadir una capacidad nueva a la app, que encaja con \"mejora\".\n\nEtiqueta: mejora",
+    "tokens_entrada": 210,
+    "tokens_salida": 191,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.798,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:53",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe una funcionalidad nueva: una vista de mapa que muestra dónde se tomó cada foto.\n2. No reporta ningún fallo ni comportamiento incorrecto, así que no es un error.\n3. No trata sobre documentación ni hace una pregunta; es una propuesta concreta de algo que aún no existe.\n4. Encaja con la categoría de mejora, igual que el ejemplo \"Agregar un modo oscuro a la galería\".\n\nEtiqueta: mejora",
+    "tokens_entrada": 210,
+    "tokens_salida": 184,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.98,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:55",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe una funcionalidad nueva que aún no existe: una vista de mapa con la ubicación de cada foto.\n2. No reporta un fallo ni un comportamiento incorrecto, así que no encaja en \"error\".\n3. No pide corregir ni documentar algo existente, por lo que tampoco es \"documentación\".\n4. No es una duda ni una consulta, sino una propuesta concreta de cambio, lo que corresponde a \"mejora\".\n\nEtiqueta: mejora",
+    "tokens_entrada": 210,
+    "tokens_salida": 180,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.825,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "5c5dd4f8992026fd02ff": [
+   {
+    "fecha": "2026-11-27T13:52:57",
+    "texto": "Razonamiento: el issue señala que falta un dato en la guía de instalación (la versión de Node.js requerida). No describe un fallo del software ni pide una funcionalidad nueva, ni es una duda al equipo. Se trata de contenido faltante en la documentación, por lo que corresponde a documentación.\n\nEtiqueta: documentación",
+    "tokens_entrada": 204,
+    "tokens_salida": 117,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.081,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:58",
+    "texto": "Razonamiento: el issue señala que falta información en la guía de instalación (la versión de Node.js requerida). No describe un fallo del programa ni pide una función nueva, ni es una pregunta al equipo. Se trata de documentación incompleta, lo que encaja con el ejemplo del README que no explica cómo correr las pruebas.\n\nEtiqueta: documentación",
+    "tokens_entrada": 204,
+    "tokens_salida": 126,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.047,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:52:59",
+    "texto": "Razonamiento: el issue señala que falta información en la guía de instalación (la versión de Node.js requerida). No reporta un fallo del software, no pide una funcionalidad nueva ni formula una duda; se trata de contenido de documentación que está incompleto.\n\nEtiqueta: documentación",
+    "tokens_entrada": 204,
+    "tokens_salida": 100,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.983,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "f2165c7af2d529f76954": [
+   {
+    "fecha": "2026-11-27T13:53:00",
+    "texto": "Razonamiento: el issue describe un enlace roto dentro del README, que es documentación. No describe un fallo de funcionamiento de la app ni una petición de nueva funcionalidad, así que no encaja en error ni en mejora. Tampoco es una pregunta.\n\nEtiqueta: documentación",
+    "tokens_entrada": 201,
+    "tokens_salida": 103,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.055,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:01",
+    "texto": "Razonamiento: el issue trata sobre un enlace roto en el README. No reporta un fallo de la aplicación en sí, ni pide una funcionalidad nueva, ni hace una pregunta. Es un problema con la documentación del proyecto, así que corresponde a \"documentación\".\n\nEtiqueta: documentación",
+    "tokens_entrada": 201,
+    "tokens_salida": 109,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.257,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:03",
+    "texto": "Razonamiento: el issue describe un enlace roto dentro del README, que es un archivo de documentación. Aunque el problema es un fallo funcional (el enlace no lleva a ningún lado), el objeto afectado es la documentación del proyecto, no el comportamiento de la aplicación. No se pide una nueva funcionalidad ni una mejora, y tampoco es una pregunta. Por tanto, la etiqueta más adecuada es documentación.\n\nEtiqueta: documentación",
+    "tokens_entrada": 201,
+    "tokens_salida": 166,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.208,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "3303f61d169317f2378f": [
+   {
+    "fecha": "2026-11-27T13:53:04",
+    "texto": "Razonamiento: el issue es una duda sobre qué tipos de archivo admite la API de FotoNube. No reporta un fallo, no pide una funcionalidad nueva ni señala un problema en la documentación; solo busca una respuesta, así que encaja con la etiqueta \"pregunta\".\n\nEtiqueta: pregunta",
+    "tokens_entrada": 204,
+    "tokens_salida": 114,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.65,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:07",
+    "texto": "Razonamiento: el issue no reporta un fallo ni pide una funcionalidad nueva; es una consulta sobre qué tipos de archivo admite la API. Eso corresponde a una duda de uso, no a documentación faltante ni a un cambio de código.\n\nEtiqueta: pregunta",
+    "tokens_entrada": 204,
+    "tokens_salida": 102,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.326,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:08",
+    "texto": "Razonamiento: el issue es una duda sobre las capacidades de la API (si acepta videos o solo fotos). No reporta un fallo, no pide una funcionalidad nueva y no señala un problema en la documentación. Es una consulta, así que corresponde a la etiqueta pregunta.\n\nEtiqueta: pregunta",
+    "tokens_entrada": 204,
+    "tokens_salida": 113,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.055,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "9d0a202bb48fa4db2f87": [
+   {
+    "fecha": "2026-11-27T13:53:09",
+    "texto": "Razonamiento: El issue pregunta por un límite de fotos en el plan gratuito. No reporta un fallo, no pide una función nueva y no señala un problema en la documentación; solicita información. Por eso encaja en \"pregunta\".\n\nEtiqueta: pregunta",
+    "tokens_entrada": 205,
+    "tokens_salida": 94,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.868,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:10",
+    "texto": "Razonamiento: El issue pregunta por el límite de fotos por álbum en el plan gratuito. No reporta un fallo, no pide una funcionalidad nueva y no señala un problema en la documentación; solicita información. Por eso corresponde a la etiqueta \"pregunta\".\n\nEtiqueta: pregunta",
+    "tokens_entrada": 205,
+    "tokens_salida": 110,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.919,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:11",
+    "texto": "Razonamiento: El issue pregunta por el límite de fotos por álbum en el plan gratuito. No reporta un fallo ni solicita una funcionalidad nueva, y tampoco pide corregir documentación; busca información sobre cómo funciona el producto. Por eso corresponde a la etiqueta de pregunta.\n\nEtiqueta: pregunta",
+    "tokens_entrada": 205,
+    "tokens_salida": 124,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.922,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "61eaa9e71f9d2d5648e4": [
+   {
+    "fecha": "2026-11-27T13:53:12",
+    "texto": "Razonamiento: el usuario describe un cierre inesperado de la app al realizar una acción (subir una foto). Eso es un comportamiento defectuoso, no una solicitud de nueva funcionalidad ni de documentación. Aunque está redactado como pregunta (\"¿Es normal...?\"), la intención es reportar un fallo reproducible, así que encaja en error y no en pregunta.\n\nEtiqueta: error",
+    "tokens_entrada": 209,
+    "tokens_salida": 144,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.297,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:14",
+    "texto": "Razonamiento: El usuario describe que la app se cierra al subir una foto desde la galería. Eso es un comportamiento no deseado que impide usar una función, por lo que encaja en error. Aunque está formulado como pregunta, lo que busca es que se corrija un fallo, no información general sobre el funcionamiento de la app.\n\nEtiqueta: error",
+    "tokens_entrada": 209,
+    "tokens_salida": 122,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.29,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:15",
+    "texto": "No voy a detallar mi razonamiento paso a paso, pero la clasificación es esta: el issue describe que la app se cierra al subir una foto, lo que es un comportamiento incorrecto. Eso corresponde a un error, no a una mejora ni a una duda sobre cómo usar la app.\n\nEtiqueta: error",
+    "tokens_entrada": 209,
+    "tokens_salida": 111,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.267,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "08c81fb9d9f60a0f451f": [
+   {
+    "fecha": "2026-11-27T13:53:17",
+    "texto": "Razonamiento paso a paso:\n\n1. El issue describe que la app no tiene modo oscuro, lo que implica una función ausente.\n2. Pide algo nuevo para mejorar la experiencia (que de noche la pantalla moleste menos), no reporta un fallo de funcionamiento existente.\n3. No habla de documentación ni plantea una duda.\n4. Por tanto, encaja con \"mejora\", igual que el ejemplo del modo oscuro en la galería.\n\nEtiqueta: mejora",
+    "tokens_entrada": 209,
+    "tokens_salida": 172,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.241,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:18",
+    "texto": "Razonamiento: El issue pide una funcionalidad que no existe (modo oscuro) para mejorar la experiencia de uso nocturno. No describe un fallo de comportamiento existente, ni una falta de documentación, ni una duda. Encaja con el ejemplo de \"Agregar un modo oscuro a la galería\", que se clasificó como mejora.\n\nEtiqueta: mejora",
+    "tokens_entrada": 209,
+    "tokens_salida": 134,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.003,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:19",
+    "texto": "Razonamiento: el issue pide una funcionalidad que hoy no existe (modo oscuro) para mejorar la comodidad visual. No describe un fallo de comportamiento existente, ni es una duda ni una consulta sobre documentación. Encaja con el ejemplo \"Agregar un modo oscuro a la galería\", que se clasifica como mejora.\n\nEtiqueta: mejora",
+    "tokens_entrada": 209,
+    "tokens_salida": 134,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.076,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "d3e2b99e41630cbcfba1": [
+   {
+    "fecha": "2026-11-27T13:53:20",
+    "texto": "Razonamiento: el issue reporta que un ejemplo dentro del README está desactualizado, porque usa una función que ya no existe. Eso no es un fallo de la aplicación en sí (no hay un cierre inesperado ni un comportamiento incorrecto del código), sino un problema en el texto que documenta el uso. Tampoco pide una nueva funcionalidad. Lo que está mal es la documentación, así que la etiqueta correcta es \"documentación\".\n\nEtiqueta: documentación",
+    "tokens_entrada": 205,
+    "tokens_salida": 169,
+    "tokens_razonamiento": 0,
+    "latencia_s": 3.048,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:23",
+    "texto": "Razonamiento: el issue reporta que un ejemplo en el README usa una función que ya no existe. Eso no es un fallo en el código de la app en sí, sino contenido incorrecto en la documentación, por lo que encaja con la categoría de documentación más que con error o mejora.\n\nEtiqueta: documentación",
+    "tokens_entrada": 205,
+    "tokens_salida": 107,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.028,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:25",
+    "texto": "No voy a exponer mi razonamiento paso a paso, pero la clasificación es esta: el issue describe que la documentación (el README) muestra un ejemplo con una función que ya no existe. Eso es un problema de contenido en la documentación, no un fallo de la aplicación en ejecución ni una solicitud de nueva funcionalidad.\n\nEtiqueta: documentación",
+    "tokens_entrada": 205,
+    "tokens_salida": 128,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.307,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "008290f05cbea89a3f1e": [
+   {
+    "fecha": "2026-11-27T13:53:26",
+    "texto": "Razonamiento: el usuario reporta que la búsqueda por fecha no muestra resultados y pregunta si está rota. Describe un comportamiento inesperado de una función existente, lo que apunta a un fallo y no a una petición de mejora, documentación o una duda de uso.\n\nEtiqueta: error",
+    "tokens_entrada": 203,
+    "tokens_salida": 105,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.172,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:27",
+    "texto": "Razonamiento: el usuario reporta que la búsqueda de fotos por fecha no muestra resultados y pregunta si está rota. Describe un comportamiento que no funciona como debería (la búsqueda no devuelve nada), lo que encaja con un fallo funcional, no con una petición de nueva funcionalidad, ni con una duda de uso ni con un problema de documentación.\n\nEtiqueta: error",
+    "tokens_entrada": 203,
+    "tokens_salida": 140,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.363,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:30",
+    "texto": "Razonamiento: el usuario reporta que la búsqueda de fotos por fecha no muestra resultados y pregunta si está rota. Describe un comportamiento incorrecto de una funcionalidad existente (la búsqueda por fecha), lo que encaja con un bug, no con una petición de mejora, documentación ni una duda de uso.\n\nEtiqueta: error",
+    "tokens_entrada": 203,
+    "tokens_salida": 126,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.292,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "4b571e463027a8b4c646": [
+   {
+    "fecha": "2026-11-27T13:53:31",
+    "texto": "error",
+    "tokens_entrada": 200,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.427,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:32",
+    "texto": "error",
+    "tokens_entrada": 200,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.437,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:32",
+    "texto": "error",
+    "tokens_entrada": 200,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.582,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "2dd22ffc894378cdd14b": [
+   {
+    "fecha": "2026-11-27T13:53:33",
+    "texto": "error",
+    "tokens_entrada": 199,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.447,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:33",
+    "texto": "error",
+    "tokens_entrada": 199,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.451,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:34",
+    "texto": "error",
+    "tokens_entrada": 199,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.452,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "c664cdc44f5bfd338b7b": [
+   {
+    "fecha": "2026-11-27T13:53:35",
+    "texto": "mejora",
+    "tokens_entrada": 196,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.432,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:35",
+    "texto": "mejora",
+    "tokens_entrada": 196,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.434,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:36",
+    "texto": "mejora",
+    "tokens_entrada": 196,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.559,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "02045355431be649c45f": [
+   {
+    "fecha": "2026-11-27T13:53:36",
+    "texto": "mejora",
+    "tokens_entrada": 199,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.495,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:37",
+    "texto": "mejora",
+    "tokens_entrada": 199,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.477,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:53:37",
+    "texto": "mejora",
+    "tokens_entrada": 199,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.51,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "da1853b15e6349d4960c": [
+   {
+    "fecha": "2026-11-27T13:53:38",
+    "texto": "documentación",
+    "tokens_entrada": 193,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 61.271,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:39",
+    "texto": "documentación",
+    "tokens_entrada": 193,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.532,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:40",
+    "texto": "documentación",
+    "tokens_entrada": 193,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.517,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "d800148e54a6ffef8b4c": [
+   {
+    "fecha": "2026-11-27T13:54:41",
+    "texto": "documentación",
+    "tokens_entrada": 190,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.536,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:41",
+    "texto": "documentación",
+    "tokens_entrada": 190,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.523,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:42",
+    "texto": "documentación",
+    "tokens_entrada": 190,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.525,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "f46127384d18e7b0a1fc": [
+   {
+    "fecha": "2026-11-27T13:54:43",
+    "texto": "pregunta",
+    "tokens_entrada": 193,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.454,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:43",
+    "texto": "pregunta",
+    "tokens_entrada": 193,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.44,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:44",
+    "texto": "pregunta",
+    "tokens_entrada": 193,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.529,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "481830bc4db958b6563c": [
+   {
+    "fecha": "2026-11-27T13:54:44",
+    "texto": "pregunta",
+    "tokens_entrada": 194,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.979,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:45",
+    "texto": "pregunta",
+    "tokens_entrada": 194,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.168,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:47",
+    "texto": "pregunta",
+    "tokens_entrada": 194,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.946,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "968688d58973e32d7668": [
+   {
+    "fecha": "2026-11-27T13:54:48",
+    "texto": "pregunta",
+    "tokens_entrada": 198,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.491,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:48",
+    "texto": "pregunta",
+    "tokens_entrada": 198,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.456,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:49",
+    "texto": "pregunta",
+    "tokens_entrada": 198,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.444,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "b481ea003ce3b93502d3": [
+   {
+    "fecha": "2026-11-27T13:54:49",
+    "texto": "mejora",
+    "tokens_entrada": 198,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.83,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:50",
+    "texto": "mejora",
+    "tokens_entrada": 198,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.772,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:51",
+    "texto": "mejora",
+    "tokens_entrada": 198,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.832,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "dcc9c7a8e704a69f0b19": [
+   {
+    "fecha": "2026-11-27T13:54:52",
+    "texto": "documentación",
+    "tokens_entrada": 194,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.423,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:53",
+    "texto": "documentación",
+    "tokens_entrada": 194,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.434,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:53",
+    "texto": "documentación",
+    "tokens_entrada": 194,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.415,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "1291f2b0cc1b2814a624": [
+   {
+    "fecha": "2026-11-27T13:54:54",
+    "texto": "error",
+    "tokens_entrada": 192,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.451,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:54",
+    "texto": "error",
+    "tokens_entrada": 192,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.503,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:55",
+    "texto": "error",
+    "tokens_entrada": 192,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.504,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "16176777012bbc0973fa": [
+   {
+    "fecha": "2026-11-27T13:54:55",
+    "texto": "error",
+    "tokens_entrada": 185,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.525,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:56",
+    "texto": "error",
+    "tokens_entrada": 185,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.54,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:57",
+    "texto": "error",
+    "tokens_entrada": 185,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.552,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "221c7a54956de255afb3": [
+   {
+    "fecha": "2026-11-27T13:54:57",
+    "texto": "error",
+    "tokens_entrada": 184,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.854,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:54:58",
+    "texto": "error",
+    "tokens_entrada": 184,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.297,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:01",
+    "texto": "error",
+    "tokens_entrada": 184,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.933,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "d58254abac4b784dabc3": [
+   {
+    "fecha": "2026-11-27T13:55:02",
+    "texto": "mejora",
+    "tokens_entrada": 181,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.486,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:02",
+    "texto": "mejora",
+    "tokens_entrada": 181,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.514,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:03",
+    "texto": "mejora",
+    "tokens_entrada": 181,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.556,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "392523f8bc4846cf1572": [
+   {
+    "fecha": "2026-11-27T13:55:04",
+    "texto": "mejora",
+    "tokens_entrada": 184,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.502,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:04",
+    "texto": "mejora",
+    "tokens_entrada": 184,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.524,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:05",
+    "texto": "mejora",
+    "tokens_entrada": 184,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.531,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "200b14bea5467a2d9e76": [
+   {
+    "fecha": "2026-11-27T13:55:06",
+    "texto": "documentación",
+    "tokens_entrada": 178,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.594,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:06",
+    "texto": "documentación",
+    "tokens_entrada": 178,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.542,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:07",
+    "texto": "documentación",
+    "tokens_entrada": 178,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.556,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "eb103398a3a9036b7891": [
+   {
+    "fecha": "2026-11-27T13:55:08",
+    "texto": "documentación",
+    "tokens_entrada": 175,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.504,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:08",
+    "texto": "documentación",
+    "tokens_entrada": 175,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.474,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:09",
+    "texto": "documentación",
+    "tokens_entrada": 175,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.49,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "65c085b9d9006bbc381e": [
+   {
+    "fecha": "2026-11-27T13:55:09",
+    "texto": "pregunta",
+    "tokens_entrada": 178,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.541,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:10",
+    "texto": "Etiqueta: **pregunta**",
+    "tokens_entrada": 178,
+    "tokens_salida": 15,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.567,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:11",
+    "texto": "**Etiqueta: pregunta**\n\nEl issue pide información sobre si la API de FotoNube acepta videos o solo fotos. No reporta un fallo ni solicita un cambio.",
+    "tokens_entrada": 178,
+    "tokens_salida": 64,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.795,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "2fef3afdd96e68b4136c": [
+   {
+    "fecha": "2026-11-27T13:55:12",
+    "texto": "pregunta",
+    "tokens_entrada": 179,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.013,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:13",
+    "texto": "pregunta",
+    "tokens_entrada": 179,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.948,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:14",
+    "texto": "pregunta",
+    "tokens_entrada": 179,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.878,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "2adbce366b7c1f1949c6": [
+   {
+    "fecha": "2026-11-27T13:55:15",
+    "texto": "error",
+    "tokens_entrada": 183,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.514,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:15",
+    "texto": "error",
+    "tokens_entrada": 183,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.543,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:16",
+    "texto": "error",
+    "tokens_entrada": 183,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.477,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "7b75f1631e0c3f67b821": [
+   {
+    "fecha": "2026-11-27T13:55:17",
+    "texto": "mejora",
+    "tokens_entrada": 183,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.524,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:17",
+    "texto": "mejora",
+    "tokens_entrada": 183,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.462,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:18",
+    "texto": "mejora",
+    "tokens_entrada": 183,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.452,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "6a284d488db5065ed7aa": [
+   {
+    "fecha": "2026-11-27T13:55:18",
+    "texto": "documentación",
+    "tokens_entrada": 179,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.493,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:19",
+    "texto": "documentación",
+    "tokens_entrada": 179,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.511,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:19",
+    "texto": "documentación",
+    "tokens_entrada": 179,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.458,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "6a7bf75fc127aebfb9bb": [
+   {
+    "fecha": "2026-11-27T13:55:20",
+    "texto": "error",
+    "tokens_entrada": 177,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.623,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:21",
+    "texto": "**Etiqueta: error**\n\nEl issue describe que la búsqueda de fotos por fecha no muestra resultados, lo que indica que la función no funciona como debe.",
+    "tokens_entrada": 177,
+    "tokens_salida": 57,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.615,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:21",
+    "texto": "**Etiqueta: error**\n\nEl issue reporta que la búsqueda de fotos por fecha no muestra resultados, lo que indica que algo no funciona como debería.",
+    "tokens_entrada": 177,
+    "tokens_salida": 58,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.597,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "df6e30bd09d25deceeaa": [
+   {
+    "fecha": "2026-11-27T13:55:22",
+    "texto": "error",
+    "tokens_entrada": 199,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.431,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:23",
+    "texto": "error",
+    "tokens_entrada": 199,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.441,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:23",
+    "texto": "error",
+    "tokens_entrada": 199,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.422,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "1fbf3759260a4d7bba37": [
+   {
+    "fecha": "2026-11-27T13:55:24",
+    "texto": "error",
+    "tokens_entrada": 198,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.405,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:24",
+    "texto": "error",
+    "tokens_entrada": 198,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.43,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:25",
+    "texto": "error",
+    "tokens_entrada": 198,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.436,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "ae8c049536a79e2a0d0a": [
+   {
+    "fecha": "2026-11-27T13:55:25",
+    "texto": "mejora",
+    "tokens_entrada": 195,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:26",
+    "texto": "mejora",
+    "tokens_entrada": 195,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.429,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:26",
+    "texto": "mejora",
+    "tokens_entrada": 195,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.485,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "bbdaf4f144e44ce9ef78": [
+   {
+    "fecha": "2026-11-27T13:55:27",
+    "texto": "mejora",
+    "tokens_entrada": 198,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.422,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:28",
+    "texto": "mejora",
+    "tokens_entrada": 198,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.429,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:28",
+    "texto": "mejora",
+    "tokens_entrada": 198,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.429,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "b564aa92eba5bfe0edc3": [
+   {
+    "fecha": "2026-11-27T13:55:29",
+    "texto": "documentación",
+    "tokens_entrada": 192,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.413,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:29",
+    "texto": "documentación",
+    "tokens_entrada": 192,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.427,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:30",
+    "texto": "documentación",
+    "tokens_entrada": 192,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "902f97df16af659bb2ec": [
+   {
+    "fecha": "2026-11-27T13:55:30",
+    "texto": "documentación",
+    "tokens_entrada": 189,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.416,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:31",
+    "texto": "documentación",
+    "tokens_entrada": 189,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.428,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:31",
+    "texto": "documentación",
+    "tokens_entrada": 189,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "454a800d852225b471fe": [
+   {
+    "fecha": "2026-11-27T13:55:32",
+    "texto": "pregunta",
+    "tokens_entrada": 192,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.629,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:33",
+    "texto": "pregunta",
+    "tokens_entrada": 192,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.478,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:33",
+    "texto": "pregunta",
+    "tokens_entrada": 192,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.435,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "0588768b34c19f40486c": [
+   {
+    "fecha": "2026-11-27T13:55:34",
+    "texto": "pregunta",
+    "tokens_entrada": 193,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.426,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:34",
+    "texto": "pregunta",
+    "tokens_entrada": 193,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.427,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:35",
+    "texto": "pregunta",
+    "tokens_entrada": 193,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.464,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "339110097c58a7c95c0c": [
+   {
+    "fecha": "2026-11-27T13:55:35",
+    "texto": "error",
+    "tokens_entrada": 197,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.449,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:36",
+    "texto": "error",
+    "tokens_entrada": 197,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.479,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:36",
+    "texto": "error",
+    "tokens_entrada": 197,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.592,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "b69b836a83d0ee98b70f": [
+   {
+    "fecha": "2026-11-27T13:55:37",
+    "texto": "mejora",
+    "tokens_entrada": 197,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.436,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:38",
+    "texto": "mejora",
+    "tokens_entrada": 197,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.442,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:38",
+    "texto": "mejora",
+    "tokens_entrada": 197,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.438,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "7dd07a7915a7891a3b85": [
+   {
+    "fecha": "2026-11-27T13:55:39",
+    "texto": "documentación",
+    "tokens_entrada": 193,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.485,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:39",
+    "texto": "documentación",
+    "tokens_entrada": 193,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.429,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:40",
+    "texto": "documentación",
+    "tokens_entrada": 193,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.433,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "3b26b1073bc41ca12a93": [
+   {
+    "fecha": "2026-11-27T13:55:40",
+    "texto": "error",
+    "tokens_entrada": 191,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.603,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:41",
+    "texto": "error",
+    "tokens_entrada": 191,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.433,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:42",
+    "texto": "error",
+    "tokens_entrada": 191,
+    "tokens_salida": 3,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.466,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "5d4dec1f87d867aeb986": [
+   {
+    "fecha": "2026-11-27T13:55:42",
+    "texto": "El problema describe un comportamiento incorrecto de la interfaz (un botón que deja de verse al rotar), lo que corresponde a un fallo, no a una mejora ni a una pregunta.\n\nEtiqueta: error",
+    "tokens_entrada": 137,
+    "tokens_salida": 76,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.74,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:43",
+    "texto": "Elijo \"error\" porque describe un comportamiento incorrecto de la aplicación, ya que el botón de subir fotos queda fuera de la pantalla al girar el teléfono.\n\nEtiqueta: error",
+    "tokens_entrada": 137,
+    "tokens_salida": 72,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.646,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:44",
+    "texto": "Elijo \"error\" porque describe un comportamiento incorrecto de la aplicación: al girar el teléfono, un elemento de la interfaz deja de ser visible.\n\nEtiqueta: error",
+    "tokens_entrada": 137,
+    "tokens_salida": 67,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.683,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "a5cfbe9c469f548aeed7": [
+   {
+    "fecha": "2026-11-27T13:55:45",
+    "texto": "La app se cierra de forma inesperada al abrir un álbum, lo que describe un fallo funcional y no una petición de mejora, documentación o una pregunta.\n\nEtiqueta: error",
+    "tokens_entrada": 136,
+    "tokens_salida": 65,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.988,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:46",
+    "texto": "Elijo \"error\" porque describe un fallo reproducible (la app se cierra) al realizar una acción concreta (abrir un álbum compartido con más de 100 fotos).\n\nEtiqueta: error",
+    "tokens_entrada": 136,
+    "tokens_salida": 69,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.522,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:47",
+    "texto": "Elijo \"error\" porque describe un fallo funcional y reproducible (la app se cierra), no una petición de mejora ni una duda.\n\nEtiqueta: error",
+    "tokens_entrada": 136,
+    "tokens_salida": 56,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.116,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "d205c3029b7e6dc7c66c": [
+   {
+    "fecha": "2026-11-27T13:55:49",
+    "texto": "Elijo \"mejora\" porque el issue propone una funcionalidad nueva (elegir la calidad de las fotos antes de subirlas) y no reporta un fallo ni una duda.\n\nEtiqueta: mejora",
+    "tokens_entrada": 133,
+    "tokens_salida": 75,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.721,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:49",
+    "texto": "Elijo \"mejora\" porque el issue propone una nueva funcionalidad (elegir la calidad de las fotos antes de subirlas) y no reporta un fallo ni pide documentación.\n\nEtiqueta: mejora",
+    "tokens_entrada": 133,
+    "tokens_salida": 77,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.721,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:50",
+    "texto": "Elijo \"mejora\" porque el issue propone una funcionalidad nueva (elegir la calidad de las fotos antes de subirlas) que no corrige un fallo existente.\n\nEtiqueta: mejora",
+    "tokens_entrada": 133,
+    "tokens_salida": 72,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.722,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "b3275e555ee09393d1f0": [
+   {
+    "fecha": "2026-11-27T13:55:51",
+    "texto": "Elijo \"mejora\" porque el issue propone una nueva funcionalidad (una vista de mapa con la ubicación de las fotos) y no reporta un fallo ni una duda.\n\nEtiqueta: mejora",
+    "tokens_entrada": 136,
+    "tokens_salida": 74,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.637,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:53",
+    "texto": "Elijo \"mejora\" porque el issue propone una nueva funcionalidad (una vista de mapa con la ubicación de las fotos) y no reporta un fallo ni pide documentación.\n\nEtiqueta: mejora",
+    "tokens_entrada": 136,
+    "tokens_salida": 76,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.061,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:54",
+    "texto": "Elijo \"mejora\" porque el issue propone una nueva funcionalidad (una vista de mapa con la ubicación de las fotos) y no reporta un fallo ni pide documentación.\n\nEtiqueta: mejora",
+    "tokens_entrada": 136,
+    "tokens_salida": 76,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.774,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "af18c3087aafd7b18b8e": [
+   {
+    "fecha": "2026-11-27T13:55:56",
+    "texto": "La guía de instalación omite un dato necesario, lo que corresponde a un problema de contenido en la documentación, así que la etiqueta adecuada es documentación.\n\nEtiqueta: documentación",
+    "tokens_entrada": 130,
+    "tokens_salida": 67,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.855,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:57",
+    "texto": "La falta de información sobre la versión de Node.js en la guía de instalación es un problema de contenido en la documentación, por lo que la etiqueta adecuada es documentación.\n\nEtiqueta: documentación",
+    "tokens_entrada": 130,
+    "tokens_salida": 70,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.834,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:58",
+    "texto": "La falta de información sobre la versión de Node.js en la guía de instalación es un problema de contenido en la documentación, así que la etiqueta más adecuada es documentación.\n\nEtiqueta: documentación",
+    "tokens_entrada": 130,
+    "tokens_salida": 69,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.821,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "730c9225ac4969cdb892": [
+   {
+    "fecha": "2026-11-27T13:55:59",
+    "texto": "Elijo \"documentación\" porque el problema está en el contenido del README (un enlace roto), no en el código ni en una petición de funcionalidad.\n\nEtiqueta: documentación",
+    "tokens_entrada": 127,
+    "tokens_salida": 61,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.67,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:55:59",
+    "texto": "El issue reporta un enlace roto en el README, lo que corresponde a un problema de contenido de la documentación y no a un fallo del código, así que la etiqueta adecuada es documentación.\n\nEtiqueta: documentación",
+    "tokens_entrada": 127,
+    "tokens_salida": 76,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.824,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:00",
+    "texto": "El issue describe un enlace roto en el README, es decir, un problema en la documentación del proyecto, por lo que la etiqueta adecuada es documentación.\n\nEtiqueta: documentación",
+    "tokens_entrada": 127,
+    "tokens_salida": 65,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.76,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "a4be66ac21641895f26f": [
+   {
+    "fecha": "2026-11-27T13:56:01",
+    "texto": "La etiqueta más adecuada es \"pregunta\", porque el issue pide información sobre las capacidades de la API y no describe un fallo ni una mejora concreta.\n\nEtiqueta: pregunta",
+    "tokens_entrada": 130,
+    "tokens_salida": 69,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.804,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:02",
+    "texto": "Elijo \"pregunta\" porque el issue consulta una capacidad de la API sin reportar un fallo ni pedir un cambio.\n\nEtiqueta: pregunta",
+    "tokens_entrada": 130,
+    "tokens_salida": 59,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.72,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:03",
+    "texto": "La etiqueta elegida es \"pregunta\" porque el issue consulta una capacidad de la API sin reportar un fallo ni solicitar un cambio.\n\nEtiqueta: pregunta",
+    "tokens_entrada": 130,
+    "tokens_salida": 66,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.703,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "8c587c5dfbfbaaffbed1": [
+   {
+    "fecha": "2026-11-27T13:56:04",
+    "texto": "La pregunta busca información sobre los límites del plan gratuito, lo que corresponde a una consulta y no a un fallo, una mejora o un cambio en la documentación.\n\nEtiqueta: pregunta",
+    "tokens_entrada": 131,
+    "tokens_salida": 71,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.02,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:05",
+    "texto": "La pregunta busca información sobre los límites del plan gratuito, lo que corresponde a documentación, ya que no reporta un fallo ni solicita una mejora.\n\nEtiqueta: documentación",
+    "tokens_entrada": 131,
+    "tokens_salida": 68,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.191,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:06",
+    "texto": "La pregunta busca información sobre los límites del plan gratuito, no reporta un fallo ni solicita una funcionalidad nueva, así que encaja en \"pregunta\".\n\nEtiqueta: pregunta",
+    "tokens_entrada": 131,
+    "tokens_salida": 72,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.413,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "a27c53b708345918c3fb": [
+   {
+    "fecha": "2026-11-27T13:56:08",
+    "texto": "Elijo \"error\" porque describe un fallo inesperado de la aplicación (el cierre al subir una foto) y no una petición de nueva funcionalidad ni una duda de uso.\n\nEtiqueta: error",
+    "tokens_entrada": 135,
+    "tokens_salida": 72,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.903,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:09",
+    "texto": "Elijo \"error\" porque describe un fallo inesperado de la aplicación (se cierra al subir una foto), no una mejora ni una duda de uso.\n\nEtiqueta: error",
+    "tokens_entrada": 135,
+    "tokens_salida": 62,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.809,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:10",
+    "texto": "Elijo \"error\" porque describe un fallo inesperado de la aplicación (se cierra al subir una foto), no una petición de mejora ni una duda de uso.\n\nEtiqueta: error",
+    "tokens_entrada": 135,
+    "tokens_salida": 65,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.923,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "833fbabdea78e4205fa2": [
+   {
+    "fecha": "2026-11-27T13:56:11",
+    "texto": "Elijo \"mejora\" porque el issue solicita una nueva funcionalidad (modo oscuro) que no existe actualmente, en lugar de reportar un fallo.\n\nEtiqueta: mejora",
+    "tokens_entrada": 135,
+    "tokens_salida": 70,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.845,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:12",
+    "texto": "Elijo \"mejora\" porque el issue pide una funcionalidad nueva (modo oscuro) que la app no tiene, en lugar de reportar un fallo o pedir documentación.\n\nEtiqueta: mejora",
+    "tokens_entrada": 135,
+    "tokens_salida": 75,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.846,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:13",
+    "texto": "Elijo \"mejora\" porque el issue pide una funcionalidad nueva (un modo oscuro) que no existe actualmente, en lugar de reportar un fallo o pedir documentación.\n\nEtiqueta: mejora",
+    "tokens_entrada": 135,
+    "tokens_salida": 77,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.928,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "709dc037a6b0223cef3b": [
+   {
+    "fecha": "2026-11-27T13:56:14",
+    "texto": "El issue reporta que un ejemplo de código en la documentación (el README) usa una función que ya no existe, lo que es un problema en la documentación y no un fallo del código en sí.\n\nEtiqueta: documentación",
+    "tokens_entrada": 131,
+    "tokens_salida": 72,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.334,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:15",
+    "texto": "El issue señala que el ejemplo del README usa una función que ya no existe, es decir, documentación desactualizada o incorrecta, por lo que la etiqueta adecuada es \"documentación\".\n\nEtiqueta: documentación",
+    "tokens_entrada": 131,
+    "tokens_salida": 77,
+    "tokens_razonamiento": 0,
+    "latencia_s": 2.066,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:17",
+    "texto": "La etiqueta elegida es **documentación**, porque el problema está en el README: el ejemplo de uso referencia una función que ya no existe, así que el código del proyecto no es lo que falla.\n\nEtiqueta: documentación",
+    "tokens_entrada": 131,
+    "tokens_salida": 77,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.142,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "39ef441e67a498c612a7": [
+   {
+    "fecha": "2026-11-27T13:56:18",
+    "texto": "La etiqueta elegida es **error**, porque el usuario reporta que la búsqueda de fotos por fecha no devuelve resultados, lo que indica un fallo en una funcionalidad existente.\n\nEtiqueta: error",
+    "tokens_entrada": 129,
+    "tokens_salida": 78,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.741,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:19",
+    "texto": "La etiqueta elegida es **error**, porque el usuario reporta que la búsqueda de fotos por fecha no devuelve resultados, lo que indica un comportamiento defectuoso y no una petición de mejora o una duda de uso.\n\nEtiqueta: error",
+    "tokens_entrada": 129,
+    "tokens_salida": 91,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.796,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:20",
+    "texto": "La etiqueta elegida es **error**, porque el usuario reporta que la búsqueda de fotos por fecha no devuelve resultados, lo que indica un comportamiento defectuoso y no una petición de mejora o una duda.\n\nEtiqueta: error",
+    "tokens_entrada": 129,
+    "tokens_salida": 88,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.78,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "c58c2d95858f194a2ee9": [
+   {
+    "fecha": "2026-11-27T13:56:21",
+    "texto": "**error**",
+    "tokens_entrada": 95,
+    "tokens_salida": 62,
+    "tokens_razonamiento": 57,
+    "latencia_s": 0.737,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:22",
+    "texto": "**error**",
+    "tokens_entrada": 95,
+    "tokens_salida": 92,
+    "tokens_razonamiento": 87,
+    "latencia_s": 0.89,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:23",
+    "texto": "**error**",
+    "tokens_entrada": 95,
+    "tokens_salida": 80,
+    "tokens_razonamiento": 75,
+    "latencia_s": 0.853,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "2eda87fdd4b128b557d9": [
+   {
+    "fecha": "2026-11-27T13:56:24",
+    "texto": "**error**",
+    "tokens_entrada": 94,
+    "tokens_salida": 63,
+    "tokens_razonamiento": 58,
+    "latencia_s": 0.84,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:25",
+    "texto": "**error**",
+    "tokens_entrada": 94,
+    "tokens_salida": 65,
+    "tokens_razonamiento": 60,
+    "latencia_s": 0.654,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:26",
+    "texto": "**error**",
+    "tokens_entrada": 94,
+    "tokens_salida": 68,
+    "tokens_razonamiento": 63,
+    "latencia_s": 0.8,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "110ff9f27604408c8cc0": [
+   {
+    "fecha": "2026-11-27T13:56:26",
+    "texto": "mejora",
+    "tokens_entrada": 91,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.431,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:27",
+    "texto": "mejora",
+    "tokens_entrada": 91,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.426,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:27",
+    "texto": "mejora",
+    "tokens_entrada": 91,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.655,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "8f21a1379266ddabe7a6": [
+   {
+    "fecha": "2026-11-27T13:56:28",
+    "texto": "mejora",
+    "tokens_entrada": 94,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.954,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:29",
+    "texto": "mejora",
+    "tokens_entrada": 94,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.065,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:30",
+    "texto": "mejora",
+    "tokens_entrada": 94,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.863,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "e47e68ed113780a35d25": [
+   {
+    "fecha": "2026-11-27T13:56:31",
+    "texto": "Etiqueta: **documentación**\n\nEl issue trata de que la guía de instalación no indica la versión de Node.js requerida, lo que es un problema de contenido en la documentación.",
+    "tokens_entrada": 88,
+    "tokens_salida": 62,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.682,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:32",
+    "texto": "Etiqueta: **documentación**",
+    "tokens_entrada": 88,
+    "tokens_salida": 14,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.479,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:33",
+    "texto": "**Etiqueta:** `documentación`",
+    "tokens_entrada": 88,
+    "tokens_salida": 16,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.476,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "f03205d8b272db7c6f89": [
+   {
+    "fecha": "2026-11-27T13:56:33",
+    "texto": "documentación",
+    "tokens_entrada": 85,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.435,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:34",
+    "texto": "documentación",
+    "tokens_entrada": 85,
+    "tokens_salida": 5,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.457,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:34",
+    "texto": "Etiqueta asignada: **documentación**\n\nEl issue trata de un enlace roto en el README hacia la guía de contribución, lo que afecta a la documentación del proyecto y no implica un fallo en el código ni una mejora de funcionalidad.",
+    "tokens_entrada": 85,
+    "tokens_salida": 85,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.769,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "0edb027abd028d72fdc2": [
+   {
+    "fecha": "2026-11-27T13:56:35",
+    "texto": "pregunta",
+    "tokens_entrada": 88,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.448,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:36",
+    "texto": "Etiqueta: **pregunta**",
+    "tokens_entrada": 88,
+    "tokens_salida": 15,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.503,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:36",
+    "texto": "pregunta",
+    "tokens_entrada": 88,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.487,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "375e99a943261cc1479b": [
+   {
+    "fecha": "2026-11-27T13:56:37",
+    "texto": "pregunta",
+    "tokens_entrada": 89,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.434,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:38",
+    "texto": "pregunta",
+    "tokens_entrada": 89,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.406,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:38",
+    "texto": "pregunta",
+    "tokens_entrada": 89,
+    "tokens_salida": 6,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.428,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "9c91560334084c212bc2": [
+   {
+    "fecha": "2026-11-27T13:56:39",
+    "texto": "error",
+    "tokens_entrada": 93,
+    "tokens_salida": 206,
+    "tokens_razonamiento": 203,
+    "latencia_s": 1.228,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:40",
+    "texto": "**Etiqueta:** error\n\nEl issue describe un fallo reproducible: la app se cierra al subir una foto desde la galería. Aunque está redactado como pregunta, el comportamiento reportado es un bug, no una consulta sobre cómo usar la aplicación.",
+    "tokens_entrada": 93,
+    "tokens_salida": 92,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.824,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:41",
+    "texto": "Etiqueta: **error**\n\nEl issue describe que la app se cierra al subir una foto desde la galería, lo que indica un fallo en la funcionalidad existente. Aunque está redactado como pregunta, el problema real es un comportamiento inesperado, así que corresponde a \"error\" y no a \"pregunta\".",
+    "tokens_entrada": 93,
+    "tokens_salida": 106,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.878,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "3522ade8ca5fdde5c08d": [
+   {
+    "fecha": "2026-11-27T13:56:42",
+    "texto": "Etiqueta: **mejora**\n\nEste issue pide una funcionalidad que aún no existe (un modo oscuro), así que encaja en \"mejora\". No describe un fallo de algo que ya funciona, por lo que no sería \"error\".",
+    "tokens_entrada": 93,
+    "tokens_salida": 81,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.812,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:43",
+    "texto": "Etiqueta: **mejora**",
+    "tokens_entrada": 93,
+    "tokens_salida": 14,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.492,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:43",
+    "texto": "Etiqueta: **mejora**",
+    "tokens_entrada": 93,
+    "tokens_salida": 14,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.45,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "e4b41abe1318aa092ff1": [
+   {
+    "fecha": "2026-11-27T13:56:44",
+    "texto": "Etiqueta sugerida: **documentación**\n\nEl issue describe que el ejemplo del README usa una función que ya no existe, lo que es un problema en la documentación, no un fallo en el código en sí.",
+    "tokens_entrada": 89,
+    "tokens_salida": 69,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.707,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:45",
+    "texto": "**mejora**\n\nAunque el issue describe un problema, lo que se reporta es que la documentación del README está desactualizada. Por las opciones disponibles, \"documentación\" sería la etiqueta más precisa. Sin embargo, el texto dice que la función \"ya no existe\", lo que sugiere un error en el ejemplo, así que la etiqueta correcta es:\n\n**error**",
+    "tokens_entrada": 89,
+    "tokens_salida": 128,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.148,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:46",
+    "texto": "**Etiqueta:** `documentación`",
+    "tokens_entrada": 89,
+    "tokens_salida": 16,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.489,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "4d0df9b0ccffb8dee6d7": [
+   {
+    "fecha": "2026-11-27T13:56:47",
+    "texto": "**Etiqueta:** error",
+    "tokens_entrada": 87,
+    "tokens_salida": 12,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.484,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:47",
+    "texto": "error",
+    "tokens_entrada": 87,
+    "tokens_salida": 91,
+    "tokens_razonamiento": 88,
+    "latencia_s": 1.014,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:48",
+    "texto": "**Etiqueta: error**\n\nEl issue describe un comportamiento inesperado: al buscar fotos por fecha no aparece ningún resultado, lo que sugiere un fallo en la funcionalidad de búsqueda. Aunque el texto también podría leerse como una pregunta (\"¿está roto?\"), el problema reportado es que la función no funciona como se espera.",
+    "tokens_entrada": 87,
+    "tokens_salida": 125,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.05,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "a1ae26d8498ce6bbadb6": [
+   {
+    "fecha": "2026-11-27T13:56:49",
+    "texto": "**error**",
+    "tokens_entrada": 95,
+    "tokens_salida": 86,
+    "tokens_razonamiento": 81,
+    "latencia_s": 0.828,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:50",
+    "texto": "**error**",
+    "tokens_entrada": 95,
+    "tokens_salida": 84,
+    "tokens_razonamiento": 79,
+    "latencia_s": 0.962,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:51",
+    "texto": "**error**",
+    "tokens_entrada": 95,
+    "tokens_salida": 96,
+    "tokens_razonamiento": 91,
+    "latencia_s": 0.809,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "ca909a2c33269b4ec720": [
+   {
+    "fecha": "2026-11-27T13:56:52",
+    "texto": "**error**",
+    "tokens_entrada": 94,
+    "tokens_salida": 131,
+    "tokens_razonamiento": 126,
+    "latencia_s": 1.086,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:54",
+    "texto": "**error**",
+    "tokens_entrada": 94,
+    "tokens_salida": 75,
+    "tokens_razonamiento": 70,
+    "latencia_s": 0.712,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:54",
+    "texto": "**error**",
+    "tokens_entrada": 94,
+    "tokens_salida": 63,
+    "tokens_razonamiento": 58,
+    "latencia_s": 0.744,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "b251b4f3b50e58565537": [
+   {
+    "fecha": "2026-11-27T13:56:55",
+    "texto": "mejora",
+    "tokens_entrada": 91,
+    "tokens_salida": 72,
+    "tokens_razonamiento": 67,
+    "latencia_s": 0.72,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:56",
+    "texto": "mejora",
+    "tokens_entrada": 91,
+    "tokens_salida": 78,
+    "tokens_razonamiento": 73,
+    "latencia_s": 0.709,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:57",
+    "texto": "**mejora**",
+    "tokens_entrada": 91,
+    "tokens_salida": 105,
+    "tokens_razonamiento": 98,
+    "latencia_s": 0.91,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "38b155fa8c9ffe62094e": [
+   {
+    "fecha": "2026-11-27T13:56:58",
+    "texto": "**mejora**",
+    "tokens_entrada": 94,
+    "tokens_salida": 125,
+    "tokens_razonamiento": 118,
+    "latencia_s": 1.385,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:56:59",
+    "texto": "**Etiqueta:** `mejora`",
+    "tokens_entrada": 94,
+    "tokens_salida": 131,
+    "tokens_razonamiento": 115,
+    "latencia_s": 1.401,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:01",
+    "texto": "**mejora**",
+    "tokens_entrada": 94,
+    "tokens_salida": 80,
+    "tokens_razonamiento": 73,
+    "latencia_s": 1.048,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "1279a6af4e837a7fcd67": [
+   {
+    "fecha": "2026-11-27T13:57:02",
+    "texto": "**documentación**",
+    "tokens_entrada": 88,
+    "tokens_salida": 102,
+    "tokens_razonamiento": 95,
+    "latencia_s": 0.886,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:03",
+    "texto": "**Etiqueta:** `documentación`\n\nEl issue señala que falta información en la guía de instalación, así que corresponde a documentación.",
+    "tokens_entrada": 88,
+    "tokens_salida": 203,
+    "tokens_razonamiento": 157,
+    "latencia_s": 1.313,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:04",
+    "texto": "**Etiqueta:** documentación",
+    "tokens_entrada": 88,
+    "tokens_salida": 88,
+    "tokens_razonamiento": 74,
+    "latencia_s": 0.839,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "a4a7ae9acce8eae7d561": [
+   {
+    "fecha": "2026-11-27T13:57:05",
+    "texto": "**Etiqueta:** `documentación`",
+    "tokens_entrada": 85,
+    "tokens_salida": 86,
+    "tokens_razonamiento": 70,
+    "latencia_s": 0.749,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:06",
+    "texto": "**Etiqueta:** `documentación`",
+    "tokens_entrada": 85,
+    "tokens_salida": 123,
+    "tokens_razonamiento": 107,
+    "latencia_s": 0.983,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:07",
+    "texto": "**Etiqueta:** `documentación`",
+    "tokens_entrada": 85,
+    "tokens_salida": 95,
+    "tokens_razonamiento": 79,
+    "latencia_s": 0.796,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "8f856e36d2316d1f0a85": [
+   {
+    "fecha": "2026-11-27T13:57:08",
+    "texto": "**pregunta**",
+    "tokens_entrada": 88,
+    "tokens_salida": 103,
+    "tokens_razonamiento": 95,
+    "latencia_s": 0.829,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:09",
+    "texto": "**pregunta**",
+    "tokens_entrada": 88,
+    "tokens_salida": 97,
+    "tokens_razonamiento": 89,
+    "latencia_s": 0.785,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:10",
+    "texto": "**pregunta**",
+    "tokens_entrada": 88,
+    "tokens_salida": 97,
+    "tokens_razonamiento": 89,
+    "latencia_s": 0.782,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "2c8e45153b1086546439": [
+   {
+    "fecha": "2026-11-27T13:57:11",
+    "texto": "**pregunta**",
+    "tokens_entrada": 89,
+    "tokens_salida": 121,
+    "tokens_razonamiento": 113,
+    "latencia_s": 0.89,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:12",
+    "texto": "**Etiqueta:** pregunta",
+    "tokens_entrada": 89,
+    "tokens_salida": 111,
+    "tokens_razonamiento": 96,
+    "latencia_s": 0.801,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:13",
+    "texto": "**pregunta**",
+    "tokens_entrada": 89,
+    "tokens_salida": 82,
+    "tokens_razonamiento": 74,
+    "latencia_s": 0.838,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "8bdeee7da0fe3cc49c34": [
+   {
+    "fecha": "2026-11-27T13:57:14",
+    "texto": "**error**",
+    "tokens_entrada": 93,
+    "tokens_salida": 158,
+    "tokens_razonamiento": 153,
+    "latencia_s": 1.131,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:15",
+    "texto": "error",
+    "tokens_entrada": 93,
+    "tokens_salida": 162,
+    "tokens_razonamiento": 159,
+    "latencia_s": 1.143,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:16",
+    "texto": "**error**",
+    "tokens_entrada": 93,
+    "tokens_salida": 147,
+    "tokens_razonamiento": 142,
+    "latencia_s": 1.155,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "fa121bb9d0bb18681265": [
+   {
+    "fecha": "2026-11-27T13:57:18",
+    "texto": "mejora",
+    "tokens_entrada": 93,
+    "tokens_salida": 73,
+    "tokens_razonamiento": 68,
+    "latencia_s": 0.743,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:18",
+    "texto": "**mejora**",
+    "tokens_entrada": 93,
+    "tokens_salida": 75,
+    "tokens_razonamiento": 68,
+    "latencia_s": 0.677,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:19",
+    "texto": "**mejora**",
+    "tokens_entrada": 93,
+    "tokens_salida": 109,
+    "tokens_razonamiento": 102,
+    "latencia_s": 0.94,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "1172a5f3cebdb6a1e348": [
+   {
+    "fecha": "2026-11-27T13:57:20",
+    "texto": "**documentación**",
+    "tokens_entrada": 89,
+    "tokens_salida": 156,
+    "tokens_razonamiento": 149,
+    "latencia_s": 1.182,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:21",
+    "texto": "documentación",
+    "tokens_entrada": 89,
+    "tokens_salida": 168,
+    "tokens_razonamiento": 163,
+    "latencia_s": 1.242,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:23",
+    "texto": "documentación",
+    "tokens_entrada": 89,
+    "tokens_salida": 182,
+    "tokens_razonamiento": 177,
+    "latencia_s": 1.218,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ],
+  "d3166a7b8a38baae2d9d": [
+   {
+    "fecha": "2026-11-27T13:57:24",
+    "texto": "**error**",
+    "tokens_entrada": 87,
+    "tokens_salida": 133,
+    "tokens_razonamiento": 128,
+    "latencia_s": 0.969,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:25",
+    "texto": "error",
+    "tokens_entrada": 87,
+    "tokens_salida": 141,
+    "tokens_razonamiento": 138,
+    "latencia_s": 1.103,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   },
+   {
+    "fecha": "2026-11-27T13:57:26",
+    "texto": "**error**",
+    "tokens_entrada": 87,
+    "tokens_salida": 169,
+    "tokens_razonamiento": 164,
+    "latencia_s": 1.252,
+    "stop_reason": "end_turn",
+    "stop_details": null,
+    "error": null
+   }
+  ]
+ }
+}

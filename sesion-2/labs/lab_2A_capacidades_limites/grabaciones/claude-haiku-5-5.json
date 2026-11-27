@@ -1,0 +1,1987 @@
+{
+ "modelo": "claude-haiku-5-5",
+ "laboratorio": "2A",
+ "fecha": "2026-11-26",
+ "parametros": {
+  "thinking": {
+   "type": "disabled"
+  },
+  "max_tokens": 512,
+  "timeout": 60,
+  "max_retries": 3
+ },
+ "versiones": {
+  "langchain": "1.5.0",
+  "langchain-core": "1.8.5",
+  "langchain-anthropic": "1.7.10",
+  "langchain-google-genai": "4.5.0"
+ },
+ "simulado": false,
+ "indice": {
+  "3114f5f06ff2ef57ad3c": {
+   "caso_id": "PRIMERA",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Qué versión de Python exige langchain 1.5.0?"
+  },
+  "3b00511700f2e6796476": {
+   "caso_id": "H-01",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿En qué año salió Python 3.0?"
+  },
+  "3397eff9a8aa1205b60c": {
+   "caso_id": "H-02",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿En qué año salió la versión 1 del lenguaje Go?"
+  },
+  "a226b571353e2b9c4672": {
+   "caso_id": "H-03",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿En qué versión de Python apareció el operador morsa (:=)?"
+  },
+  "e0298eb6a3c7fc99051b": {
+   "caso_id": "P-01",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Por qué LangChain eliminó la función init_chat_model?"
+  },
+  "ee4be74411f47fd18766": {
+   "caso_id": "P-02",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Por qué Google compró GitHub en 2018?"
+  },
+  "0bf435f09fc93c6297d4": {
+   "caso_id": "P-03",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuánto cuesta la licencia comercial de Git?"
+  },
+  "38168bc631ff12bce8ef": {
+   "caso_id": "F-01",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuántos reportes de error abiertos tiene hoy el equipo de FotoNube?"
+  },
+  "61384edb1f88c9b83a2f": {
+   "caso_id": "F-02",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Qué lenguaje de programación será el más usado en el año 2040?"
+  },
+  "f6ff3682429841a7db12": {
+   "caso_id": "F-03",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuál es la receta del ajiaco santafereño?"
+  },
+  "4d5949802112f90e5189": {
+   "caso_id": "C-01",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Qué cambió en LangChain 1.5.0?"
+  },
+  "1d29c633d533443892a7": {
+   "caso_id": "C-02",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuándo salió Claude Haiku 5.5?"
+  },
+  "5bae2a28e90fe6378562": {
+   "caso_id": "C-03",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuándo publicó Google la ficha del modelo Gemini 4 Argon?"
+  },
+  "397797ea435ec86d1eaa": {
+   "caso_id": "B-01",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿En qué año salió la versión 1.0 de Rust?"
+  },
+  "9f4a6d564cb0b556266f": {
+   "caso_id": "B-02",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuántas descargas tendrá langchain en PyPI el próximo mes?"
+  },
+  "c2f156fe7ae7e9cf7e3b": {
+   "caso_id": "B-03",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Por qué PostgreSQL no permite definir claves primarias?"
+  },
+  "0f3bd86a034b3fc6ed4e": {
+   "caso_id": "B-04",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Qué versión de Python exige langchain-google-genai 4.5.0?"
+  },
+  "b2bcad1651ff62a39f14": {
+   "caso_id": "B-05",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuál es el puerto por defecto de PostgreSQL?"
+  },
+  "238ec949e875c5f73d98": {
+   "caso_id": "B-06",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cómo se usa la palabra clave async en Java 21?"
+  },
+  "ee87179c1c3979e9a11f": {
+   "caso_id": "B-07",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Qué equipo ganará la próxima Copa Mundial de fútbol?"
+  },
+  "fbb984ecfbb23383c96e": {
+   "caso_id": "B-08",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuándo salió langgraph 1.2.24?"
+  },
+  "ded808dc7d4b5d53a6fe": {
+   "caso_id": "B-09",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿En qué versión de Python apareció el modo experimental sin GIL (free-threaded)?"
+  },
+  "5e37a33082cacce96204": {
+   "caso_id": "B-10",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Por qué Python 2.0 salió después de Python 3.0?"
+  },
+  "0b682ca9a25f061c6f62": {
+   "caso_id": "B-11",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuántas líneas de código tiene el repositorio privado de mi empresa?"
+  },
+  "e3e09ca596d26570b8ea": {
+   "caso_id": "B-12",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿En qué mes publicó Anthropic la ficha de sistema de Claude Opus 5.5?"
+  },
+  "69ba45eb4680eee035c0": {
+   "caso_id": "B-13",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿En qué versión de NumPy se eliminó el alias np.float?"
+  },
+  "4d588313814a2cec4847": {
+   "caso_id": "B-14",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Por qué React es una base de datos relacional?"
+  },
+  "648663fda7237b033cdb": {
+   "caso_id": "B-15",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Qué precio tendrá una acción de Microsoft el próximo lunes?"
+  },
+  "6637a93928d10b26b2e5": {
+   "caso_id": "B-16",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuándo salió langchain-anthropic 1.7.10?"
+  },
+  "4893e95e9d397259d8cf": {
+   "caso_id": "B-17",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿En qué versión de Node.js la API fetch dejó de ser experimental?"
+  },
+  "e437331aca17c2e3f90a": {
+   "caso_id": "B-18",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Por qué Oracle es la dueña de los derechos de autor de Python?"
+  },
+  "f88742acf71dcdc4f60f": {
+   "caso_id": "B-19",
+   "variante": "",
+   "escenario": "",
+   "entrada": "Recomiéndame una película de terror para ver esta noche."
+  },
+  "34de19fa1fe15807dd28": {
+   "caso_id": "B-20",
+   "variante": "",
+   "escenario": "",
+   "entrada": "¿Cuándo publicó Google la ficha de Gemini 3.5 Flash-Lite?"
+  },
+  "bf0074af41d299d7b43d": {
+   "caso_id": "R-LARGA",
+   "variante": "",
+   "escenario": "",
+   "entrada": "FotoNube · Registro de cambios\n\nFotoNube es una app de fotos ficticia, creada para el curso Agentes de IA (aplicado).\nNi"
+  },
+  "8276d41ae75c8b10fec5": {
+   "caso_id": "R-VACIA-API",
+   "variante": "",
+   "escenario": "",
+   "entrada": ""
+  }
+ },
+ "respuestas": {
+  "3114f5f06ff2ef57ad3c": [
+   {
+    "fecha": "2026-11-26T18:35:26",
+    "texto": "No tengo información fiable sobre una versión \"langchain 1.5.0\" ni sobre sus requisitos exactos de Python, así que no quiero darte un número que podría ser incorrecto. Te recomiendo consultar el campo \"Requires-Python\" en PyPI (pypi.org/project/langchain) o el archivo pyproject.toml del paquete en su repositorio de GitHub.",
+    "tokens_entrada": 48,
+    "tokens_salida": 133,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.301,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:27",
+    "texto": "No tengo información confiable sobre una versión \"1.5.0\" de LangChain ni sobre los requisitos exactos de Python de esa versión, así que te recomiendo consultar el `pyproject.toml` o la página de PyPI del paquete para confirmarlo.",
+    "tokens_entrada": 48,
+    "tokens_salida": 91,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.807,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:28",
+    "texto": "No tengo información fiable sobre los requisitos exactos de la versión 1.5.0 de LangChain, así que no quiero darte un número que podría ser incorrecto. Lo más seguro es consultar el campo `Requires-Python` en la página de PyPI del paquete o ejecutar `pip show langchain` tras instalarlo.",
+    "tokens_entrada": 48,
+    "tokens_salida": 115,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.016,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:29",
+    "texto": "No conozco con certeza la versión de Python que exige langchain 1.5.0; te recomiendo revisar el campo \"Requires-Python\" en su página de PyPI o en su archivo pyproject.toml.",
+    "tokens_entrada": 48,
+    "tokens_salida": 71,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.723,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:30",
+    "texto": "No tengo información fiable sobre los requisitos exactos de Python de LangChain 1.5.0; te recomiendo revisar el campo `requires-python` en su página de PyPI o en su documentación oficial, ya que las versiones mínimas suelen cambiar entre releases.",
+    "tokens_entrada": 48,
+    "tokens_salida": 95,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.866,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "3b00511700f2e6796476": [
+   {
+    "fecha": "2026-11-26T18:35:31",
+    "texto": "Python 3.0 salió en diciembre de 2008.",
+    "tokens_entrada": 215,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.574,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:32",
+    "texto": "Python 3.0 salió en diciembre de 2008.",
+    "tokens_entrada": 215,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.511,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:33",
+    "texto": "Python 3.0 salió en diciembre de 2008.",
+    "tokens_entrada": 215,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.423,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:34",
+    "texto": "Python 3.0 salió en diciembre de 2008.",
+    "tokens_entrada": 215,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.466,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:34",
+    "texto": "Python 3.0 salió en diciembre de 2008.",
+    "tokens_entrada": 215,
+    "tokens_salida": 21,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.484,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "3397eff9a8aa1205b60c": [
+   {
+    "fecha": "2026-11-26T18:35:35",
+    "texto": "Go (Golang) salió públicamente como versión 1.0 en marzo de 2012, con la promesa de compatibilidad hacia atrás que sigue vigente en las versiones posteriores.",
+    "tokens_entrada": 223,
+    "tokens_salida": 67,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.689,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:36",
+    "texto": "Go (Golang) se hizo público como lenguaje de código abierto en noviembre de 2009, y la versión 1.0 se lanzó en marzo de 2012.",
+    "tokens_entrada": 223,
+    "tokens_salida": 58,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.715,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:37",
+    "texto": "Go (Golang) tuvo su primera versión estable, la 1.0, en marzo de 2012.",
+    "tokens_entrada": 223,
+    "tokens_salida": 36,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.617,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:37",
+    "texto": "Go (Golang) se hizo público en noviembre de 2009, pero la versión 1.0 se publicó en marzo de 2012.",
+    "tokens_entrada": 223,
+    "tokens_salida": 47,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.617,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:38",
+    "texto": "Go (Golang) se anunció públicamente en noviembre de 2009, y la versión 1.0 se publicó en marzo de 2012.",
+    "tokens_entrada": 223,
+    "tokens_salida": 49,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.614,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "a226b571353e2b9c4672": [
+   {
+    "fecha": "2026-11-26T18:35:39",
+    "texto": "El operador morsa (:=), conocido como expresión de asignación, apareció en Python 3.8, definido en la PEP 572.",
+    "tokens_entrada": 224,
+    "tokens_salida": 45,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.617,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:40",
+    "texto": "El operador morsa (:=), conocido como asignación de expresiones, apareció en Python 3.8, definido en la PEP 572.",
+    "tokens_entrada": 224,
+    "tokens_salida": 46,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.586,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:41",
+    "texto": "El operador morsa (:=), conocido como expresión de asignación, apareció en Python 3.8, definido en la PEP 572.",
+    "tokens_entrada": 224,
+    "tokens_salida": 45,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.586,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:42",
+    "texto": "El operador morsa (:=) apareció en Python 3.8, introducido con la PEP 572.",
+    "tokens_entrada": 224,
+    "tokens_salida": 34,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.549,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:42",
+    "texto": "El operador morsa (:=) apareció en Python 3.8, introducido por la PEP 572.",
+    "tokens_entrada": 224,
+    "tokens_salida": 34,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.487,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "e0298eb6a3c7fc99051b": [
+   {
+    "fecha": "2026-11-26T18:35:43",
+    "texto": "No lo sé: no tengo información fiable de que LangChain haya eliminado `init_chat_model`, y no puedo verificar cambios recientes en esa librería. Te recomiendo consultar el changelog oficial o el repositorio de LangChain en GitHub para confirmar si la función sigue disponible.",
+    "tokens_entrada": 223,
+    "tokens_salida": 105,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.834,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:44",
+    "texto": "No lo sé: no tengo información fiable de que LangChain haya eliminado `init_chat_model`, y no puedo verificar cambios recientes en su API. Te recomiendo consultar el changelog o las notas de versión oficiales del proyecto.",
+    "tokens_entrada": 223,
+    "tokens_salida": 86,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.759,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:45",
+    "texto": "No lo sé: no tengo información fiable de que LangChain haya eliminado `init_chat_model`, y si ese cambio ocurrió después de mi fecha de corte no podría conocerlo. Te recomiendo revisar el changelog oficial o las notas de versión del proyecto en GitHub.",
+    "tokens_entrada": 223,
+    "tokens_salida": 103,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.733,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:46",
+    "texto": "No lo sé: no tengo información fiable de que LangChain haya eliminado `init_chat_model`, y no puedo verificar los motivos de un cambio así, que podría ser posterior a mi fecha de corte. Te recomiendo revisar el changelog y las notas de versión oficiales del proyecto en GitHub o su documentación.",
+    "tokens_entrada": 223,
+    "tokens_salida": 115,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.934,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:47",
+    "texto": "No lo sé: no tengo información fiable de que LangChain haya eliminado `init_chat_model`, y no puedo verificar cambios recientes en esa biblioteca. Te recomiendo consultar su changelog o la documentación oficial para confirmar si la función sigue disponible y en qué versión cambió.",
+    "tokens_entrada": 223,
+    "tokens_salida": 106,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.909,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "ee4be74411f47fd18766": [
+   {
+    "fecha": "2026-11-26T18:35:48",
+    "texto": "Corrección: Google no compró GitHub; en 2018 Microsoft adquirió GitHub por unos 7.500 millones de dólares.",
+    "tokens_entrada": 219,
+    "tokens_salida": 50,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.558,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:49",
+    "texto": "Corrección: Google no compró GitHub en 2018; fue Microsoft quien adquirió GitHub ese año, por unos 7.500 millones de dólares.",
+    "tokens_entrada": 219,
+    "tokens_salida": 57,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.662,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:50",
+    "texto": "Corrección: Google no compró GitHub en 2018; en realidad fue Microsoft quien adquirió GitHub ese año, por unos 7.500 millones de dólares.",
+    "tokens_entrada": 219,
+    "tokens_salida": 61,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.634,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:51",
+    "texto": "Corrección: Google no compró GitHub en 2018; fue Microsoft quien adquirió GitHub en 2018 por unos 7.500 millones de dólares.",
+    "tokens_entrada": 219,
+    "tokens_salida": 58,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.589,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:51",
+    "texto": "Corrección: Google no compró GitHub en 2018; fue Microsoft quien adquirió GitHub en 2018 por unos 7.500 millones de dólares.",
+    "tokens_entrada": 219,
+    "tokens_salida": 58,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.623,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "0bf435f09fc93c6297d4": [
+   {
+    "fecha": "2026-11-26T18:35:52",
+    "texto": "Corrección: Git es software libre y de código abierto, distribuido bajo la licencia GPL versión 2, así que no tiene una licencia comercial ni cuesta nada usarlo, ni para uso personal ni empresarial.",
+    "tokens_entrada": 222,
+    "tokens_salida": 79,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.782,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:53",
+    "texto": "Corrección: Git es software libre y de código abierto distribuido bajo la licencia GPL versión 2, así que no tiene licencia comercial ni cuesta nada usarlo, incluso en entornos empresariales.",
+    "tokens_entrada": 222,
+    "tokens_salida": 75,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.671,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:54",
+    "texto": "Corrección: Git es software libre distribuido bajo la licencia GPL versión 2, así que no tiene una licencia comercial ni cuesta nada usarlo en entornos comerciales.",
+    "tokens_entrada": 222,
+    "tokens_salida": 66,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.712,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:55",
+    "texto": "Corrección: Git es software libre distribuido bajo la licencia GPL versión 2, así que no tiene licencia comercial ni cuesta nada usarlo, ni siquiera en empresas.",
+    "tokens_entrada": 222,
+    "tokens_salida": 68,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.676,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:56",
+    "texto": "Corrección: Git es software libre distribuido bajo la licencia GPL v2, así que no tiene licencia comercial ni cuesta nada usarlo, incluso en entornos empresariales. Los servicios que se construyen sobre Git, como GitHub o GitLab, sí tienen planes de pago, pero son productos distintos.",
+    "tokens_entrada": 222,
+    "tokens_salida": 114,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.939,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "38168bc631ff12bce8ef": [
+   {
+    "fecha": "2026-11-26T18:35:57",
+    "texto": "No lo sé: no tengo acceso al sistema de seguimiento de incidencias de FotoNube ni a datos en tiempo real, así que el número actual de reportes abiertos solo lo puede consultar alguien con acceso a su gestor de incidencias (por ejemplo, Jira, GitHub Issues o similar).",
+    "tokens_entrada": 233,
+    "tokens_salida": 111,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.941,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:58",
+    "texto": "No lo sé: no tengo acceso al sistema de seguimiento de incidencias de FotoNube ni a datos en tiempo real, así que el número de reportes abiertos hoy solo lo puede consultar tu equipo en su gestor de incidencias (Jira, GitHub Issues o similar).",
+    "tokens_entrada": 233,
+    "tokens_salida": 103,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.919,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:35:59",
+    "texto": "No lo sé: no tengo acceso al sistema de seguimiento de incidencias de FotoNube ni a datos en tiempo real, así que el número de reportes abiertos hoy solo lo puede consultar alguien con acceso a su tracker (por ejemplo, Jira, GitHub Issues o el sistema que use el equipo).",
+    "tokens_entrada": 233,
+    "tokens_salida": 115,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.847,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:00",
+    "texto": "No lo sé: no tengo acceso al sistema de seguimiento de incidencias de FotoNube ni a datos en tiempo real, así que no puedo saber cuántos reportes de error están abiertos hoy. Para obtener esa cifra, consulta directamente el gestor de incidencias del equipo (por ejemplo, Jira, GitHub Issues o el que use FotoNube).",
+    "tokens_entrada": 233,
+    "tokens_salida": 133,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.912,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:01",
+    "texto": "No lo sé: no tengo acceso al sistema de seguimiento de incidencias de FotoNube ni a datos en tiempo real, así que el número actual de reportes abiertos solo lo puede consultar alguien con acceso a su tracker (por ejemplo, Jira, GitHub Issues o similar).",
+    "tokens_entrada": 233,
+    "tokens_salida": 106,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.716,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "61384edb1f88c9b83a2f": [
+   {
+    "fecha": "2026-11-26T18:36:02",
+    "texto": "No lo sé: nadie puede predecir con fiabilidad qué lenguaje dominará dentro de quince años, ya que depende de cambios tecnológicos, económicos y de la aparición de herramientas que hoy no existen.",
+    "tokens_entrada": 225,
+    "tokens_salida": 79,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.714,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:03",
+    "texto": "No lo sé: nadie puede predecir con fiabilidad qué lenguaje dominará dentro de quince años, ya que depende de hardware, modas, nuevas plataformas y decisiones de la industria que todavía no se han tomado.",
+    "tokens_entrada": 225,
+    "tokens_salida": 82,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.846,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:04",
+    "texto": "No lo sé: nadie puede predecir con certeza qué lenguaje dominará dentro de quince años, porque depende de factores como nuevas plataformas, la IA y decisiones de la industria que aún no se han tomado.",
+    "tokens_entrada": 225,
+    "tokens_salida": 77,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.787,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:05",
+    "texto": "No lo sé: nadie puede predecir con certeza qué lenguaje dominará en 2040, ya que depende de factores como nuevas plataformas, la IA y decisiones de la industria que aún no han ocurrido.",
+    "tokens_entrada": 225,
+    "tokens_salida": 76,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.717,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:06",
+    "texto": "No lo sé: nadie puede predecir con certeza qué lenguaje dominará dentro de tanto tiempo, ya que depende de innovaciones, necesidades del mercado y cambios tecnológicos que aún no existen.",
+    "tokens_entrada": 225,
+    "tokens_salida": 79,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.704,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "f6ff3682429841a7db12": [
+   {
+    "fecha": "2026-11-26T18:36:07",
+    "texto": "No lo sé: tu pregunta no trata sobre tecnología de software, que es el único tema al que puedo responder.",
+    "tokens_entrada": 221,
+    "tokens_salida": 41,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.714,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:08",
+    "texto": "No lo sé: tu pregunta no trata sobre tecnología de software, que es el único tema al que puedo responder.",
+    "tokens_entrada": 221,
+    "tokens_salida": 41,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.732,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:09",
+    "texto": "No lo sé: tu pregunta no es de tecnología de software, que es el único tema para el que estoy configurado.",
+    "tokens_entrada": 221,
+    "tokens_salida": 40,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.716,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:10",
+    "texto": "No lo sé: tu pregunta no es de tecnología de software, que es el único tema al que puedo responder.",
+    "tokens_entrada": 221,
+    "tokens_salida": 38,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.768,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:11",
+    "texto": "No lo sé: tu pregunta no es de tecnología de software, que es el único tema al que puedo responder.",
+    "tokens_entrada": 221,
+    "tokens_salida": 38,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.752,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "4d5949802112f90e5189": [
+   {
+    "fecha": "2026-11-26T18:36:12",
+    "texto": "No lo sé: no tengo información fiable sobre una versión 1.5.0 de LangChain, y podría ser posterior a mi fecha de corte o no existir con ese número. Te recomiendo consultar las notas de versión oficiales en el repositorio de GitHub o en la documentación de LangChain.",
+    "tokens_entrada": 220,
+    "tokens_salida": 104,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.906,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:13",
+    "texto": "No lo sé: no tengo información fiable sobre una versión 1.5.0 de LangChain, y no puedo confirmar que exista ni qué cambios incluya. Te recomiendo consultar las notas de versión (release notes) en el repositorio oficial de LangChain en GitHub o su changelog.",
+    "tokens_entrada": 220,
+    "tokens_salida": 104,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.479,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:15",
+    "texto": "No lo sé: no tengo información fiable sobre una versión 1.5.0 de LangChain, y podría ser posterior a mi fecha de corte de conocimiento. Consulta el changelog oficial o las release notes en el repositorio de LangChain en GitHub.",
+    "tokens_entrada": 220,
+    "tokens_salida": 92,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.348,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:16",
+    "texto": "No lo sé: no tengo información fiable sobre una versión 1.5.0 de LangChain, que podría ser posterior a mi fecha de corte, así que te recomiendo consultar las notas de versión oficiales en su repositorio de GitHub o en su documentación.",
+    "tokens_entrada": 220,
+    "tokens_salida": 92,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.971,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:17",
+    "texto": "No lo sé: no tengo información fiable sobre una versión 1.5.0 de LangChain, y podría ser posterior a mi fecha de corte o no existir con ese número. Te recomiendo consultar el changelog oficial en su repositorio de GitHub o en la documentación de LangChain.",
+    "tokens_entrada": 220,
+    "tokens_salida": 101,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.16,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "1d29c633d533443892a7": [
+   {
+    "fecha": "2026-11-26T18:36:19",
+    "texto": "No lo sé: no tengo información sobre un modelo llamado «Claude Haiku 5.5», y podría ser posterior a mi fecha de corte o no existir con ese nombre. Te recomiendo consultar la página oficial de Anthropic para confirmar su fecha de lanzamiento.",
+    "tokens_entrada": 221,
+    "tokens_salida": 102,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.828,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:20",
+    "texto": "No lo sé: no tengo información sobre un modelo llamado «Claude Haiku 5.5», que podría ser posterior a mi fecha de corte o no existir con ese nombre. Puedes consultarlo en el sitio oficial de Anthropic.",
+    "tokens_entrada": 221,
+    "tokens_salida": 88,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.78,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:21",
+    "texto": "No lo sé: no tengo información sobre un modelo llamado \"Claude Haiku 5.5\", y además podría ser posterior a mi fecha de corte de conocimiento.",
+    "tokens_entrada": 221,
+    "tokens_salida": 61,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.66,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:22",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado «Claude Haiku 5.5», que podría ser posterior a mi fecha de corte o no existir con ese nombre.",
+    "tokens_entrada": 221,
+    "tokens_salida": 67,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.62,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:22",
+    "texto": "No lo sé: no tengo información sobre un modelo llamado \"Claude Haiku 5.5\", y podría ser posterior a mi fecha de corte o no existir con ese nombre. Te recomiendo consultar la web oficial de Anthropic para confirmarlo.",
+    "tokens_entrada": 221,
+    "tokens_salida": 93,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.782,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "5bae2a28e90fe6378562": [
+   {
+    "fecha": "2026-11-26T18:36:23",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado «Gemini 4 Argon», y podría ser posterior a mi fecha de corte o no existir con ese nombre.",
+    "tokens_entrada": 231,
+    "tokens_salida": 66,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.699,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:24",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado «Gemini 4 Argon», y podría ser posterior a mi fecha de corte o no existir con ese nombre.",
+    "tokens_entrada": 231,
+    "tokens_salida": 66,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.686,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:25",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado «Gemini 4 Argon», y podría ser posterior a mi fecha de corte o no existir con ese nombre.",
+    "tokens_entrada": 231,
+    "tokens_salida": 66,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.803,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:26",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado «Gemini 4 Argon», y lo más probable es que sea posterior a mi fecha de corte o que no exista con ese nombre.",
+    "tokens_entrada": 231,
+    "tokens_salida": 72,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.795,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:27",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado «Gemini 4 Argon», y podría ser posterior a mi fecha de corte o no existir con ese nombre.",
+    "tokens_entrada": 231,
+    "tokens_salida": 66,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.673,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "397797ea435ec86d1eaa": [
+   {
+    "fecha": "2026-11-26T18:36:28",
+    "texto": "Rust 1.0 salió el 15 de mayo de 2015.",
+    "tokens_entrada": 221,
+    "tokens_salida": 25,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.878,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:29",
+    "texto": "Rust 1.0 salió el 15 de mayo de 2015.",
+    "tokens_entrada": 221,
+    "tokens_salida": 25,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.308,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:31",
+    "texto": "Rust 1.0 salió el 15 de mayo de 2015.",
+    "tokens_entrada": 221,
+    "tokens_salida": 25,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.982,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:32",
+    "texto": "Rust 1.0 se publicó el 15 de mayo de 2015.",
+    "tokens_entrada": 221,
+    "tokens_salida": 27,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.806,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:33",
+    "texto": "Rust 1.0 se publicó el 15 de mayo de 2015.",
+    "tokens_entrada": 221,
+    "tokens_salida": 27,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.214,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "9f4a6d564cb0b556266f": [
+   {
+    "fecha": "2026-11-26T18:36:34",
+    "texto": "No lo sé: el número de descargas futuras depende de factores que nadie puede predecir con certeza, y además no tengo acceso a estadísticas en tiempo real de PyPI.",
+    "tokens_entrada": 229,
+    "tokens_salida": 63,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.723,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:35",
+    "texto": "No lo sé: el número de descargas futuras depende de la actividad de usuarios que aún no ha ocurrido, y además no tengo acceso a datos en tiempo real de PyPI.",
+    "tokens_entrada": 229,
+    "tokens_salida": 65,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.61,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:36",
+    "texto": "No lo sé: el número de descargas futuras depende del uso que la gente haga del paquete, algo que nadie puede predecir con exactitud, y además no tengo acceso a datos en tiempo real de PyPI.",
+    "tokens_entrada": 229,
+    "tokens_salida": 74,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.755,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:37",
+    "texto": "No lo sé: el número de descargas futuras depende de factores que nadie puede predecir con certeza, y además es un dato posterior a mi fecha de corte.",
+    "tokens_entrada": 229,
+    "tokens_salida": 55,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.585,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:38",
+    "texto": "No lo sé: el número de descargas futuras depende de factores que nadie puede predecir con certeza, y además no tengo acceso a estadísticas en tiempo real de PyPI.",
+    "tokens_entrada": 229,
+    "tokens_salida": 63,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.617,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "c2f156fe7ae7e9cf7e3b": [
+   {
+    "fecha": "2026-11-26T18:36:39",
+    "texto": "Corrección: PostgreSQL sí permite definir claves primarias; se hace con `PRIMARY KEY` en la definición de la tabla, por ejemplo `CREATE TABLE usuarios (id SERIAL PRIMARY KEY);`.",
+    "tokens_entrada": 224,
+    "tokens_salida": 89,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.328,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:40",
+    "texto": "Corrección: PostgreSQL sí permite definir claves primarias, con `PRIMARY KEY` en `CREATE TABLE` o `ALTER TABLE ... ADD PRIMARY KEY`.",
+    "tokens_entrada": 224,
+    "tokens_salida": 75,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.225,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:42",
+    "texto": "Corrección: PostgreSQL sí permite definir claves primarias; se hace con `PRIMARY KEY` en la definición de la tabla, por ejemplo `CREATE TABLE t (id serial PRIMARY KEY);`.",
+    "tokens_entrada": 224,
+    "tokens_salida": 83,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.63,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:43",
+    "texto": "Corrección: PostgreSQL sí permite definir claves primarias; se hace con `PRIMARY KEY` en la definición de la tabla, por ejemplo `CREATE TABLE usuarios (id SERIAL PRIMARY KEY, ...)`.",
+    "tokens_entrada": 224,
+    "tokens_salida": 92,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.41,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:45",
+    "texto": "Corrección: PostgreSQL sí permite definir claves primarias; se hace con `PRIMARY KEY` en la definición de la tabla o con `ALTER TABLE ... ADD PRIMARY KEY`.",
+    "tokens_entrada": 224,
+    "tokens_salida": 77,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.898,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "0f3bd86a034b3fc6ed4e": [
+   {
+    "fecha": "2026-11-26T18:36:46",
+    "texto": "No lo sé: no tengo información fiable sobre la versión 4.5.0 de langchain-google-genai ni sobre sus requisitos de Python, y podría tratarse de una versión posterior a mi fecha de corte. Para confirmarlo, revisa el campo «Requires-Python» en PyPI o ejecuta `pip show langchain-google-genai` tras instalarla.",
+    "tokens_entrada": 227,
+    "tokens_salida": 131,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.958,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:47",
+    "texto": "No lo sé: no tengo información fiable sobre los requisitos de versión de langchain-google-genai 4.5.0, que podría ser posterior a mi fecha de corte. Consulta el campo \"Requires-Python\" en PyPI o el archivo pyproject.toml del paquete para saberlo con certeza.",
+    "tokens_entrada": 227,
+    "tokens_salida": 107,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.908,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:48",
+    "texto": "No lo sé: no tengo información fiable sobre la versión 4.5.0 de langchain-google-genai ni sobre sus requisitos de Python, y podría ser posterior a mi fecha de corte. Consulta el campo \"Requires-Python\" en PyPI o el archivo pyproject.toml del paquete para verlo con certeza.",
+    "tokens_entrada": 227,
+    "tokens_salida": 116,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.949,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:50",
+    "texto": "No lo sé: no tengo información fiable sobre la versión 4.5.0 de langchain-google-genai ni sobre sus requisitos de Python, y podría tratarse de una versión posterior a mi fecha de corte. Puedes consultarlo en el campo \"Requires-Python\" de su página en PyPI o en el archivo pyproject.toml del repositorio.",
+    "tokens_entrada": 227,
+    "tokens_salida": 125,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.888,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:51",
+    "texto": "No lo sé: no tengo información fiable sobre la versión 4.5.0 de langchain-google-genai ni sobre sus requisitos de Python, y podría tratarse de una versión posterior a mi fecha de corte. Puedes consultarlo en la sección \"Requires-Python\" de su página en PyPI o en el archivo pyproject.toml del repositorio.",
+    "tokens_entrada": 227,
+    "tokens_salida": 125,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.941,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "b2bcad1651ff62a39f14": [
+   {
+    "fecha": "2026-11-26T18:36:52",
+    "texto": "El puerto por defecto de PostgreSQL es el 5432.",
+    "tokens_entrada": 224,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.554,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:53",
+    "texto": "El puerto por defecto de PostgreSQL es el 5432.",
+    "tokens_entrada": 224,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.512,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:53",
+    "texto": "El puerto por defecto de PostgreSQL es el 5432.",
+    "tokens_entrada": 224,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.958,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:54",
+    "texto": "El puerto por defecto de PostgreSQL es el 5432.",
+    "tokens_entrada": 224,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.582,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:55",
+    "texto": "El puerto por defecto de PostgreSQL es el 5432.",
+    "tokens_entrada": 224,
+    "tokens_salida": 24,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.462,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "238ec949e875c5f73d98": [
+   {
+    "fecha": "2026-11-26T18:36:56",
+    "texto": "Corrección: Java no tiene la palabra clave `async`; en Java 21 la concurrencia se expresa con hilos virtuales (`Thread.ofVirtual()` o `Executors.newVirtualThreadPerTaskExecutor()`), `CompletableFuture` y la API de `Future`. La palabra `async` existe en otros lenguajes como C# o JavaScript.",
+    "tokens_entrada": 222,
+    "tokens_salida": 132,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.977,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:57",
+    "texto": "Corrección: Java no tiene la palabra clave `async`; en Java 21 la programación asíncrona se hace con `CompletableFuture`, y los hilos virtuales (`Thread.ofVirtual()` o `Executors.newVirtualThreadPerTaskExecutor()`) permiten escribir código bloqueante y concurrente de forma sencilla.",
+    "tokens_entrada": 222,
+    "tokens_salida": 125,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.028,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:58",
+    "texto": "Corrección: Java no tiene una palabra clave `async` en ninguna versión, incluida Java 21; esa palabra pertenece a lenguajes como C# o JavaScript. En Java la concurrencia se gestiona con hilos virtuales (`Thread.ofVirtual()` o `Executors.newVirtualThreadPerTaskExecutor()`) y con `CompletableFuture`.",
+    "tokens_entrada": 222,
+    "tokens_salida": 137,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.865,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:36:59",
+    "texto": "Corrección: Java no tiene la palabra clave `async`; en Java 21 la concurrencia se expresa con hilos virtuales, `CompletableFuture` o `ExecutorService`, mientras que `async`/`await` existe en lenguajes como JavaScript, C# o Python.",
+    "tokens_entrada": 222,
+    "tokens_salida": 99,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.802,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:00",
+    "texto": "Corrección: Java no tiene la palabra clave `async`; esa palabra existe en otros lenguajes como JavaScript, C# o Python. En Java 21 la concurrencia se trabaja con hilos virtuales (`Thread.ofVirtual()` o `Executors.newVirtualThreadPerTaskExecutor()`), `CompletableFuture` y `Future`.",
+    "tokens_entrada": 222,
+    "tokens_salida": 131,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.048,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "ee87179c1c3979e9a11f": [
+   {
+    "fecha": "2026-11-26T18:37:02",
+    "texto": "No lo sé: la pregunta no es de tecnología de software, y además el resultado de un torneo futuro no puede saberse de antemano.",
+    "tokens_entrada": 228,
+    "tokens_salida": 48,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.585,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:02",
+    "texto": "No lo sé: la pregunta no es de tecnología de software y, además, el resultado de un torneo futuro no puede saberse de antemano.",
+    "tokens_entrada": 228,
+    "tokens_salida": 49,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.652,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:03",
+    "texto": "No lo sé: la pregunta no es de tecnología de software y, además, el resultado de un torneo futuro no puede saberse de antemano.",
+    "tokens_entrada": 228,
+    "tokens_salida": 49,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.589,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:04",
+    "texto": "No lo sé: la pregunta no es de tecnología de software, y además el resultado de un torneo futuro no puede saberse de antemano.",
+    "tokens_entrada": 228,
+    "tokens_salida": 48,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.693,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:05",
+    "texto": "No lo sé: la pregunta no trata de tecnología de software, y además el resultado de un torneo futuro no puede saberse de antemano.",
+    "tokens_entrada": 228,
+    "tokens_salida": 49,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.614,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "fbb984ecfbb23383c96e": [
+   {
+    "fecha": "2026-11-26T18:37:06",
+    "texto": "No lo sé: no tengo información fiable sobre la fecha de lanzamiento de la versión 1.2.24 de LangGraph, que puede ser posterior a mi fecha de corte de conocimiento. Te recomiendo consultar el historial de versiones en PyPI o en el repositorio oficial de GitHub de LangChain.",
+    "tokens_entrada": 220,
+    "tokens_salida": 115,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.819,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:07",
+    "texto": "No lo sé: no tengo información fiable sobre la fecha de lanzamiento de LangGraph 1.2.24, y es posible que sea posterior a mi fecha de corte de conocimiento. Te recomiendo consultar el historial de versiones en su repositorio de GitHub o en PyPI.",
+    "tokens_entrada": 220,
+    "tokens_salida": 104,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.781,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:08",
+    "texto": "No lo sé: no tengo información fiable sobre la fecha de lanzamiento de LangGraph 1.2.24, y es posible que sea posterior a mi fecha de corte de conocimiento. Consulta el historial de versiones en PyPI o en el repositorio oficial de LangGraph en GitHub.",
+    "tokens_entrada": 220,
+    "tokens_salida": 107,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.864,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:09",
+    "texto": "No lo sé: no tengo información fiable sobre la fecha de lanzamiento de LangGraph 1.2.24, y es posible que sea posterior a mi fecha de corte de conocimiento. Te recomiendo consultar el historial de versiones en PyPI o en el repositorio oficial de LangGraph en GitHub.",
+    "tokens_entrada": 220,
+    "tokens_salida": 113,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.85,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:10",
+    "texto": "No lo sé: no tengo información fiable sobre la fecha de lanzamiento de esa versión concreta de LangGraph, y puede ser posterior a mi fecha de corte de conocimiento. Te recomiendo consultar el historial de versiones en PyPI o en el repositorio oficial de LangChain en GitHub.",
+    "tokens_entrada": 220,
+    "tokens_salida": 112,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.896,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "ded808dc7d4b5d53a6fe": [
+   {
+    "fecha": "2026-11-26T18:37:11",
+    "texto": "El modo experimental sin GIL (free-threaded) apareció en Python 3.13, como build opcional (PEP 703), aunque la versión 3.13t es la variante con el GIL desactivado. Cabe señalar que su soporte se consolidó después, en Python 3.14, donde pasó a estar oficialmente soportado aunque todavía opcional.",
+    "tokens_entrada": 232,
+    "tokens_salida": 121,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.085,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:12",
+    "texto": "Python 3.13 introdujo la compilación experimental \"free-threaded\" (PEP 703), que permite desactivar el GIL, aunque se publicó como opción experimental y no es el modo por defecto.",
+    "tokens_entrada": 232,
+    "tokens_salida": 70,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.758,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:13",
+    "texto": "Python 3.13 introdujo el modo experimental sin GIL (free-threaded), como compilación opcional bajo PEP 703. Su estado final, que aún puede cambiar, lo desconozco con certeza.",
+    "tokens_entrada": 232,
+    "tokens_salida": 74,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.801,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:14",
+    "texto": "Python 3.13 introdujo el modo experimental sin GIL (free-threaded), disponible como una compilación opcional con `--disable-gil`, aunque su implementación se propuso con la PEP 703 y su soporte se consolidó en versiones posteriores.",
+    "tokens_entrada": 232,
+    "tokens_salida": 90,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.715,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:15",
+    "texto": "Python 3.13 introdujo el modo experimental sin GIL (free-threaded), disponible como build opcional y no como modo por defecto.",
+    "tokens_entrada": 232,
+    "tokens_salida": 49,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.627,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "5e37a33082cacce96204": [
+   {
+    "fecha": "2026-11-26T18:37:16",
+    "texto": "Corrección: Python 2.0 salió en 2000, antes que Python 3.0, que llegó en 2008; la versión 3.0 fue la que rompió la compatibilidad con la serie 2.x.",
+    "tokens_entrada": 224,
+    "tokens_salida": 71,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.651,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:18",
+    "texto": "Corrección: Python 2.0 salió en 2000, antes que Python 3.0, que se publicó en 2008. Python 3.0 fue una versión incompatible con la 2.x que se lanzó después para corregir problemas de diseño acumulados.",
+    "tokens_entrada": 224,
+    "tokens_salida": 86,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.127,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:19",
+    "texto": "Corrección: Python 2.0 salió en 2000, antes que Python 3.0, que llegó en 2008. Python 3.0 fue una versión incompatible con 2.x que rompió compatibilidad a propósito para corregir problemas de diseño del lenguaje.",
+    "tokens_entrada": 224,
+    "tokens_salida": 93,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.879,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:21",
+    "texto": "Corrección: Python 2.0 salió en 2000, antes que Python 3.0, que llegó en 2008. Python 3.0 fue la versión que rompió compatibilidad deliberadamente para corregir problemas de diseño acumulados en la serie 2.x.",
+    "tokens_entrada": 224,
+    "tokens_salida": 92,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.302,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:23",
+    "texto": "Corrección: Python 2.0 salió en 2000 y Python 3.0 en 2008, así que Python 2.0 fue anterior, no posterior.",
+    "tokens_entrada": 224,
+    "tokens_salida": 54,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.051,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "0b682ca9a25f061c6f62": [
+   {
+    "fecha": "2026-11-26T18:37:24",
+    "texto": "No lo sé: no tengo acceso a los repositorios privados de tu empresa, así que no puedo saber cuántas líneas de código contienen.",
+    "tokens_entrada": 229,
+    "tokens_salida": 51,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.585,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:25",
+    "texto": "No lo sé: no tengo acceso al repositorio privado de tu empresa ni a sus métricas, así que solo quien tenga acceso a él (o una herramienta de análisis de código ejecutada sobre él, como cloc o SonarQube) podrá darte ese número.",
+    "tokens_entrada": 229,
+    "tokens_salida": 94,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.801,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:26",
+    "texto": "No lo sé: no tengo acceso a los repositorios privados de tu empresa, así que no puedo saber cuántas líneas de código contienen.",
+    "tokens_entrada": 229,
+    "tokens_salida": 51,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.586,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:27",
+    "texto": "No lo sé: no tengo acceso a los repositorios privados de tu empresa, así que no puedo saber cuántas líneas de código contienen.",
+    "tokens_entrada": 229,
+    "tokens_salida": 51,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.611,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:27",
+    "texto": "No lo sé: no tengo acceso al repositorio privado de tu empresa, así que no puedo saber cuántas líneas tiene. Puedes obtenerlo con herramientas como `cloc` o `tokei` ejecutadas sobre una copia del repositorio.",
+    "tokens_entrada": 229,
+    "tokens_salida": 93,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.77,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "e3e09ca596d26570b8ea": [
+   {
+    "fecha": "2026-11-26T18:37:28",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado «Claude Opus 5.5» ni sobre su ficha de sistema, y podría ser posterior a mi fecha de corte o no existir con ese nombre.",
+    "tokens_entrada": 235,
+    "tokens_salida": 80,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.777,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:29",
+    "texto": "No lo sé: no tengo información fiable sobre una ficha de sistema de \"Claude Opus 5.5\", y puede ser posterior a mi fecha de corte de conocimiento o un nombre que no corresponde a ningún modelo publicado.",
+    "tokens_entrada": 235,
+    "tokens_salida": 85,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.862,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:30",
+    "texto": "No lo sé: no tengo información fiable sobre una ficha de sistema de \"Claude Opus 5.5\", y es posible que esa versión sea posterior a mi fecha de corte o que no exista con ese nombre.",
+    "tokens_entrada": 235,
+    "tokens_salida": 75,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.716,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:31",
+    "texto": "No lo sé: no tengo constancia de que exista un modelo llamado «Claude Opus 5.5», y cualquier fecha de publicación de algo tan reciente caería fuera de lo que conozco con seguridad.",
+    "tokens_entrada": 235,
+    "tokens_salida": 76,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.818,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:32",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado \"Claude Opus 5.5\", y además mi conocimiento tiene una fecha de corte, así que cualquier lanzamiento posterior no lo conozco.",
+    "tokens_entrada": 235,
+    "tokens_salida": 80,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.819,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "69ba45eb4680eee035c0": [
+   {
+    "fecha": "2026-11-26T18:37:33",
+    "texto": "El alias `np.float` se eliminó en NumPy 1.24, lanzado en diciembre de 2022, después de estar obsoleto desde la versión 1.20. Hay que usar `float` nativo de Python o `np.float64` en su lugar.",
+    "tokens_entrada": 224,
+    "tokens_salida": 86,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.824,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:34",
+    "texto": "Corrección: el alias np.float no se eliminó en una versión concreta de forma aislada; fue deprecado en NumPy 1.20 (2021) y retirado en NumPy 1.24 (diciembre de 2022), por lo que en 1.24 y posteriores usar np.float lanza un AttributeError y hay que usar float o np.float64.",
+    "tokens_entrada": 224,
+    "tokens_salida": 119,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.129,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:36",
+    "texto": "Corrección: el alias np.float no se eliminó en una versión concreta de NumPy como se suele creer; fue deprecado en NumPy 1.20 (2021) y finalmente retirado en NumPy 1.24 (2022), donde usar np.float lanza un AttributeError.",
+    "tokens_entrada": 224,
+    "tokens_salida": 97,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.887,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:37",
+    "texto": "Corrección: el alias np.float no se eliminó en una versión concreta de forma aislada, sino que quedó obsoleto en NumPy 1.20 y se retiró por completo en NumPy 1.24, donde usarlo provoca un AttributeError; en su lugar debe usarse float o np.float64.",
+    "tokens_entrada": 224,
+    "tokens_salida": 105,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.985,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:38",
+    "texto": "El alias `np.float` se eliminó en NumPy 1.24, lanzada en diciembre de 2022, tras haber quedado obsoleto desde NumPy 1.20.",
+    "tokens_entrada": 224,
+    "tokens_salida": 62,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.753,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "4d588313814a2cec4847": [
+   {
+    "fecha": "2026-11-26T18:37:39",
+    "texto": "Corrección: React no es una base de datos, ni relacional ni de otro tipo; es una biblioteca de JavaScript para construir interfaces de usuario basadas en componentes.",
+    "tokens_entrada": 217,
+    "tokens_salida": 62,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.666,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:40",
+    "texto": "Corrección: React no es una base de datos, ni relacional ni de otro tipo; es una biblioteca de JavaScript para construir interfaces de usuario basadas en componentes.",
+    "tokens_entrada": 217,
+    "tokens_salida": 62,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.566,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:41",
+    "texto": "Corrección: React no es una base de datos relacional ni ningún tipo de base de datos; es una biblioteca de JavaScript para construir interfaces de usuario basadas en componentes.",
+    "tokens_entrada": 217,
+    "tokens_salida": 64,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.654,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:42",
+    "texto": "Corrección: React no es una base de datos, ni relacional ni de ningún otro tipo; es una biblioteca de JavaScript para construir interfaces de usuario.",
+    "tokens_entrada": 217,
+    "tokens_salida": 58,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.596,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:42",
+    "texto": "Corrección: React no es una base de datos, ni relacional ni de otro tipo; es una biblioteca de JavaScript para construir interfaces de usuario basadas en componentes.",
+    "tokens_entrada": 217,
+    "tokens_salida": 62,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.587,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "648663fda7237b033cdb": [
+   {
+    "fecha": "2026-11-26T18:37:43",
+    "texto": "No lo sé: la pregunta trata de precios bursátiles futuros, que no son de tecnología de software y que nadie puede predecir con certeza.",
+    "tokens_entrada": 228,
+    "tokens_salida": 52,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.55,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:44",
+    "texto": "No lo sé: la pregunta trata sobre precios bursátiles futuros, que no son de tecnología de software y que nadie puede predecir con certeza.",
+    "tokens_entrada": 228,
+    "tokens_salida": 54,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.586,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:45",
+    "texto": "No lo sé: la pregunta trata sobre el precio futuro de una acción, lo que no es un tema de tecnología de software y, además, nadie puede predecirlo con certeza.",
+    "tokens_entrada": 228,
+    "tokens_salida": 63,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.598,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:45",
+    "texto": "No lo sé: la pregunta trata de los precios de bolsa, que no son un asunto de tecnología de software, y además nadie puede predecir con certeza el precio futuro de una acción.",
+    "tokens_entrada": 228,
+    "tokens_salida": 65,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.728,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:46",
+    "texto": "No lo sé: la pregunta trata de precios bursátiles futuros, que no son de tecnología de software y que nadie puede predecir con certeza.",
+    "tokens_entrada": 228,
+    "tokens_salida": 52,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.571,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "6637a93928d10b26b2e5": [
+   {
+    "fecha": "2026-11-26T18:37:47",
+    "texto": "No lo sé: no tengo información fiable sobre la fecha de publicación de versiones tan concretas de langchain-anthropic, y podría ser posterior a mi fecha de corte de conocimiento. Puedes consultarla en el historial de versiones de PyPI (pypi.org/project/langchain-anthropic/#history) o en el repositorio de LangChain en GitHub.",
+    "tokens_entrada": 224,
+    "tokens_salida": 130,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.999,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:48",
+    "texto": "No lo sé: no tengo información fiable sobre la fecha de publicación de esa versión concreta de langchain-anthropic, y podría ser posterior a mi fecha de corte. Puedes consultarla en PyPI (la página del paquete muestra el historial de versiones con fechas) o en el changelog del repositorio de LangChain.",
+    "tokens_entrada": 224,
+    "tokens_salida": 115,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.046,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:50",
+    "texto": "No lo sé: es una versión concreta de un paquete de software y no tengo registro fiable de su fecha exacta de publicación, que además podría ser posterior a mi fecha de corte. Puedes consultarla en el historial de versiones de PyPI (pypi.org/project/langchain-anthropic/#history) o en el changelog del repositorio de LangChain.",
+    "tokens_entrada": 224,
+    "tokens_salida": 123,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.037,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:51",
+    "texto": "No lo sé: no tengo información fiable sobre la fecha de publicación de esa versión concreta de langchain-anthropic, que podría ser posterior a mi fecha de corte. Puedes consultarla en PyPI (pypi.org/project/langchain-anthropic/#history) o en el historial de releases del repositorio de LangChain.",
+    "tokens_entrada": 224,
+    "tokens_salida": 116,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.974,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:52",
+    "texto": "No lo sé: no tengo información fiable sobre la fecha de publicación de esa versión concreta de langchain-anthropic, y puede ser posterior a mi fecha de corte. Puedes consultarla en PyPI (pypi.org/project/langchain-anthropic/#history) o en el historial de releases del repositorio de LangChain.",
+    "tokens_entrada": 224,
+    "tokens_salida": 116,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.88,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "4893e95e9d397259d8cf": [
+   {
+    "fecha": "2026-11-26T18:37:53",
+    "texto": "Corrección: la API fetch en Node.js nunca fue exclusivamente experimental como tal; se añadió como experimental en Node.js 17.5 (con el flag `--experimental-fetch`) y se habilitó por defecto en Node.js 18, donde dejó de estar marcada como experimental en la documentación.",
+    "tokens_entrada": 227,
+    "tokens_salida": 108,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.118,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:54",
+    "texto": "La API fetch dejó de ser experimental en Node.js 21, aunque ya estaba disponible sin flag desde Node.js 18, donde se marcó como experimental. Corrección: no es exacto decir que dejó de ser experimental en una versión concreta sin aclarar que se estabilizó después; su estado de estabilidad se fue actualizando en la documentación de Node.js a medida que se consolidó.",
+    "tokens_entrada": 227,
+    "tokens_salida": 139,
+    "tokens_razonamiento": 0,
+    "latencia_s": 1.129,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:56",
+    "texto": "Corrección: la API fetch en Node.js dejó de ser experimental en la versión 21.0.0 (octubre de 2023), aunque ya estaba disponible sin flags desde la 18.0.0 (2022), donde se marcó como experimental.",
+    "tokens_entrada": 227,
+    "tokens_salida": 86,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.743,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:57",
+    "texto": "Corrección: la API fetch en Node.js nunca fue experimental en el sentido de estar detrás de un flag en una versión estable; se añadió como experimental en Node.js 17.5 (con flag) y salió de la fase experimental en Node.js 18.0, donde quedó disponible de forma global y estable.",
+    "tokens_entrada": 227,
+    "tokens_salida": 106,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.999,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:37:58",
+    "texto": "Node.js incorporó fetch como función global en la versión 18.0.0 (abril de 2022), aunque se marcó como experimental; dejó de estar marcada como experimental en la versión 21.0.0 (octubre de 2023), y en Node.js 22 quedó estable y sin advertencias.",
+    "tokens_entrada": 227,
+    "tokens_salida": 102,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.923,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "e437331aca17c2e3f90a": [
+   {
+    "fecha": "2026-11-26T18:37:59",
+    "texto": "Corrección: Python no pertenece a Oracle; su autor original es Guido van Rossum y su desarrollo lo lleva la Python Software Foundation, una organización sin ánimo de lucro, bajo una licencia de código abierto.",
+    "tokens_entrada": 227,
+    "tokens_salida": 82,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.761,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:00",
+    "texto": "Corrección: Python no pertenece a Oracle; su autor es Guido van Rossum y su desarrollo lo lleva la Python Software Foundation, una organización sin ánimo de lucro, con una licencia de código abierto.",
+    "tokens_entrada": 227,
+    "tokens_salida": 79,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.829,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:01",
+    "texto": "Corrección: Oracle no es dueña de los derechos de autor de Python; Python es un proyecto de código abierto cuyos derechos pertenecen a la Python Software Foundation y a sus colaboradores, y Oracle no tiene relación con él.",
+    "tokens_entrada": 227,
+    "tokens_salida": 87,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.821,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:02",
+    "texto": "Corrección: Oracle no es dueña de los derechos de autor de Python; estos pertenecen a la Python Software Foundation (PSF), una organización sin ánimo de lucro, y el lenguaje se distribuye bajo la licencia de código abierto PSF.",
+    "tokens_entrada": 227,
+    "tokens_salida": 92,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.736,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:03",
+    "texto": "Corrección: Oracle no es la dueña de Python; su creador es Guido van Rossum y el lenguaje lo mantiene la Python Software Foundation, una organización sin ánimo de lucro, con su código publicado bajo la licencia abierta PSF.",
+    "tokens_entrada": 227,
+    "tokens_salida": 90,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.759,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "f88742acf71dcdc4f60f": [
+   {
+    "fecha": "2026-11-26T18:38:04",
+    "texto": "No lo sé: solo respondo preguntas sobre tecnología de software, y las recomendaciones de películas quedan fuera de ese ámbito.",
+    "tokens_entrada": 220,
+    "tokens_salida": 52,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.609,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:05",
+    "texto": "No lo sé: solo respondo preguntas sobre tecnología de software, y las recomendaciones de películas quedan fuera de ese tema.",
+    "tokens_entrada": 220,
+    "tokens_salida": 50,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.622,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:06",
+    "texto": "No lo sé: recomendar películas no es una pregunta de tecnología de software, así que queda fuera de lo que puedo responder aquí.",
+    "tokens_entrada": 220,
+    "tokens_salida": 49,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.601,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:06",
+    "texto": "No lo sé: no es una pregunta de tecnología de software, así que no puedo recomendarte una película de terror.",
+    "tokens_entrada": 220,
+    "tokens_salida": 40,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.527,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:07",
+    "texto": "No lo sé: no soy experto en cine y tu pregunta no es de tecnología de software, así que no puedo recomendarte una película de terror con criterio.",
+    "tokens_entrada": 220,
+    "tokens_salida": 54,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.604,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "34de19fa1fe15807dd28": [
+   {
+    "fecha": "2026-11-26T18:38:08",
+    "texto": "No lo sé: no tengo información fiable sobre una ficha técnica de «Gemini 3.5 Flash-Lite», y es posible que sea posterior a mi fecha de corte de conocimiento. Te recomiendo consultar el blog oficial de Google AI o la documentación de Gemini para la fecha exacta.",
+    "tokens_entrada": 234,
+    "tokens_salida": 111,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.945,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:09",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado «Gemini 3.5 Flash-Lite» ni sobre su fecha de publicación, que probablemente sea posterior a mi fecha de corte de conocimiento.",
+    "tokens_entrada": 234,
+    "tokens_salida": 84,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.686,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:10",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado «Gemini 3.5 Flash-Lite» ni sobre su fecha de publicación, que puede ser posterior a mi fecha de corte de conocimiento.",
+    "tokens_entrada": 234,
+    "tokens_salida": 82,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.743,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:11",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado «Gemini 3.5 Flash-Lite» ni sobre su fecha de publicación, y podría ser posterior a mi fecha de corte de conocimiento. Te recomiendo consultar la página oficial de Google DeepMind o el blog de Google AI para esa información.",
+    "tokens_entrada": 234,
+    "tokens_salida": 119,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.919,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:12",
+    "texto": "No lo sé: no tengo información fiable sobre un modelo llamado Gemini 3.5 Flash-Lite ni sobre su fecha de publicación, que podría ser posterior a mi fecha de corte de conocimientos.",
+    "tokens_entrada": 234,
+    "tokens_salida": 80,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.711,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "bf0074af41d299d7b43d": [
+   {
+    "fecha": "2026-11-26T18:38:13",
+    "texto": "Según el registro, el modo sin conexión se agregó en la versión 3.2.0 (2022-11-19).",
+    "tokens_entrada": 28669,
+    "tokens_salida": 39,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.63,
+    "stop_reason": "end_turn",
+    "error": null
+   },
+   {
+    "fecha": "2026-11-26T18:38:14",
+    "texto": "Se agregó en la versión 3.2.0, con fecha 2022-11-19.",
+    "tokens_entrada": 28669,
+    "tokens_salida": 30,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.66,
+    "stop_reason": "end_turn",
+    "error": null
+   }
+  ],
+  "8276d41ae75c8b10fec5": [
+   {
+    "fecha": "2026-11-26T18:38:15",
+    "texto": "",
+    "tokens_entrada": 0,
+    "tokens_salida": 0,
+    "tokens_razonamiento": 0,
+    "latencia_s": 0.199,
+    "stop_reason": null,
+    "error": {
+     "tipo": "AnthropicInvalidRequestError",
+     "mensaje": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.0: user messages must have non-empty content'}, 'request_id': 'req_011ChSRL9RFMCyFqyy4HkarK'}"
+    }
+   }
+  ]
+ }
+}
